@@ -1,0 +1,151 @@
+.navbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    padding: 10px 20px;
+    position: fixed;
+    top: 20px;
+    left: 15px;
+    right: 15px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    font-family: 'GomePixel', sans-serif; /* Apply custom font */
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    white-space: nowrap;
+}
+
+.logo {
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    margin-right: 10px; /* Space between logo and text */
+}
+
+.navItems {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.navItem {
+    padding: 0 15px;
+}
+
+.navLink {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.walletBalance {
+    margin-right: 20px;
+    font-weight: 500;
+}
+
+.button {
+    padding: 5px 15px;
+    color: #6c3b96;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    background-color: #6c3b96;
+    color: #ffffff;
+}
+
+.select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 4px;
+}
+
+@media (max-width: 768px) {
+    .navItems, .walletBalance {
+        display: none;
+    }
+
+    .navbarContainer {
+        justify-content: space-between;
+        top: 5px;
+    }
+
+    .brand {
+        font-size: 1.2em;
+    }
+
+    .button {
+        display: block;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+.navItemsMobile {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.navItemMobile {
+    padding: 10px 0;
+}
+
+.typing {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid black;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: black; }
+}
+
+/* Additional styles for responsiveness and other elements as needed */
