@@ -1,56 +1,27 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styles from './Navbar.module.css';
-import logo1 from '../../assets/logo1.png'; // Adjust the path according to your structure
+import React, { useEffect } from 'react';
+import styles from './Navbar.module.css'; // Using CSS Modules for scoped styling
+import { FaExchangeAlt, FaShoppingCart, FaMoneyBillWave, FaWallet } from 'react-icons/fa'; // Importing icons
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const typingRef = useRef(null);
-
   useEffect(() => {
-    if (typingRef.current) {
-      typingRef.current.classList.add(styles.typing);
-    }
+    const links = document.querySelectorAll(`.${styles.navLinks} a`);
+    links.forEach((link) => {
+      link.setAttribute('data-text', link.textContent);
+    });
   }, []);
 
-  const handleConnectWallet = () => {
-    console.log('Connect Wallet button clicked!');
-    // Add wallet connection logic here
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
-    <nav className={styles.navbarContainer}>
-      <div className={styles.brand}>
-        <img src={logo1} alt="XYZ logo" className={styles.logo} />
-        <span ref={typingRef}>XYZ</span>
+    <div className={styles.navbar}>
+      <div className={styles.logo}>LOREM</div>
+      <div className={styles.navLinks}>
+        <a href="#" className={styles.typed}> <FaExchangeAlt /> Trade</a>
+        <a href="#"><FaShoppingCart /> Buy</a>
+        <a href="#"><FaMoneyBillWave /> Earn</a>
+        <a href="#" className={styles.connectWallet}>
+          <FaWallet /> Connect Wallet
+        </a>
       </div>
-      <div className={styles.hamburger} onClick={toggleMenu}>
-        <div />
-        <div />
-        <div />
-      </div>
-      <ul className={`${styles.navItems} ${isMenuOpen ? styles.navItemsMobile : ''}`}>
-        <li className={`${styles.navItem} ${isMenuOpen ? styles.navItemMobile : ''}`}><a className={styles.navLink} href="#" >Trade</a></li>
-        <li className={`${styles.navItem} ${isMenuOpen ? styles.navItemMobile : ''}`}><a className={styles.navLink} href="#">Buy</a></li>
-        <li className={`${styles.navItem} ${isMenuOpen ? styles.navItemMobile : ''}`}><a className={styles.navLink} href="#">Earn</a></li>
-        <li className={`${styles.navItem} ${isMenuOpen ? styles.navItemMobile : ''}`}><a className={styles.navLink} href="#">Game</a></li>
-        <li className={`${styles.navItem} ${isMenuOpen ? styles.navItemMobile : ''}`}><a className={styles.navLink} href="#">NFT</a></li>
-        <li className={`${styles.navItem} ${isMenuOpen ? styles.navItemMobile : ''}`}><a className={styles.navLink} href="#">v4</a></li>
-      </ul>
-      <div>
-        <div className={styles.walletBalance}>
-          <span role="img" aria-label="wallet">👛</span> $2.048
-        </div>
-        <button className={styles.button} onClick={handleConnectWallet}>Connect Wallet</button>
-        <select className={styles.select}>
-          <option value="bnb">BNB Chain</option>
-          {/* Add more options as needed */}
-        </select>
-      </div>
-    </nav>
+    </div>
   );
 };
 

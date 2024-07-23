@@ -1,0 +1,64 @@
+.pixel-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.pixel-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 2px solid #000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+
+.pixel-modal h1 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  text-align: center;
+  color: #000;
+}
+
+.pixel-modal p {
+  margin: 0 0 20px 0;
+  font-size: 14px;
+  text-align: center;
+  color: #000;
+}
+
+.pixel-modal-button {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #000;
+  color: #fff;
+  border: 4px solid #000;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.pixel-modal-button:hover {
+  background-color: #fff;
+  color: #000;
+  transform: scale(1.05);
+}
+
+.pixel-modal-button:active {
+  transform: scale(0.95);
+}
