@@ -13,12 +13,14 @@ body {
     justify-content: center;
     align-items: center;
     padding: 15px 20px;
-    background-color: #D1F9B7;
+    background-color: #eff5a0b1;
     border-radius: 10px;
     margin-top: 3vh;
     margin-left: 4vh;
     margin-right: 4vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 40px;
+    
 }
 
 .logo {
@@ -26,6 +28,7 @@ body {
     font-weight: bold;
     color: #000;
     margin-right: auto;
+   
 }
 
 .navLinks {
@@ -38,13 +41,16 @@ body {
 
 .navLinks a {
     text-decoration: none;
-    color: #000;
     font-size: 18px;
     display: flex;
     align-items: center;
-    gap: 8px; /* Space between icon and text */
+    gap: 8px; 
     position: relative;
+    color: transparent; /* Hide the original text */
+    animation: showText 0s steps(1) 2s forwards;
 }
+
+
 
 .navLinks a::after {
     content: attr(data-text);
@@ -53,7 +59,29 @@ body {
     overflow: hidden;
     border-right: 2px solid;
     width: 0;
-    animation: typing 4s steps(22), blink .75s step-end infinite;
+    margin-left: 26px;
+    animation: typing 2s steps(15), blink .75s step-end infinite, showBorder 0s steps(1) 2s forwards;
+    color: black; /* Set the color for the pseudo-element text */
+    transition: transform 5s ease-in-out;
+
+}
+
+.navLinks a:hover {
+    transform: scale(1.2);
+}
+
+.connectWallet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: #F5D1A0;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.connectWallet:hover {
+    background-color: #e1be8d;
 }
 
 @keyframes typing {
@@ -61,8 +89,9 @@ body {
         width: 0;
     }
     to {
-        width: 100%;
+        width: 80%;
     }
+    
 }
 
 @keyframes blink {
@@ -74,21 +103,24 @@ body {
     }
 }
 
-.navLinks a:hover {
-    color: #007BFF;
+@keyframes showBorder {
+    to {
+        border-color: transparent;
+    }
 }
 
-.connectWallet {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px 10px;
-    background-color: #007BFF;
-    color: #fff;
-    border-radius: 5px;
+@keyframes showText {
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        color:  rgb(0, 0, 0); /* Color for the original text after typing animation */
+    }
+
 }
 
-.connectWallet:hover {
-    background-color: #0056b3;
-    color: #fff;
-}
+
+
+
+
