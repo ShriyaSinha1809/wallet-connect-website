@@ -32,9 +32,10 @@ const WalletConnectModal = ({ isOpen, onClose }) => {
       onClick={handleOutsideClick}
     >
       <div className={`${styles.modalContainer} ${isOpen ? styles.open : ''}`}>
-        <button className={styles.closeButton} onClick={onClose}>×</button>
+        
         <div className={styles.content}>
           <button className={styles.logoButton} onClick={handleLogoClick}>
+          <button className={styles.closeButton} onClick={onClose}>×</button>
             <img src="/wallet-logo.svg" alt="Wallet Connect Logo" className={styles.logo} />
           </button>
         </div>
