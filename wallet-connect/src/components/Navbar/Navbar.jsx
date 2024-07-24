@@ -23,11 +23,11 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
-      <div className={styles.logo}>LOREM</div>
+      <div className={styles.logo}><h2>LOREM</h2></div>
       <div className={styles.navLinks}>
-        <a href="#" className={styles.typed}><FaExchangeAlt /> Trade</a>
-        <a href="#"><FaShoppingCart /> Buy</a>
-        <a href="#"><FaMoneyBillWave /> Earn</a>
+        <a href="#"> <FaExchangeAlt /> Trade</a>
+        <a href="#"> <FaShoppingCart /> Buy</a>
+        <a href="#"> <FaMoneyBillWave /> Earn</a>
         <a href="#" className={styles.connectWallet} onClick={handleOpenModal}>
           <FaWallet /> Connect Wallet
         </a>
