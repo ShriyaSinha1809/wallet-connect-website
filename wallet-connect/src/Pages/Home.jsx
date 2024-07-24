@@ -18,7 +18,7 @@ const Home = () => {
       <div className={`background-image ${showWelcome ? 'blurred' : ''}`}></div>
       {showWelcome && (
         <div className="welcome-text">
-          Welcome to Our Website!
+          Welcome
         </div>
       )}
       {!showWelcome && (

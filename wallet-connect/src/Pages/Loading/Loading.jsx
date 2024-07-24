@@ -100,7 +100,7 @@ const Loading = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate('/home');
-    }, 3000); // Adjusted to 3 seconds for testing
+    }, 4000); // Adjusted to 3 seconds for testing
     return () => clearTimeout(timer);
   }, [navigate]);
 
