@@ -1,0 +1,90 @@
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.modalBackground.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modalContainer {
+  width: 60%; /* Increased the width */
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.modalContainer.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+.content {
+  background: #0e6201;
+  height: 300px;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 8px solid rgb(72, 71, 71); /* Changed border color to grey */
+  border-radius: 15px; /* Added border-radius for smooth corners */
+  box-shadow:
+    0 0 0 4px #000000,
+    0 0 0 8px rgb(71, 71, 71), /* Changed shadow color to grey */
+    0 0 0 12px #000000,
+    0 0 0 16px rgb(52, 52, 52); /* Changed shadow color to grey */
+  position: relative;
+}
+
+.logoButton {
+  background: white; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: absolute;
+  top: 20px; /* Adjust positioning as needed */
+  left: 20px; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-image: 
+    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
+    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+
+.logo {
+  width: 60px; /* Decreased width */
+  height: 60px; /* Decreased height */
+}
