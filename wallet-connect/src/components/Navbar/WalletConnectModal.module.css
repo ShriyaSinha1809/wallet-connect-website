@@ -26,7 +26,7 @@
   overflow: hidden;
   box-sizing: border-box;
   transform: translateY(-50px);
-  min-width:768px;
+  min-width: 768px;
   opacity: 0;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
@@ -38,30 +38,34 @@
 
 .closeButton {
   position: absolute;
-  left:680px;
-  top:-20px;
+  top:5px;
+  right:5px;
+  display:flex;
+  justify-content:end; /* Change to relative *//* Add /* Position from the right */ /* Override any previous left positioning */
   background: none;
   border: none;
   font-size: 20px;
   cursor: pointer;
   color: black;
-  border:2px solid rgb(227, 164, 81);
+  border: 2px solid rgb(227, 164, 81);
   background-color: #eff5a0;
   border-radius: 10px;
 }
 
 .content {
-  background: #0e6201;
+  background: rgba(14, 98, 1, 0.5); /* Green color with 50% transparency */
+  backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
   height: 300px;
   color: white;
   padding: 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-   /* Changed border color to grey */
-  border-radius: 15px;  /* Added border-radius for smooth corners */
+  border-radius: 15px; /* Added border-radius for smooth corners */
   position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Optional: Add a subtle border for better visual separation */
 }
 
 .logoButton {
@@ -70,7 +74,7 @@
   cursor: pointer;
   padding: 5px; /* Adjust padding as needed */
   position: absolute;
-  top: 20px; /* Adjust positioning as needed */
+  top: 10px; /* Adjust positioning as needed */
   left: 20px; /* Adjust positioning as needed */
   box-sizing: border-box;
   background-clip: padding-box;
@@ -84,11 +88,39 @@
 }
 
 .closeButton:hover {
-    background-color: #adb35c;
-    border: 2px solid rgb(188, 136, 68);
+  background-color: #adb35c; /* Change background on hover */
+  border: 2px solid rgb(188, 136, 68); /* Border color on hover */
 }
 
 .logo {
   width: 60px; /* Decreased width */
   height: 60px; /* Decreased height */
+}
+
+.rightside{
+  flex: 1;
+  right:-20px;
+  background: rgba(255, 255, 255, 0.1); /* Glass-like */
+  backdrop-filter: blur(10px);
+  padding: 10px 10px;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.righttext{
+  top:20px;
+}
+
+.leftside{
+  border-radius: 10px;
+  flex: 1;
+  height:100%;
+  background: rgba(14, 98, 1, 0.5);  /* Opaque */
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

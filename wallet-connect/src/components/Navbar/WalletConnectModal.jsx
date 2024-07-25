@@ -34,10 +34,15 @@ const WalletConnectModal = ({ isOpen, onClose }) => {
       <div className={`${styles.modalContainer} ${isOpen ? styles.open : ''}`}>
         
         <div className={styles.content}>
-          <button className={styles.logoButton} onClick={handleLogoClick}>
+          <div className={styles.leftside}>
+            <button className={styles.logoButton} onClick={handleLogoClick}>
+              <img src="/wallet-logo.svg" alt="Wallet Connect Logo" className={styles.logo} />
+            </button>
+          </div>
+          <div className={styles.rightside}>
+            <h6 className={styles.righttext}>Haven’t got a wallet yet?</h6>
+          </div>
           <button className={styles.closeButton} onClick={onClose}>×</button>
-            <img src="/wallet-logo.svg" alt="Wallet Connect Logo" className={styles.logo} />
-          </button>
         </div>
       </div>
     </div>
