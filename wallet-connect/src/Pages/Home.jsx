@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowWelcome(false);
-    }, 3000); // Hide the welcome message after 3 seconds
+    }, 4000); // Hide the welcome message after 3 seconds
 
     return () => clearTimeout(timer); // Cleanup the timer on component unmount
   }, []);

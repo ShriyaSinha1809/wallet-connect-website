@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import { FaExchangeAlt, FaShoppingCart, FaMoneyBillWave, FaWallet } from 'react-icons/fa';
 import WalletConnectModal from './WalletConnectModal'; // Import the modal component
@@ -25,12 +26,12 @@ const Navbar = () => {
     <div className={styles.navbar}>
       <div className={styles.logo}><h2>LOREM</h2></div>
       <div className={styles.navLinks}>
-        <a href="#"> <FaExchangeAlt /> Trade</a>
-        <a href="#"> <FaShoppingCart /> Buy</a>
-        <a href="#"> <FaMoneyBillWave /> Earn</a>
-        <a href="#" className={styles.connectWallet} onClick={handleOpenModal}>
+        <Link to="/trade"> <FaExchangeAlt /> Trade</Link>
+        <Link to="#"> <FaShoppingCart /> Buy</Link>
+        <Link to="#"> <FaMoneyBillWave /> Earn</Link>
+        <Link to="#" className={styles.connectWallet} onClick={handleOpenModal}>
           <FaWallet /> Connect Wallet
-        </a>
+        </Link>
       </div>
       <WalletConnectModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>

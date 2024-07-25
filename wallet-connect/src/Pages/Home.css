@@ -24,6 +24,7 @@
     top: 0;
     left: 0;
     z-index: -1;
+    transition: filter 1s ease; /* Add a smooth transition to the blur effect */
 }
 
 .blurred {
@@ -107,3 +108,4 @@
     width: 100%;
     z-index: 2; /* Ensure the Navbar is above other elements */
 }
+
