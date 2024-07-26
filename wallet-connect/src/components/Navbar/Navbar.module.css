@@ -31,18 +31,23 @@ body {
    
 }
 
+
+
+
+
+
 .navLinks {
-    display: flex;
+    display:flex;
     gap: 40px;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
+    width:100%;
 }
 
 .navLinks a {
+    display: flex;
     text-decoration: none;
     font-size: 18px;
-    display: flex;
     align-items: center;
     gap: 8px; 
     position: relative;
@@ -120,6 +125,61 @@ body {
 
 }
 
+.navLinksSidebar {
+    display: flex;
+    /* Add other styles for the sidebar */
+  }
+  
+.navLinksSidebar {
+    
+    position:fixed;
+    top: 0;
+    right: 0;
+    height:100vh;
+    width: 250px;
+    z-index: 999;
+    background-color:#eff5a0b1;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    flex-direction: column;
+    gap: 20px;
+    backdrop-filter: blur(3px);
+    text-decoration: none;
+
+}
+
+.navLinksSidebar li {
+    
+    width:100%;
+    margin-left: 55px;
+    text-decoration: none;
+    
+}
+
+.connectWalletside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: #F5D1A0;
+    color: #fff;
+    border-radius: 5px;
+    width: 70%;
+}
+
+.connectWalletside:hover {
+    background-color: #e1be8d;
+}
+
+.navLinksSidebar li {
+    text-decoration: none;
+    text-decoration: none;
+    font-size: 18px;
+    gap: 8px; 
+    position: relative;
+    color: transparent; /* Hide the original text */
+   
+}
 
 
 
