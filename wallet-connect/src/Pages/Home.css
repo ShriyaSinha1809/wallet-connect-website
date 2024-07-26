@@ -43,10 +43,10 @@
     z-index: 1; /* Ensure the text is above the background */
     padding: 20px 40px; /* Adjust padding for better spacing */
     border-radius: 10px; /* Optional: Add rounded corners */
-    font-family: 'Press Start 2P', cursive; /* Use the pixelated font */
+    
     color: white; /* Text color */
     text-transform: uppercase; /* Uppercase text */
-    font-size: 100px; /* Increase the font size */
+    font-size: 150px; /* Increase the font size */
     display: inline-block;
     animation: pixelFormation 1s forwards, retroEffect 3s infinite; /* Add animation effects */
     opacity: 0; /* Start with invisible text */

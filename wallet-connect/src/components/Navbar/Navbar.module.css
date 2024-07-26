@@ -20,7 +20,7 @@ body {
     margin-right: 4vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 60px;
-    
+    position: relative;
 }
 
 .logo {
@@ -28,20 +28,14 @@ body {
     font-weight: bold;
     color: #000;
     margin-right: auto;
-   
 }
 
-
-
-
-
-
 .navLinks {
-    display:flex;
+    display: flex;
     gap: 40px;
     justify-content: center;
     align-items: center;
-    width:100%;
+    width: 100%;
 }
 
 .navLinks a {
@@ -55,8 +49,6 @@ body {
     animation: showText 0s steps(1) 2s forwards;
 }
 
-
-
 .navLinks a::after {
     content: attr(data-text);
     position: absolute;
@@ -68,7 +60,6 @@ body {
     animation: typing 2s steps(15), blink .75s step-end infinite, showBorder 0s steps(1) 2s forwards;
     color: black; /* Set the color for the pseudo-element text */
     transition: transform 5s ease-in-out;
-
 }
 
 .navLinks a:hover {
@@ -96,7 +87,6 @@ body {
     to {
         width: 80%;
     }
-    
 }
 
 @keyframes blink {
@@ -118,69 +108,74 @@ body {
     from {
         opacity: 0;
     }
-    to{
+    to {
         opacity: 1;
-        color:  rgb(0, 0, 0); /* Color for the original text after typing animation */
+        color: rgb(0, 0, 0); /* Color for the original text after typing animation */
+    }
+}
+
+.menuIcon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: auto;
+    color: black; /* Set color of the menu icon to black */
+}
+
+@media (max-width: 650px) {
+    .navLinks {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #eff5a0b1;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        align-items: center; /* Center align items */
     }
 
+    .navLinks.showMenu {
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Center align items */
+    }
+
+    .menuIcon {
+        display: block;
+        justify-content: center;
+    }
+
+    .navLinks a {
+        width: 100%;
+        padding: 10px 20px;
+        border-bottom: 1px solid #ddd;
+        color: black; /* Color for the links in the menu */
+        text-align: center; /* Center text */
+    }
+
+    .connectWallet {
+        width: 100%;
+        padding: 10px 20px;
+        border-bottom: none;
+        text-align: center; /* Center text */
+    }
+
+    .navLinks a::after, .navLinks.noTyping a::after {
+        border: none;
+    }
+
+    .noTyping a {
+        animation: none;
+        color: black; /* Ensure the text is visible */
+    }
+
+    .noTyping a::after {
+        content: none;
+    }
+
+    .navLinks a {
+        cursor: default; /* Hide cursor */
+    }
 }
-
-.navLinksSidebar {
-    display: flex;
-    /* Add other styles for the sidebar */
-  }
-  
-.navLinksSidebar {
-    
-    position:fixed;
-    top: 0;
-    right: 0;
-    height:100vh;
-    width: 250px;
-    z-index: 999;
-    background-color:#eff5a0b1;
-    align-items: center;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    flex-direction: column;
-    gap: 20px;
-    backdrop-filter: blur(3px);
-    text-decoration: none;
-
-}
-
-.navLinksSidebar li {
-    
-    width:100%;
-    margin-left: 55px;
-    text-decoration: none;
-    
-}
-
-.connectWalletside {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    background-color: #F5D1A0;
-    color: #fff;
-    border-radius: 5px;
-    width: 70%;
-}
-
-.connectWalletside:hover {
-    background-color: #e1be8d;
-}
-
-.navLinksSidebar li {
-    text-decoration: none;
-    text-decoration: none;
-    font-size: 18px;
-    gap: 8px; 
-    position: relative;
-    color: transparent; /* Hide the original text */
-   
-}
-
-
-
-
