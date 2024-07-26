@@ -92,6 +92,153 @@
   background-position: 0 0, 5px 5px;
 }
 
+.logoButton1 {
+  background: white; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: absolute;
+  top: 20px; /* Adjust positioning as needed */
+  left: 150px; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-image: 
+    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
+    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+
+.logoButton2 {
+  background: white; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: absolute;
+  top: 20px; /* Adjust positioning as needed */
+  left: 270px; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-image: 
+    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
+    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+.logoButton3 {
+  background: white; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: absolute;
+  top: 120px; /* Adjust positioning as needed */
+  left: 30px; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-image: 
+    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
+    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+.logoButton4{
+  background: white; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: absolute;
+  top: 120px; /* Adjust positioning as needed */
+  left: 150px; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-image: 
+    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
+    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+.logoButton5 {
+  background: white; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: absolute;
+  top: 120px; /* Adjust positioning as needed */
+  left: 270px; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-image: 
+    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
+    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+.logoButton6 {
+  background: white; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: absolute;
+  top: 220px; /* Adjust positioning as needed */
+  left: 30px; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-image: 
+    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
+    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+.logoButton7 {
+  background: white; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: absolute;
+  top: 220px; /* Adjust positioning as needed */
+  left: 150px; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-image: 
+    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
+    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+.logoButton8 {
+  background: white; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: absolute;
+  top: 220px; /* Adjust positioning as needed */
+  left: 270px; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-image: 
+    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
+    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+
+
 .closeButton:hover {
   background-color: #cfcf63; /* Change background on hover */
   border: 2px solid rgb(185, 79, 47); /* Border color on hover */
@@ -133,4 +280,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hello:hover, .howtolink:hover{
+  background-color: #0056b3;
+}
+.howtolink{
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }

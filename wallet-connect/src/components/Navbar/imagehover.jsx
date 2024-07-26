@@ -20,7 +20,7 @@ const ImageHover = () => {
         >
             {!isHovered && (
                 <img
-                    src="./megaman.gif"
+                    src="/lit.gif"
                     className="hover-image"
                 />
             )}
