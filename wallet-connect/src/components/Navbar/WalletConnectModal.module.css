@@ -21,7 +21,6 @@
 
 .modalContainer {
   width: 60%; /* Increased the width */
-  padding: 20px;
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
@@ -29,6 +28,10 @@
   min-width: 768px;
   opacity: 0;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  border: 20px solid;
+  border-image: url('/src/assets/border.jpg');
+  border-image-slice: 16 14 26 13;
+ 
 }
 
 .modalContainer.open {
@@ -36,10 +39,11 @@
   opacity: 1;
 }
 
+
 .closeButton {
   position: absolute;
-  top:5px;
-  right:5px;
+  top:0;
+  right:-1px;
   display:flex;
   justify-content:end; /* Change to relative *//* Add /* Position from the right */ /* Override any previous left positioning */
   background: none;
@@ -47,13 +51,14 @@
   font-size: 20px;
   cursor: pointer;
   color: black;
-  border: 2px solid rgb(227, 164, 81);
+  border: 2px solid rgb(226, 99, 60);
   background-color: #eff5a0;
-  border-radius: 10px;
+  border-radius: 5px;
+
 }
 
 .content {
-  background: rgba(14, 98, 1, 0.5); /* Green color with 50% transparency */
+  background: rgba(90, 86, 86, 0.5); /* Green color with 50% transparency */
   backdrop-filter: blur(10px); /* Apply a blur effect to the background */
   -webkit-backdrop-filter: blur(10px); /* For Safari */
   height: 300px;
@@ -63,7 +68,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-radius: 15px; /* Added border-radius for smooth corners */
+ /* Added border-radius for smooth corners */
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.2); /* Optional: Add a subtle border for better visual separation */
 }
@@ -74,8 +79,8 @@
   cursor: pointer;
   padding: 5px; /* Adjust padding as needed */
   position: absolute;
-  top: 10px; /* Adjust positioning as needed */
-  left: 20px; /* Adjust positioning as needed */
+  top: 20px; /* Adjust positioning as needed */
+  left: 30px; /* Adjust positioning as needed */
   box-sizing: border-box;
   background-clip: padding-box;
   background-origin: border-box;
@@ -88,8 +93,8 @@
 }
 
 .closeButton:hover {
-  background-color: #adb35c; /* Change background on hover */
-  border: 2px solid rgb(188, 136, 68); /* Border color on hover */
+  background-color: #cfcf63; /* Change background on hover */
+  border: 2px solid rgb(185, 79, 47); /* Border color on hover */
 }
 
 .logo {
@@ -100,7 +105,7 @@
 .rightside{
   flex: 1;
   right:-20px;
-  background: rgba(255, 255, 255, 0.1); /* Glass-like */
+  background: rgba(255, 255, 255, 0.127); /* Glass-like */
   backdrop-filter: blur(10px);
   padding: 10px 10px;
   height:100%;
@@ -108,17 +113,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .righttext{
   top:20px;
+ 
+
 }
 
 .leftside{
-  border-radius: 10px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
   flex: 1;
   height:100%;
-  background: rgba(14, 98, 1, 0.5);  /* Opaque */
+  background: rgba(112, 107, 106, 0.682);  /* Opaque */
   padding: 10px 10px;
   display: flex;
   justify-content: center;
