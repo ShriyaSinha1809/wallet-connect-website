@@ -1,0 +1,11 @@
+.image-container {
+    width: 100%; /* Set a fixed width for the container */
+    height: 100%; /* Set a fixed height for the container */
+    position: relative;
+}
+
+.hover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
