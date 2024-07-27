@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import './Trade.css';
 import Malamal from '../../models/Malamal'; 
@@ -21,6 +21,8 @@ const Trade = () => {
         config: { mass: 1, tension: 170, friction: 26 }
     }));
 
+    const [loading, setLoading] = useState(true); // Loader state
+
     const handleMouseMove = (event) => {
         const { clientX, clientY, innerWidth, innerHeight } = event;
         const x = (clientX / innerWidth - 0.5) * 30;
@@ -31,11 +33,62 @@ const Trade = () => {
     return (
         <div className="trade-container" onMouseMove={handleMouseMove}>
             <Navbar />
-            <animated.div style={props}>
+            {loading && (
+                <div className="loader">
+                    <div>
+                        <div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <div>
+                                                <div>
+                                                    <div>
+                                                        <div>
+                                                            <div>
+                                                                <div>
+                                                                    <div>
+                                                                        <div>
+                                                                            <div>
+                                                                                <div>
+                                                                                    <div>
+                                                                                        <div>
+                                                                                            <div>
+                                                                                                <div>
+                                                                                                    <div>
+                                                                                                        <div>
+                                                                                                            <div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+            <animated.div style={props} className={loading ? 'hidden' : ''}>
                 <Canvas
                     shadows
                     camera={{ position: [0, 5, 10], fov: 45 }}
                     className="canvas-element"
+                    onCreated={() => setLoading(false)} // Hide loader when Canvas is created
                 >
                     <ambientLight intensity={1} />
                     <directionalLight
@@ -72,11 +125,7 @@ const Trade = () => {
                     />
                     <Background />
                     <Malamal position={[2, 1, 0]} rotation={[-0.1, 5.2, 0]} scale={[0.6,0.6,0.6 ]} />
-
                     <Lamp position={[5.5, 0.4, 0]} rotation={[-0.1, 0.4, 0]} scale={[0.6,0.6,0.6 ]} />
-               
-               
-
                     <OrbitControls />
                 </Canvas>
             </animated.div>

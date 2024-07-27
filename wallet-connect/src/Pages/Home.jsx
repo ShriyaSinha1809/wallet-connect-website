@@ -3,16 +3,19 @@ import Navbar from '../components/Navbar/Navbar';
 import './Home.css'; // Import the CSS file for styling
 
 const Home = () => {
-  const [showWelcome, setShowWelcome] = useState(true);
+  const [showWelcome, setShowWelcome] = useState(!localStorage.getItem('hasVisited'));
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowWelcome(false);
-    }, 4000); // Hide the welcome message after 4 seconds
+    if (showWelcome) {
+      const timer = setTimeout(() => {
+        setShowWelcome(false);
+        localStorage.setItem('hasVisited', 'true'); // Mark as visited
+      }, 4000); // Hide the welcome message after 4 seconds
 
-    return () => clearTimeout(timer); // Cleanup the timer on component unmount
-  }, []);
+      return () => clearTimeout(timer); // Cleanup the timer on component unmount
+    }
+  }, [showWelcome]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,7 +59,7 @@ const Home = () => {
           </div>
         )}
         <div className="foreground-image"></div>
-        <div className="scroll-arrow" onClick={toggleScroll}>
+        <div className={`scroll-arrow ${showWelcome ? 'hidden' : ''}`} onClick={toggleScroll}>
           <img src="/src/assets/next.png" alt="Scroll Down Arrow" />
         </div>
       </div>
@@ -87,7 +90,7 @@ const Home = () => {
                 ></path>
               </svg>
             </div>
-            <p >Swaps</p>
+            <p>Swaps</p>
           </button>
         </div>
       </div>
