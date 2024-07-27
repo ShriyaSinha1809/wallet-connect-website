@@ -46,7 +46,7 @@
     
     color: white; /* Text color */
     text-transform: uppercase; /* Uppercase text */
-    font-size: 150px; /* Increase the font size */
+    font-size: 15vw; /* Increase the font size */
     display: inline-block;
     animation: pixelFormation 1s forwards, retroEffect 3s infinite; /* Add animation effects */
     opacity: 0; /* Start with invisible text */
