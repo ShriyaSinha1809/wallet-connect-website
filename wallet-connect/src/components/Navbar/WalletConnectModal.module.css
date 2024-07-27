@@ -78,16 +78,11 @@
   border: none;
   cursor: pointer;
   padding: 5px; /* Adjust padding as needed */
-  position: absolute;
-  top: 20px; /* Adjust positioning as needed */
-  left: 30px; /* Adjust positioning as needed */
+  position: relative; /* Adjust positioning as needed */
   box-sizing: border-box;
   background-clip: padding-box;
   background-origin: border-box;
   border-radius: 10px;
-  background-image: 
-    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
-    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
   background-size: 10px 10px;
   background-position: 0 0, 5px 5px;
 }
@@ -97,143 +92,64 @@
   border: none;
   cursor: pointer;
   padding: 5px; /* Adjust padding as needed */
-  position: absolute;
-  top: 20px; /* Adjust positioning as needed */
-  left: 150px; /* Adjust positioning as needed */
+  position: relative; /* Adjust positioning as needed */
   box-sizing: border-box;
   background-clip: padding-box;
   background-origin: border-box;
   border-radius: 10px;
-  background-image: 
-    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
-    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
   background-size: 10px 10px;
   background-position: 0 0, 5px 5px;
 }
 
 .logoButton2 {
-  background: white; /* Changed background color to white */
+  background: black; /* Changed background color to white */
   border: none;
   cursor: pointer;
   padding: 5px; /* Adjust padding as needed */
-  position: absolute;
-  top: 20px; /* Adjust positioning as needed */
-  left: 270px; /* Adjust positioning as needed */
+  position: relative;/* Adjust positioning as needed */
   box-sizing: border-box;
   background-clip: padding-box;
   background-origin: border-box;
   border-radius: 10px;
-  background-image: 
-    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
-    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
   background-size: 10px 10px;
   background-position: 0 0, 5px 5px;
 }
 .logoButton3 {
-  background: white; /* Changed background color to white */
+  background: #0052ff; /* Changed background color to white */
   border: none;
   cursor: pointer;
   padding: 5px; /* Adjust padding as needed */
-  position: absolute;
-  top: 120px; /* Adjust positioning as needed */
-  left: 30px; /* Adjust positioning as needed */
+  position: relative;/* Adjust positioning as needed */
   box-sizing: border-box;
   background-clip: padding-box;
   background-origin: border-box;
   border-radius: 10px;
-  background-image: 
-    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
-    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
   background-size: 10px 10px;
   background-position: 0 0, 5px 5px;
 }
 .logoButton4{
-  background: white; /* Changed background color to white */
+  background: #3375bb; /* Changed background color to white */
   border: none;
   cursor: pointer;
   padding: 5px; /* Adjust padding as needed */
-  position: absolute;
-  top: 120px; /* Adjust positioning as needed */
-  left: 150px; /* Adjust positioning as needed */
+  position: relative;/* Adjust positioning as needed */
   box-sizing: border-box;
   background-clip: padding-box;
   background-origin: border-box;
   border-radius: 10px;
-  background-image: 
-    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
-    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
   background-size: 10px 10px;
   background-position: 0 0, 5px 5px;
 }
 .logoButton5 {
-  background: white; /* Changed background color to white */
+  background: black; /* Changed background color to white */
   border: none;
   cursor: pointer;
   padding: 5px; /* Adjust padding as needed */
-  position: absolute;
-  top: 120px; /* Adjust positioning as needed */
-  left: 270px; /* Adjust positioning as needed */
+  position: relative; /* Adjust positioning as needed */
   box-sizing: border-box;
   background-clip: padding-box;
   background-origin: border-box;
   border-radius: 10px;
-  background-image: 
-    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
-    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
-  background-size: 10px 10px;
-  background-position: 0 0, 5px 5px;
-}
-.logoButton6 {
-  background: white; /* Changed background color to white */
-  border: none;
-  cursor: pointer;
-  padding: 5px; /* Adjust padding as needed */
-  position: absolute;
-  top: 220px; /* Adjust positioning as needed */
-  left: 30px; /* Adjust positioning as needed */
-  box-sizing: border-box;
-  background-clip: padding-box;
-  background-origin: border-box;
-  border-radius: 10px;
-  background-image: 
-    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
-    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
-  background-size: 10px 10px;
-  background-position: 0 0, 5px 5px;
-}
-.logoButton7 {
-  background: white; /* Changed background color to white */
-  border: none;
-  cursor: pointer;
-  padding: 5px; /* Adjust padding as needed */
-  position: absolute;
-  top: 220px; /* Adjust positioning as needed */
-  left: 150px; /* Adjust positioning as needed */
-  box-sizing: border-box;
-  background-clip: padding-box;
-  background-origin: border-box;
-  border-radius: 10px;
-  background-image: 
-    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
-    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
-  background-size: 10px 10px;
-  background-position: 0 0, 5px 5px;
-}
-.logoButton8 {
-  background: white; /* Changed background color to white */
-  border: none;
-  cursor: pointer;
-  padding: 5px; /* Adjust padding as needed */
-  position: absolute;
-  top: 220px; /* Adjust positioning as needed */
-  left: 270px; /* Adjust positioning as needed */
-  box-sizing: border-box;
-  background-clip: padding-box;
-  background-origin: border-box;
-  border-radius: 10px;
-  background-image: 
-    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
-    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
   background-size: 10px 10px;
   background-position: 0 0, 5px 5px;
 }
@@ -266,18 +182,19 @@
 
 .righttext{
   top:20px;
- 
-
 }
 
 .leftside{
   border-bottom-left-radius: 20px;
   border-top-left-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 50px; 
   flex: 1;
   height:100%;
   background: rgba(112, 107, 106, 0.682);  /* Opaque */
   padding: 10px 10px;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -293,4 +210,9 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.google{
+  width: 120px; /* Decreased width */
+  height: 60px;
 }
