@@ -51,7 +51,7 @@ html, body {
     border-radius: 10px; /* Optional: Add rounded corners */
     color: white; /* Text color */
     text-transform: uppercase; /* Uppercase text */
-    font-size: 100px; /* Increase the font size */
+    font-size: 15vw; /* Increase the font size */
     display: inline-block;
     animation: pixelFormation 1s forwards, retroEffect 3s infinite; /* Add animation effects */
     opacity: 0; /* Start with invisible text */
@@ -119,7 +119,7 @@ html, body {
     position: absolute;
     bottom: 60px; /* Increase margin from bottom */
     cursor: pointer;
-    z-index: 2;
+    z-index: 1;
     animation: bounce 2s infinite;
   }
   

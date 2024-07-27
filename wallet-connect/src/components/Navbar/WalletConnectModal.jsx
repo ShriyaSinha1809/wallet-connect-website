@@ -32,7 +32,6 @@ const WalletConnectModal = ({ isOpen, onClose }) => {
       onClick={handleOutsideClick}
     >
       <div className={`${styles.modalContainer} ${isOpen ? styles.open : ''}`}>
-        
         <div className={styles.content}>
           <div className={styles.leftside}>
             <button className={styles.logoButton} onClick={handleLogoClick}>

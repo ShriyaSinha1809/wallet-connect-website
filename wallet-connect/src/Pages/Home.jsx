@@ -3,8 +3,7 @@ import Navbar from '../components/Navbar/Navbar';
 import './Home.css'; // Import the CSS file for styling
 
 const Home = () => {
-  const [showWelcome, setShowWelcome] = useState(!localStorage.getItem('hasVisited'));
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
     if (showWelcome) {
@@ -17,31 +16,11 @@ const Home = () => {
     }
   }, [showWelcome]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const background = document.querySelector('.background-image');
-      if (background) {
-        background.style.transform = `translateY(${window.scrollY * 0.5}px)`;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const toggleScroll = () => {
-    if (isScrolled) {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    } else {
-      window.scrollTo({
-        top: window.innerHeight,
-        behavior: 'smooth',
-      });
+  const handleScroll = () => {
+    const cityGifSection = document.getElementById('city-gif');
+    if (cityGifSection) {
+      cityGifSection.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsScrolled(!isScrolled);
   };
 
   return (
@@ -59,20 +38,17 @@ const Home = () => {
           </div>
         )}
         <div className="foreground-image"></div>
-        <div className={`scroll-arrow ${showWelcome ? 'hidden' : ''}`} onClick={toggleScroll}>
+        <div className="scroll-arrow" onClick={handleScroll}>
           <img src="/src/assets/next.png" alt="Scroll Down Arrow" />
         </div>
       </div>
-      <div className="city-gif">
+      <div className="city-gif" id="city-gif">
         <img src="/src/assets/6581883.gif" alt="City GIF" />
         <div className="text-container">
           <h2>Swap Your Way to Crypto Freedom</h2>
         </div>
         <div className="button-container">
-          <button
-            type="button"
-            className="custom-button"
-          >
+          <button type="button" className="custom-button">
             <div className="inner-div">
               <svg
                 width="25px"

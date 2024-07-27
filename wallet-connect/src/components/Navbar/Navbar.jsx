@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaExchangeAlt, FaShoppingCart, FaMoneyBillWave, FaWallet, FaBars } from 'react-icons/fa';
 import styles from './Navbar.module.css';
-import { FaExchangeAlt, FaShoppingCart, FaMoneyBillWave, FaWallet } from 'react-icons/fa';
-import WalletConnectModal from './WalletConnectModal'; // Import the modal component
+import WalletConnectModal from './WalletConnectModal';
 
 const Navbar = () => {
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const links = document.querySelectorAll(`.${styles.navLinks} a`);
-    links.forEach((link) => {
-      link.setAttribute('data-text', link.textContent);
-    });
-  }, []);
+    if (!isMenuOpen) {
+      const links = document.querySelectorAll(`.${styles.navLinks} a`);
+      links.forEach((link) => {
+        link.setAttribute('data-text', link.textContent);
+      });
+    }
+  }, [isMenuOpen]);
 
   const handleOpenModal = () => {
     setModalOpen(true);
@@ -22,13 +25,20 @@ const Navbar = () => {
     setModalOpen(false);
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className={styles.navbar}>
       <div className={styles.logo}><h2>LOREM</h2></div>
-      <div className={styles.navLinks}>
-        <Link to="/trade"> <FaExchangeAlt /> Trade</Link>
-        <Link to="#"> <FaShoppingCart /> Buy</Link>
-        <Link to="#"> <FaMoneyBillWave /> Earn</Link>
+      <div className={styles.menuIcon} onClick={toggleMenu}>
+        <FaBars />
+      </div>
+      <div className={`${styles.navLinks} ${isMenuOpen ? styles.showMenu : ''} ${isMenuOpen ? styles.noTyping : ''}`}>
+        <Link to="/trade"><FaExchangeAlt /> Trade</Link>
+        <Link to="#"><FaShoppingCart /> Buy</Link>
+        <Link to="#"><FaMoneyBillWave /> Earn</Link>
         <Link to="#" className={styles.connectWallet} onClick={handleOpenModal}>
           <FaWallet /> Connect Wallet
         </Link>
