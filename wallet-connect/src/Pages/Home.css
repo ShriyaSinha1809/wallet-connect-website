@@ -119,7 +119,7 @@ html, body {
     position: absolute;
     bottom: 60px; /* Increase margin from bottom */
     cursor: pointer;
-    z-index: 2;
+    z-index: 1;
     animation: bounce 2s infinite;
   }
   
