@@ -4,6 +4,9 @@ import './Home.css'; // Import the CSS file for styling
 
 const Home = () => {
   const [showWelcome, setShowWelcome] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [cloudsIn, setCloudsIn] = useState(false);
+  const [cloudsOut, setCloudsOut] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -14,10 +17,25 @@ const Home = () => {
   }, []);
 
   const handleScroll = () => {
-    const cityGifSection = document.getElementById('city-gif');
-    if (cityGifSection) {
-      cityGifSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    setIsAnimating(true);
+    setCloudsIn(true);
+
+    setTimeout(() => {
+      const cityGifSection = document.getElementById('city-gif');
+      if (cityGifSection) {
+        cityGifSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 500); // Scroll after clouds have entered
+
+    setTimeout(() => {
+      setCloudsOut(true);
+    }, 1000); // Start cloud exit animation
+
+    setTimeout(() => {
+      setIsAnimating(false);
+      setCloudsIn(false);
+      setCloudsOut(false);
+    }, 1500); // Reset after animation
   };
 
   return (
@@ -38,6 +56,16 @@ const Home = () => {
         <div className="scroll-arrow" onClick={handleScroll}>
           <img src="/src/assets/next.png" alt="Scroll Down Arrow" />
         </div>
+        {isAnimating && (
+          <>
+            <div className={`cloud left-cloud ${cloudsOut ? 'left-cloud-exit' : ''}`}>
+              <img src='/src/assets/clouds.webp'></img>
+            </div>
+            <div className={`cloud right-cloud ${cloudsOut ? 'right-cloud-exit' : ''}`}>
+            <img src='/src/assets/clouds.webp'></img>
+            </div>
+          </>
+        )}
       </div>
       <div className="city-gif" id="city-gif">
         <img src="/src/assets/6581883.gif" alt="City GIF" />

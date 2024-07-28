@@ -120,7 +120,19 @@ html, body {
     bottom: 60px; /* Increase margin from bottom */
     cursor: pointer;
     z-index: 1;
-    animation: bounce 2s infinite;
+    animation: bounce 2s infinite,hide 5s steps(20);
+  }
+
+  @keyframes hide {
+    from{
+        opacity:0;
+    }
+    95%{
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
   }
   
   .scroll-arrow img {
@@ -151,23 +163,24 @@ html, body {
   
   .text-container {
     position: absolute;
-    top: 30%;
     left: 80%;
     transform: translate(-50%, -50%);
-    color: rgb(98, 38, 239);
+    color: rgb(223, 96, 155);
     text-align: center;
     border-radius: 10px; /* Rounded corners */
     animation: fadeIn 2s ease-in-out;
     font-family: 'GomePixel', sans-serif;
+    -webkit-text-stroke-width: 0.01mm;
+    -webkit-text-stroke-color: rgb(168, 54, 99);
+    width:20vw;
+    height:50vh;
+    
   }
   
   .text-container h2 {
-    font-size: 5rem;
-    margin-bottom: 10px;
-  }
-  
-  .text-container p {
-    font-size: 1.2rem;
+    position: relative;
+    font-size: 4rem;
+    /* margin-bottom: 10px; */
   }
   
   .button-container {
@@ -179,10 +192,12 @@ html, body {
   .custom-button {
     background-color: white;
     text-align: center;
+    top: 40px;
+    
     width: 192px;
     height: 56px;
     border-radius: 24px;
-    position: relative;
+    position: absolute;
     font-family: 'GomePixel', sans-serif;
     color: black;
     font-size: 25px;
@@ -196,7 +211,7 @@ html, body {
   }
   
   .custom-button .inner-div {
-    background-color: #4CAF50; /* Green background */
+    background-color: #d44985; /* Green background */
     border-radius: 16px;
     height: 44px;
     width: 48px;
@@ -208,6 +223,7 @@ html, body {
     top: 4px;
     transition: width 0.5s;
     z-index: 10;
+    
   }
   
   .custom-button:hover .inner-div {
@@ -223,7 +239,7 @@ html, body {
     margin: 0;
     z-index: 20;
     position: relative;
-    transition: opacity 0.5s;
+    transition: opacity 0.3s;
     font-family: 'GomePixel', sans-serif; /* Ensure the font is applied */
   }
   
@@ -256,3 +272,101 @@ html, body {
   .swapCss{
     font-size: 4rem;
   }
+
+  .home-container {
+    position: relative;
+    overflow: hidden; /* Ensure clouds are hidden when out of bounds */
+  }
+  
+  .cloud {
+    position: fixed;
+    z-index: 200000;
+    width: 200px;
+    height: 100px;
+    top:0;
+    background-image: url('/src/assets/clouds.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation-duration: 0.75s;
+    animation-fill-mode: forwards;
+  }
+  
+  .left-cloud {
+    height: 200vh;
+    width:200vh;
+    left: -200px;
+    animation-name: left-cloud-animation;
+  }
+  
+  .right-cloud {
+    height: 200vh;
+    width:200vh;
+    right: -200px;
+    animation-name: right-cloud-animation;
+  }
+  
+  @keyframes left-cloud-animation {
+    0% {
+      transform: translateX(-1000px);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(300px);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes right-cloud-animation {
+    0% {
+      transform: translateX(1000px);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-300px);
+      opacity: 1;
+    }
+  }
+  
+  .left-cloud-exit {
+    animation-name: left-cloud-exit-animation;
+  }
+  
+  .right-cloud-exit {
+    animation-name: right-cloud-exit-animation;
+  }
+  
+  @keyframes left-cloud-exit-animation {
+    0% {
+      transform: translateX(300px);
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(6000px);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes right-cloud-exit-animation {
+    0% {
+      transform: translateX(-300px);
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-6000px);
+      opacity: 0;
+    }
+  }
+  
