@@ -3,13 +3,14 @@ import Navbar from '../../components/Navbar/Navbar';
 import './Trade.css';
 import Malamal from '../../models/Malamal'; 
 import Lamp from '../../models/Lamp';
+import Truck from '../../models/Truck';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Plane } from '@react-three/drei';
 import { useSpring, animated } from '@react-spring/web';
 
 const Background = () => {
     return (
-        <Plane args={[100, 100]} position={[0, -20, -5]} rotation={[-Math.PI / 2, 0, 0.5]}>
+        <Plane args={[100, 100]} position={[0, -23, -5]} rotation={[-Math.PI / 2, 0, 0.5]}>
             <meshStandardMaterial attach="material" color="#9e6634" />
         </Plane>
     );
@@ -123,9 +124,12 @@ const Trade = () => {
                         penumbra={1} 
                         castShadow
                     />
-                    <Background />
-                    <Malamal position={[2, 1, 0]} rotation={[-0.1, 5.2, 0]} scale={[0.6,0.6,0.6 ]} />
-                    <Lamp position={[5.5, 0.4, 0]} rotation={[-0.1, 0.4, 0]} scale={[0.6,0.6,0.6 ]} />
+                    <group position={[0, -0.5, 0]}>
+                        <Background />
+                        <Malamal position={[2, 1, 0]} rotation={[-0.1, 5.2, 0]} scale={[0.6, 0.6, 0.6]} />
+                        <Lamp position={[5.5, 0.4, 0]} rotation={[-0.1, 0.4, 0]} scale={[0.6, 0.6, 0.6]} />
+                        <Truck position={[5.8, 0.8, 0]} rotation={[-0.1, 0.4, 0]} scale={[0.6, 0.6, 0.6]} />
+                    </group>
                     <OrbitControls />
                 </Canvas>
             </animated.div>
