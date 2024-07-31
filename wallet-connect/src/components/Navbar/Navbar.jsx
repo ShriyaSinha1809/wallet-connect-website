@@ -31,13 +31,15 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
-      <div className={styles.logo}><h2>LOREM</h2></div>
-      <div className={styles.menuIcon} onClick={toggleMenu}>
+      <Link to="/home" className={styles.logoLink}>
+        <div className={styles.logo}><h2>LOREM</h2></div>
+      </Link>
+      <div className={styles.menuIcon} onClick={toggleMenu} aria-label="Toggle menu">
         <FaBars />
       </div>
       <div className={`${styles.navLinks} ${isMenuOpen ? styles.showMenu : ''} ${isMenuOpen ? styles.noTyping : ''}`}>
-        <Link to="/trade"><FaExchangeAlt /> Trade</Link>
-        <Link to="#"><FaShoppingCart /> Buy</Link>
+        <Link to="/trade"><FaExchangeAlt /> Swap</Link>
+        <Link to="/buy"><FaShoppingCart /> Buy</Link>
         <Link to="#"><FaMoneyBillWave /> Earn</Link>
         <Link to="#" className={styles.connectWallet} onClick={handleOpenModal}>
           <FaWallet /> Connect Wallet

@@ -1,118 +1,106 @@
+/* Reset global styles */
 html, body {
-    scroll-behavior: smooth; /* Smooth scrolling */
-    height: 100%;
-    margin: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow: hidden; /* Hide the scroll bar */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  height: 100%; /* Ensure the body takes the full height */
+  width: 100%; /* Ensure the body takes the full width */
+  box-sizing: border-box;
+}
+
+/* Ensure all elements use border-box sizing */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Ensure the home container fits within the viewport */
+.home-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  flex-direction: column;
+}
+
+/* Background image styling */
+.background-image {
+  background-image: url('/src/assets/8351213.gif'); /* Update with the correct path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: filter 1s ease;
+}
+
+.blurred {
+  filter: blur(8px); /* Apply blur effect */
+}
+
+/* Foreground image styling */
+.foreground-image {
+  /* Add any additional styling for your foreground image if needed */
+}
+
+/* Welcome text styling */
+.welcome-text {
+  position: relative;
+  z-index: 1; /* Ensure the text is above the background */
+  padding: 20px 40px; /* Adjust padding for better spacing */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  color: white; /* Text color */
+  text-transform: uppercase; /* Uppercase text */
+  font-size: 15vw; /* Increase the font size */
+  display: inline-block;
+  animation: pixelFormation 1s forwards, retroEffect 3s infinite; /* Add animation effects */
+  opacity: 0; /* Start with invisible text */
+  font-family: 'GomePixel', sans-serif;
+}
+
+@keyframes retroEffect {
+  0%, 100% {
+    text-shadow: 0 0 2px #FF0000, 0 0 2px #00FF00, 0 0 2px #0000FF;
   }
-  
-  .home-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 2rem;
+  33% {
+    text-shadow: 2px 2px 2px #FF0000, -2px -2px 2px #00FF00, -2px 2px 2px #0000FF;
   }
-  
-  .background-image {
-    background-image: url('/src/assets/8351213.gif'); /* Update with the correct path to your image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: filter 1s ease;
+  66% {
+    text-shadow: -2px -2px 2px #FF0000, 2px 2px 2px #00FF00, 2px -2px 2px #0000FF;
   }
-  
-  .blurred {
-    filter: blur(8px); /* Apply blur effect */
+}
+
+@keyframes pixelFormation {
+  0% {
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    opacity: 1;
   }
-  
-  .show-gif {
-    background-image: url('/src/assets/8351213.gif'); /* Path to your GIF */
+  10% {
+    clip-path: polygon(45% 45%, 55% 45%, 55% 55%, 45% 55%);
   }
-  
-  .foreground-image {
-    /* Add any additional styling for your foreground image if needed */
+  20% {
+    clip-path: polygon(40% 40%, 60% 40%, 60% 60%, 40% 60%);
   }
-  
-  .welcome-text {
-    position: relative;
-    z-index: 1; /* Ensure the text is above the background */
-    padding: 20px 40px; /* Adjust padding for better spacing */
-    border-radius: 10px; /* Optional: Add rounded corners */
-    color: white; /* Text color */
-    text-transform: uppercase; /* Uppercase text */
-    font-size: 15vw; /* Increase the font size */
-    display: inline-block;
-    animation: pixelFormation 1s forwards, retroEffect 3s infinite; /* Add animation effects */
-    opacity: 0; /* Start with invisible text */
-    font-family: 'GomePixel', sans-serif;
+  30% {
+    clip-path: polygon(35% 35%, 65% 35%, 65% 65%, 35% 65%);
   }
-  
-  @keyframes retroEffect {
-    0%, 100% {
-      text-shadow: 0 0 2px #FF0000, 0 0 2px #00FF00, 0 0 2px #0000FF;
-    }
-    33% {
-      text-shadow: 2px 2px 2px #FF0000, -2px -2px 2px #00FF00, -2px 2px 2px #0000FF;
-    }
-    66% {
-      text-shadow: -2px -2px 2px #FF0000, 2px 2px 2px #00FF00, 2px -2px 2px #0000FF;
-    }
+  40% {
+    clip-path: polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%);
   }
-  
-  @keyframes pixelFormation {
-    0% {
-      clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
-      opacity: 1;
-    }
-    10% {
-      clip-path: polygon(45% 45%, 55% 45%, 55% 55%, 45% 55%);
-    }
-    20% {
-      clip-path: polygon(40% 40%, 60% 40%, 60% 60%, 40% 60%);
-    }
-    30% {
-      clip-path: polygon(35% 35%, 65% 35%, 65% 65%, 35% 65%);
-    }
-    40% {
-      clip-path: polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%);
-    }
-    50% {
-      clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
-    }
-    60% {
-      clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);
-    }
-    70% {
-      clip-path: polygon(15% 15%, 85% 15%, 85% 85%, 15% 85%);
-    }
-    80% {
-      clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
-    }
-    90% {
-      clip-path: polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%);
-    }
-    100% {
-      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-      opacity: 1;
-    }
+  50% {
+    clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
   }
-  
-  .navbar-container {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 2; /* Ensure the Navbar is above other elements */
+  60% {
+    clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);
   }
   
   .scroll-arrow {
@@ -134,31 +122,161 @@ html, body {
         opacity: 1;
     }
   }
-  
-  .scroll-arrow img {
-    width: 100px; /* Increase width for larger arrow */
-    height: auto;
-    transform: rotate(90deg); /* Rotate 90 degrees clockwise */
+  80% {
+    clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
   }
-  
-  .scroll-arrow:hover img {
-    transform: rotate(90deg) scale(1.2); /* Slightly enlarge the arrow on hover while keeping the rotation */
-    transition: transform 0.2s;
+  90% {
+    clip-path: polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%);
   }
-  
-  .city-gif {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    z-index: 1; /* Ensure the GIF is below other elements */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    opacity: 1;
   }
-  
-  .city-gif img {
-    width: 100%; /* Ensure the GIF takes the full width */
-    height: 100%; /* Ensure the GIF takes the full height */
+}
+
+/* Navbar container styling */
+.navbar-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2; /* Ensure the Navbar is above other elements */
+}
+
+/* Scroll arrow styling */
+.scroll-arrow {
+  position: absolute;
+  bottom: 60px; /* Increase margin from bottom */
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow img {
+  width: 100px; /* Increase width for larger arrow */
+  height: auto;
+  transform: rotate(90deg); /* Rotate 90 degrees clockwise */
+  transition: transform 0.2s;
+}
+
+.scroll-arrow p {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-family: 'GomePixel', sans-serif;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.scroll-arrow:hover img, .scroll-arrow:hover p {
+  transform: scale(1.2); /* Slightly enlarge the text and arrow on hover */
+  color: #FFD700; /* Change text color on hover */
+}
+
+/* City GIF styling */
+.city-gif {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  z-index: 1; /* Ensure the GIF is below other elements */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.city-gif img {
+  width: 100%; /* Ensure the GIF takes the full width */
+  height: 100%; /* Ensure the GIF takes the full height */
+}
+
+/* Text container styling */
+.text-container {
+  position: absolute;
+  top: 30%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  color: rgb(98, 38, 239);
+  text-align: center;
+  border-radius: 10px; /* Rounded corners */
+  animation: fadeIn 2s ease-in-out;
+  font-family: 'GomePixel', sans-serif;
+}
+
+.text-container h2 {
+  font-size: 5rem;
+  margin-bottom: 10px;
+}
+
+.text-container p {
+  font-size: 1.2rem;
+}
+
+/* Button container styling */
+.button-container {
+  position: absolute;
+  bottom: 14rem;
+  right: 17rem;
+}
+
+.custom-button {
+  background-color: white;
+  text-align: center;
+  width: 192px;
+  height: 56px;
+  border-radius: 24px;
+  position: relative;
+  font-family: 'GomePixel', sans-serif;
+  color: black;
+  font-size: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-button .inner-div {
+  background-color: #4CAF50; /* Green background */
+  border-radius: 16px;
+  height: 44px;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  transition: width 0.5s;
+  z-index: 10;
+}
+
+.custom-button:hover .inner-div {
+  width: 180px;
+}
+
+.custom-button svg {
+  width: 25px;
+  height: 25px;
+}
+
+.custom-button p {
+  margin: 0;
+  z-index: 20;
+  position: relative;
+  transition: opacity 0.5s;
+  font-family: 'GomePixel', sans-serif; /* Ensure the font is applied */
+}
+
+.custom-button:hover p {
+  opacity: 0;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
   }
   
   .text-container {
@@ -244,30 +362,22 @@ html, body {
   }
   
   .custom-button:hover p {
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
     opacity: 0;
   }
-  
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(-10px);
-    }
-    60% {
-      transform: translateY(-5px);
-    }
+  100% {
+    opacity: 1;
   }
-  
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
+}
 
   .swapCss{
     font-size: 4rem;
@@ -370,3 +480,67 @@ html, body {
     }
   }
   
+/* Third GIF styling */
+.third-gif {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  z-index: 1; /* Ensure the GIF is below other elements */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.third-gif img {
+  width: 100%; /* Ensure the GIF takes the full width */
+  height: 100%; /* Ensure the GIF takes the full height */
+}
+
+/* Scroll arrow for the second section */
+.scroll-arrow1 {
+  position: absolute;
+  bottom: 20px; /* Ensure the arrow is at the bottom of the second GIF */
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow1 img {
+  width: 100px; /* Increase width for larger arrow */
+  height: auto;
+  transform: rotate(90deg); /* Rotate 90 degrees clockwise */
+  transition: transform 0.2s;
+}
+
+.scroll-arrow1 p {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-family: 'GomePixel', sans-serif;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.scroll-arrow1:hover img, .scroll-arrow1:hover p {
+  transform: scale(1.2); /* Slightly enlarge the text and arrow on hover */
+  color: #FFD700; /* Change text color on hover */
+}
+
+/* Footer styling */
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa; /* Background color for the footer */
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer-container img {
+  max-width: 100%;
+  height: auto;
+  display: block; 
+}

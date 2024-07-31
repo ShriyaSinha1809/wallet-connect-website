@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import './Trade.css';
 import Malamal from '../../models/Malamal'; 
 import Lamp from '../../models/Lamp';
+import Truck from '../../models/Truck';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Plane } from '@react-three/drei';
 import { useSpring, animated } from '@react-spring/web';
 
 const Background = () => {
     return (
-        <Plane args={[100, 100]} position={[0, -20, -5]} rotation={[-Math.PI / 2, 0, 0.5]}>
+        <Plane args={[100, 100]} position={[0, -23, -5]} rotation={[-Math.PI / 2, 0, 0.5]}>
             <meshStandardMaterial attach="material" color="#9e6634" />
         </Plane>
     );
@@ -21,6 +22,8 @@ const Trade = () => {
         config: { mass: 1, tension: 170, friction: 26 }
     }));
 
+    const [loading, setLoading] = useState(true); // Loader state
+
     const handleMouseMove = (event) => {
         const { clientX, clientY, innerWidth, innerHeight } = event;
         const x = (clientX / innerWidth - 0.5) * 30;
@@ -31,11 +34,62 @@ const Trade = () => {
     return (
         <div className="trade-container" onMouseMove={handleMouseMove}>
             <Navbar />
-            <animated.div style={props}>
+            {loading && (
+                <div className="loader">
+                    <div>
+                        <div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <div>
+                                                <div>
+                                                    <div>
+                                                        <div>
+                                                            <div>
+                                                                <div>
+                                                                    <div>
+                                                                        <div>
+                                                                            <div>
+                                                                                <div>
+                                                                                    <div>
+                                                                                        <div>
+                                                                                            <div>
+                                                                                                <div>
+                                                                                                    <div>
+                                                                                                        <div>
+                                                                                                            <div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+            <animated.div style={props} className={loading ? 'hidden' : ''}>
                 <Canvas
                     shadows
                     camera={{ position: [0, 5, 10], fov: 45 }}
                     className="canvas-element"
+                    onCreated={() => setLoading(false)} // Hide loader when Canvas is created
                 >
                     <ambientLight intensity={1} />
                     <directionalLight
@@ -70,13 +124,12 @@ const Trade = () => {
                         penumbra={1} 
                         castShadow
                     />
-                    <Background />
-                    <Malamal position={[2, 1, 0]} rotation={[-0.1, 5.2, 0]} scale={[0.6,0.6,0.6 ]} />
-
-                    <Lamp position={[5.5, 0.4, 0]} rotation={[-0.1, 0.4, 0]} scale={[0.6,0.6,0.6 ]} />
-               
-               
-
+                    <group position={[0, -0.5, 0]}>
+                        <Background />
+                        <Malamal position={[2, 1, 0]} rotation={[-0.1, 5.2, 0]} scale={[0.6, 0.6, 0.6]} />
+                        <Lamp position={[5.5, 0.4, 0]} rotation={[-0.1, 0.4, 0]} scale={[0.6, 0.6, 0.6]} />
+                        <Truck position={[5.8, 0.8, 0]} rotation={[-0.1, 0.4, 0]} scale={[0.6, 0.6, 0.6]} />
+                    </group>
                     <OrbitControls />
                 </Canvas>
             </animated.div>

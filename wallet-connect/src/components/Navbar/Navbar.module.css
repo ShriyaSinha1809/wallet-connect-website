@@ -15,12 +15,13 @@ body {
     padding: 15px 20px;
     background-color: #eff5a0b1;
     border-radius: 10px;
-    margin-top: 3vh;
-    margin-left: 4vh;
-    margin-right: 4vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 60px;
-    position: relative;
+    position: fixed;
+    top: 2%;
+    left: 2%;
+    right: 2%;
+    z-index: 1000; /* Ensure it stays on top of other elements */
 }
 
 .logo {
@@ -28,6 +29,10 @@ body {
     font-weight: bold;
     color: #000;
     margin-right: auto;
+}
+
+.logoLink {
+    text-decoration: none;
 }
 
 .navLinks {
@@ -134,13 +139,10 @@ body {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         z-index: 2;
         align-items: center;
-        height:50vh;
-        top:95px; 
-        border-radius:10px;/* Center align items */
-
-        }
-
-    
+        height: 50vh;
+        top: 95px; 
+        border-radius: 10px;
+    }
 
     .navLinks.showMenu {
         display: flex;
@@ -148,8 +150,7 @@ body {
         align-items: center; 
         animation-name: Entry;
         animation-duration: 0.3s;
-        animation-timing-function:ease-in-out ;
-        
+        animation-timing-function: ease-in-out;
     } 
 
     @keyframes Entry {
@@ -158,11 +159,10 @@ body {
             transform: translateY(-50%);
         }
         100% {
-            opacity: auto;
+            opacity: 1;
             transform: translateY(0);
         }
     }
-      
 
     .menuIcon {
         display: block;
@@ -173,7 +173,6 @@ body {
         padding: 10px 20px;
         color: black; /* Color for the links in the menu */
         justify-content: center;
-        
     }
 
     .connectWallet {
