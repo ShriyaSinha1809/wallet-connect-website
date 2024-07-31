@@ -102,10 +102,11 @@ html, body {
   60% {
     clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);
   }
+}
   
   .scroll-arrow {
     position: absolute;
-    bottom: 60px; /* Increase margin from bottom */
+    bottom: 60px; 
     cursor: pointer;
     z-index: 1;
     animation: bounce 2s infinite,hide 5s steps(20);
@@ -122,17 +123,9 @@ html, body {
         opacity: 1;
     }
   }
-  80% {
-    clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
-  }
-  90% {
-    clip-path: polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%);
-  }
-  100% {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-    opacity: 1;
-  }
-}
+
+  
+
 
 /* Navbar container styling */
 .navbar-container {
@@ -157,7 +150,7 @@ html, body {
 .scroll-arrow img {
   width: 100px; /* Increase width for larger arrow */
   height: auto;
-  transform: rotate(90deg); /* Rotate 90 degrees clockwise */
+  transform: rotate(90deg); 
   transition: transform 0.2s;
 }
 
@@ -278,6 +271,7 @@ html, body {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
   }
+}
   
   .text-container {
     position: absolute;
@@ -294,6 +288,7 @@ html, body {
     height:50vh;
     
   }
+
   
   .text-container h2 {
     position: relative;
@@ -361,14 +356,14 @@ html, body {
     font-family: 'GomePixel', sans-serif; /* Ensure the font is applied */
   }
   
-  .custom-button:hover p {
+  /* .custom-button:hover p {
   40% {
     transform: translateY(-10px);
   }
   60% {
     transform: translateY(-5px);
   }
-}
+  } */
 
 @keyframes fadeIn {
   0% {

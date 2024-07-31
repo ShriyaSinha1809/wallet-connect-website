@@ -186,7 +186,6 @@ label {
 
 /* Container for coin details */
 .detailsContainer {
-    margin-left: 20px;
     flex: 1;
 }
 
@@ -200,14 +199,16 @@ label {
 /* Styling for the selected crypto details container */
 .detailsContainer {
     padding: 20px;
-    margin-top: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
+    margin: 20px;
+    background-color: rgba(95, 45, 151, 0.8);
     border-radius: 8px;
     color: #fff;
+    backdrop-filter: blur(1px);
+    
     
    
    display: flex;
-   width: 100%;
+   width: 97%;
     font-family: 'Press Start 2P', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -223,9 +224,12 @@ label {
 .chartsContainer {
     margin: 20px;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 2px solid #4fe0c8;
     border-radius: 8px;
     background-color: #f9f9f9;
+    color: #000;
+    box-shadow: rgba(101, 31, 167, 0.277) -5px 5px, rgba(166, 46, 240, 0.3) -10px 10px, rgba(95, 46, 240, 0.2) -15px 15px, rgba(133, 46, 240, 0.1) -20px 20px, rgba(57, 8, 77, 0.05) -25px 25px;
+    
   }
   
   .chartsContainer h3 {
@@ -244,7 +248,10 @@ label {
     flex: 1;
     margin-right: 20px;
     width: 100%;
+    background-color: #9279b7;
+    box-shadow: rgba(50, 50, 93, 0.651) 0px 13px 27px -5px, rgba(0, 0, 0, 0.599) 0px 8px 16px -8px;
   }
+
   
   .chartsContainer {
     flex: 2;

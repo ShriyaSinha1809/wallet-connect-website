@@ -9,6 +9,7 @@ body {
 }
 
 .navbar {
+    backdrop-filter: blur(1px);
     display: flex;
     justify-content: center;
     align-items: center;
