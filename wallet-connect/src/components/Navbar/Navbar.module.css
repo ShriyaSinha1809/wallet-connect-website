@@ -143,6 +143,7 @@ body {
         height: 50vh;
         top: 95px; 
         border-radius: 10px;
+        top:70px;
     }
 
     .navLinks.showMenu {

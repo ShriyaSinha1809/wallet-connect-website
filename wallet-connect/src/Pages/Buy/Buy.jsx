@@ -55,6 +55,7 @@ const Buy = () => {
             sparkline: false,
           },
         });
+        console.log('Crypto Data:', response.data); // Debugging log
         setCryptoData(response.data);
         setLastUpdated(new Date().toLocaleTimeString());
         setLoading(false);
@@ -109,6 +110,19 @@ const Buy = () => {
       fetchPriceHistory();
     }
   }, [selectedCrypto]);
+
+  useEffect(() => {
+    const scrollToCharts = () => {
+      const element = document.getElementById('detailsContainer');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    if (priceHistory) {
+      scrollToCharts();
+    }
+  }, [priceHistory, selectedChart]); // Trigger scroll when priceHistory or selectedChart changes
 
   const handleCryptoClick = (coin) => {
     setSelectedCrypto(coin);
@@ -181,7 +195,7 @@ const Buy = () => {
         </Canvas>
       </div>
       {selectedCrypto && (
-        <div className="detailsContainer">
+        <div className="detailsContainer" id="detailsContainer">
           <div className="coin-details">
             <h2>{selectedCrypto.name}</h2>
             <p>Current Price: ${selectedCrypto.current_price}</p>
