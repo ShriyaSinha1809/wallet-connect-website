@@ -10,8 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mantine/core": "^7.11.2",
     "@react-spring/web": "^9.7.4",
-    "@react-three/drei": "^9.109.1",
+    "@react-three/drei": "^9.109.2",
     "@react-three/fiber": "^8.16.8",
     "@svgr/webpack": "^8.1.0",
     "@tanstack/react-query": "^5.51.11",
@@ -21,11 +22,13 @@
     "dotenv": "^16.4.5",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.2.0",
+    "react-chrome-dino": "^0.1.3",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.25.1",
     "react-typed": "^2.0.12",
     "react-typewriter-effect": "^1.1.0",
+    "styled-components": "^6.1.12",
     "three": "^0.166.1",
     "viem": "^2.17.9",
     "wagmi": "^2.11.3"
