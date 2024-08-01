@@ -49,9 +49,31 @@ const LogoContainer = styled.div`
 
 // Styled image element
 const LogoImage = styled.img`
-  width: 50px; /* Adjust the size as needed */
-  height: auto;
-  cursor: pointer; /* Indicate that it is clickable */
+  width: 60px; /* Adjust the size as needed */
+  height: 60px; /* Keep it square for a round shape */
+  border-radius: 50%; /* Make it round */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.2); /* Deeper shadow for more depth */
+  transition: transform 0.5s ease, box-shadow 0.3s ease; /* Smooth transition for 3D effects */
+  transform: perspective(600px) rotateX(10deg) rotateY(10deg) scale(1); /* 3D effect with perspective */
+
+  &:hover {
+    transform: perspective(600px) rotateX(0deg) rotateY(0deg) scale(1.1); /* Scale up and remove tilt on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 8px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+  }
+
+  /* Optional: Add a subtle animation to simulate depth */
+  animation: float 4s ease-in-out infinite;
+  margin-right:20px
+`;
+
+// Floating keyframes for a subtle depth effect
+const float = keyframes`
+  0%, 100% {
+    transform: perspective(600px) rotateX(10deg) rotateY(10deg) scale(1);
+  }
+  50% {
+    transform: perspective(600px) rotateX(15deg) rotateY(15deg) scale(1.05);
+  }
 `;
 
 const Logo = () => {

@@ -1,3 +1,11 @@
-.blog-container{
-    background-color: #D3D3D3;
+.blog-container:nth-of-type(1) {
+    background: linear-gradient(135deg, #FFDDC1, #FFABAB);
+}
+
+.blog-container:nth-of-type(2) {
+    background: linear-gradient(135deg, #B9FBC0, #A0E7E5);
+}
+
+.blog-container:nth-of-type(3) {
+    background: linear-gradient(135deg, #C6C6E8, #E5E5E5);
 }

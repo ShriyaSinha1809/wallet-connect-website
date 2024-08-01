@@ -26,6 +26,17 @@ const Blog = () => {
 
   return (
     <>
+      <svg style={{ display: 'none' }}>
+        <defs>
+          <clipPath id="clip-path-ellipse">
+            <ellipse cx="50%" cy="50%" rx="80%" ry="70%" />
+          </clipPath>
+          <clipPath id="clip-path-polygon">
+            <polygon points="0,10 10,0 90,0 100,10 100,90 90,100 10,100 0,90" />
+          </clipPath>
+        </defs>
+      </svg>
+
       <div className="blog-container">
         <Navbar />
         <Canvas shadows camera={{ position: [0, 0, 10] }}>
