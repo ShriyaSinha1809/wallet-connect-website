@@ -1,3 +1,5 @@
+/* Existing CSS Styles */
+
 @font-face {
     font-family: 'GomePixel';
     src: url('src/assets/fonts/GomePixel-ARJd7.otf') format('opentype');
@@ -22,18 +24,31 @@ body {
     left: 2%;
     right: 2%;
     z-index: 1000; /* Ensure it stays on top of other elements */
+ 
 }
 
+
 .logo {
-    font-size: 24px;
+    font-size: 34px;
     font-weight: bold;
     color: #000;
     margin-right: auto;
+    display: flex;
 }
 
 .logoLink {
     text-decoration: none;
 }
+
+.char {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.char:hover {
+    transform: rotate(15deg);
+}
+
 
 .navLinks {
     display: flex;
@@ -198,4 +213,78 @@ body {
     .navLinks a {
         cursor: default; /* Hide cursor */
     }
+}
+
+/* New CSS for Scribble Eyes */
+
+/* Existing CSS Styles */
+
+/* New CSS for Enhanced Scribble Eyes */
+
+/* Existing CSS Styles */
+
+/* New CSS for Pixelated Scribble Eyes */
+
+.eyesContainer {
+    position: absolute;
+    top: 50%;
+    right: 20px; /* Adjusted to position away from edge */
+    transform: translateY(-50%);
+    z-index: 1;
+    display: flex;
+    gap: 15px; /* Spacing between eyes */
+}
+
+.eye {
+    width: 40px; /* Size of the eye */
+    height: 40px;
+    background: white;
+    border: 3px solid #333; /* Darker border for better contrast */
+    border-radius: 30%;
+    position: relative;
+    display: inline-block;
+    image-rendering: pixelated; /* Ensures pixelated images remain crisp */
+    background: repeating-linear-gradient(45deg, #fff, #fff 10px, #ddd 10px, #ddd 20px);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transition: transform 0.2s ease;
+}
+
+.eye:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    background: repeating-linear-gradient(45deg, #fff, #fff 5px, #ddd 5px, #ddd 10px);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    image-rendering: pixelated; /* Ensures pixelated images remain crisp */
+}
+
+.pupil {
+    width: 16px; /* Size of the pupil */
+    height: 16px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+    image-rendering: pixelated; /* Ensures pixelated images remain crisp */
+    background: repeating-linear-gradient(45deg, #000, #000 5px, #333 5px, #333 10px);
+}
+
+.pupil:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, #333 50%, transparent 50%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    image-rendering: pixelated; /* Ensures pixelated images remain crisp */
 }
