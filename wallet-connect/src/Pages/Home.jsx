@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/Navbar/Navbar';
+import Navbar from '../components/Navbar/Navbar';// Adjust the import path as needed
 import './Home.css'; // Import the CSS file for styling
 
 const Home = () => {
@@ -87,7 +87,7 @@ const Home = () => {
                 ></path>
               </svg>
             </div>
-            <p >Swaps</p>
+            <p>Swaps</p>
           </button>
         </div>
       </div>

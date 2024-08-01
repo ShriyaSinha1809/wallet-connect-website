@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
-      <div className={styles.logo}><h2>LOREM</h2></div>
+      <div className={styles.logo}><Link to="/home"><h2>YOKGP</h2></Link></div>
       <div className={styles.navLinks}>
         <Link to="/trade"> <FaExchangeAlt /> Trade</Link>
         <Link to="#"> <FaShoppingCart /> Buy</Link>
