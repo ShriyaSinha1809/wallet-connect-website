@@ -1,5 +1,6 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
+import { collisionsLevel1, collisionsLevel2, collisionsLevel3 } from './data/collisions.js';
 
 canvas.width = 64 * 16 // 1024
 canvas.height = 64 * 9 // 576

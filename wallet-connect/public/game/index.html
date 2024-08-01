@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game</title>
+  <style>
+    body {
+      background: black;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container"></div>
+
+  <!-- Ensure the paths here are correct relative to the location of this HTML file -->
+  <script type="module">
+    // Import modules
+    import { collisionsLevel1, collisionsLevel2, collisionsLevel3 } from './js/data/collisions.js';
+    import './js/utils.js';
+    import CollisionBlock from './js/classes/CollisionBlock.js';
+    import Sprite from './js/classes/Sprite.js';
+    import Player from './js/classes/Player.js';
+    import './js/eventListeners.js';
+    import './index.js';
+
+    // You can initialize or call necessary functions here if needed
+  </script>
+</body>
+</html>

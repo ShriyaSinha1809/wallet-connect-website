@@ -8,23 +8,36 @@ const GameFooter = () => {
         const script = document.createElement('script');
         script.src = src;
         script.async = true;
-        script.onload = resolve;
-        script.onerror = reject;
+        script.onload = () => {
+          console.log(`Loaded script: ${src}`);
+          resolve();
+        };
+        script.onerror = (err) => {
+          console.error(`Failed to load script: ${src}`, err);
+          reject(err);
+        };
         document.body.appendChild(script);
       });
     };
 
+    // List of script sources
+    const scriptSrcs = [
+      "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js",
+      "./game/js/utils.js",
+      "./game/js/data/collisions.js",
+      "./game/js/classes/CollisionBlock.js",
+      "./game/js/classes/Sprite.js",
+      "./game/js/classes/Player.js",
+      "./game/js/eventListeners.js",
+      "./game/index.js"
+    ];
+
     // Load scripts in sequence to ensure correct order
     const loadScriptsSequentially = async () => {
       try {
-        await loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js");
-        await loadScript("./game/js/utils.js");
-        await loadScript("./game/js/data/collisions.js");
-        await loadScript("./game/js/classes/CollisionBlock.js");
-        await loadScript("./game/js/classes/Sprite.js");
-        await loadScript("./game/js/classes/Player.js");
-        await loadScript("./game/js/eventListeners.js");
-        await loadScript("./game/index.js");
+        for (const src of scriptSrcs) {
+          await loadScript(src);
+        }
         console.log('All game scripts loaded successfully');
       } catch (err) {
         console.error('Script loading failed', err);
@@ -35,9 +48,9 @@ const GameFooter = () => {
 
     // Cleanup scripts when component unmounts
     return () => {
-      const scripts = document.querySelectorAll('script');
-      scripts.forEach(script => {
-        if (scriptSrcs.includes(script.src)) {
+      scriptSrcs.forEach(src => {
+        const script = document.querySelector(`script[src="${src}"]`);
+        if (script) {
           document.body.removeChild(script);
         }
       });
