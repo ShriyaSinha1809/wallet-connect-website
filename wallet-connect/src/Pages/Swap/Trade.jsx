@@ -130,7 +130,7 @@ const Trade = () => {
                         <Lamp position={[5.5, 0.4, 0]} rotation={[-0.1, 0.4, 0]} scale={[0.6, 0.6, 0.6]} />
                         <Truck position={[5.8, 0.8, 0]} rotation={[-0.1, 0.4, 0]} scale={[0.6, 0.6, 0.6]} />
                     </group>
-                    <OrbitControls />
+                   
                 </Canvas>
             </animated.div>
         </div>

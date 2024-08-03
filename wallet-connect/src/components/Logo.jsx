@@ -94,9 +94,10 @@ const Logo = () => {
         setTimeout(() => {
           navigate('/blog'); // Use navigate to change route
         }, 50); // Duration of the fade-out transition
-      }, 50); // Duration before starting the fade-out animation
+      }, 50); // Duration before starting the fazde-out animation
     }, 2000); // Duration of the spread animation
   };
+
 
   useEffect(() => {
     if (fadeOut) {
