@@ -1,3 +1,4 @@
+/* WalletConnectModal.module.css */
 .modalBackground {
   position: fixed;
   top: 0;
@@ -20,18 +21,19 @@
 }
 
 .modalContainer {
-  width: 60%; /* Increased the width */
+  width: 80%; /* Adjusted for smaller screens */
+  max-width: 768px; /* Max width for larger screens */
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
   transform: translateY(-50px);
-  min-width: 768px;
   opacity: 0;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   border: 20px solid;
   border-image: url('/src/assets/border.jpg');
   border-image-slice: 16 14 26 13;
- 
+  background-color: white;
+  border-radius: 10px;
 }
 
 .modalContainer.open {
@@ -39,13 +41,10 @@
   opacity: 1;
 }
 
-
 .closeButton {
   position: absolute;
-  top:0;
-  right:-1px;
-  display:flex;
-  justify-content:end; /* Change to relative *//* Add /* Position from the right */ /* Override any previous left positioning */
+  top: 10px;
+  right: 10px;
   background: none;
   border: none;
   font-size: 20px;
@@ -54,27 +53,40 @@
   border: 2px solid rgb(226, 99, 60);
   background-color: #eff5a0;
   border-radius: 5px;
+}
 
+.closeButton:hover {
+  background-color: #cfcf63;
+  border: 2px solid rgb(185, 79, 47);
 }
 
 .content {
-  background: rgba(90, 86, 86, 0.5); /* Green color with 50% transparency */
-  backdrop-filter: blur(10px); /* Apply a blur effect to the background */
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
-  height: 300px;
-  color: white;
-  padding: 20px;
   display: flex;
   flex-direction: row;
+  width: 100%;
+  background: rgba(90, 86, 86, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.leftside {
+  flex: 1;
+  display: flex;
   justify-content: center;
   align-items: center;
- /* Added border-radius for smooth corners */
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Optional: Add a subtle border for better visual separation */
+  background: rgba(112, 107, 106, 0.682);
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .logoButton {
-  background: white; /* Changed background color to white */
+  background: white;
   border: none;
   cursor: pointer;
   padding: 5px; /* Adjust padding as needed */
@@ -161,23 +173,21 @@
 }
 
 .logo {
-  width: 60px; /* Decreased width */
-  height: 60px; /* Decreased height */
+  width: 60px;
+  height: 60px;
 }
 
-.rightside{
-  flex: 1;
-  right:-20px;
-  background: rgba(255, 255, 255, 0.127); /* Glass-like */
-  backdrop-filter: blur(10px);
-  padding: 10px 10px;
-  height:100%;
+.rightside {
+  flex: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px;
+  background: rgba(255, 255, 255, 0.127);
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .righttext{
