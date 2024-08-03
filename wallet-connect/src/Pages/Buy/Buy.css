@@ -9,6 +9,7 @@
     background: linear-gradient(to right, #432371, #2a1a47); /* Dark violet to deeper violet gradient */
 }
 
+
 /* Additional styles to ensure full background coverage */
 
 .buyContainer, .sellContainer {
@@ -267,3 +268,6 @@ label {
     margin-right: 10px;
   }
   
+  .model-container{
+    height: 60vh;
+  }

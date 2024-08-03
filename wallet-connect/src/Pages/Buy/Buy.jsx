@@ -4,6 +4,7 @@ import { Canvas } from '@react-three/fiber';
 import axios from 'axios';
 import ComputerModel from '../../models/Computer';
 import Earth from '../../models/Earth';
+import Ethereum from '../../models/Ethereum'; // Import the Ethereum model
 import Navbar from '../../components/Navbar/Navbar';
 import './Buy.css';
 import { Line, Bar, Pie, Radar } from 'react-chartjs-2';
@@ -55,7 +56,6 @@ const Buy = () => {
             sparkline: false,
           },
         });
-        console.log('Crypto Data:', response.data); // Debugging log
         setCryptoData(response.data);
         setLastUpdated(new Date().toLocaleTimeString());
         setLoading(false);
@@ -197,7 +197,20 @@ const Buy = () => {
       {selectedCrypto && (
         <div className="detailsContainer" id="detailsContainer">
           <div className="coin-details">
-            <h2>{selectedCrypto.name}</h2>
+          
+            {selectedCrypto.id === 'ethereum' && (
+              <div className="model-container">
+                <Canvas shadows>
+                  <ambientLight intensity={6} />
+                  <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
+                  <pointLight position={[-10, -10, -10]} />
+                  <Suspense fallback={null}>
+                    <Ethereum position={[0, -1, 0]} rotation={[0, 0, 0]} scale={[2,2,2]} castShadow receiveShadow />
+                  </Suspense>
+                </Canvas>
+              </div>
+            )}
+              <h2>{selectedCrypto.name}</h2>
             <p>Current Price: ${selectedCrypto.current_price}</p>
             <p>Market Cap: ${selectedCrypto.market_cap}</p>
             <p>24h Change: {selectedCrypto.price_change_percentage_24h}%</p>

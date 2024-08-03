@@ -4,6 +4,7 @@ import Robot from '../../models/Robot';
 import Rhea from '../../models/Rhea';
 import Milo from '../../models/Milo';
 import { Canvas } from '@react-three/fiber';
+import { MeshStandardMaterial } from 'three';
 import './Blog.css';
 
 const Blog = () => {
@@ -20,7 +21,7 @@ const Blog = () => {
   ]; // Replace with your animation names
 
   const texts = [
-    { text: "Welcome to our", animation: 1 },
+    { text: "How to Connect Wallet?", animation: 1 },
     { text: "Explore the", animation: 2 },
     { text: "Meet our robots:", animation: 3 },
     { text: "Enjoy the 3D", animation: 4 }
@@ -32,6 +33,10 @@ const Blog = () => {
 
   const handleMouseLeave = () => {
     setAnimationIndex(0); // Default animation index
+  };
+
+  const handleClick = (index) => {
+    document.getElementById(`viewport-${index + 1}`).scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -47,7 +52,7 @@ const Blog = () => {
         </defs>
       </svg>
 
-      <div className="blog-container">
+      <div className="blog-container" id="viewport-1">
         <Navbar />
         <Canvas shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
@@ -64,6 +69,8 @@ const Blog = () => {
             shadow-camera-top={10} 
             shadow-camera-bottom={-10} 
           />
+          <pointLight position={[0, 10, 10]} intensity={1} />
+          <pointLight position={[0, -10, -10]} intensity={0.5} />
           <Suspense fallback={null}>
             <Robot 
               position={[0, -4, 0]} 
@@ -87,6 +94,7 @@ const Blog = () => {
           className="left-text-1 writing-effect" 
           onMouseEnter={() => handleMouseEnter(0)}
           onMouseLeave={handleMouseLeave}
+          onClick={() => handleClick(1)}
         >
           {texts[0].text}
         </div>
@@ -94,6 +102,7 @@ const Blog = () => {
           className="left-text-2 writing-effect" 
           onMouseEnter={() => handleMouseEnter(1)}
           onMouseLeave={handleMouseLeave}
+          onClick={() => handleClick(2)}
         >
           {texts[1].text}
         </div>
@@ -101,6 +110,7 @@ const Blog = () => {
           className="right-text-1 writing-effect" 
           onMouseEnter={() => handleMouseEnter(2)}
           onMouseLeave={handleMouseLeave}
+          onClick={() => handleClick(3)}
         >
           {texts[2].text}
         </div>
@@ -108,13 +118,17 @@ const Blog = () => {
           className="right-text-2 writing-effect" 
           onMouseEnter={() => handleMouseEnter(3)}
           onMouseLeave={handleMouseLeave}
+          onClick={() => handleClick(4)}
         >
           {texts[3].text}
         </div>
       </div>
 
-      <div className="blog-container">
+      <div className="blog-container" id="viewport-2">
         <Navbar />
+        <div className="pixelated-title">
+          How to Connect Wallet?
+        </div>
         <Canvas shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 
@@ -130,6 +144,8 @@ const Blog = () => {
             shadow-camera-top={10} 
             shadow-camera-bottom={-10} 
           />
+          <pointLight position={[0, 10, 10]} intensity={1} />
+          <pointLight position={[0, -10, -10]} intensity={0.5} />
           <Suspense fallback={null}>
             <Rhea 
               position={[9, -5, 1]} 
@@ -151,8 +167,11 @@ const Blog = () => {
         </Canvas>
       </div>
 
-      <div className="blog-container">
+      <div className="blog-container" id="viewport-3">
         <Navbar />
+        <div className="pixelated-title">
+          Meet our robots:
+        </div>
         <Canvas shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 
@@ -168,6 +187,8 @@ const Blog = () => {
             shadow-camera-top={10} 
             shadow-camera-bottom={-10} 
           />
+          <pointLight position={[0, 10, 10]} intensity={1} />
+          <pointLight position={[0, -10, -10]} intensity={0.5} />
           <Suspense fallback={null}>
             <Milo 
               position={[-8, -5, 1]} 

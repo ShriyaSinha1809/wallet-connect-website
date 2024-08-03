@@ -3,9 +3,14 @@
 body {
   margin: 0;
   height: 100%;
-  background: linear-gradient(135deg, #2c003e, #1c073f);
+  overflow: hidden; /* Prevent scrollbars */
+  background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
   color: white;
   font-family: 'Press Start 2P', cursive;
+}
+
+html, body {
+  scroll-behavior: smooth;
 }
 
 .blog-container {
@@ -78,10 +83,32 @@ body {
     8px 8px 0 0 black, 
     12px 12px 0 0 black;
   z-index: 2; /* Ensure text is above the curved lines */
+  cursor: pointer;
 }
 
 .writing-effect:hover {
   transform: scale(1.2);
+}
+
+.pixelated-title {
+  font-size: 2rem;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  background: linear-gradient(135deg, #2c003e, #1c073f);
+  padding: 15px;
+  border: 2px solid black;
+  box-shadow: 
+    0 0 0 2px black, 
+    4px 4px 0 0 black, 
+    8px 8px 0 0 black, 
+    12px 12px 0 0 black;
+    
+  z-index: 2; /* Ensure text is above the curved lines */
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 }
 
 .left-text-1 {
@@ -93,7 +120,7 @@ body {
 .left-text-2 {
   top: 60%;
   left: 5%;
-  animation: fadeInLeft 2s ease-in-out 1s;
+  animation: fadeInLeft 2s ease-in-out ;
 }
 
 .right-text-1 {
@@ -105,7 +132,7 @@ body {
 .right-text-2 {
   top: 60%;
   right: 5%;
-  animation: fadeInRight 2s ease-in-out 1s;
+  animation: fadeInRight 2s ease-in-out ;
 }
 
 @keyframes fadeInLeft {
