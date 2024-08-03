@@ -1,4 +1,13 @@
-.trade-container {
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+
+  
+  .trade-container {
     background-color: rgb(100, 52, 25);
     width: 100vw;
     height: 100vh;
@@ -7,14 +16,50 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-}
+  }
   
-.canvas-element {
+  .canvas-element {
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at bottom, rgb(158, 102, 52), rgb(100, 52, 25));
-    border-bottom-left-radius: 50% 20%;
-    border-bottom-right-radius: 50% 20%;
-    position: relative;
-}
-
+    background:  rgb(158, 102, 52), rgb(100, 52, 25);
+   
+    position: absolute;
+  }
+  
+  .loader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 10em;
+    height: 10em;
+    border-radius: 100%;
+  }
+  
+  .loader div {
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    box-sizing: border-box;
+    border-bottom: 0.2em solid grey;
+    border-top: 0.2em solid grey;
+    border-left: 0.2em solid aqua;
+    border-right: 0.2em solid aqua;
+    animation: spin 10s infinite linear;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(180deg);
+    }
+  }
+  
+  .hidden {
+    visibility: hidden;
+  }
+  

@@ -1,3 +1,5 @@
+/* Existing CSS Styles */
+
 @font-face {
     font-family: 'GomePixel';
     src: url('src/assets/fonts/GomePixel-ARJd7.otf') format('opentype');
@@ -9,48 +11,64 @@ body {
 }
 
 .navbar {
+    backdrop-filter: blur(1px);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 15px 20px;
     background-color: #eff5a0b1;
     border-radius: 10px;
-    margin-top: 3vh;
-    margin-left: 4vh;
-    margin-right: 4vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 60px;
-    
+    position: fixed;
+    top: 2%;
+    left: 2%;
+    right: 2%;
+    z-index: 1000; /* Ensure it stays on top of other elements */
+ 
 }
 
+
 .logo {
-    font-size: 24px;
+    font-size: 34px;
     font-weight: bold;
     color: #000;
     margin-right: auto;
-   
+    display: flex;
 }
+
+.logoLink {
+    text-decoration: none;
+}
+
+.char {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.char:hover {
+    transform: rotate(15deg);
+}
+
 
 .navLinks {
     display: flex;
     gap: 40px;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
+    width: 100%;
 }
 
 .navLinks a {
+    display: flex;
     text-decoration: none;
     font-size: 18px;
-    display: flex;
     align-items: center;
     gap: 8px; 
     position: relative;
     color: transparent; /* Hide the original text */
     animation: showText 0s steps(1) 2s forwards;
 }
-
-
 
 .navLinks a::after {
     content: attr(data-text);
@@ -63,7 +81,6 @@ body {
     animation: typing 2s steps(15), blink .75s step-end infinite, showBorder 0s steps(1) 2s forwards;
     color: black; /* Set the color for the pseudo-element text */
     transition: transform 5s ease-in-out;
-
 }
 
 .navLinks a:hover {
@@ -91,7 +108,6 @@ body {
     to {
         width: 80%;
     }
-    
 }
 
 @keyframes blink {
@@ -113,14 +129,164 @@ body {
     from {
         opacity: 0;
     }
-    to{
+    to {
         opacity: 1;
-        color:  rgb(0, 0, 0); /* Color for the original text after typing animation */
+        color: rgb(0, 0, 0); /* Color for the original text after typing animation */
     }
-
 }
 
+.menuIcon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: auto;
+    color: black; /* Set color of the menu icon to black */
+}
 
+@media (max-width: 650px) {
+    .navLinks {
+        backdrop-filter: blur(1px);
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        background-color: #eff5a0b1;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        align-items: center;
+        height: 50vh;
+        top: 95px; 
+        border-radius: 10px;
+        top:70px;
+    }
 
+    .navLinks.showMenu {
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        animation-name: Entry;
+        animation-duration: 0.3s;
+        animation-timing-function: ease-in-out;
+    } 
 
+    @keyframes Entry {
+        0% {
+            opacity: 0;
+            transform: translateY(-50%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
+    .menuIcon {
+        display: block;
+        justify-content: center;
+    }
+
+    .navLinks a {
+        padding: 10px 20px;
+        color: black; /* Color for the links in the menu */
+        justify-content: center;
+    }
+
+    .connectWallet {
+        width: 50vw;
+        padding: 10px 20px;
+        border-bottom: none;
+        text-align: center; /* Center text */
+    }
+
+    .navLinks a::after, .navLinks.noTyping a::after {
+        border: none;
+    }
+
+    .noTyping a {
+        animation: none;
+        color: black; /* Ensure the text is visible */
+    }
+
+    .noTyping a::after {
+        content: none;
+    }
+
+    .navLinks a {
+        cursor: default; /* Hide cursor */
+    }
+}
+
+/* New CSS for Scribble Eyes */
+
+/* Existing CSS Styles */
+
+/* New CSS for Enhanced Scribble Eyes */
+
+/* Existing CSS Styles */
+
+/* New CSS for Pixelated Scribble Eyes */
+
+.eyesContainer {
+    position: absolute;
+    top: 50%;
+    right: 20px; /* Adjusted to position away from edge */
+    transform: translateY(-50%);
+    z-index: 1;
+    display: flex;
+    gap: 15px; /* Spacing between eyes */
+}
+
+.eye {
+    width: 40px; /* Size of the eye */
+    height: 40px;
+    background: white;
+    border: 3px solid #333; /* Darker border for better contrast */
+    border-radius: 30%;
+    position: relative;
+    display: inline-block;
+    image-rendering: pixelated; /* Ensures pixelated images remain crisp */
+    background: repeating-linear-gradient(45deg, #fff, #fff 10px, #ddd 10px, #ddd 20px);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transition: transform 0.2s ease;
+}
+
+.eye:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    background: repeating-linear-gradient(45deg, #fff, #fff 5px, #ddd 5px, #ddd 10px);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    image-rendering: pixelated; /* Ensures pixelated images remain crisp */
+}
+
+.pupil {
+    width: 16px; /* Size of the pupil */
+    height: 16px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+    image-rendering: pixelated; /* Ensures pixelated images remain crisp */
+    background: repeating-linear-gradient(45deg, #000, #000 5px, #333 5px, #333 10px);
+}
+
+.pupil:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, #333 50%, transparent 50%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    image-rendering: pixelated; /* Ensures pixelated images remain crisp */
+}
