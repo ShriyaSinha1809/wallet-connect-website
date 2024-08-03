@@ -51,10 +51,10 @@ const WalletConnectModal = ({ isOpen, onClose }) => {
                         <button className={styles.logoButton5} onClick={handleLogoClick}>
                             <img src="/okx.svg" alt="OKX Logo" className={styles.logo} />
                         </button>
-                        <button className={styles.google} onClick={handleLogoClick}><img src="/gicon.svg"/></button>
+        
                     </div>
                     <div className={styles.rightside}>
-                        <h5 className={styles.righttext}>Haven’t got a wallet yet?</h5>
+                        <h3 className={styles.righttext}>Haven’t got a wallet yet?</h3>
                         <button className={styles.howtolink}>Learn How to Connect</button>
                     </div>
                     <button className={styles.closeButton} onClick={onClose}>×</button>
