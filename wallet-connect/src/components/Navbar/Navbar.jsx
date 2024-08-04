@@ -59,11 +59,6 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
-      <div className={styles.logo}><Link to="/home"><h2>YOKGP</h2></Link></div>
-      <div className={styles.navLinks}>
-        <Link to="/trade"> <FaExchangeAlt /> Trade</Link>
-        <Link to="#"> <FaShoppingCart /> Buy</Link>
-        <Link to="#"> <FaMoneyBillWave /> Earn</Link>
       <Link to="/home" className={styles.logoLink}>
         <div className={styles.logo}>{renderLogo('LOREM')}</div>
       </Link>

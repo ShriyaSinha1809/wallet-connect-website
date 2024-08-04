@@ -1,11 +1,6 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from '../src/Pages/Home';
-import Loading from '../src/Pages/Loading/Loading'; // Ensure this path is correct
-import Trade from '../src/Pages/Swap/Trade'; // Import the new Trade page
-import GameFooter from './components/GameFooter'; // Make sure the path is correct
-
 import Home from './Pages/Home';
 import Loading from './Pages/Loading/Loading';
 import Trade from './Pages/Swap/Trade';
@@ -26,10 +21,8 @@ const App = () => {
         {/* You can add more Route components here for other URLs */}
       </Routes>
       <Logo /> {/* Add the Logo component here */}
-
     </Router>
   );
 };
 
 export default App;
-

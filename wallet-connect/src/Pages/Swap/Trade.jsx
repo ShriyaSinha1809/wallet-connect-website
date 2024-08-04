@@ -85,15 +85,20 @@ const Trade = () => {
                 </div>
             )}
             <animated.div style={props} className={loading ? 'hidden' : ''}>
-                <Canvas
-                    shadows
-                    camera={{ position: [0, 5, 10], fov: 45 }}
-                    className="canvas-element"
-                    onCreated={() => setLoading(false)} // Hide loader when Canvas is created
-                >
+            <Canvas
+                shadows
+                camera={{ position: [0, 5, 10], fov: 45 }}
+                className="canvas-element"
+                onCreated={({ gl }) => {
+                    setLoading(false); // Hide loader when Canvas is created
+                    gl.setSize(window.innerWidth, window.innerHeight); // Resize canvas
+                    }}
+                    >
+    {/* Other Three.js elements here */}
+
                     <ambientLight intensity={1} />
                     <directionalLight
-                        position={[5, 10, 5]}
+                        position={[, 10, 5]}
                         intensity={6}
                         castShadow
                         shadow-mapSize-width={4096}
