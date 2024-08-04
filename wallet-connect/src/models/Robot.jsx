@@ -1,36 +1,34 @@
-
-
-import React, { useRef ,useEffect} from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
-import{ Component } from 'react';
+import React, { useRef, useEffect } from 'react';
+import { useGLTF, useAnimations } from '@react-three/drei';
 import { useCharacterAnimations } from "../models/Contexts/CharcaterAnimation";
 import { useFrame } from '@react-three/fiber';
 
 const Robot = ({ position, rotation, scale, headRotation, animation, ...props }) => {
-  const group = useRef()
-  const { nodes, materials, animations } = useGLTF('/twelve_the_robot_low_poly.glb')
+  const group = useRef();
+  const { nodes, materials, animations } = useGLTF('/twelve_the_robot_low_poly.glb');
   const { setAnimations, animationIndex } = useCharacterAnimations();
-  const { actions,names } = useAnimations(animations, group)
-    console.log(names);
-    console.log(group.current)
+  const { actions, names } = useAnimations(animations, group);
 
-    useFrame(() => {
-        if (group.current) {
-          const head = group.current.getObjectByName('Head'); // Replace with the actual name of the head part in your model
-          if (head) {
-            head.rotation.x = headRotation.x;
-            head.rotation.y = headRotation.y;
-          }
+  useFrame(() => {
+    if (group.current) {
+      const head = group.current.getObjectByName('Head'); // Replace with the actual name of the head part in your model
+      if (head) {
+        head.rotation.x = headRotation.x;
+        head.rotation.y = headRotation.y;
+      }
+    }
+  });
+
+  useEffect(() => {
+    if (animation && actions[animation]) {
+      actions[animation].reset().fadeIn(0.5).play();
+      return () => {
+        if (actions[animation]) {
+          actions[animation].fadeOut(0.5);
         }
-      });
-
-    useEffect(() => {
-        if (animation && actions[animation]) {
-          actions[animation].reset().fadeIn(0.5).play();
-          return () => actions[animation].fadeOut(0.5);
-        }
-      }, [animation, actions]);
-
+      };
+    }
+  }, [animation, actions]);
 
   return (
     <group ref={group} position={position} rotation={rotation} scale={scale} {...props} dispose={null}>
@@ -616,9 +614,9 @@ const Robot = ({ position, rotation, scale, headRotation, animation, ...props })
         </group>
       </group>
     </group>
-  )
-}
+  );
+};
 
-useGLTF.preload('/twelve_the_robot_low_poly.glb')
+useGLTF.preload('/twelve_the_robot_low_poly.glb');
 
 export default Robot;

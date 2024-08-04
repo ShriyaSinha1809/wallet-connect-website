@@ -1,11 +1,131 @@
-.blog-container:nth-of-type(1) {
-    background: linear-gradient(135deg, #FFDDC1, #FFABAB);
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  margin: 0;
+  height: 100%;
+  background: linear-gradient(135deg, #2c003e, #1c073f);
+  color: white;
+  font-family: 'Press Start 2P', cursive;
 }
 
-.blog-container:nth-of-type(2) {
-    background: linear-gradient(135deg, #B9FBC0, #A0E7E5);
+.blog-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Ensure curved lines are visible */
 }
 
-.blog-container:nth-of-type(3) {
-    background: linear-gradient(135deg, #C6C6E8, #E5E5E5);
+.blog-container::before,
+.blog-container::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none; /* Ensure the lines do not interfere with interactions */
+}
+
+.blog-container:nth-of-type(1)::before {
+  top: -100%;
+  left: -100%;
+}
+
+.blog-container:nth-of-type(1)::after {
+  bottom: -100%;
+  right: -100%;
+}
+
+.blog-container:nth-of-type(2)::before {
+  top: -100%;
+  left: -100%;
+}
+
+.blog-container:nth-of-type(2)::after {
+  bottom: -100%;
+  right: -100%;
+}
+
+.blog-container:nth-of-type(3)::before {
+  top: -100%;
+  left: -100%;
+}
+
+.blog-container:nth-of-type(3)::after {
+  bottom: -100%;
+  right: -100%;
+}
+
+.writing-effect {
+  position: absolute;
+  font-size: 1.5rem;
+  font-family: 'Press Start 2P', cursive;
+  color: white; /* Ensure text is visible */
+  white-space: nowrap;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  padding: 10px;
+  background: linear-gradient(135deg, #2c003e, #1c073f);
+  border: 2px solid black;
+  box-shadow: 
+    0 0 0 2px black, 
+    4px 4px 0 0 black, 
+    8px 8px 0 0 black, 
+    12px 12px 0 0 black;
+  z-index: 2; /* Ensure text is above the curved lines */
+}
+
+.writing-effect:hover {
+  transform: scale(1.2);
+}
+
+.left-text-1 {
+  top: 30%;
+  left: 5%;
+  animation: fadeInLeft 2s ease-in-out;
+}
+
+.left-text-2 {
+  top: 60%;
+  left: 5%;
+  animation: fadeInLeft 2s ease-in-out 1s;
+}
+
+.right-text-1 {
+  top: 30%;
+  right: 5%;
+  animation: fadeInRight 2s ease-in-out;
+}
+
+.right-text-2 {
+  top: 60%;
+  right: 5%;
+  animation: fadeInRight 2s ease-in-out 1s;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import './Home.css'; // Import the CSS file for styling
 
+
 const Home = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [cloudsIn, setCloudsIn] = useState(false);
@@ -122,6 +123,7 @@ const Home = () => {
       <div className="footer-container">
         <img src="src/assets/hiring-pixel-art-animation-artist-snow-scenary-1-character-v0-wguo0stxo6mc1.gif" alt="Fourth GIF" />
       </div>
+   s
     </>
   );
 };

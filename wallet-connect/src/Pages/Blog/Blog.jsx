@@ -4,7 +4,6 @@ import Robot from '../../models/Robot';
 import Rhea from '../../models/Rhea';
 import Milo from '../../models/Milo';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 import './Blog.css';
 
 const Blog = () => {
@@ -20,8 +19,19 @@ const Blog = () => {
     "animation.lael.idle_jump_main"
   ]; // Replace with your animation names
 
-  const handlePartClick = (index) => {
-    setAnimationIndex(index);
+  const texts = [
+    { text: "Welcome to our", animation: 1 },
+    { text: "Explore the", animation: 2 },
+    { text: "Meet our robots:", animation: 3 },
+    { text: "Enjoy the 3D", animation: 4 }
+  ];
+
+  const handleMouseEnter = (index) => {
+    setAnimationIndex(texts[index].animation);
+  };
+
+  const handleMouseLeave = () => {
+    setAnimationIndex(0); // Default animation index
   };
 
   return (
@@ -62,10 +72,6 @@ const Blog = () => {
               castShadow 
               receiveShadow
               animation={animations[animationIndex]} 
-              onClickPart={handlePartClick} 
-              onUpdate={(self) => {
-                self.scale.set(4, 4, 4);
-              }}
             />
             <mesh 
               position={[0, -3, 0]} 
@@ -76,8 +82,35 @@ const Blog = () => {
               <shadowMaterial opacity={0.5} />
             </mesh>
           </Suspense>
-         
         </Canvas>
+        <div 
+          className="left-text-1 writing-effect" 
+          onMouseEnter={() => handleMouseEnter(0)}
+          onMouseLeave={handleMouseLeave}
+        >
+          {texts[0].text}
+        </div>
+        <div 
+          className="left-text-2 writing-effect" 
+          onMouseEnter={() => handleMouseEnter(1)}
+          onMouseLeave={handleMouseLeave}
+        >
+          {texts[1].text}
+        </div>
+        <div 
+          className="right-text-1 writing-effect" 
+          onMouseEnter={() => handleMouseEnter(2)}
+          onMouseLeave={handleMouseLeave}
+        >
+          {texts[2].text}
+        </div>
+        <div 
+          className="right-text-2 writing-effect" 
+          onMouseEnter={() => handleMouseEnter(3)}
+          onMouseLeave={handleMouseLeave}
+        >
+          {texts[3].text}
+        </div>
       </div>
 
       <div className="blog-container">
@@ -105,10 +138,6 @@ const Blog = () => {
               castShadow 
               receiveShadow
               animation={animations[4]} 
-              onClickPart={handlePartClick} 
-              onUpdate={(self) => {
-                self.scale.set(5, 5, 5);
-              }}
             />
             <mesh 
               position={[0, -3.5, 0]} 
@@ -119,7 +148,6 @@ const Blog = () => {
               <shadowMaterial opacity={0.5} />
             </mesh>
           </Suspense>
-        
         </Canvas>
       </div>
 
@@ -148,10 +176,6 @@ const Blog = () => {
               castShadow 
               receiveShadow
               animation={animations[6]} 
-              onClickPart={handlePartClick} 
-              onUpdate={(self) => {
-                self.scale.set(5, 5, 5);
-              }}
             />
             <mesh 
               position={[0, -3.5, 0]} 
@@ -162,7 +186,6 @@ const Blog = () => {
               <shadowMaterial opacity={0.5} />
             </mesh>
           </Suspense>
-
         </Canvas>
       </div>
     </>
