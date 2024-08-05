@@ -1,7 +1,6 @@
 import { Sprite } from './Sprite';
 
-
-export class Player extends Sprite {
+class Player extends Sprite {
   constructor({ collisionBlocks = [], imageSrc, frameRate, animations, loop }) {
     super({ imageSrc, frameRate, animations, loop })
     this.position = {

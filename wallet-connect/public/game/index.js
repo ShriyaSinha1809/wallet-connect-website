@@ -1,5 +1,7 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
+import { collisionsLevel1, collisionsLevel2, collisionsLevel3 } from './data/collisions.js';
+
 
 canvas.width = 64 * 16 // 1024
 canvas.height = 64 * 9 // 576
@@ -9,38 +11,39 @@ let collisionBlocks
 let background
 let doors
 const player = new Player({
-  imageSrc: `${process.env.PUBLIC_URL}/game/img/king/idle.png`,
+  imageSrc: './img/king/idle.png',
   frameRate: 11,
   animations: {
     idleRight: {
       frameRate: 11,
       frameBuffer: 2,
       loop: true,
-      imageSrc: `${process.env.PUBLIC_URL}/game/img/king/idle.png`,
+
+      imageSrc: './img/king/idle.png',
     },
     idleLeft: {
       frameRate: 11,
       frameBuffer: 2,
       loop: true,
-      imageSrc: `${process.env.PUBLIC_URL}/game/img/king/idleLeft.png`,
+      imageSrc: './img/king/idleLeft.png',
     },
     runRight: {
       frameRate: 8,
       frameBuffer: 4,
       loop: true,
-      imageSrc: `${process.env.PUBLIC_URL}/game/img/king/runRight.png`,
+      imageSrc: './img/king/runRight.png',
     },
     runLeft: {
       frameRate: 8,
       frameBuffer: 4,
       loop: true,
-      imageSrc: `${process.env.PUBLIC_URL}/game/img/king/runLeft.png`,
+      imageSrc: './img/king/runLeft.png',
     },
     enterDoor: {
       frameRate: 8,
       frameBuffer: 4,
       loop: false,
-      imageSrc: `${process.env.PUBLIC_URL}/game/img/king/enterDoor.png`,
+      imageSrc: './img/king/enterDoor.png',
       onComplete: () => {
         console.log('completed animation')
         gsap.to(overlay, {
@@ -76,7 +79,7 @@ let levels = {
           x: 0,
           y: 0,
         },
-        imageSrc: `${process.env.PUBLIC_URL}/game/img/backgroundLevel1.png`,
+        imageSrc: './img/backgroundLevel1.png',
       })
 
       doors = [
@@ -85,7 +88,7 @@ let levels = {
             x: 767,
             y: 270,
           },
-          imageSrc: `${process.env.PUBLIC_URL}/game/img/doorOpen.png`,
+          imageSrc: './img/doorOpen.png',
           frameRate: 5,
           frameBuffer: 5,
           loop: false,
@@ -109,7 +112,7 @@ let levels = {
           x: 0,
           y: 0,
         },
-        imageSrc: `${process.env.PUBLIC_URL}/game/img/backgroundLevel2.png`,
+        imageSrc: './img/backgroundLevel2.png',
       })
 
       doors = [
@@ -118,7 +121,8 @@ let levels = {
             x: 772.0,
             y: 336,
           },
-          imageSrc: `${process.env.PUBLIC_URL}/game/img/doorOpen.png`,
+          imageSrc: './img/doorOpen.png',
+
           frameRate: 5,
           frameBuffer: 5,
           loop: false,
@@ -141,7 +145,7 @@ let levels = {
           x: 0,
           y: 0,
         },
-        imageSrc: `${process.env.PUBLIC_URL}/game/img/backgroundLevel3.png`,
+        imageSrc: './img/backgroundLevel3.png',
       })
 
       doors = [
@@ -150,7 +154,7 @@ let levels = {
             x: 176.0,
             y: 335,
           },
-          imageSrc: `${process.env.PUBLIC_URL}/game/img/doorOpen.png`,
+          imageSrc: './img/doorOpen.png',
           frameRate: 5,
           frameBuffer: 5,
           loop: false,

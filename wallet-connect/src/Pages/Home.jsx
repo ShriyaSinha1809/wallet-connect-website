@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/Navbar/Navbar';
+import Navbar from '../components/Navbar/Navbar';// Adjust the import path as needed
 import './Home.css'; // Import the CSS file for styling
 
 

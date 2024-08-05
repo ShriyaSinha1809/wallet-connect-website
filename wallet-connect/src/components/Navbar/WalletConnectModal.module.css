@@ -1,10 +1,10 @@
 /* WalletConnectModal.module.css */
 .modalBackground {
   position: fixed;
-  top: 0;
+  top: 300px;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 600%;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
@@ -43,8 +43,10 @@
 
 .closeButton {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 10px; /* Adjusted to move the button closer to the top */
+  right: 10px; /* Adjusted to move the button closer to the right */
+  width: 30px; /* Increased size for better visibility */
+  height: 30px; /* Increased size for better visibility */
   background: none;
   border: none;
   font-size: 20px;
@@ -53,12 +55,17 @@
   border: 2px solid rgb(226, 99, 60);
   background-color: #eff5a0;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* Removed padding for better alignment */
 }
 
 .closeButton:hover {
   background-color: #cfcf63;
   border: 2px solid rgb(185, 79, 47);
 }
+
 
 .content {
   display: flex;
@@ -89,11 +96,79 @@
   background: white;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  padding: 5px; /* Adjust padding as needed */
+  position: relative; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
   border-radius: 10px;
-  background-image: 
-    linear-gradient(135deg, rgb(205, 192, 192) 25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192)),
-    linear-gradient(225deg, rgb(205, 192, 192)25%, transparent 25%, transparent 75%, rgb(205, 192, 192)75%, rgb(205, 192, 192));
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+
+.logoButton1 {
+  background: white; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: relative; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+
+.logoButton2 {
+  background: black; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: relative;/* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+.logoButton3 {
+  background: #0052ff; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: relative;/* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+.logoButton4{
+  background: #3375bb; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: relative;/* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+}
+.logoButton5 {
+  background: black; /* Changed background color to white */
+  border: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  position: relative; /* Adjust positioning as needed */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  background-origin: border-box;
+  border-radius: 10px;
   background-size: 10px 10px;
   background-position: 0 0, 5px 5px;
 }
@@ -116,32 +191,35 @@
   border-top-right-radius: 10px;
 }
 
-.righttext {
-  text-align: center;
-  font-size: 18px;
+.righttext{
+  top:20px;
 }
 
-@media (max-width: 768px) {
-  .modalContainer {
-    width: 90%;
-  }
-
-  .content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .leftside, .rightside {
-    border-radius: 0;
-  }
-
-  .logoButton {
-    margin-bottom: 10px;
-  }
-
-  .closeButton {
-    position: static;
-    margin-top: 10px;
-    align-self: flex-end;
-  }
+.leftside{
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 50px; 
+  flex: 1;
+  height:100%;
+  background: rgba(112, 107, 106, 0.682);  /* Opaque */
+  padding: 10px 10px;
+  justify-content: center;
+  align-items: center;
 }
+
+.hello:hover, .howtolink:hover{
+  background-color: #0056b3;
+}
+.howtolink{
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
