@@ -1,17 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-body {
-  margin: 0;
-  height: 100%;
-  overflow: hidden; /* Prevent scrollbars */
-  background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
-  color: white;
-  font-family: 'Press Start 2P', cursive;
-}
 
-html, body {
-  scroll-behavior: smooth;
-}
 
 .blog-container {
   width: 100%;
