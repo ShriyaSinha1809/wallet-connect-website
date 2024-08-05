@@ -9,10 +9,11 @@
     overflow: hidden; /* Ensure overflow is hidden */
 }
 
-/* Containers within the .canvasContainer */
 .buyContainer, .sellContainer, .cryptoContainer{
     width: 45%;
     height: 60%;
+
+/* Additional styles to ensure full background coverage 
     padding: 20px;
     border-radius: 8px; /* Keep the rectangular shape */
     border: 2px solid black;
@@ -164,3 +165,74 @@ button:hover {
   .chart-dropdown label {
     margin-right: 10px;
   }
+  
+  .model-container{
+    height: 60vh;
+  }
+
+  /* Pixelated styles */
+
+  
+  .cryptoContainer ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .cryptoContainer .coin-item {
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    background-color: #8a8888;
+  }
+  
+  .cryptoContainer .coin-item:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .chartSelector {
+    margin: 20px 0;
+  }
+  
+  .chartSelector label {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  
+  .chartSelector select {
+    appearance: none;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-family: 'Press Start 2P', cursive; /* Pixel font */
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .chartSelector select option {
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .detailsContainer {
+    margin-top: 20px;
+  }
+  
+  .coin-details {
+    margin: 20px 0;
+  }
+  
+  .loader {
+    font-size: 18px;
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .canvasContainer {
+      flex-direction: column;
+    }
+  }
+  
