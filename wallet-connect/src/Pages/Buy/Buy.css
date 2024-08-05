@@ -12,10 +12,6 @@
 .buyContainer, .sellContainer, .cryptoContainer{
     width: 45%;
     height: 60%;
-
-/* Additional styles to ensure full background coverage 
-    padding: 20px;
-    border-radius: 8px; /* Keep the rectangular shape */
     border: 2px solid black;
     box-shadow: 0 0 0 2px black, 
                 4px 4px 0 0 black, 
@@ -228,6 +224,11 @@ button:hover {
   .loader {
     font-size: 18px;
     font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top: 10%;
+    left: 9%;
+    transform: translate(-45%, -35%);
+    text-align: center;
   }
   
   @media screen and (max-width: 768px) {
