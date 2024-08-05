@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './WalletConnectModal.module.css';
 
 const WalletConnectModal = ({ isOpen, onClose }) => {
@@ -51,11 +52,12 @@ const WalletConnectModal = ({ isOpen, onClose }) => {
                         <button className={styles.logoButton5} onClick={handleLogoClick}>
                             <img src="/okx.svg" alt="OKX Logo" className={styles.logo} />
                         </button>
-        
                     </div>
                     <div className={styles.rightside}>
-                        <h3 className={styles.righttext}>Haven’t got a wallet yet?</h3>
-                        <button className={styles.howtolink}>Learn How to Connect</button>
+                        <h4 className={styles.righttext}>Haven’t got a wallet yet?</h4>
+                        <Link to="/blog" className={styles.howtolink}>
+                            Learn How to Connect
+                        </Link>
                     </div>
                     <button className={styles.closeButton} onClick={onClose}>×</button>
                 </div>

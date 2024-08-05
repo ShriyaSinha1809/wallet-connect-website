@@ -1,4 +1,3 @@
-/* Ensures the container stretches fully and has a nice gradient background */
 .canvasContainer {
     position: relative;
     display: flex;
@@ -6,47 +5,76 @@
     align-items: center;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(to right, #432371, #2a1a47); /* Dark violet to deeper violet gradient */
+    background: linear-gradient(135deg, #2c003e, #1c073f);
+    overflow: hidden; /* Ensure overflow is hidden */
 }
 
-/* Additional styles to ensure full background coverage */
-
-.buyContainer, .sellContainer {
-    width: 50%;
-    height: 70%;
+/* Containers within the .canvasContainer */
+.buyContainer, .sellContainer, .cryptoContainer{
+    width: 45%;
+    height: 60%;
     padding: 20px;
-    background-color: #000;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(255,255,255,0.1);
-    color: #fff;
-    margin: 50px;
+    border-radius: 8px; /* Keep the rectangular shape */
+    border: 2px solid black;
+    box-shadow: 0 0 0 2px black, 
+                4px 4px 0 0 black, 
+                8px 8px 0 0 black, 
+                12px 12px 0 0 black;
+    color: white;
+    z-index: 2; /* Ensure text is above the curved lines */
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    font-family: 'Press Start 2P', cursive;
+    color: white; /* Ensure text is visible */
+    white-space: nowrap;
+    overflow: hidden;
+    background: linear-gradient(135deg, #2c003e, #1c073f);
 }
 
-/* Styling for top-left content over the gradient background */
-.content {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 10;
-    color: #fff;
+.buyContainer:hover, 
+.sellContainer:hover, 
+.cryptoContainer:hover, 
+.detailsContainer:hover, 
+.chartsContainer:hover {
+    transform: scale(1.1);
 }
 
-/* Form group styling for better layout */
-.form-group {
-    margin-bottom: 10px;
-}
-
-input[type="number"], button {
+.cryptoContainer img {
     width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px black, 
+                4px 4px 0 0 black, 
+                8px 8px 0 0 black, 
+                12px 12px 0 0 black;
+}
+
+.form-group, .chart-dropdown {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Styling for inputs and buttons */
+input[type="number"], button {
+    width: 80%;
     padding: 10px;
     margin-top: 5px;
     border-radius: 5px;
     border: none;
     background-color: #222;
-    color: #eee;
+    color: white;
     font-size: 16px;
     outline: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
@@ -60,167 +88,37 @@ button:hover {
     background-color: #17a2b8;
 }
 
-.buyContainer, .sellContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 50%;
-    height: 70%;
-    padding: 20px;
-    background-color: rgb(39,42,42);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(255,255,255,0.1);
-    color: #fff;
-    margin: 50px;
-}
-
-button {
-    margin-top: auto;
-    background-color: #1fc7d4;
-    color: white;
-    font-weight: bold;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    margin-bottom: 10px;
-}
-
-label {
-    margin-top: 5px;
-}
-
-.cryptoContainer {
-    position: relative;
-    top: 20px;
-    left: 20px;
-    z-index: 10;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-    font-family: 'Press Start 2P', 'Franklin Gothic Medium';
-    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), -2px -2px 0 rgba(0, 0, 0, 0.7);
-    border: 2px solid #fff;
-    image-rendering: pixelated;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
+/* Text styling */
 .cryptoContainer h1, 
 .cryptoContainer h2, 
 .cryptoContainer h3, 
 .cryptoContainer h4, 
 .cryptoContainer h5, 
-.cryptoContainer h6 {
+.cryptoContainer h6,
+.detailsContainer h2, 
+.detailsContainer p, 
+.chartsContainer h3 {
     font-family: 'Press Start 2P', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-transform: uppercase;
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), -2px -2px 0 rgba(0, 0, 0, 0.7);
-    margin-bottom: 10px;
 }
 
-.cryptoContainer button {
-    font-family: 'Press Start 2P', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding: 10px 20px;
-    border: 2px solid #fff;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    cursor: pointer;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7);
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+/* Additional shadow and padding for containers */
+.sellContainer{
+    box-shadow: 0 0 0 2px black, 
+    -4px 4px 0 0 black, 
+    -8px 8px 0 0 black, 
+    -12px 12px 0 0 black;
+
 }
 
-.cryptoContainer button:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+.detailsContainer{
+        padding: 20px;
+        margin: 20px;
+        background-color: rgba(95, 45, 151, 0.8);
+        border-radius: 8px;
+        color: #fff;
+        backdrop-filter: blur(1px);
 }
-
-.cryptoContainer a {
-    color: #00ffff;
-    text-decoration: none;
-    border-bottom: 2px solid #00ffff;
-}
-
-.cryptoContainer a:hover {
-    color: #ff00ff;
-    border-bottom: 2px solid #ff00ff;
-}
-
-.cryptoContainer img {
-    image-rendering: pixelated;
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    border: 2px solid #fff;
-}
-
-.loader {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    margin: 20px 0;
-}
-
-/* Buy.css */
-
-/* Container for the list of coins */
-.cryptoContainer ul {
-    list-style: none;
-    padding: 0;
-}
-
-.coin-item {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 8px 0;
-}
-
-.coin-arrow {
-    margin-right: 10px;
-    font-size: 16px;
-}
-
-/* Container for coin details */
-.detailsContainer {
-    flex: 1;
-}
-
-.coin-details {
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-/* Styling for the selected crypto details container */
-.detailsContainer {
-    padding: 20px;
-    margin: 20px;
-    background-color: rgba(95, 45, 151, 0.8);
-    border-radius: 8px;
-    color: #fff;
-    backdrop-filter: blur(1px);
-    
-    
-   
-   display: flex;
-   width: 97%;
-    font-family: 'Press Start 2P', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.detailsContainer h2 {
-    margin-bottom: 10px;
-}
-
-.detailsContainer p {
-    margin: 5px 0;
-}
-
-
 .chartsContainer {
     margin: 20px;
     padding: 20px;
@@ -230,9 +128,10 @@ label {
     color: #000;
     box-shadow: rgba(101, 31, 167, 0.277) -5px 5px, rgba(166, 46, 240, 0.3) -10px 10px, rgba(95, 46, 240, 0.2) -15px 15px, rgba(133, 46, 240, 0.1) -20px 20px, rgba(57, 8, 77, 0.05) -25px 25px;
     
-  }
-  
-  .chartsContainer h3 {
+
+}
+
+.chartsContainer h3 {
     margin-bottom: 15px;
   }
   
@@ -252,7 +151,6 @@ label {
     box-shadow: rgba(50, 50, 93, 0.651) 0px 13px 27px -5px, rgba(0, 0, 0, 0.599) 0px 8px 16px -8px;
   }
 
-  
   .chartsContainer {
     flex: 2;
   }
@@ -266,4 +164,3 @@ label {
   .chart-dropdown label {
     margin-right: 10px;
   }
-  
