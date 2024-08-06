@@ -150,7 +150,6 @@ html, body {
 .scroll-arrow img {
   width: 100px; /* Increase width for larger arrow */
   height: auto;
-  transform: rotate(90deg); 
   transition: transform 0.2s;
 }
 
@@ -506,7 +505,6 @@ html, body {
 .scroll-arrow1 img {
   width: 100px; /* Increase width for larger arrow */
   height: auto;
-  transform: rotate(90deg); /* Rotate 90 degrees clockwise */
   transition: transform 0.2s;
 }
 
