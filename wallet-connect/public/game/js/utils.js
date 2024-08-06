@@ -1,20 +1,30 @@
-// src/game/utils.js
-export const parse2D = function (array, width) {
-  const rows = [];
-  for (let i = 0; i < array.length; i += width) {
-    rows.push(array.slice(i, i + width));
+Array.prototype.parse2D = function () {
+  const rows = []
+  for (let i = 0; i < this.length; i += 16) {
+    rows.push(this.slice(i, i + 16))
   }
-  return rows;
-};
 
-export const createObjectsFrom2D = function (array, createObjectCallback) {
-  const objects = [];
-  array.forEach((row, y) => {
+  return rows
+}
+
+Array.prototype.createObjectsFrom2D = function () {
+  const objects = []
+  this.forEach((row, y) => {
     row.forEach((symbol, x) => {
       if (symbol === 292 || symbol === 250) {
-        objects.push(createObjectCallback(x, y));
+        // push a new collision into collisionblocks array
+        objects.push(
+          new CollisionBlock({
+            position: {
+              x: x * 64,
+              y: y * 64,
+            },
+          })
+        )
       }
-    });
-  });
-  return objects;
-};
+    })
+  })
+
+  return objects
+}
+

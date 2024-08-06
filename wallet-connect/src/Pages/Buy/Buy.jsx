@@ -5,6 +5,7 @@ import axios from 'axios';
 import ComputerModel from '../../models/Computer';
 import Earth from '../../models/Earth';
 import Ethereum from '../../models/Ethereum';
+import Bitcoin from '../../models/Bitcoin'; // Ensure this import path is correct
 import Navbar from '../../components/Navbar/Navbar';
 import Loader from '../../components/Loader/Loader';
 import './Buy.css';
@@ -209,7 +210,20 @@ const Buy = () => {
                       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
                       <pointLight position={[-10, -10, -10]} />
                       <Suspense fallback={null}>
-                        <Ethereum position={[0, -1, 0]} rotation={[0, 0, 0]} scale={[2,2,2]} castShadow receiveShadow />
+                        <Ethereum position={[0, -1, 0]} rotation={[0, 0, 0]} scale={[2, 2, 2]} castShadow receiveShadow />
+                      </Suspense>
+                    </Canvas>
+                  </div>
+                )}
+                {selectedCrypto.id === 'bitcoin' && (
+                  <div className="model-container">
+                    <Canvas shadows>
+                      <ambientLight intensity={6} />
+                      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
+                      <pointLight position={[-10, -10, -10]} />
+                      <Suspense fallback={null}>
+                      {console.log('Rendering Bitcoin model')}
+                        <Bitcoin position={[-5, 0, 0]} rotation={[0, 0, 0]} scale={[1,1,1]} castShadow receiveShadow />
                       </Suspense>
                     </Canvas>
                   </div>
