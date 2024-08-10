@@ -1,541 +1,344 @@
-/* Reset global styles */
-html, body {
-  overflow: hidden; /* Hide the scroll bar */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  height: 100%; /* Ensure the body takes the full height */
-  width: 100%; /* Ensure the body takes the full width */
-  box-sizing: border-box;
-}
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
 
-/* Ensure all elements use border-box sizing */
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-
-/* Ensure the home container fits within the viewport */
-.home-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 2rem;
-  flex-direction: column;
-}
-
-/* Background image styling */
-.background-image {
-  background-image: url('/src/assets/8351213.gif'); /* Update with the correct path to your image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: filter 1s ease;
-}
-
-.blurred {
-  filter: blur(8px); /* Apply blur effect */
-}
-
-/* Foreground image styling */
-.foreground-image {
-  /* Add any additional styling for your foreground image if needed */
-}
-
-/* Welcome text styling */
-.welcome-text {
-  position: relative;
-  z-index: 1; /* Ensure the text is above the background */
-  padding: 20px 40px; /* Adjust padding for better spacing */
-  border-radius: 10px; /* Optional: Add rounded corners */
-  color: white; /* Text color */
-  text-transform: uppercase; /* Uppercase text */
-  font-size: 15vw; /* Increase the font size */
-  display: inline-block;
-  animation: pixelFormation 1s forwards, retroEffect 3s infinite; /* Add animation effects */
-  opacity: 0; /* Start with invisible text */
-  font-family: 'GomePixel', sans-serif;
-}
-
-@keyframes retroEffect {
-  0%, 100% {
-    text-shadow: 0 0 2px #FF0000, 0 0 2px #00FF00, 0 0 2px #0000FF;
-  }
-  33% {
-    text-shadow: 2px 2px 2px #FF0000, -2px -2px 2px #00FF00, -2px 2px 2px #0000FF;
-  }
-  66% {
-    text-shadow: -2px -2px 2px #FF0000, 2px 2px 2px #00FF00, 2px -2px 2px #0000FF;
-  }
-}
-
-@keyframes pixelFormation {
-  0% {
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
-    opacity: 1;
-  }
-  10% {
-    clip-path: polygon(45% 45%, 55% 45%, 55% 55%, 45% 55%);
-  }
-  20% {
-    clip-path: polygon(40% 40%, 60% 40%, 60% 60%, 40% 60%);
-  }
-  30% {
-    clip-path: polygon(35% 35%, 65% 35%, 65% 65%, 35% 65%);
-  }
-  40% {
-    clip-path: polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%);
-  }
-  50% {
-    clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
-  }
-  60% {
-    clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);
-  }
-}
-  
-  .scroll-arrow {
-    position: absolute;
-    bottom: 60px; 
-    cursor: pointer;
-    z-index: 1;
-    animation: bounce 2s infinite,hide 5s steps(20);
-  }
-
-  @keyframes hide {
-    from{
-        opacity:0;
-    }
-    95%{
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-  }
-
-  
-
-
-/* Navbar container styling */
-.navbar-container {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 2; /* Ensure the Navbar is above other elements */
-}
-
-/* Scroll arrow styling */
-.scroll-arrow {
-  position: absolute;
-  bottom: 60px; /* Increase margin from bottom */
-  cursor: pointer;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: bounce 2s infinite;
-}
-
-.scroll-arrow img {
-  width: 100px; /* Increase width for larger arrow */
-  height: auto;
-  transform: rotate(90deg); 
-  transition: transform 0.2s;
-}
-
-.scroll-arrow p {
-  color: white;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  font-family: 'GomePixel', sans-serif;
-  transition: transform 0.2s, color 0.2s;
-}
-
-.scroll-arrow:hover img, .scroll-arrow:hover p {
-  transform: scale(1.2); /* Slightly enlarge the text and arrow on hover */
-  color: #FFD700; /* Change text color on hover */
-}
-
-/* City GIF styling */
-.city-gif {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  z-index: 1; /* Ensure the GIF is below other elements */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.city-gif img {
-  width: 100%; /* Ensure the GIF takes the full width */
-  height: 100%; /* Ensure the GIF takes the full height */
-}
-
-/* Text container styling */
-.text-container {
-  position: absolute;
-  top: 30%;
-  left: 80%;
-  transform: translate(-50%, -50%);
-  color: rgb(98, 38, 239);
-  text-align: center;
-  border-radius: 10px; /* Rounded corners */
-  animation: fadeIn 2s ease-in-out;
-  font-family: 'GomePixel', sans-serif;
-}
-
-.text-container h2 {
-  font-size: 5rem;
-  margin-bottom: 10px;
-}
-
-.text-container p {
-  font-size: 1.2rem;
-}
-
-/* Button container styling */
-.button-container {
-  position: absolute;
-  bottom: 14rem;
-  right: 17rem;
-}
-
-.custom-button {
-  background-color: white;
-  text-align: center;
-  width: 192px;
-  height: 56px;
-  border-radius: 24px;
-  position: relative;
-  font-family: 'GomePixel', sans-serif;
-  color: black;
-  font-size: 25px;
-  font-weight: 600;
-  cursor: pointer;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.custom-button .inner-div {
-  background-color: #4CAF50; /* Green background */
-  border-radius: 16px;
-  height: 44px;
-  width: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: 4px;
-  top: 4px;
-  transition: width 0.5s;
-  z-index: 10;
-}
-
-.custom-button:hover .inner-div {
-  width: 180px;
-}
-
-.custom-button svg {
-  width: 25px;
-  height: 25px;
-}
-
-.custom-button p {
   margin: 0;
-  z-index: 20;
+  padding: 0;
+  box-sizing: border-box;
+  color: #ffffff;
+}
+
+.home-container {
+  background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+  text-align: center;
+  height:200px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #342e6d;
+  color: #ffffff;
+}
+
+/* Header Wrapper for Inclined Effect */
+.header-wrapper {
+  transform: skewY(-5deg);
+  overflow: hidden;
+  background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+  margin: 0px 0;
+  padding: 100px 0; /* Adjust this padding to move the header down */
+}
+
+/* Header Section */
+/* Header Section */
+.header {
+  transform: skewY(5deg);
+  background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the content horizontally */
+  padding: 50px 20px;
+  color: white;
+  position: relative; /* Allow positioning of the model */
+}
+
+.title {
   position: relative;
-  transition: opacity 0.5s;
-  font-family: 'GomePixel', sans-serif; /* Ensure the font is applied */
+  top: 50%;
+  left:20%;
+  text-align: center; /* Center align the text */
 }
 
-.custom-button:hover p {
-  opacity: 0;
+.title h1 {
+  font-size: 2.5rem;
+  margin: 0;
 }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-}
-  
-  .text-container {
-    position: absolute;
-    left: 80%;
-    transform: translate(-50%, -50%);
-    color: rgb(223, 96, 155);
-    text-align: center;
-    border-radius: 10px; /* Rounded corners */
-    animation: fadeIn 2s ease-in-out;
-    font-family: 'GomePixel', sans-serif;
-    -webkit-text-stroke-width: 0.01mm;
-    -webkit-text-stroke-color: rgb(168, 54, 99);
-    width:20vw;
-    height:50vh;
-    
-  }
-
-  
-  .text-container h2 {
-    position: relative;
-    font-size: 4rem;
-    /* margin-bottom: 10px; */
-  }
-  
-  .button-container {
-    position: absolute;
-    bottom: 14rem;
-    right: 17rem;
-  }
-  
-  .custom-button {
-    background-color: white;
-    text-align: center;
-    top: 40px;
-    
-    width: 192px;
-    height: 56px;
-    border-radius: 24px;
-    position: absolute;
-    font-family: 'GomePixel', sans-serif;
-    color: black;
-    font-size: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-  }
-  
-  .custom-button .inner-div {
-    background-color: #d44985; /* Green background */
-    border-radius: 16px;
-    height: 44px;
-    width: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 4px;
-    top: 4px;
-    transition: width 0.5s;
-    z-index: 10;
-    
-  }
-  
-  .custom-button:hover .inner-div {
-    width: 180px;
-  }
-  
-  .custom-button svg {
-    width: 25px;
-    height: 25px;
-  }
-  
-  .custom-button p {
-    margin: 0;
-    z-index: 20;
-    position: relative;
-    transition: opacity 0.3s;
-    font-family: 'GomePixel', sans-serif; /* Ensure the font is applied */
-  }
-  
-  /* .custom-button:hover p {
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-  } */
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.title p {
+  font-size: 16px;
+  color: #d3d3e3;
 }
 
-  .swapCss{
-    font-size: 4rem;
-  }
+.title .trusted {
+  color: #ffd700;
+}
 
-  .home-container {
-    position: relative;
-    overflow: hidden; /* Ensure clouds are hidden when out of bounds */
-  }
-  
-  .cloud {
-    position: fixed;
-    z-index: 200000;
-    width: 200px;
-    height: 100px;
-    top:0;
-    background-image: url('/src/assets/clouds.webp');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0;
-    animation-duration: 0.75s;
-    animation-fill-mode: forwards;
-  }
-  
-  .left-cloud {
-    height: 200vh;
-    width:200vh;
-    left: -200px;
-    animation-name: left-cloud-animation;
-  }
-  
-  .right-cloud {
-    height: 200vh;
-    width:200vh;
-    right: -200px;
-    animation-name: right-cloud-animation;
-  }
-  
-  @keyframes left-cloud-animation {
-    0% {
-      transform: translateX(-1000px);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(300px);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes right-cloud-animation {
-    0% {
-      transform: translateX(1000px);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(-300px);
-      opacity: 1;
-    }
-  }
-  
-  .left-cloud-exit {
-    animation-name: left-cloud-exit-animation;
-  }
-  
-  .right-cloud-exit {
-    animation-name: right-cloud-exit-animation;
-  }
-  
-  @keyframes left-cloud-exit-animation {
-    0% {
-      transform: translateX(300px);
-      opacity: 1;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(6000px);
-      opacity: 0;
-    }
-  }
-  
-  @keyframes right-cloud-exit-animation {
-    0% {
-      transform: translateX(-300px);
-      opacity: 1;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(-6000px);
-      opacity: 0;
-    }
-  }
-  
-/* Third GIF styling */
-.third-gif {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  z-index: 1; /* Ensure the GIF is below other elements */
+.model {
+  width: 150px;
+  height: 150px;
+  background-color: #4635e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 24px;
+  position: absolute; /* Position the model absolutely within the header */
+  right: 20px; /* Align the model to the right */
+  top: 50%;
+  transform: translateY(-50%); /* Center the model vertically */
+}
+
+/* Ecosystem Section */
+.ecosystem {
+  height: 1200px;
+  background-color: #ffffff;
+  color: #333333;
+  padding: 40px 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.ecosystem h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Footer Section */
+.footer {
+  background: linear-gradient(to left, #1a2a6c, #b21f1f, #fdbb2d);
+  padding: 40px 20px;
+  border-radius: 10px;
+  color: #ffffff;
+  margin-top: 40px;
+}
+
+.footer h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.footer p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.footer button {
+  background-color: #342e6d;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.footer-links .column {
+  max-width: 150px;
+}
+
+.footer-links h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Welcome Message */
+.welcome-text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #342e6d;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 24px;
+  color: #ffffff;
+  z-index: 1000;
+}
+
+.tradebutton{
+  color: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+}
+/* Header Section */
+.header {
+  transform: skewY(5deg);
+  background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribute space between title and model */
+  padding: 50px 20px;
+  color: white;
+}
+
+.title {
+  text-align: left; /* Align text to the left */
+}
+
+.title h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.title p {
+  font-size: 16px;
+  color: #d3d3e3;
+}
+
+.title .trusted {
+  color: #ffd700;
+}
+
+.model {
+  width: 150px;
+  height: 150px;
+  background-color: #4635e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 24px;
+  margin-top: 20px;
+  margin-right: 20px; /* Add margin to the right side */
+}
+/* Ecosystem Section */
+/* Ecosystem Section */
+.ecosystem {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 40px 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.ecosystem h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center; /* Center align the heading */
+}
+
+.features {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap; /* Allows wrapping to the next line */
+  gap: 50px; /* Add space between feature boxes */
+  position: relative;
+  height: 100%; /* Adjust height to fit zigzag pattern */
 }
 
-.third-gif img {
-  width: 100%; /* Ensure the GIF takes the full width */
-  height: 100%; /* Ensure the GIF takes the full height */
-}
-
-/* Scroll arrow for the second section */
-.scroll-arrow1 {
+/* Feature Swap - Top Left */
+.feature-swap {
   position: absolute;
-  bottom: 20px; /* Ensure the arrow is at the bottom of the second GIF */
-  cursor: pointer;
-  z-index: 1;
+  top: 5%;
+  left: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: bounce 2s infinite;
-}
-
-.scroll-arrow1 img {
-  width: 100px; /* Increase width for larger arrow */
-  height: auto;
-  transform: rotate(90deg); /* Rotate 90 degrees clockwise */
-  transition: transform 0.2s;
-}
-
-.scroll-arrow1 p {
-  color: white;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  font-family: 'GomePixel', sans-serif;
-  transition: transform 0.2s, color 0.2s;
-}
-
-.scroll-arrow1:hover img, .scroll-arrow1:hover p {
-  transform: scale(1.2); /* Slightly enlarge the text and arrow on hover */
-  color: #FFD700; /* Change text color on hover */
-}
-
-/* Footer styling */
-.footer-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f8f9fa; /* Background color for the footer */
   text-align: center;
-  padding: 20px 0;
+  max-width: 200px; /* Set a max-width for each feature */
 }
 
-.footer-container img {
-  max-width: 100%;
-  height: auto;
-  display: block; 
+.feature-swap img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 15px; /* Space between image and title */
+}
+
+.feature-swap h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.feature-swap p {
+  font-size: 14px;
+  color: #666666;
+  margin: 0; /* Remove margin below paragraph */
+}
+
+/* Feature Liquidity - Middle Right */
+.feature-liq {
+  position: absolute;
+  top: 55%;
+  right: 10%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 200px; /* Set a max-width for each feature */
+}
+
+.feature-liq img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 15px; /* Space between image and title */
+}
+
+.feature-liq h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.feature-liq p {
+  font-size: 14px;
+  color: #666666;
+  margin: 0; /* Remove margin below paragraph */
+}
+
+/* Feature Buy - Bottom Left */
+.feature-buy {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 200px; /* Set a max-width for each feature */
+}
+
+.feature-buy img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 15px; /* Space between image and title */
+}
+
+.feature-buy h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.feature-buy p {
+  font-size: 14px;
+  color: #666666;
+  margin: 0; /* Remove margin below paragraph */
 }

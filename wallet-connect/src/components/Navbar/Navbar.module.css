@@ -16,7 +16,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 15px 20px;
-    background-color: #eff5a0b1;
+    background: linear-gradient(to right, rgba(253, 187, 45, 0.8), rgba(178, 31, 31, 0.8), rgba(26, 42, 108, 0.8)); /* Reversed gradient with transparency */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 60px;
@@ -25,9 +25,7 @@ body {
     left: 2%;
     right: 2%;
     z-index: 1000; /* Ensure it stays on top of other elements */
- 
 }
-
 
 .logo {
     font-size: 34px;
