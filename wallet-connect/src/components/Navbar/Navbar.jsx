@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { FaExchangeAlt, FaShoppingCart, FaMoneyBillWave, FaWallet, FaBars } from 'react-icons/fa';
+import { FaExchangeAlt, FaShoppingCart, FaMoneyBillWave, FaWallet, FaBars, FaMoon, FaSun } from 'react-icons/fa';
 import styled, { keyframes } from 'styled-components';
 import styles from './Navbar.module.css';
 import WalletConnectModal from './WalletConnectModal';
@@ -47,6 +47,7 @@ const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -69,6 +70,15 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
+  };
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    if (!darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
   };
 
   useEffect(() => {
@@ -134,6 +144,9 @@ const Navbar = () => {
           <Link to="#" className={styles.connectWallet} onClick={handleOpenModal}>
             <FaWallet /> Connect Wallet
           </Link>
+          <button className={styles.toggleButton} onClick={toggleDarkMode}>
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </button>
         </div>
         <WalletConnectModal isOpen={isModalOpen} onClose={handleCloseModal} />
 
@@ -143,7 +156,7 @@ const Navbar = () => {
             <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
             <pointLight position={[-10, -10, -10]} />
             <Suspense fallback={null}>
-              <Sonic position={[-1, -1.5, 0]} rotation={[0, 0, 0]} scale={[2,2,2]} castShadow receiveShadow />
+              <Sonic position={[-1, -1.5, 0]} rotation={[0, 0, 0]} scale={[2, 2, 2]} castShadow receiveShadow />
             </Suspense>
           </Canvas>
         </div>
