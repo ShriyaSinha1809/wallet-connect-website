@@ -16,15 +16,15 @@ body.dark-mode {
 }
 
 .navbar {
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 15px 20px;
-    background-color: #eff5a0b1;
+    background-color:#ac9fe4e6;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 60px;
+    height: 80px;
     position: fixed;
     top: 2%;
     left: 2%;
@@ -62,11 +62,14 @@ body.dark-mode .logo {
 }
 
 .navLinks {
+    position:relative;
     display: flex;
     gap: 40px;
     justify-content: center;
     align-items: center;
     width: 100%;
+    left:80px;
+    right:80px;
 }
 
 .navLinks a {
@@ -231,9 +234,9 @@ body.dark-mode .navLinks a::after {
     }
 }
 
-/* New CSS for Toggle Button */
+/* New CSS for toggle Button */
 
-.toggle-button {
+.toggleButton {
     position: relative;
     width: 40px;
     height: 20px;
@@ -245,11 +248,11 @@ body.dark-mode .navLinks a::after {
     align-items: center;
 }
 
-body.dark-mode .toggle-button {
+body.dark-mode .toggleButton {
     background-color: #666;
 }
 
-.toggle-button::before {
+.toggleButton::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -263,23 +266,23 @@ body.dark-mode .toggle-button {
     transform: translateY(-50%);
 }
 
-body.dark-mode .toggle-button::before {
+body.dark-mode .toggleButton::before {
     background-color: #333;
 }
 
-.toggle-button.active {
+.toggleButton.active {
     background-color: #4CAF50;
 }
 
-body.dark-mode .toggle-button.active {
+body.dark-mode .toggleButton.active {
     background-color: #2E7D32;
 }
 
-.toggle-button.active::before {
+.toggleButton.active::before {
     transform: translate(20px, -50%);
 }
 
-body.dark-mode .toggle-button.active::before {
+body.dark-mode .toggleButton.active::before {
     transform: translate(20px, -50%);
     background-color: white;
 }

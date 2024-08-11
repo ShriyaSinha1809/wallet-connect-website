@@ -150,16 +150,7 @@ const Navbar = () => {
         </div>
         <WalletConnectModal isOpen={isModalOpen} onClose={handleCloseModal} />
 
-        <div className={styles.canvasContainer}>
-          <Canvas shadows>
-            <ambientLight intensity={0.5} />
-            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
-            <pointLight position={[-10, -10, -10]} />
-            <Suspense fallback={null}>
-              <Sonic position={[-1, -1.5, 0]} rotation={[0, 0, 0]} scale={[2, 2, 2]} castShadow receiveShadow />
-            </Suspense>
-          </Canvas>
-        </div>
+        
 
         <div className={styles.eyesContainer}>
           <div className={styles.eye}>

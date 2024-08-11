@@ -5,7 +5,8 @@ html, body {
 }
 
 .hero-section {
-  background-color: #4B0082;
+  background-image: linear-gradient(#331f80, #100732);
+  /* background-color: #461984; */
   height: 100vh; /* Ensures the hero-section takes the full viewport height */
   display: flex;
 
@@ -28,61 +29,69 @@ html, body {
   z-index: 1; /* Ensure the text stays above other elements */
 }
 
+.news {
+  position:relative;
+  top:150px;
+  left:70px;
+}
+
 .news h1 {
   font-size: 5rem;
   margin-bottom: 1rem;
+  color:white;
 }
 
 .news h1 .trusted {
-  color: #D8BFD8; /* A lighter color for the word "TRUSTED" */
+  color: #ac9fe4; /* A lighter color for the word "TRUSTED" */
   font-size: 7rem;
 }
 
 .news p {
+  position: relative;
   font-size: 2rem;
   margin-top: 0;
+  color: #fff;
+  left:10px;
 }
 
 .ecosystem-section {
   background-color: #fff;
-  padding: 15rem 2rem;
+  padding: 4rem 2rem;
   text-align: center;
+  color: rgb(0, 0, 0);
 }
 
 .ecosystem-section h2 {
-  font-size: 8rem;
+  font-size: 5rem;
   margin-bottom: 2rem;
 }
 
-.features {
+
+
+.feature1 {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 9rem;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
-.feature {
-  text-align: right;
-  justify-content: right;
-  align-items: right;
-  margin: 2rem;
-}
-
-.feature img {
+.feature1 img {
   width: 100px;
   height: auto;
   margin-bottom: 1rem;
 }
 
-.feature h3 {
+.feature1 h3 {
   font-size: 5rem;
   margin-bottom: 1rem;
   margin-top: 5rem;
 }
 
-.feature p {
+.feature1 p {
   font-size: 1.2rem;
 }
+
 
 /* Button container styling */
 .button-container {
@@ -415,4 +424,189 @@ html, body {
   max-width: 100%;
   height: auto;
   display: block; 
+}
+
+@media (max-width:1025px) {
+  .hero-section {
+    background-image: linear-gradient(#331f80, #100732);
+    /* background-color: #461984; */
+     /* Ensures the hero-section takes the full viewport height */
+    display: flex;
+    overflow:hidden;
+    position: static;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+    min-width:735px;
+    height:100vh;
+  }
+  .news {
+    position:relative;
+    top:150px;
+    left:70px;
+  }
+  
+  .news h1 {
+    font-size: 2.9rem;
+    margin-bottom: 1rem;
+    color:white;
+  }
+  
+  .news h1 .trusted {
+    color: #ac9fe4; /* A lighter color for the word "TRUSTED" */
+    font-size: 5rem;
+  }
+  
+  .news p {
+    position:relative;
+    font-size: 1.2rem;
+    margin-top: 0;
+    color: #fff;
+    left:10px;
+  }
+
+}
+
+@media (max-width:735px) {
+  .hero-section {
+    background-image: linear-gradient(#331f80, #100732);
+    /* background-color: #461984; */
+     /* Ensures the hero-section takes the full viewport height */
+    display: flex;
+    overflow:hidden;
+    position: static;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+    min-width:735px;
+    height:100vh;
+  }
+  .news {
+    position:relative;
+    top:150px;
+    left:70px;
+  }
+  
+  .news h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color:white;
+  }
+  
+  .news h1 .trusted {
+    color: #ac9fe4; /* A lighter color for the word "TRUSTED" */
+    font-size: 5rem;
+  }
+  
+  .news p {
+    position:relative;
+    font-size: 1.2rem;
+    margin-top: 0;
+    color: #fff;
+    left:10px;
+  }
+
+}
+
+@media (max-width:580px) {
+  .hero-section {
+    background-image: linear-gradient(#331f80, #100732);
+    /* background-color: #461984; */
+    height: 100vh; /* Ensures the hero-section takes the full viewport height */
+    display: flex;
+    
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
+  }
+  .news {
+    position:absolute;
+    top:150px;
+    display: block;
+    justify-content: center;
+    align-content: center;
+    left:5vw;
+    
+  }
+  
+  .news h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color:white;
+  }
+  
+  .news h1 .trusted {
+    color: #ac9fe4; /* A lighter color for the word "TRUSTED" */
+    font-size: 5rem;
+  }
+  
+  .news p {
+    position:relative;
+    font-size: 1.2rem;
+    margin-top: 0;
+    color: #fff;
+    left:10px;
+  }
+
+}
+
+@media (max-width:500px) {
+  .hero-section {
+    background-image: linear-gradient(#331f80, #100732);
+    /* background-color: #461984; */
+    height: 100vh; /* Ensures the hero-section takes the full viewport height */
+    display: flex;
+    
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
+  }
+  .news {
+    position:absolute;
+    top:150px;
+    display: block;
+    justify-content: center;
+    align-content: end;
+    text-align: center;
+    left:5%;
+    
+  }
+  
+  .news h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color:white;
+  }
+  
+  .news h1 .trusted {
+    color: #ac9fe4; /* A lighter color for the word "TRUSTED" */
+    font-size: 5rem;
+  }
+  
+  .news p {
+    position:relative;
+    font-size: 1rem;
+    margin-top: 0;
+    color: #fff;
+    left:10px;
+  }
+
+}
+
+@media (max-width:730px){
+  .eco-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    left:3.5%;
+    width:100%;
+  }
+  
+}
+
+
+@media (max-width:430px){
+  .eco-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    left:50%;
+  }
+  
 }
