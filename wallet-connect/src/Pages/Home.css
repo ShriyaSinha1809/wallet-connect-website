@@ -588,25 +588,10 @@ html, body {
 }
 
 @media (max-width:730px){
-  .eco-title{
+  .ecosystem-section h2{
+    font-size: 3rem;
+    text-align: center;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    left:3.5%;
-    width:100%;
+    justify-content: center;
   }
-  
-}
-
-
-@media (max-width:430px){
-  .eco-title{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    left:50%;
-  }
-  
 }

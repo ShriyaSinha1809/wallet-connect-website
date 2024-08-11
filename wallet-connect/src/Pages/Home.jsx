@@ -19,9 +19,8 @@ const Home = () => {
       </div>
 
       <div className="ecosystem-section">
-        <div className="eco-title">
         <h2>DISCOVER OUR ECOSYSTEM</h2>
-        </div>
+
         <div className="features">
           <div className="feature1">
             <div className="f1img">
