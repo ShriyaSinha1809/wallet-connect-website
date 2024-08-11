@@ -9,6 +9,11 @@
     background: linear-gradient(to right, #432371, #2a1a47); /* Dark violet to deeper violet gradient */
 }
 
+body {
+    cursor: none;
+}
+
+
 
 /* Additional styles to ensure full background coverage */
 
@@ -220,7 +225,6 @@ label {
 .detailsContainer p {
     margin: 5px 0;
 }
-
 
 .chartsContainer {
     margin: 20px;

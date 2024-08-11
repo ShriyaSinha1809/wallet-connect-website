@@ -24,6 +24,7 @@ import {
   RadialLinearScale,
 } from 'chart.js';
 
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -129,8 +130,12 @@ const Buy = () => {
     setSelectedCrypto(coin);
   };
 
+  
+  
+  
   return (
     <>
+       
       <Navbar />
       {loading ? (
         <Loader />

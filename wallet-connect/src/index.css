@@ -13,3 +13,27 @@ body {
 
 }
 
+*{
+  cursor: none !important;
+}
+
+.cursor {
+  background-image: url('/src/assets/cursor1.png');
+  z-index: 100000;
+  position:fixed;
+  top:0;
+  left:0;
+  width:25px;
+  height:25px;
+  transform: translate(50vw,50vh);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  pointer-events: none;
+  transition-timing-function: ease-in-out;
+  opacity: 0;
+}
+
+
+/* Additional global styles can go here */
