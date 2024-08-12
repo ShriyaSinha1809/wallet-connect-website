@@ -45,7 +45,7 @@ html, body {
   color: #ac9fe4; /* A lighter color for the word "TRUSTED" */
   font-size: 7rem;
   position: relative;
-  animation: enter 0.5s ease-in-out forwards, float 3s ease-in-out infinite;
+  animation: enter 0.5s ease-in-out forwards, float 3s ease-in-out 1s infinite;
   display: inline-block;
 }
 

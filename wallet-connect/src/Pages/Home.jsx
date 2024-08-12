@@ -59,7 +59,7 @@ const Home = () => {
       </div>
 
       <div className='join-page'>
-            <h1>JOIN EVERYONES <span className='favourite'>FAVOURITE </span>NOW !</h1>
+            <h1>JOIN EVERYONES <span className='favourite'>FAVOURITE </span>DEX NOW !</h1>
             <br></br>
             <p>Experience the power of community ownership, global governance, and explore infinite use cases within the PancakeSwap ecosystem</p>
             
