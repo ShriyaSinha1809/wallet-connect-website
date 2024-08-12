@@ -71,7 +71,6 @@ const Navbar = () => {
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
-
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     if (!darkMode) {
@@ -80,6 +79,7 @@ const Navbar = () => {
       document.body.classList.remove('dark-mode');
     }
   };
+  
 
   useEffect(() => {
     const eyes = document.querySelectorAll(`.${styles.eye}`);
@@ -126,6 +126,8 @@ const Navbar = () => {
     }
   };
 
+  
+
   return (
     <>
       {isClicked && <ColorOverlay fade={fadeOut} />}
@@ -144,23 +146,24 @@ const Navbar = () => {
           <Link to="#" className={styles.connectWallet} onClick={handleOpenModal}>
             <FaWallet /> Connect Wallet
           </Link>
-          <button className={styles.toggleButton} onClick={toggleDarkMode}>
-            {darkMode ? <FaSun /> : <FaMoon />}
-          </button>
         </div>
         <WalletConnectModal isOpen={isModalOpen} onClose={handleCloseModal} />
+        <div className={styles.toggleEyesContainer}>
+        {/* Night mode toggle button */}
+        <div className={`${styles.toggleButton} ${darkMode ? styles.active : ''}`} onClick={toggleDarkMode}>
+          <FaSun className={`${styles.icon} ${styles.sun}`} />
+          <FaMoon className={`${styles.icon} ${styles.moon}`} />
+        </div>
 
-        
-
-        <div className={styles.eyesContainer}>
-          <div className={styles.eye}>
-            <div className={styles.pupil}></div>
-          </div>
-          <div className={styles.eye}>
-            <div className={styles.pupil}></div>
-          </div>
+        {/* Eyes */}
+        <div className={styles.eye}>
+          <div className={styles.pupil}></div>
+        </div>
+        <div className={styles.eye}>
+          <div className={styles.pupil}></div>
         </div>
       </div>
+    </div>
     </>
   );
 };

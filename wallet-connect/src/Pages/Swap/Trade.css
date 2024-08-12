@@ -5,25 +5,60 @@
   box-sizing: border-box;
 }
 
-.trade-container {
-  background-color: rgb(100, 52, 25);
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
+body, html {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling between sections */
+}
+
+/* General Section Styling */
+section {
+  width: 100%;
+  min-height: 100vh; /* Ensure each section takes up at least the full viewport height */
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
-.canvas-element {
-  width: 100%;
-  height: 100%;
+.trade-container {
+  background-color: rgb(100, 52, 25);
+  position: relative;
+  width: 100vw;
+  min-height: 100vh; /* Ensure it covers the full height of the viewport */
+  margin: 0;
+  padding: 0;
+  overflow-y: auto; /* Allow vertical scrolling */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push the Bitcoin swap section to the bottom */
+}
+
+.trade-container::after {
+  content: '';
   position: absolute;
-  top: 0;
+  bottom: -1px;
   left: 0;
+  width: 100%;
+  height: 100px; /* Adjust height as needed */
+  background-color: white;
+  z-index: 1;
+
+}
+
+.canvas-container {
+  flex-grow: 1; /* Allow the canvas to take up the remaining space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2; /* Ensure this is above the pseudo-element */
+}
+
+.white-background {
+  display: none; /* Remove the previous white background */
 }
 
 .loader {
@@ -58,3 +93,207 @@
     transform: rotate(360deg);
   }
 }
+
+.bitcoin-swap-section {
+  width: 100%;
+  max-width: 6000px;
+  padding: 2rem;
+ background: linear-gradient(45deg, #e0f7e9, #a0d99c);
+  ;
+  text-align: center;
+  position: relative;
+  z-index: 2; /* Ensure the section is above the pseudo-element */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.bitcoin-swap-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.bitcoin-swap-section p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.bitcoin-swap-section button {
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  background-color: #f0ad4e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bitcoin-swap-section button:hover {
+  background-color: #ec971f;
+}
+.swap-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  padding: 1.5rem;
+
+  background-color: #ffffff;
+  border: 4px solid #333;
+  border-radius: 8px;
+  box-shadow: 10px 10px 0px #555, 20px 20px 0px #777, 30px 30px 0px #999;
+  transform: translateY(-20px);
+  transition: all 0.2s ease;
+  position: relative;
+  width: 30em; /* Adjust the width as needed */
+  height: 40em; /* Adjust the height as needed */
+  justify-content: center;
+  
+}
+
+.swap-container:hover {
+  transform: translateY(-30px);
+  box-shadow: 5px 5px 0px #555, 10px 10px 0px #777, 15px 15px 0px #999;
+}
+
+/* Pixelated Inputs and Button */
+.swap-input,
+.swap-select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  width: 220px;
+  border: 4px solid #333;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  box-shadow: 4px 4px 0px #777;
+  outline: none;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1; /* Ensure the elements stay above shadows */
+}
+
+.swap-input:focus,
+.swap-select:focus {
+  border-color: #f0ad4e;
+  box-shadow: 2px 2px 0px #555;
+}
+
+.swap-button {
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  background-color: #f0ad4e;
+  border: 4px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease;
+  box-shadow: 4px 4px 0px #777;
+  position: relative;
+  z-index: 1; /* Ensure the button stays above shadows */
+}
+
+.swap-button:hover {
+  background-color: #ec971f;
+  box-shadow: 2px 2px 0px #555;
+}
+
+/* Fixing Text Overlap */
+.swap-container p {
+  margin-top: 0;
+  z-index: 1; /* Ensure the paragraph text is on top */
+  position: relative; /* Ensure the text stays above the shadows */
+}
+
+h2, p {
+  margin: 0; /* Remove margin to prevent any stacking issues */
+  padding: 0.5rem 0; /* Add padding for spacing */
+  z-index: 1; /* Ensure the text stays on top */
+  position: relative; /* Ensure the element is above shadows */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .swap-input,
+  .swap-select {
+    width: 100%;
+  }
+
+  .bitcoin-swap-section {
+    padding: 1rem;
+  }
+
+  .bitcoin-swap-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .bitcoin-swap-section p {
+    font-size: 1.25rem;
+  }
+}
+
+
+:root {
+  --color-primary: #f6aca2;
+  --color-secondary: #f49b90;
+  --color-tertiary: #f28b7d;
+  --color-quaternary: #f07a6a;
+  --color-quinary: #ee6352;
+}
+
+
+
+.gif-container {
+  display: flex;
+  justify-content: flex-end; /* Align GIF to the right */
+  align-items: center;
+  margin-bottom: 2rem; /* Space between GIF and the heading */
+  padding-right: 2rem; /* Add padding to move the GIF away from the edge */
+  margin-left: 110em; /* Adjust to position the GIF horizontally */
+}
+
+.pixel-gif {
+  width: 900px;
+  height: 300px; /* Set the height equal to the height of one frame */
+  background-image: url('src/assets/pixil-frame-0.png'); /* The sprite sheet */
+  background-repeat: no-repeat;
+  animation: play-gif 5s steps(10) forwards; /* 'steps(10)' corresponds to the number of frames, play once */
+  background-size: cover; /* Ensure the background covers the entire area */
+}
+
+@keyframes play-gif {
+  from {
+      background-position: 0 0;
+  }
+  to {
+      background-position: -9000px 0; /* (frame width * number of frames) */
+  }
+}
+
+.flex-column-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* To allow for absolute positioning of child elements */
+  margin-top: 2rem; /* Adjust as needed */
+}
+
+.model-container {
+  width: 100%;
+  height: 4000px;
+  max-width: 8000px;
+  position: absolute; /* Position the model container absolutely */
+bottom:-20px;
+  z-index: 2; /* Ensure the model is on top */
+  pointer-events: none; /* Allows interaction with elements below */
+}
+
+
+
+.trade-page {
+  position: relative;
+}
+
+
+
+
