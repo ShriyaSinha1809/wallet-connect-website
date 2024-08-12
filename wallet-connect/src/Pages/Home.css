@@ -44,6 +44,29 @@ html, body {
 .news h1 .trusted {
   color: #ac9fe4; /* A lighter color for the word "TRUSTED" */
   font-size: 7rem;
+  position: relative;
+  animation: enter 0.5s ease-in-out forwards, float 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes enter{
+  from{
+    left:-100%;
+  }
+  to{
+    left:0;
+  }
+}
+
+@keyframes float{
+    0%,100%{
+      transform: translateY(0);
+      transform: scale(1);
+    }
+    50%{
+      transform: translateY(-10px);
+      transform: scale(1.05);
+    }
 }
 
 .news p {
