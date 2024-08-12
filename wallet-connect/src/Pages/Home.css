@@ -92,6 +92,54 @@ html, body {
   font-size: 1.2rem;
 }
 
+.join-page{
+  margin-top: 200px;
+  height: 550px;
+  background-image: linear-gradient(#331f80, #0c0524);
+  color:white;
+  text-align: center;
+}
+
+
+.join-page h1{
+  position: relative;
+  top:120px;
+  font-size:4rem;
+  
+}
+
+.favourite{
+  color:#ac9fe4
+}
+
+.join-page p{
+  position: relative;
+  top:150px;
+  padding-left:280px;
+  padding-right: 280px;
+  font-size: 1.4rem;
+}
+
+
+.trade-button{
+  position: relative;
+  top:200px;
+  width:320px;
+  height:78px;
+  background-color: #ac9fe4;
+  border: 2px solid rgb(129, 48, 222);
+  color:black;
+  font-size:x-large;
+  border-radius: 20px;
+}
+
+.trade-button:hover{
+  background-color: #7869bb;
+  transform: scale(1.2);
+  border:3px solid #371257
+}
+
+
 
 /* Button container styling */
 .button-container {
@@ -595,3 +643,4 @@ html, body {
     justify-content: center;
   }
 }
+

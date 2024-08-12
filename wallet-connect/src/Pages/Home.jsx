@@ -52,8 +52,18 @@ const Home = () => {
             <p>currnecy and payment method.</p>
             </div>
           </div>
-       
         </div>
+
+        
+
+      </div>
+
+      <div className='join-page'>
+            <h1>JOIN EVERYONES <span className='favourite'>FAVOURITE </span>NOW !</h1>
+            <br></br>
+            <p>Experience the power of community ownership, global governance, and explore infinite use cases within the PancakeSwap ecosystem</p>
+            
+            <button className='trade-button'><h2>TRADE NOW</h2></button>
       </div>
     </>
   );
