@@ -94,7 +94,7 @@ html, body {
 
 .join-page{
   margin-top: 200px;
-  height: 550px;
+  height: 100vh;
   background-image: linear-gradient(#331f80, #0c0524);
   color:white;
   text-align: center;
@@ -519,10 +519,7 @@ html, body {
     /* background-color: #461984; */
      /* Ensures the hero-section takes the full viewport height */
     display: flex;
-    overflow:hidden;
-    position: static;
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
-    min-width:735px;
     height:100vh;
   }
   .news {
@@ -556,36 +553,34 @@ html, body {
   .hero-section {
     background-image: linear-gradient(#331f80, #100732);
     /* background-color: #461984; */
-    height: 100vh; /* Ensures the hero-section takes the full viewport height */
+    height: 140vh; /* Ensures the hero-section takes the full viewport height */
     display: flex;
+    
     
     position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
   }
   .news {
-    position:absolute;
+    position:relative;
     top:150px;
-    display: block;
-    justify-content: center;
-    align-content: center;
-    left:5vw;
+    left:10vw;
     
   }
   
   .news h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 1rem;
     color:white;
   }
   
   .news h1 .trusted {
     color: #ac9fe4; /* A lighter color for the word "TRUSTED" */
-    font-size: 5rem;
+    font-size: 5.2rem;
   }
   
   .news p {
     position:relative;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-top: 0;
     color: #fff;
     left:10px;
@@ -602,15 +597,14 @@ html, body {
     
     position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
+    justify-content: center;
+
   }
   .news {
-    position:absolute;
-    top:150px;
-    display: block;
-    justify-content: center;
-    align-content: end;
+    position:relative;
+    top:170px;
     text-align: center;
-    left:5%;
+    margin-right:95px;
     
   }
   
@@ -635,7 +629,16 @@ html, body {
 
 }
 
-@media (max-width:730px){
+@media (max-width:1000px){
+  .ecosystem-section h2{
+    font-size: 3.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width:768px){
   .ecosystem-section h2{
     font-size: 3rem;
     text-align: center;
