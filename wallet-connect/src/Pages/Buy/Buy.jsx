@@ -179,7 +179,7 @@ const Buy = () => {
               </form>
             </div>
           </div>
-          <div className="canvasContainer">
+          <div className="canvasContainerdown">
             <div className="cryptoContainer">
               <h2>Crypto Market Info {lastUpdated && `(Updated: ${lastUpdated})`}</h2>
               <ul>
