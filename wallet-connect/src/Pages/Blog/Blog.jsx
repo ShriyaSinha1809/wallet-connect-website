@@ -6,6 +6,7 @@ import Milo from '../../models/Milo';
 import { Canvas } from '@react-three/fiber';
 import { MeshStandardMaterial } from 'three';
 import './Blog.css';
+import connectContent from './howto.jsx'; // Make sure this path is correct
 
 const Blog = () => {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -129,6 +130,7 @@ const Blog = () => {
         <div className="pixelated-title">
           How to Connect Wallet?
         </div>
+        {connectContent}  {/* Render the imported content here */}
         <Canvas shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 
