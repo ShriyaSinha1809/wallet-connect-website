@@ -145,6 +145,7 @@ const Buy = () => {
       ) : (
         <>
           <div className="canvasContainer">
+
             <div className="buyContainer">
               <h2>Buy Crypto</h2>
               <form>
@@ -159,14 +160,17 @@ const Buy = () => {
                 <button type="submit">Exchange</button>
               </form>
             </div>
-            <Canvas shadows>
-              <ambientLight intensity={2} />
-              <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
-              <pointLight position={[-10, -10, -10]} />
-              <Suspense fallback={null}>
-                <ComputerModel position={[-0.2, -1.3, 0]} rotation={[0.2, -0.7, 0]} scale={[1.5, 1.5, 1.5]} castShadow receiveShadow />
-              </Suspense>
-            </Canvas>
+            <div className="model-container">
+              <Canvas shadows>
+                <ambientLight intensity={2} />
+                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
+                <pointLight position={[-10, -10, -10]} />
+                <Suspense fallback={null}>
+                  <ComputerModel position={[-0.2, -1.3, 0]} rotation={[0.2, -0.7, 0]} scale={[1.5, 1.5, 1.5]} castShadow receiveShadow />
+                </Suspense>
+              </Canvas>
+            </div>
+
             <div className="sellContainer">
               <h2>Sell Crypto</h2>
               <form>
@@ -185,7 +189,7 @@ const Buy = () => {
           <div className="canvasContainerdown">
             <div className="cryptoContainer">
               <h2>Crypto Market Info {lastUpdated && `(Updated: ${lastUpdated})`}</h2>
-              <ul>
+              <ul className='listname'>
                 {cryptoData.map((coin) => (
                   <li key={coin.id} className="coin-item" onClick={() => handleCryptoClick(coin)}>
                     <span className="coin-arrow">&#9654;</span>

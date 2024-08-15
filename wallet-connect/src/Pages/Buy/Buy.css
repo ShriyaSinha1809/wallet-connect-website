@@ -16,9 +16,9 @@
 
 /* Buy.css */
 .buy-page-body {
-  background-color: blue; /* Example style */
+  background-color: rgb(83, 255, 83); /* Example style */
   color: #333; /* Example style */
-  font-family: 'Arial', sans-serif; /* Example style */
+  font-family: 'GomePixel', sans-serif;/* Example style */
   /* Add more styles as needed */
 }
 
@@ -74,19 +74,7 @@ button:hover {
   background-color: #17a2b8;
 }
 
-.buyContainer, .sellContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 50%;
-  height: 70%;
-  padding: 20px;
-  background-color: rgb(39,42,42);
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(255,255,255,0.1);
-  color: #fff;
-  margin: 50px;
-}
+
 
 button {
   margin-top: auto;
@@ -122,6 +110,7 @@ label {
   image-rendering: pixelated;
   font-size: 16px;
   line-height: 1.5;
+
 }
 
 .cryptoContainer h1, 
@@ -281,7 +270,7 @@ label {
 }
 
 .model-container{
-  height: 60vh;
+  height: 80vh;
 }
 
 /* Pixelated styles */
@@ -358,4 +347,451 @@ label {
   width: 100%;
   height: 100vh;
   overflow: hidden; /* Ensure overflow is hidden */
+}
+
+/* Container styling */
+.buyContainer, .sellContainer,.coin-details {
+  z-index: 10;
+  transition: all 0.3s ease;
+  width: 50%;
+  height: 70%;
+  padding: 20px;
+  background-color: rgb(39,42,42);
+  border-radius: 8px;
+  color: #fff;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 
+    0 0 0 2px black, 
+    -4px 4px 0 0 black, 
+    -8px 8px 0 0 black, 
+    -12px 12px 0 0 black;
+}
+
+.sellContainer{
+  box-shadow: 
+  0 0 0 2px black, 
+  4px 4px 0 0 black, 
+  8px 8px 0 0 black, 
+  12px 12px 0 0 black;
+}
+/* Styling for the cryptoContainer */
+.cryptoContainer {
+  transition: all 0.3s ease;
+  position: relative;
+  top: 20px;
+  left: 50px;
+  z-index: 10;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Press Start 2P', 'Franklin Gothic Medium';
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7), -2px -2px 0 rgba(0, 0, 0, 0.7);
+  border: 2px solid #fff;
+  image-rendering: pixelated;
+  font-size: 16px;
+  line-height: 1.5;
+  box-shadow: 
+    0 0 0 2px black, 
+    -4px 4px 0 0 black, 
+    -8px 8px 0 0 black, 
+    -12px 12px 0 0 black;
+}
+
+/* Container for coin details */
+.detailsContainer {
+  transition: all 0.3s ease;
+  padding: 20px;
+  margin: 20px;
+  background-color: rgba(122, 24, 235, 0.8);
+  border-radius: 8px;
+  color: #fff;
+  backdrop-filter: blur(1px);
+  display: flex;
+  width: 97%;
+  font-family: 'Press Start 2P', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  box-shadow: 
+    0 0 0 2px black, 
+    -4px 4px 0 0 black, 
+    -8px 8px 0 0 black, 
+    -12px 12px 0 0 black;
+}
+
+/* Charts container styling */
+.chartsContainer {
+  transition: all 0.3s ease;
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid #4fe0c8;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #000;
+  box-shadow: 
+    0 0 0 2px black, 
+    -4px 4px 0 0 black, 
+    -8px 8px 0 0 black, 
+    -12px 12px 0 0 black;
+}
+
+.coin-details:hover,.buyContainer:hover,.cryptoContainer:hover,.sellContainer:hover,.detailsContainer:hover,.chartsContainer:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+.line{
+  background: pink;
+}
+
+@media screen and (max-width: 1024px) {
+  .cryptoContainer {
+    width: 90%;
+    left:50%;
+    translate:-50%;
+  }
+
+
+  .topBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .topBar img, .topBar button {
+    margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 619px){
+  .cryptoContainer{
+    height:60%;
+  }
+  .coin-item { /* Stacks items vertically if needed */
+    padding: 1px; /* Reduces padding */
+    font-size: 10px; /* Optional: reduce font size */
+    width: 100%;
+    height:50% ; /* Make the container full width */
+  }
+  
+  .coin-item span {
+    margin-top:-6%;
+    margin-bottom: -3%; /* Adds spacing between stacked items */
+  }
+
+  .listname{
+    font-size:small;
+  }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .canvasContainer {
+    padding: 10px;
+  }
+
+  .topBar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cryptoContainer {
+    width: 100%;
+    padding: 15px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  h2 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .canvasContainer {
+    padding: 5px;
+  }
+
+  .cryptoContainer {
+    padding: 10px;
+    width:200%;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+  
+}
+
+@media screen and (max-width: 418px) {
+
+  
+}
+
+/* General styles for the coin-item */
+.coin-item {
+  padding: 10px;
+  background-color: #444;
+  color: #fff;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Ensure full width within the parent container */
+}
+
+/* Media query for screens smaller than 619px */
+@media screen and (max-width: 619px) {
+  .coin-item {
+    flex-direction: row;
+    padding: 5px;
+    font-size: 12px; /* Slightly reduce font size */
+    width: 100%; /* Ensure it fits within the parent container */
+    box-sizing: border-box;
+  }
+  
+  /* If the container needs to be scrollable */
+  .cryptoContainer{
+    overflow-y: auto;
+    max-height: 90vh; /* Adjust height to make the container scrollable if needed */
+  }
+}
+.cryptoContainer {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+.cryptoContainer::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+@media screen and (max-height: 648px ) {
+  .buyContainer,.sellContainer{
+    height: 50% ;
+    width:300%;
+    left:10%;
+    translate:-20%;
+  }
+  .sellContainer{
+    right: 20%;
+    translate:20%
+  }
+}
+
+
+.model-container{
+  left:0px;
+  top: 80px;
+}
+
+/* Buy container specific styles */
+.buyContainer {
+  background-color: #1a8cff; /* Bright blue for buy section */
+}
+
+/* Sell container specific styles */
+.sellContainer {
+  background-color: #ff4d4d; /* Bright red for sell section */
+}
+
+/* Button styling */
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.buyContainer button {
+  background-color: #1fc7d4; /* Lighter cyan for Buy */
+  color: white;
+}
+
+.sellContainer button {
+  background-color: #ff6666; /* Lighter red for Sell */
+  color: white;
+}
+
+/* Button hover effects */
+.buyContainer button:hover {
+  background-color: #17a2b8; /* Slightly darker cyan */
+}
+
+.sellContainer button:hover {
+  background-color: #e63946; /* Slightly darker red */
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 10px;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #222;
+  color: #eee;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Label styling */
+label {
+  margin-top: 5px;
+  color: #ddd;
+}
+.buyContainer, .sellContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  height: 50%;
+  padding: 20px;
+  border-radius: 8px;
+}
+/* Ensure parent container allows resizing */
+.canvasContainer {
+  display: flex;
+  justify-content: space-between; /* Spread them across */
+  align-items: stretch; /* Align them to fill the same height */
+  width: 100%; /* Ensure the parent container takes up full width *//* Optional: Limit max width if you prefer */
+  margin: 0 auto; /* Center the parent container */
+}
+
+.buyContainer, .sellContainer {
+  translate: 0 50%;
+  flex: 0 1 30%; /* Ensure each takes up 45% of the space */
+  max-width: 600px; /* Optional: set a max width */
+  height: 50%; /* Full height, but can be adjusted */
+  padding: 20px;
+  border-radius: 8px;
+  box-sizing: border-box; /* Ensure padding and border are included */
+}
+
+.buyContainer {
+  translate: -10% 20%;
+  background-color: #1a8cff;
+}
+
+.sellContainer {
+  translate: 10% 20%;
+  background-color: #ff4d4d;
+}
+@media screen and (max-width: 768px) {
+  .canvasContainer {
+    display: flex;
+    flex-direction: column; /* Stack containers vertically */
+    align-items: center; /* Center the containers horizontally */
+    width: 100%; /* Full width for parent container */
+    margin: 0 auto; /* Center the parent container */
+  }
+
+  .buyContainer, .sellContainer {
+    translate: 0% 20%;
+    width: 90%; /* Take up 90% of the screen width on mobile */
+    max-width: 500px; /* Limit max width to 500px */
+    margin-bottom: 20px; /* Add space between the containers */
+    box-sizing: border-box; /* Include padding/border in element's width/height */
+  }
+
+  .sellContainer {
+
+    translate: 0% -50%;
+    margin-top: 0px; /* Additional margin to space from the top */
+  }
+}
+
+@media screen and (max-height: 844px) {
+  .sellContainer {
+
+    translate: 0% -35%;
+    margin-top: 0px; /* Additional margin to space from the top */
+  }
+}
+/* Specific styling for Buy and Sell containers */
+/* General Responsive Adjustments */
+@media screen and (max-width: 1024px) {
+  .cryptoContainer {
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+
+
+  .detailsContainer, .chartsContainer {
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+  }
+
+  .detailsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .coin-details {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .cryptoContainer {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+  }
+}
+
+/* Further adjustments for smaller screens (e.g., tablets, large phones) */
+@media screen and (max-width: 768px) {
+  .cryptoContainer {
+    width: 100%;
+    padding: 10px;
+  }
+
+
+  .detailsContainer {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .chartsContainer {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .coin-details {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+/* Mobile Screens */
+@media screen and (max-width: 480px) {
+  .cryptoContainer {
+    padding: 10px;
+    width: 100%;
+  }
+
+
+  .detailsContainer, .chartsContainer {
+    padding: 10px;
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .coin-details {
+    width: 100%;
+    padding: 5px;
+  }
 }

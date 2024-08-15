@@ -276,3 +276,12 @@
   -8px 8px 0 0 black, 
   -12px 12px 0 0 black;
 }
+
+.scrollable-container,.Swap,.Tradeinfo {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+.Swap::-webkit-scrollbar,.scrollable-container::-webkit-scrollbar,.Tradeinfo::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
