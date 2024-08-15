@@ -5,7 +5,7 @@ import axios from 'axios';
 import ComputerModel from '../../models/Computer';
 import Earth from '../../models/Earth';
 import Ethereum from '../../models/Ethereum';
-import Bitcoin from '../../models/Bitcoin'; // Ensure this import path is correct
+import Bitcoin from '../../models/Bitcoin';
 import Navbar from '../../components/Navbar/Navbar';
 import Loader from '../../components/Loader/Loader';
 import './Buy.css';
@@ -23,7 +23,6 @@ import {
   Legend,
   RadialLinearScale,
 } from 'chart.js';
-
 
 ChartJS.register(
   CategoryScale,
@@ -45,6 +44,14 @@ const Buy = () => {
   const [selectedCrypto, setSelectedCrypto] = useState(null);
   const [priceHistory, setPriceHistory] = useState(null);
   const [selectedChart, setSelectedChart] = useState('line');
+
+  useEffect(() => {
+    document.body.classList.add('buy-page-body');
+
+    return () => {
+      document.body.classList.remove('buy-page-body');
+    };
+  }, []);
 
   useEffect(() => {
     const fetchCryptoData = async () => {
@@ -130,12 +137,8 @@ const Buy = () => {
     setSelectedCrypto(coin);
   };
 
-  
-  
-  
   return (
     <>
-       
       <Navbar />
       {loading ? (
         <Loader />
@@ -222,7 +225,6 @@ const Buy = () => {
                       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
                       <pointLight position={[-10, -10, -10]} />
                       <Suspense fallback={null}>
-                      {console.log('Rendering Bitcoin model')}
                         <Bitcoin position={[-5, 0, 0]} rotation={[0, 0, 0]} scale={[1,1,1]} castShadow receiveShadow />
                       </Suspense>
                     </Canvas>
@@ -234,91 +236,23 @@ const Buy = () => {
                 <p>24h Change: {selectedCrypto.price_change_percentage_24h}%</p>
               </div>
               <div className="chartsContainer">
-                <div className="chartSelector">
-                  <label htmlFor="chartSelect">Choose a chart:</label>
-                  <select
-                    id="chartSelect"
-                    value={selectedChart}
-                    onChange={(e) => setSelectedChart(e.target.value)}
-                  >
-                    <option value="line">Line Chart</option>
-                    <option value="bar">Bar Chart</option>
-                    <option value="pie">Pie Chart</option>
-                    <option value="radar">Radar Chart</option>
-                  </select>
+                <div className="chart-controls">
+                  <button onClick={() => setSelectedChart('line')} className={selectedChart === 'line' ? 'active' : ''}>Line Chart</button>
+                  <button onClick={() => setSelectedChart('bar')} className={selectedChart === 'bar' ? 'active' : ''}>Bar Chart</button>
+                  <button onClick={() => setSelectedChart('pie')} className={selectedChart === 'pie' ? 'active' : ''}>Pie Chart</button>
+                  <button onClick={() => setSelectedChart('radar')} className={selectedChart === 'radar' ? 'active' : ''}>Radar Chart</button>
                 </div>
                 {priceHistory && selectedChart === 'line' && (
-                  <>
-                    <h3>Price History (Last 7 Days)</h3>
-                    <Line data={priceHistory} />
-                  </>
+                  <Line data={priceHistory} />
                 )}
                 {priceHistory && selectedChart === 'bar' && (
-                  <>
-                    <h3>Market Cap and Volume</h3>
-                    <Bar
-                      data={{
-                        labels: ['Market Cap', '24h Volume'],
-                        datasets: [
-                          {
-                            label: 'Value',
-                            data: [selectedCrypto.market_cap, selectedCrypto.total_volume],
-                            backgroundColor: ['rgba(75,192,192,0.2)', 'rgba(153,102,255,0.2)'],
-                            borderColor: ['rgba(75,192,192,1)', 'rgba(153,102,255,1)'],
-                            borderWidth: 1,
-                          },
-                        ],
-                      }}
-                      options={{
-                        scales: {
-                          y: {
-                            beginAtZero: true,
-                          },
-                        },
-                      }}
-                    />
-                  </>
+                  <Bar data={priceHistory} />
                 )}
                 {priceHistory && selectedChart === 'pie' && (
-                  <>
-                    <h3>Market Share (Pie)</h3>
-                    <Pie
-                      data={{
-                        labels: ['Market Cap', 'Volume'],
-                        datasets: [
-                          {
-                            data: [selectedCrypto.market_cap, selectedCrypto.total_volume],
-                            backgroundColor: ['rgba(75,192,192,0.2)', 'rgba(153,102,255,0.2)'],
-                            borderColor: ['rgba(75,192,192,1)', 'rgba(153,102,255,1)'],
-                            borderWidth: 1,
-                          },
-                        ],
-                      }}
-                    />
-                  </>
+                  <Pie data={priceHistory} />
                 )}
                 {priceHistory && selectedChart === 'radar' && (
-                  <>
-                    <h3>Performance Metrics (Radar)</h3>
-                    <Radar
-                      data={{
-                        labels: ['Price Change (24h)', 'Market Cap', 'Total Volume'],
-                        datasets: [
-                          {
-                            label: 'Metrics',
-                            data: [
-                              selectedCrypto.price_change_percentage_24h,
-                              selectedCrypto.market_cap,
-                              selectedCrypto.total_volume,
-                            ],
-                            backgroundColor: 'rgba(75,192,192,0.2)',
-                            borderColor: 'rgba(75,192,192,1)',
-                            borderWidth: 1,
-                          },
-                        ],
-                      }}
-                    />
-                  </>
+                  <Radar data={priceHistory} />
                 )}
               </div>
             </div>
