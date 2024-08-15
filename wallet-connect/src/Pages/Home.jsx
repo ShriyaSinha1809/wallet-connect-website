@@ -18,8 +18,10 @@ const Home = () => {
             <br />
             <span className="trusted">TRUSTED</span> DEX
           </h1>
-          <p>Earn, Trade, Swap and Buy all-in-one</p>
+          <p><span className='earn'>Earn,</span> <span className='trade'>Trade,</span> <span className='swap'>Swap</span> and <span className='buy'>Buy</span> <span className='all'>all-in-one</span></p>
+          
         </div>
+        <div className='model'>Model</div>
       </div>
 
       <div className="ecosystem-section">
@@ -59,8 +61,8 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="table-container">
-               {/* Separate Canvas for the Dragon */}
+      {/* <div className="table-container">
+              
                <div className="dragon-canvas-container">
                <Canvas shadows>
       <ambientLight intensity={1} />
@@ -77,7 +79,7 @@ const Home = () => {
         shadow-camera-bottom={-10}
       />
 
-      {/* Positioning the Dragon model above the monitor */}
+    
       <Dragon 
         scale={[4, 4, 4]} 
         position={[0, -4, 0]} 
@@ -94,7 +96,7 @@ const Home = () => {
             
             
             <div className="monitor">
-              <p>🪙 🟡 Crypto trading: where strategy meets the thrill of the digital frontier! 🪙 🟡</p>
+              <p>🪙🟡Crypto trading, where strategy meets the thrill of the digital frontier!🪙🟡</p>
             </div>
           </div>
           <div className="hometruck-canvas-container">
@@ -127,23 +129,23 @@ const Home = () => {
                 shadow-mapSize-height={1024}
               />
 
-              {/* Plane to catch shadows */}
+            
               <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
                 <planeGeometry args={[10, 10]} />
                 <shadowMaterial transparent opacity={0.5} />
               </mesh>
 
-              {/* Adding the 3D model with proper scaling and positioning */}
+              
               <Hometruck scale={[0.0115, 0.0115, 0.0115]} position={[0, 0, 0]} rotation={[0.2, 4.1, 0]} castShadow />
 
-              {/* Orbit controls for interaction */}
+              
               <OrbitControls enableZoom={false} />
             </Canvas>
             
      
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="join-page">
         <h1>JOIN EVERYONE'S <span className="favourite">FAVOURITE</span> NOW!</h1>
         <p>Experience the power of community ownership, global governance, and explore infinite use cases within the PancakeSwap ecosystem</p>
