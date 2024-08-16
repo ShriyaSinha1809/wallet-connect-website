@@ -205,6 +205,9 @@ body {
   position: relative;
   top: 120px;
   font-size: 4rem;
+  animation: slide ease-in-out forwards;
+  animation-timeline: view();
+  animation-range:entry 0 cover 40%;
 }
 
 .favourite {
@@ -229,14 +232,14 @@ body {
   color: black;
   font-size: x-large;
   border-radius: 20px;
-  animation: pulse 1.5s ease-in-out infinite forwards;
+  animation: pulse 2s ease-out infinite forwards;
 }
 
 @keyframes pulse{
-  0%,20%,50%,100%{
+  0%,40%,70%,100%{
     transform: scale(1);
   }
-  15%,45%{
+  35%,65%{
     transform: scale(1.1);
   }
 }
