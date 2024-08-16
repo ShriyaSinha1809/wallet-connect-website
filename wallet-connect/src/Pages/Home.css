@@ -1,7 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -12,8 +12,8 @@ body {
   background-image: linear-gradient(#331f80, #100732);
   height: 100vh;
   display: flex;
-  position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+
 }
 
 .model{
@@ -22,8 +22,8 @@ body {
   top:20vh;
   left:18vw;
   background-color: rgba(255, 255, 255, 0.397);
-  width:25rem;
-  height:25rem;
+  width:25%;
+  height:25vw;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
@@ -31,7 +31,7 @@ body {
 
 .news {
   position: relative;
-  top: 15vh;
+  top: 20vh;
   left: 7vw;
 }
 
@@ -217,8 +217,6 @@ body {
 .join-page p {
   position: relative;
   top: 150px;
-  padding-left: 280px;
-  padding-right: 280px;
   font-size: 1.4rem;
 }
 
@@ -329,7 +327,6 @@ body {
 
 @media (max-width:1025px) {
   .hero-section {
-    min-width: 735px;
     height: 100vh;
   }
 
@@ -351,7 +348,6 @@ body {
 
 @media (max-width:735px) {
   .hero-section {
-    min-width: 735px;
     height: 100vh;
   }
 
@@ -417,7 +413,7 @@ body {
 
 @media (max-width:730px) {
   .ecosystem-section h2 {
-    font-size: 5vw;
+    font-size: 6.3vw;
   }
 }
 
@@ -428,6 +424,8 @@ body {
 }
 
 .f2img img {
+  margin-top:5vw;
+  margin-right:5vw;
   width: 14vw; 
   height: auto;
 }
@@ -510,12 +508,14 @@ body {
 @media (max-width:830px){
   .hero-section{
     display: block;
-    justify-content: top;
+    justify-content: center;
+    left:0;
+
   }
   .model{
     top:25vh;
-    left:38vw;
-    width:13rem;
+    left:25%;
+    width:50%;
     height:13rem;
 
   }
@@ -528,12 +528,89 @@ body {
   }
   
   .news h1 .trusted {
-    font-size: 12vw;
+    font-size: 11vw;
   }
+
+  .news p{
+    font-size: 1rem;
+  }
+
   .feature1{
     display: block;
   }
   .join-page h1{
-    font-size: 2.7rem;
+    font-size: 3rem;
   }
 }
+
+
+@media (max-width:670px) {
+  .ecosystem-section h2 {
+    font-size: 6vw;
+  }
+
+
+.f1img img,
+.f3img img {
+  width: 33vw; 
+  height: auto;
+}
+
+.f2img img {
+
+  width: 23vw; 
+  height: auto;
+}
+
+.ecosystem-section h3 {
+  font-size: 6vw;
+}
+
+
+}
+
+
+@media (max-width:430px) {
+  .hero-section {
+    clip-path: polygon(0 0, 100% 0, 100% 83%, 0% 100%);
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  .news {
+    text-align: center;
+  }
+
+  .news h1 {
+    font-size: 12vw;
+  }
+
+  .news h1 .trusted {
+    font-size: 14vw;
+  }
+
+  .news p {
+    font-size: 4vw;
+  }
+  .model{
+    left:25%;
+    width:50%;
+    height:50vw;
+  }
+  .join-page h1{
+    font-size: 2rem;
+  }
+  .trade-button{
+    width: 40%;
+    padding: 0;
+  }
+  .join-page h2{
+    font-size: 1rem;
+  }
+  .ecosystem-section h2 {
+    font-size: 8vw;
+  }
+}
+
+

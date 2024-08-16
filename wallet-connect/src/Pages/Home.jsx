@@ -9,9 +9,10 @@ import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
 const Home = () => {
   return (
     <>
-      <Navbar />
+      
 
       <div className="hero-section">
+      <Navbar />
         <div className="news">
           <h1>
             World’s Most

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FaExchangeAlt, FaShoppingCart, FaMoneyBillWave, FaWallet, FaBars, FaMoon, FaSun } from 'react-icons/fa';
 import styled, { keyframes } from 'styled-components';
@@ -48,8 +48,24 @@ const Navbar = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const [navbarClass, setNavbarClass] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    const path = location.pathname;
+
+    const pageClasses = {
+      '/home': styles.home,
+      '/trade': styles.trade,
+      '/buy': styles.buy,
+      // Add more mappings as needed
+    };
+
+    // Determine the class based on the current path
+    const currentClass = Object.keys(pageClasses).find(route => path.includes(route));
+    setNavbarClass(currentClass ? pageClasses[currentClass] : '');
+  }, [location.pathname]);
 
   useEffect(() => {
     if (!isMenuOpen) {
@@ -71,15 +87,11 @@ const Navbar = () => {
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
-    if (!darkMode) {
-      document.body.classList.add('dark-mode');
-    } else {
-      document.body.classList.remove('dark-mode');
-    }
+    document.body.classList.toggle('dark-mode', !darkMode);
   };
-  
 
   useEffect(() => {
     const eyes = document.querySelectorAll(`.${styles.eye}`);
@@ -108,7 +120,6 @@ const Navbar = () => {
   };
 
   const handleLogoClick = (e) => {
-    // Check if the current path is not the home path
     if (location.pathname !== '/home') {
       const { left, top, width, height } = e.target.getBoundingClientRect();
       const x = left + width / 2;
@@ -126,12 +137,10 @@ const Navbar = () => {
     }
   };
 
-  
-
   return (
     <>
       {isClicked && <ColorOverlay fade={fadeOut} />}
-      <div className={styles.navbar}>
+      <div className={`${styles.navbar} ${navbarClass}`}>
         <div className={styles.logoLink} onClick={handleLogoClick}>
           <div className={styles.logo}>{renderLogo('LOREM')}</div>
         </div>
@@ -149,21 +158,21 @@ const Navbar = () => {
         </div>
         <WalletConnectModal isOpen={isModalOpen} onClose={handleCloseModal} />
         <div className={styles.toggleEyesContainer}>
-        {/* Night mode toggle button */}
-        <div className={`${styles.toggleButton} ${darkMode ? styles.active : ''}`} onClick={toggleDarkMode}>
-          <FaSun className={`${styles.icon} ${styles.sun}`} />
-          <FaMoon className={`${styles.icon} ${styles.moon}`} />
-        </div>
+          {/* Night mode toggle button */}
+          <div className={`${styles.toggleButton} ${darkMode ? styles.active : ''}`} onClick={toggleDarkMode}>
+            <FaSun className={`${styles.icon} ${styles.sun}`} />
+            <FaMoon className={`${styles.icon} ${styles.moon}`} />
+          </div>
 
-        {/* Eyes */}
-        <div className={styles.eye}>
-          <div className={styles.pupil}></div>
-        </div>
-        <div className={styles.eye}>
-          <div className={styles.pupil}></div>
+          {/* Eyes */}
+          <div className={styles.eye}>
+            <div className={styles.pupil}></div>
+          </div>
+          <div className={styles.eye}>
+            <div className={styles.pupil}></div>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

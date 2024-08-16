@@ -16,7 +16,7 @@ body.dark-mode {
 }
 
 .navbar {
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,6 +29,18 @@ body.dark-mode {
     left: 2%;
     right: 2%;
     z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+.navbar.home{
+    background-color: #9f93d5b3;
+}
+
+.navbar.buy{
+    background-color: #91dae4a7;
+}
+
+.narbar.trade{
+    background-color: rgb(141, 101, 83);
 }
 
 body.dark-mode .navbar {
@@ -168,14 +180,14 @@ body.dark-mode .navLinks a::after {
         width: 100%;
         position: absolute;
         left: 0;
-        background-color: #eff5a0b1;
+        background-color: #9f93d5e4;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         z-index: 2;
         align-items: center;
-        height: 50vh;
-        top: 95px; 
+        height: 40vh;
+        top: 10vh; 
         border-radius: 10px;
-        top:70px;
+        
     }
 
     .navLinks.showMenu {
