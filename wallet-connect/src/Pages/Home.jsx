@@ -1,6 +1,11 @@
 import React from 'react';
+import { Canvas } from '@react-three/fiber';
 import Navbar from '../components/Navbar/Navbar';
 import './Home.css'; // Assuming the CSS file is in the same directory
+import Hometruck from '../models/Hometruck';
+import Dragon from '../models/Dragon'; // Import the Dragon model
+import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
+import Bitcoin from '../models/Bitcoin.jsx';
 
 const Home = () => {
   return (
@@ -24,7 +29,7 @@ const Home = () => {
         <div className="features">
           <div className="feature1">
             <div className="f1img">
-              <img src="path/to/your/image1.png" alt="Swap Feature" />
+              <img src="public/swap.png" alt="Swap Feature" />
             </div>
             <div className="f1info">
               <h3>SWAP</h3>
@@ -38,13 +43,13 @@ const Home = () => {
               <p>Fund liquidity pools, earn trading fees.</p>
             </div>
             <div className="f2img">
-              <img src="path/to/your/image2.png" alt="Swap Feature" />
+              <img src="src/assets/469ed5b7bf5bcf6026940aafdc2818d8.png" alt="Liquidity Feature" />
             </div>
           </div>
 
           <div className="feature1">
             <div className="f3img">
-              <img src="path/to/your/image3.png" alt="Swap Feature" />
+              <img src="src/assets/88804f9baa8b6045b92f13c4d85ed3ce.png" alt="Buy Crypto Feature" />
             </div>
             <div className="f3info">
               <h3>BUY CRYPTO</h3>
@@ -52,27 +57,97 @@ const Home = () => {
               <p>currency and payment method.</p>
             </div>
           </div>
+
+       
         </div>
       </div>
 
-      {/* Added the animated scrolling text */}
-      <div className="table center">
-        <div className="monitor-wrapper center">
-          <div className="monitor center">
-            <p>🪙 🟡 Crypto trading: where strategy meets the thrill of the digital frontier! 🪙 🟡</p>
+      <div className="table-container">
+        {/* Separate Canvas for the Dragon */}
+        <div className="dragon-canvas-container">
+          <Canvas shadows>
+            <ambientLight intensity={1} />
+            <directionalLight
+              position={[5, 10, 5]}
+              intensity={1.5}
+              castShadow
+              shadow-mapSize-width={1024}
+              shadow-mapSize-height={1024}
+              shadow-camera-far={50}
+              shadow-camera-left={-10}
+              shadow-camera-right={10}
+              shadow-camera-top={10}
+              shadow-camera-bottom={-10}
+            />
+
+            {/* Positioning the Dragon model above the monitor */}
+            <Dragon
+              scale={[4, 4, 4]}
+              position={[0, -4, 0]}
+              rotation={[0, 0, 0]}
+              castShadow
+              receiveShadow
+            />
+
+            <OrbitControls enableZoom={false} />
+          </Canvas>
+        </div>
+        <div className="model-monitor-wrapper">
+          <div className="monitor-wrapper">
+            <div className="monitor">
+              <p>🪙 🟡 Crypto trading: where strategy meets the thrill of the digital frontier! 🪙 🟡</p>
+            </div>
+          </div>
+          <div className="hometruck-canvas-container">
+            <Canvas shadows>
+              <ambientLight intensity={1} />
+              <directionalLight
+                position={[10, 10, 5]}
+                intensity={1.5}
+                castShadow
+                shadow-mapSize-width={1024}
+                shadow-mapSize-height={1024}
+                shadow-camera-far={50}
+                shadow-camera-left={-10}
+                shadow-camera-right={10}
+                shadow-camera-top={10}
+                shadow-camera-bottom={-10}
+              />
+
+              <spotLight
+                position={[15, 20, 10]}
+                angle={0.3}
+                penumbra={1}
+                intensity={1}
+                castShadow
+                shadow-mapSize-width={1024}
+                shadow-mapSize-height={1024}
+              />
+
+              {/* Plane to catch shadows */}
+              <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
+                <planeGeometry args={[10, 10]} />
+                <shadowMaterial transparent opacity={0.5} />
+              </mesh>
+
+              {/* Adding the 3D model with proper scaling and positioning */}
+              <Hometruck
+                scale={[0.0115, 0.0115, 0.0115]}
+                position={[0, 0, 0]}
+                rotation={[0.2, 4.1, 0]}
+                castShadow
+              />
+
+              <OrbitControls enableZoom={false} />
+            </Canvas>
           </div>
         </div>
-
-        
-
       </div>
 
-      <div className='join-page'>
-            <h1>JOIN EVERYONES <span className='favourite'>FAVOURITE </span>NOW !</h1>
-            <br></br>
-            <p>Experience the power of community ownership, global governance, and explore infinite use cases within the PancakeSwap ecosystem</p>
-            
-            <button className='trade-button'><h2>TRADE NOW</h2></button>
+      <div className="join-page">
+        <h1>JOIN EVERYONE'S <span className="favourite">FAVOURITE</span> NOW!</h1>
+        <p>Experience the power of community ownership, global governance, and explore infinite use cases within the PancakeSwap ecosystem</p>
+        <button className="trade-button"><h2>TRADE NOW</h2></button>
       </div>
     </>
   );

@@ -2,10 +2,13 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+
 }
 
 body {
   background: #ffffff;
+  
+
 }
 
 .hero-section {
@@ -23,18 +26,18 @@ body {
 }
 
 .news h1 {
-  font-size: 6vw; /* Reduced font size */
+  font-size: 6vw;
   margin-bottom: 1rem;
   color: white;
 }
 
 .news h1 .trusted {
   color: #ac9fe4;
-  font-size: 8vw; /* Reduced font size */
+  font-size: 8vw;
 }
 
 .news p {
-  font-size: 2.5vw; /* Reduced font size */
+  font-size: 2.5vw;
   color: #fff;
   left: 1vw;
 }
@@ -47,7 +50,7 @@ body {
 }
 
 .ecosystem-section h2 {
-  font-size: 6vw; /* Reduced font size */
+  font-size: 6vw;
   margin-bottom: 2rem;
 }
 
@@ -58,13 +61,13 @@ body {
 }
 
 .feature1 img {
-  width: 8vw; /* Reduced size for images */
+  width: 8vw;
   height: auto;
   margin-bottom: 1rem;
 }
 
 .feature1 h3 {
-  font-size: 4.5vw; /* Reduced font size */
+  font-size: 4.5vw;
   margin-top: 5rem;
 }
 
@@ -72,396 +75,95 @@ body {
   font-size: 1.2rem;
 }
 
-.join-page{
+.join-page {
   margin-top: 200px;
   height: 550px;
   background-image: linear-gradient(#331f80, #0c0524);
-  color:white;
+  color: white;
   text-align: center;
 }
 
-
-.join-page h1{
+.join-page h1 {
   position: relative;
-  top:120px;
-  font-size:4rem;
-  
+  top: 120px;
+  font-size: 4rem;
 }
 
-.favourite{
-  color:#ac9fe4
+.favourite {
+  color: #ac9fe4;
 }
 
-.join-page p{
+.join-page p {
   position: relative;
-  top:150px;
-  padding-left:280px;
+  top: 150px;
+  padding-left: 280px;
   padding-right: 280px;
   font-size: 1.4rem;
 }
 
-
-.trade-button{
+.trade-button {
   position: relative;
-  top:200px;
-  width:320px;
-  height:78px;
+  top: 200px;
+  width: 320px;
+  height: 78px;
   background-color: #ac9fe4;
   border: 2px solid rgb(129, 48, 222);
-  color:black;
-  font-size:x-large;
+  color: black;
+  font-size: x-large;
   border-radius: 20px;
+  font-family: 'GomePixel', sans-serif;
 }
 
-.trade-button:hover{
+.trade-button:hover {
   background-color: #7869bb;
   transform: scale(1.2);
-  border:3px solid #371257
+  border: 3px solid #371257;
 }
 
-
-
-/* Button container styling */
-.button-container {
-  position: absolute;
-  bottom: 14rem;
-  right: 17rem;
-}
-
-.custom-button {
-  background-color: white;
-  text-align: center;
-  width: 192px;
-  height: 56px;
-  border-radius: 24px;
+.model-monitor-wrapper {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  gap: 2rem;
+  padding: 0 2rem;
   position: relative;
-  font-family: 'GomePixel', sans-serif;
-  color: black;
-  font-size: 25px;
-  font-weight: 600;
-  cursor: pointer;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: -5rem;
+  
+
 }
 
-.custom-button .inner-div {
-  background-color: #4CAF50; /* Green background */
-  border-radius: 16px;
-  height: 44px;
-  width: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: 4px;
-  top: 4px;
-  transition: width 0.5s;
-  z-index: 10;
-}
-
-.custom-button:hover .inner-div {
-  width: 180px;
-}
-
-.custom-button svg {
-  width: 25px;
-  height: 25px;
-}
-
-.custom-button p {
-  margin: 0;
-  z-index: 20;
-  position: relative;
-  transition: opacity 0.5s;
-  font-family: 'GomePixel', sans-serif; /* Ensure the font is applied */
-}
-
-.custom-button:hover p {
-  opacity: 0;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-}
-  
-  .text-container {
-    position: absolute;
-    left: 80%;
-    transform: translate(-50%, -50%);
-    color: rgb(223, 96, 155);
-    text-align: center;
-    border-radius: 10px; /* Rounded corners */
-    animation: fadeIn 2s ease-in-out;
-    font-family: 'GomePixel', sans-serif;
-    -webkit-text-stroke-width: 0.01mm;
-    -webkit-text-stroke-color: rgb(168, 54, 99);
-    width:20vw;
-    height:50vh;
-    
-  }
-
-  
-  .text-container h2 {
-    position: relative;
-    font-size: 4rem;
-    /* margin-bottom: 10px; */
-  }
-  
-  .button-container {
-    position: absolute;
-    bottom: 14rem;
-    right: 17rem;
-  }
-  
-  .custom-button {
-    background-color: white;
-    text-align: center;
-    top: 40px;
-    
-    width: 192px;
-    height: 56px;
-    border-radius: 24px;
-    position: absolute;
-    font-family: 'GomePixel', sans-serif;
-    color: black;
-    font-size: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-  }
-  
-  .custom-button .inner-div {
-    background-color: #d44985; /* Green background */
-    border-radius: 16px;
-    height: 44px;
-    width: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 4px;
-    top: 4px;
-    transition: width 0.5s;
-    z-index: 10;
-    
-  }
-  
-  .custom-button:hover .inner-div {
-    width: 180px;
-  }
-  
-  .custom-button svg {
-    width: 25px;
-    height: 25px;
-  }
-  
-  .custom-button p {
-    margin: 0;
-    z-index: 20;
-    position: relative;
-    transition: opacity 0.3s;
-    font-family: 'GomePixel', sans-serif; /* Ensure the font is applied */
-  }
-  
-  /* .custom-button:hover p {
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-  } */
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-  .swapCss{
-    font-size: 4rem;
-  }
-
-  .home-container {
-    position: relative;
-    overflow: hidden; /* Ensure clouds are hidden when out of bounds */
-  }
-  
-  .cloud {
-    position: fixed;
-    z-index: 200000;
-    width: 200px;
-    height: 100px;
-    top:0;
-    background-image: url('/src/assets/clouds.webp');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0;
-    animation-duration: 0.75s;
-    animation-fill-mode: forwards;
-  }
-  
-  .left-cloud {
-    height: 200vh;
-    width:200vh;
-    left: -200px;
-    animation-name: left-cloud-animation;
-  }
-  
-  .right-cloud {
-    height: 200vh;
-    width:200vh;
-    right: -200px;
-    animation-name: right-cloud-animation;
-  }
-  
-  @keyframes left-cloud-animation {
-    0% {
-      transform: translateX(-1000px);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(300px);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes right-cloud-animation {
-    0% {
-      transform: translateX(1000px);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(-300px);
-      opacity: 1;
-    }
-  }
-  
-  .left-cloud-exit {
-    animation-name: left-cloud-exit-animation;
-  }
-  
-  .right-cloud-exit {
-    animation-name: right-cloud-exit-animation;
-  }
-  
-  @keyframes left-cloud-exit-animation {
-    0% {
-      transform: translateX(300px);
-      opacity: 1;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(6000px);
-      opacity: 0;
-    }
-  }
-  
-  @keyframes right-cloud-exit-animation {
-    0% {
-      transform: translateX(-300px);
-      opacity: 1;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(-6000px);
-      opacity: 0;
-    }
-  }
-  
-/* Third GIF styling */
-.third-gif {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  z-index: 1; /* Ensure the GIF is below other elements */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.third-gif img {
-  width: 100%; /* Ensure the GIF takes the full width */
-  height: 100%; /* Ensure the GIF takes the full height */
-}
-
-/* Scroll arrow for the second section */
-.scroll-arrow1 {
-  position: absolute;
-  bottom: 2vh;
-  cursor: pointer;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: bounce 2s infinite;
-}
-
-.scroll-arrow1 img {
-  width: 8vw; /* Reduced size for scroll arrow */
-  height: auto;
-  transition: transform 0.2s;
-}
-
-.scroll-arrow1 p {
-  color: white;
-  font-size: 2vw; /* Reduced font size */
-  margin-bottom: 1vh;
-  text-transform: uppercase;
-  font-family: 'GomePixel', sans-serif;
-  transition: transform 0.2s, color 0.2s;
-}
-
-.scroll-arrow1:hover img, .scroll-arrow1:hover p {
-  transform: scale(1.2);
-  color: #FFD700;
-}
-
-/* Scrolling Text Animation */
 .table {
   width: 790px;
-  height: 150px;
+  height: 200px;
   background-color: #d4e5ff;
-  margin: 2rem 2rem;
+
   position: relative;
 }
-
 .monitor-wrapper {
   background: #050321;
-  width: 770px;
+  width: 900px;
   height: 130px;
   box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.30);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+  margin-top: 10rem;
+  margin-right: 4em;
+  position: relative; /* Ensure this is relative to contain the dragon-canvas-container */
+ 
+ 
 }
 
+.dragon-canvas-container {
+  width: 300px;
+  height: 300px;
+  position: relative; /* This keeps the dragon positioned based on its closest positioned ancestor */
+  margin-bottom: -10rem;
+  left: 10%; /* Center the dragon horizontally with respect to the monitor-wrapper */
+  transform: translateX(-50%); /* Corrects for the natural offset when using left: 50% */
+  z-index: 4; /* Ensures the dragon appears above the monitor */
+}
+
+
 .monitor {
-  width: 700px;
+  width: 800px;
   height: 100px;
   background-color: #344151;
   overflow: hidden;
@@ -471,24 +173,32 @@ body {
 }
 
 .monitor p {
-
-  font-size: 4vw; /* Adjust font size to fit within the design */
+  font-size: 4vw;
   position: relative;
   display: inline-block;
   animation: move 20s infinite linear;
   color: #EBB55F;
 }
 
+
+
+
 @keyframes move {
   from {
-    left: 800px;
+    transform: translateX(100%);
   }
   to {
-    left: -4800px;
+    transform: translateX(-100%);
   }
 }
 
-/* Media Queries */
+.hometruck-canvas-container {
+ 
+  width: 900px;
+  height: 600px;
+  /* margin-bottom: 40rem; */
+}
+
 @media (max-width:1025px) {
   .hero-section {
     min-width: 735px;
@@ -496,7 +206,7 @@ body {
   }
 
   .news h1 {
-    font-size: 5vw; /* Adjusted for smaller screens */
+    font-size: 5vw;
   }
 
   .news h1 .trusted {
@@ -574,6 +284,30 @@ body {
 
 @media (max-width:730px) {
   .ecosystem-section h2 {
-    font-size: 5vw; /* Reduced font size */
+    font-size: 5vw;
   }
 }
+
+.f1img img,
+.f3img img {
+  width: 20vw; /* Increased size for f1img and f3img */
+  height: auto;
+}
+
+.f2img img {
+  width: 14vw; /* Keeping the size of f2img the same or as desired */
+  height: auto;
+}
+
+
+.f1img img,
+.f3img img {
+  width: 20vw; /* Increased size for f1img and f3img */
+  height: auto;
+}
+
+.f2img img {
+  width: 14vw; /* Keeping the size of f2img the same or as desired */
+  height: auto;
+}
+
