@@ -35,7 +35,12 @@ createWeb3Modal({
   metadata,
   wagmiConfig: config,
   projectId,
+<<<<<<< Updated upstream
   enableAnalytics: true, // Optional - enable analytics if you want
+=======
+  enableAnalytics: true // Optional - defaults to your Cloud configuration
+  
+>>>>>>> Stashed changes
 });
 
 // AppKitProvider component

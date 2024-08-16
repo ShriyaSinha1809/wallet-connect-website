@@ -2,10 +2,13 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+
 }
 
 body {
   background: #ffffff;
+  
+
 }
 
 .hero-section {
@@ -108,6 +111,7 @@ body {
   color: black;
   font-size: x-large;
   border-radius: 20px;
+  font-family: 'GomePixel', sans-serif;
 }
 
 .trade-button:hover {
@@ -175,6 +179,9 @@ body {
   animation: move 20s infinite linear;
   color: #EBB55F;
 }
+
+
+
 
 @keyframes move {
   from {
@@ -293,4 +300,14 @@ body {
 }
 
 
+.f1img img,
+.f3img img {
+  width: 20vw; /* Increased size for f1img and f3img */
+  height: auto;
+}
+
+.f2img img {
+  width: 14vw; /* Keeping the size of f2img the same or as desired */
+  height: auto;
+}
 
