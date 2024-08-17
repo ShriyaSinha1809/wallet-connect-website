@@ -122,7 +122,7 @@ section {
 }
 
 .swap-container,
-.wallet-dashboard {
+.wallet-dashboard-container {
   display: flex;
   flex-direction: column;
   align-items: bottom;
@@ -136,13 +136,13 @@ section {
   transform: translateY(-20px);
   transition: all 0.2s ease;
   position: relative;
-  width: 50em; /* Adjust the width as needed */
-  height: 40em; /* Adjust the height as needed */
+  width: 40vw; /* Adjust the width as needed */
+  height: 70vh; /* Adjust the height as needed */
   justify-content: bottom;
 }
 
 .swap-container:hover,
-.wallet-dashboard:hover {
+.wallet-dashboard-container:hover {
   transform: translateY(-30px);
   box-shadow: 5px 5px 0px #555, 10px 10px 0px #777, 15px 15px 0px #999;
 }
@@ -227,16 +227,6 @@ h2, p {
   flex-direction: row;
   align-items: center;
   gap: 20px;
-}
-
-.pixelated-3d {
-  border: 4px solid #333;
-  box-shadow: 8px 8px 0px #000, 8px 8px 0px 4px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(145deg, #3a3a3a, #4e4e4e);
-  color: white;
-  font-family: 'Press Start 2P', cursive;
-  text-align: center;
-  padding: 15px;
 }
 
 /* Custom styles for the Wallet Connect button */
@@ -408,13 +398,11 @@ h2, p {
   justify-content: space-between; /* Distribute space between items */
   align-items: center; /* Center items horizontally */
   padding: 20px;
-  background-color: #2d2d2d;
   color: white;
   border-radius: 8px;
-  box-shadow: 10px 10px 0px #000, 10px 10px 0px 4px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(145deg, #3a3a3a, #4e4e4e);
   font-family: 'Press Start 2P', cursive;
   width: 100%;
+  height:100%;
   max-width: 50rem;
   position: relative;
   overflow: hidden;
