@@ -280,7 +280,7 @@ h2, p {
 
 .text p {
   top:0.9vw;
-  font-size: 2rem; /* Adjust as needed */
+  font-size: 2vw; /* Adjust as needed */
 }
 
 .text h1 .swap {
