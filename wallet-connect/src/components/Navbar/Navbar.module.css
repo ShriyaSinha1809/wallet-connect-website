@@ -43,6 +43,10 @@ body.dark-mode {
     background-color: rgb(141, 101, 83);
 }
 
+.navbar.blog{
+    background-color: #4a26616b;
+}
+
 body.dark-mode .navbar {
     background-color: #333;
 }

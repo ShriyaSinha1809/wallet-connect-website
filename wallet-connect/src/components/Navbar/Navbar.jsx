@@ -59,6 +59,7 @@ const Navbar = () => {
       '/home': styles.home,
       '/trade': styles.trade,
       '/buy': styles.buy,
+      '/blog':styles.blog
       // Add more mappings as needed
     };
 
