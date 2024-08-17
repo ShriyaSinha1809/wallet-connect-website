@@ -6,7 +6,6 @@ import styles from './Navbar.module.css';
 import WalletConnectModal from './WalletConnectModal';
 import Sonic from '../../models/Sonic';
 import { Canvas } from '@react-three/fiber';
-import {ConnectButton} from '../../config/Web3ModalProvider'
 
 // Keyframes for the color spread effect
 const colorSpread = keyframes`
@@ -87,7 +86,7 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
-    console.log("toggled")
+    console.log("toggled");
   };
 
   const toggleDarkMode = () => {
@@ -153,6 +152,10 @@ const Navbar = () => {
         <div className={`${styles.navLinks} ${isMenuOpen ? styles.showMenu : ''} ${isMenuOpen ? styles.noTyping : ''}`}>
           <Link to="/trade"><FaExchangeAlt /> Swap</Link>
           <Link to="/buy"><FaShoppingCart /> Buy</Link>
+          <Link to="#"><FaMoneyBillWave /> Earn</Link>
+          <Link to="#" className={styles.connectWallet} onClick={handleOpenModal}>
+            <FaWallet /> Connect Wallet
+          </Link>
         </div>
         <WalletConnectModal isOpen={isModalOpen} onClose={handleCloseModal} />
         <div className={styles.toggleEyesContainer}>
