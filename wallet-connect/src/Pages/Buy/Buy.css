@@ -643,6 +643,7 @@ label {
   border-radius: 8px;
   box-sizing: border-box; /* Ensure padding and border are included */
   margin-top: -10rem;
+  overflow: hidden;
 }
 
 .buyContainer {
@@ -866,4 +867,58 @@ label {
 .tree-container{
   height: 91%;
   margin-bottom: 4px;
+}
+
+.chartSelector {
+  position: relative;
+  margin-top: 20px;
+  text-align: left;
+  font-family: 'Press Start 2P', cursive;
+  margin-bottom: 1rem;
+}
+
+.chartDropdown {
+  appearance: none;
+  background-color: #000;
+  color: #fff;
+
+  padding: 10px;
+  font-family: 'Press Start 2P', cursive; /* Pixel font */
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 4px;
+  
+  transition: all 0.3s ease;
+}
+
+.chartDropdown:hover {
+  background-color: #333;
+}
+
+.chartDropdown option {
+  background-color: #000;
+  color: #fff;
+}
+
+
+.chartDropdown:active {
+  background-color: #555;
+}
+
+.chart-text{
+  color: #000;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .tree-container {
+    height: 50%; /* Adjust height for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tree-container {
+    height: 40%; /* Adjust height for very small screens */
+  }
 }

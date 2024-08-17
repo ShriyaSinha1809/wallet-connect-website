@@ -1,16 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createWeb3Modal } from "@web3modal/wagmi/react";
-
 import { http, createConfig, WagmiProvider } from "wagmi";
 import { mainnet, arbitrum } from "viem/chains";
 import { walletConnect, coinbaseWallet, injected } from "wagmi/connectors";
 import type { CreateConnectorFn } from '@wagmi/core';
-
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { authConnector } from "@web3modal/wagmi"; // Please note this import will still cause an error if `authConnector` is not available
-
-
+import { authConnector } from "@web3modal/wagmi";
 
 // 0. Setup queryClient
 const queryClient = new QueryClient();
@@ -48,7 +44,7 @@ connectors.push(authConnector({
 }));
 
 const wagmiConfig = createConfig({
-  chains, // Use the defined chains here
+  chains,
   transports: {
     [mainnet.id]: http(),
     [arbitrum.id]: http(),
@@ -56,14 +52,20 @@ const wagmiConfig = createConfig({
   connectors: connectors,
 });
 
-// 3. Create modal
-createWeb3Modal({ 
+// 3. Create modal with theme customization
+createWeb3Modal({
   themeVariables: {
-    '--w3m-color-mix': '#00BB7F',
-    '--w3m-color-mix-strength': 40
+    '--w3m-font-family': "'Press Start 2P', cursive",
+    '--w3m-accent': '#331f80',  // Change this to your desired color
+    '--w3m-color-mix': '#331f80',
+    '--w3m-color-mix-strength': 40,
+    '--w3m-font-size-master': '8px',
+    '--w3m-border-radius-master': '8px',
+    '--w3m-z-index': 1000,
   },
-  
-  wagmiConfig, projectId });
+  wagmiConfig, 
+  projectId 
+});
 
 // AppKitProvider component
 export function AppKitProvider({ children }) {

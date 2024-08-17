@@ -4,9 +4,13 @@ import Navbar from '../components/Navbar/Navbar';
 import './Home.css'; // Assuming the CSS file is in the same directory
 import Hometruck from '../models/Hometruck';
 import Dragon from '../models/Dragon'; // Import the Dragon model
-import { OrbitControls } from '@react-three/drei';
-import Main from '../models/main.jsx';
+
 import { Link } from 'react-router-dom'; // Import Link component
+
+import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
+import Bitcoin from '../models/Bitcoin.jsx';
+import  { Suspense, useState } from 'react';
+import Main from '../models/main.jsx';
 
 const Home = () => {
   useEffect(() => {
@@ -48,6 +52,7 @@ const Home = () => {
             shadow-camera-right={10}
             shadow-camera-top={10}
             shadow-camera-bottom={-10}
+
           />
           <pointLight position={[0, 10, 10]} intensity={1} />
           <pointLight position={[0, -10, -10]} intensity={0.5} />
@@ -117,7 +122,7 @@ const Home = () => {
       </div>
 
       <div className="table-container">
-        {/* Separate Canvas for the Dragon */}
+
         <div className="dragon-canvas-container">
           <Canvas shadows>
             <ambientLight intensity={1} />

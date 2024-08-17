@@ -229,12 +229,20 @@ const Buy = () => {
                 <p>24h Change: {selectedCrypto.price_change_percentage_24h}%</p>
               </div>
               <div className="chartsContainer">
-                <div className="chart-controls">
-                  <button onClick={() => setSelectedChart('line')} className={selectedChart === 'line' ? 'active' : ''}>Line Chart</button>
-                  <button onClick={() => setSelectedChart('bar')} className={selectedChart === 'bar' ? 'active' : ''}>Bar Chart</button>
-                  <button onClick={() => setSelectedChart('pie')} className={selectedChart === 'pie' ? 'active' : ''}>Pie Chart</button>
-                  <button onClick={() => setSelectedChart('radar')} className={selectedChart === 'radar' ? 'active' : ''}>Radar Chart</button>
-                </div>
+              <div className="chartSelector">
+                <label htmlFor="chartSelect" className='chart-text'>Choose a chart:</label>
+                <select
+                  id="chartSelect"
+                  value={selectedChart}
+                  onChange={(e) => setSelectedChart(e.target.value)}
+                  className="chartDropdown"
+                >
+                  <option value="line">Line Chart</option>
+                  <option value="bar">Bar Chart</option>
+                  <option value="pie">Pie Chart</option>
+                  <option value="radar">Radar Chart</option>
+                </select>
+                
                 {priceHistory && selectedChart === 'line' && (
                   <Line data={priceHistory} />
                 )}
@@ -247,6 +255,7 @@ const Buy = () => {
                 {priceHistory && selectedChart === 'radar' && (
                   <Radar data={priceHistory} />
                 )}
+              </div>
               </div>
             </div>
           )}
