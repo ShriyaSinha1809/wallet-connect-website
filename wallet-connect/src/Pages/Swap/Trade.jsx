@@ -6,12 +6,13 @@ import Lamp from '../../models/Lamp';
 import Truck from '../../models/Truck';
 import { OrbitControls, Plane } from '@react-three/drei';
 import { useSpring, animated } from '@react-spring/web';
-import GifImage from '../../../public/pixil-gif-drawing (7).gif'; // Update this path
+import GifImage from '../../../public/pixil-gif-drawing (7).gif'; 
 import Barrier from '../../models/barrier';
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { ConnectButton } from '../../config/Web3ModalProvider'; // Import the ConnectButton
+import { ConnectButton } from '../../config/Web3ModalProvider'; 
 import Submarine from '../../models/submarine';
+import ArrowImage from '../../../public/next.png'; // Import the arrow image
 
 const Background = () => {
     return (
@@ -27,13 +28,12 @@ const Trade = () => {
         config: { mass: 1, tension: 170, friction: 26 }
     }));
 
-    const [loading, setLoading] = useState(true); // Loader state
+    const [loading, setLoading] = useState(true); 
     const [bitcoinPrice, setBitcoinPrice] = useState(null);
     const [swapAmount, setSwapAmount] = useState('');
-    const [swapCoin, setSwapCoin] = useState('ethereum'); // Default swap option
+    const [swapCoin, setSwapCoin] = useState('ethereum'); 
 
     useEffect(() => {
-        // Fetch Bitcoin price from CoinGecko API
         fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,cardano&vs_currencies=usd')
             .then(response => response.json())
             .then(data => setBitcoinPrice(data.bitcoin.usd))
@@ -45,6 +45,10 @@ const Trade = () => {
         const x = (clientX / innerWidth - 0.5) * 30;
         const y = (clientY / innerHeight - 0.5) * 30;
         set({ transform: `translate3d(${x}px, ${y}px, 0px)` });
+    };
+
+    const scrollToSection = () => {
+        document.querySelector('.bitcoin-swap-section').scrollIntoView({ behavior: 'smooth' });
     };
 
     return (
@@ -64,58 +68,68 @@ const Trade = () => {
                         <div></div> {/* Loader content */}
                     </div>
                 )}
-                <animated.div style={props} className={`canvas-container ${loading ? 'hidden' : ''}`}>
-                    <Canvas
-                        shadows
-                        camera={{ position: [0, 5, 10], fov: 45 }}
-                        className="canvas-element"
-                        onCreated={({ gl }) => {
-                            setLoading(false); // Hide loader when Canvas is created
-                            gl.setSize(window.innerWidth, window.innerHeight); // Resize canvas
-                        }}
-                    >
-                        <ambientLight intensity={1} />
-                        <directionalLight
-                            position={[0, 10, 5]}
-                            intensity={6}
-                            castShadow
-                            shadow-mapSize-width={4096}
-                            shadow-mapSize-height={4096}
-                            shadow-camera-far={50}
-                            shadow-camera-left={-10}
-                            shadow-camera-right={10}
-                            shadow-camera-top={10}
-                            shadow-camera-bottom={-10}
-                        />
-                        <directionalLight
-                            position={[-5, 5, -5]}
-                            intensity={3}
-                            castShadow
-                        />
-                        <spotLight
-                            position={[5, 10, 0]} 
-                            angle={0.3} 
-                            intensity={10} 
-                            penumbra={1} 
-                            castShadow
-                            target-position={[2, 2, -5]}
-                        />
-                        <spotLight
-                            position={[2, 5, 2]} 
-                            angle={0.2} 
-                            intensity={10} 
-                            penumbra={1} 
-                            castShadow
-                        />
-                        <group position={[0, -0.5, 0]}>
-                            <Background />
-                            <Malamal position={[2, 1, 0]} rotation={[-0.1, 5.2, 0]} scale={[0.6, 0.6, 0.6]} />
-                            <Lamp position={[5.5, 0.4, 0]} rotation={[-0.1, 0.4, 0]} scale={[0.6, 0.6, 0.6]} />
-                            <Truck position={[5.8, 0.8, 0]} rotation={[-0.1, 0.4, 0]} scale={[0.6, 0.6, 0.6]} />
-                        </group>
-                    </Canvas>
-                    <div className="white-background"></div>
-                </animated.div>
+<animated.div style={props} className={`canvas-container ${loading ? 'hidden' : ''}`}>
+    <Canvas
+        shadows
+        camera={{ position: [0, 5, 10], fov: 45 }}
+        className="canvas-element"
+        onCreated={({ gl }) => {
+            setLoading(false); // Hide loader when Canvas is created
+            gl.setSize(window.innerWidth, window.innerHeight); // Resize canvas
+        }}
+    >
+        {/* Your 3D models and lights */}
+        <ambientLight intensity={1} />
+        <directionalLight
+            position={[0, 10, 5]}
+            intensity={6}
+            castShadow
+            shadow-mapSize-width={4096}
+            shadow-mapSize-height={4096}
+            shadow-camera-far={50}
+            shadow-camera-left={-10}
+            shadow-camera-right={10}
+            shadow-camera-top={10}
+            shadow-camera-bottom={-10}
+        />
+        <directionalLight
+            position={[-5, 5, -5]}
+            intensity={3}
+            castShadow
+        />
+        <spotLight
+            position={[5, 10, 0]} 
+            angle={0.3} 
+            intensity={10} 
+            penumbra={1} 
+            castShadow
+            target-position={[2, 2, -5]}
+        />
+        <spotLight
+            position={[2, 5, 2]} 
+            angle={0.2} 
+            intensity={10} 
+            penumbra={1} 
+            castShadow
+        />
+        <group position={[0, -0.5, 0]}>
+            <Background />
+            <Malamal position={[2, 1, 0]} rotation={[-0.1, 5.2, 0]} scale={[0.6, 0.6, 0.6]} />
+            <Lamp position={[5.5, 0.4, 0]} rotation={[-0.1, 0.4, 0]} scale={[0.6, 0.6, 0.6]} />
+            <Truck position={[5.8, 0.8, 0]} rotation={[-0.1, 0.4, 0]} scale={[0.6, 0.6, 0.6]} />
+        </group>
+    </Canvas>
+    {/* Scroll Button */}
+    <button className="scroll-button" onClick={scrollToSection}>
+        <img src={ArrowImage} alt="Scroll Down" />
+    </button>
+    <div className="white-background"></div>
+</animated.div>
+
+                {/* Scroll Button */}
+                <button className="scroll-button" onClick={scrollToSection}>
+                    <img src={ArrowImage} alt="Scroll Down" />
+                </button>
             </section>
 
             <section className="bitcoin-swap-section">
@@ -128,8 +142,8 @@ const Trade = () => {
                             camera={{ position: [0, 5, 10], fov: 45 }}
                             className="canvas-element"
                             onCreated={({ gl }) => {
-                                setLoading(false); // Hide loader when Canvas is created
-                                gl.setSize(window.innerWidth, window.innerHeight); // Resize canvas
+                                setLoading(false); 
+                                gl.setSize(window.innerWidth, window.innerHeight); 
                             }}
                         >
                             <ambientLight intensity={1} />

@@ -12,7 +12,7 @@ body {
 }
 
 .hero-section {
-  background-image: linear-gradient(#331f80, #100732);
+  background:linear-gradient(#160B40,#39248F);
   height: 100vh;
   display: flex;
   position: relative;
@@ -43,7 +43,7 @@ body {
 }
 
 .ecosystem-section {
-  background-color: #fff;
+  background-color: white;
   padding: 4rem 2rem;
   text-align: center;
   color: rgb(0, 0, 0);
@@ -311,3 +311,20 @@ body {
   height: auto;
 }
 
+.customlink {
+  transition: all 0.5s ease;
+  color: #3498db; /* Change the color to your desired value */
+  text-decoration: none; /* Remove the underline */
+  font-weight: bold; /* Optional: Make the text bold */
+}
+
+.customlink:hover {
+  font-size: larger;
+  color: #2980b9; /* Change the color on hover *//* Add an underline on hover */
+}
+
+.home-page-body {  /* Chrome 10-25, Safari 5.1-6 */
+  background: white; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *//* Example style */ /* Example style */
+  font-family: 'GomePixel', sans-serif;/* Example style */
+  /* Add more styles as needed */
+}

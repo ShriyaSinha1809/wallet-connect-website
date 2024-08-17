@@ -102,7 +102,7 @@
   text-align: center;
 }
 
-.scrollable-container,.Tradeinfo, .Swap {
+.scrollable-container,.Tradeinfo, .Buy {
   max-height: 500px; /* Adjust height as needed */
   overflow-y: auto;
   padding: 20px;
@@ -115,36 +115,36 @@
   transition: all 0.3s ease;
 }
 
-.scrollable-container:hover,.Tradeinfo:hover,.Swap:hover {
+.scrollable-container:hover,.Tradeinfo:hover,.Buy:hover {
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.scrollable-container::-webkit-scrollbar,.Tradeinfo::-webkit-scrollbar,.Swap::-webkit-scrollbar {
+.scrollable-container::-webkit-scrollbar,.Tradeinfo::-webkit-scrollbar,.Buy::-webkit-scrollbar {
   width: 10px;
 }
 
-.scrollable-container::-webkit-scrollbar-track,.Tradeinfo::-webkit-scrollbar-button,Swap::-webkit-scrollbar-button{
+.scrollable-container::-webkit-scrollbar-track,.Tradeinfo::-webkit-scrollbar-button,.Buy::-webkit-scrollbar-button{
   background: #f8f8f8;
   border-radius: 10px;
 }
 
-.scrollable-container::-webkit-scrollbar-thumb,.Tradeinfo::-webkit-scrollbar-thumb,.Swap::-webkit-scrollbar-thumb  {
+.scrollable-container::-webkit-scrollbar-thumb,.Tradeinfo::-webkit-scrollbar-thumb,.Buy::-webkit-scrollbar-thumb  {
   background-color: #888;
   border-radius: 10px;
   border: 2px solid #f8f8f8;
 }
 
-.scrollable-container h2,.Tradeinfo h2,.Swap h2, .scrollable-container p ,.Tradeinfo p,.Swap p{
+.scrollable-container h2,.Tradeinfo h2,.Buy h2, .scrollable-container p ,.Tradeinfo p,.Swap p{
   margin-bottom: 20px;
 }
 
-.scrollable-container h2,.Tradeinfo h2,.Swap h2 {
+.scrollable-container h2,.Tradeinfo h2,.Buy h2 {
   font-size: 1.5rem;
   color: #ffffff;
   margin-bottom: 15px;
 }
 
-.scrollable-container p,.Tradeinfo p,.Swap p {
+.scrollable-container p,.Tradeinfo p,.Buy p {
   font-size: 1rem;
   line-height: 1.6;
   background:linear-gradient(to right, rgb(9, 211, 211), rgb(10, 150, 10)); /* Adjust the colors and direction as needed */
@@ -152,14 +152,14 @@
   -webkit-text-fill-color: transparent;
 }
 
-.scrollable-container ul,.Tradeinfo ul, .Swap ul {
+.scrollable-container ul,.Tradeinfo ul, .Buy ul {
   margin-left: 20px;
   background:linear-gradient(to right, rgb(9, 211, 211), rgb(10, 150, 10)); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.scrollable-container li,.Tradeinfo li, .Swap li {
+.scrollable-container li,.Tradeinfo li, .Buy li {
   margin-bottom: 10px;
   background:linear-gradient(to right, rgb(9, 211, 211), rgb(10, 150, 10)); 
   -webkit-background-clip: text;
@@ -231,7 +231,7 @@
     background-color: red;
 }
 
-.scrollable-container, .Tradeinfo,.Swap{
+.scrollable-container, .Tradeinfo,.Buy{
   font-size: 0.8rem;
   font-family: 'Press Start 2P', cursive;
   color: white;
@@ -265,7 +265,7 @@
   12px 12px 0 0 black;
 }
 
-.Swap{
+.Buy{
   top:18% ;
   left:25%;
   transform: translate(-35%,10%);
@@ -277,11 +277,15 @@
   -12px 12px 0 0 black;
 }
 
-.scrollable-container,.Swap,.Tradeinfo {
+.scrollable-container,.Buy,.Tradeinfo {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer and Edge */
 }
 
-.Swap::-webkit-scrollbar,.scrollable-container::-webkit-scrollbar,.Tradeinfo::-webkit-scrollbar {
+.Buy::-webkit-scrollbar,.scrollable-container::-webkit-scrollbar,.Tradeinfo::-webkit-scrollbar {
   display: none; /* Chrome, Safari, and Opera */
+}
+
+body{
+  background-image: linear-gradient(rgba(95, 35, 192, 1) , rgba(163, 123, 228, 1)  , rgba(181, 108, 199, 1) , rgba(244, 174, 134, 1)  ,rgba(253, 143, 42, 1) ,rgba(249, 77, 53, 1) );
 }

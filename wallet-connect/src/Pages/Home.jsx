@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react'; // Import useEffect
 import { Canvas } from '@react-three/fiber';
 import Navbar from '../components/Navbar/Navbar';
 import './Home.css'; // Assuming the CSS file is in the same directory
 import Hometruck from '../models/Hometruck';
 import Dragon from '../models/Dragon'; // Import the Dragon model
 import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
-import Bitcoin from '../models/Bitcoin.jsx';
+import { Link } from 'react-router-dom'; // Import Link component
 
 const Home = () => {
+  useEffect(() => {
+    document.body.classList.add('home-page-body');
+    return () => {
+      document.body.classList.remove('home-page-body');
+    };
+  }, []);
+
   return (
     <>
       <Navbar />
-
       <div className="hero-section">
         <div className="news">
           <h1>
@@ -32,15 +38,20 @@ const Home = () => {
               <img src="public/swap.png" alt="Swap Feature" />
             </div>
             <div className="f1info">
-              <h3>SWAP</h3>
+              <h3>
+                <Link to="/trade" className="customlink">SWAP</Link>
+              </h3>
               <p>Trade crypto instantly across multiple chains.</p>
             </div>
           </div>
 
           <div className="feature1">
             <div className="f2info">
-              <h3>LIQUIDITY</h3>
-              <p>Fund liquidity pools, earn trading fees.</p>
+              <h3>
+                <Link to="/buy" className="customlink">BUY CRYPTO</Link>
+              </h3>
+              <p>Buy crypto with your choice of</p>
+              <p>currency and payment method.</p>
             </div>
             <div className="f2img">
               <img src="src/assets/469ed5b7bf5bcf6026940aafdc2818d8.png" alt="Liquidity Feature" />
@@ -52,13 +63,12 @@ const Home = () => {
               <img src="src/assets/88804f9baa8b6045b92f13c4d85ed3ce.png" alt="Buy Crypto Feature" />
             </div>
             <div className="f3info">
-              <h3>BUY CRYPTO</h3>
-              <p>Buy crypto with your choice of</p>
-              <p>currency and payment method.</p>
+              <h3>
+                <Link to="/blog" className="customlink">BLOG PAGE</Link>
+              </h3>
+              <p>Check out our Blog Page</p>
             </div>
           </div>
-
-       
         </div>
       </div>
 
@@ -79,8 +89,6 @@ const Home = () => {
               shadow-camera-top={10}
               shadow-camera-bottom={-10}
             />
-
-            {/* Positioning the Dragon model above the monitor */}
             <Dragon
               scale={[4, 4, 4]}
               position={[0, -4, 0]}
@@ -88,7 +96,6 @@ const Home = () => {
               castShadow
               receiveShadow
             />
-
             <OrbitControls enableZoom={false} />
           </Canvas>
         </div>
@@ -113,7 +120,6 @@ const Home = () => {
                 shadow-camera-top={10}
                 shadow-camera-bottom={-10}
               />
-
               <spotLight
                 position={[15, 20, 10]}
                 angle={0.3}
@@ -123,21 +129,16 @@ const Home = () => {
                 shadow-mapSize-width={1024}
                 shadow-mapSize-height={1024}
               />
-
-              {/* Plane to catch shadows */}
               <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
                 <planeGeometry args={[10, 10]} />
                 <shadowMaterial transparent opacity={0.5} />
               </mesh>
-
-              {/* Adding the 3D model with proper scaling and positioning */}
               <Hometruck
                 scale={[0.0115, 0.0115, 0.0115]}
                 position={[0, 0, 0]}
                 rotation={[0.2, 4.1, 0]}
                 castShadow
               />
-
               <OrbitControls enableZoom={false} />
             </Canvas>
           </div>

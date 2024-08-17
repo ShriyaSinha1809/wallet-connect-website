@@ -7,7 +7,7 @@
   align-items: center;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to right, #432371, #2a1a47);
+  background:linear-gradient(#160B40,#39248F);
   padding:60px; /* Dark violet to deeper violet gradient */
   /* Shifts the circular curve down */
   box-sizing: border-box; /* Include padding in height */
@@ -15,9 +15,8 @@
 }
 
 /* Buy.css */
-.buy-page-body {
-  background: -webkit-linear-gradient(to left, #e4e4d9, #215f00);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #e4e4d9, #40aa07); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *//* Example style */
+.buy-page-body {/* Chrome 10-25, Safari 5.1-6 */
+  background: white; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *//* Example style */
   color: #333; /* Example style */
   font-family: 'GomePixel', sans-serif;/* Example style */
   /* Add more styles as needed */
@@ -195,9 +194,9 @@ label {
 
 .coin-details {
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(235, 2, 2, 0.979);
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(192, 2, 2, 0.1);
 }
 
 /* Styling for the selected crypto details container */
@@ -354,7 +353,7 @@ label {
   width: 50%;
   height: 70%;
   padding: 20px;
-  background-color: rgb(39,42,42);
+  background-color: rgb(145, 156, 156);
   border-radius: 8px;
   color: #fff;
   margin: 50px;

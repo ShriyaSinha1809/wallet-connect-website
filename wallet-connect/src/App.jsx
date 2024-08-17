@@ -7,11 +7,12 @@ import Trade from './Pages/Swap/Trade';
 import Buy from './Pages/Buy/Buy';
 import Logo from './components/Logo';
 import Blog from './Pages/Blog/Blog';
-
+import ScrollToTop from './ScrollToTop'; // Import the ScrollToTop component
 
 const App = () => {
   return (
     <Router>
+      <ScrollToTop /> {/* Add the ScrollToTop component here */}
       <Routes>
         <Route path="/" element={<Loading />} />
         <Route path="/home" element={<Home />} />
@@ -20,7 +21,6 @@ const App = () => {
         <Route path="/blog" element={<Blog />} />
       </Routes>
       <Logo />
-     
     </Router>
   );
 };

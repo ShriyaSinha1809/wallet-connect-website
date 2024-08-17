@@ -42,8 +42,8 @@ const ColorOverlay = styled.div`
 // Container for the logo
 const LogoContainer = styled.div`
   position: fixed;
-  bottom: 10px;
-  right: 10px;
+  bottom: 30px;
+  right: 30px;
   z-index: 1000; /* Ensure it is on top of other elements */
 `;
 
