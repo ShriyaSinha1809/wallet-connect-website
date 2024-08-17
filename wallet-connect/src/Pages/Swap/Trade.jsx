@@ -7,7 +7,6 @@ import Lamp from '../../models/Lamp';
 import Truck from '../../models/Truck';
 import { Plane } from '@react-three/drei';
 import { useSpring } from '@react-spring/web';
-import Barrier from '../../models/barrier';
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { ConnectButton } from '../../config/Web3ModalProvider';
@@ -30,16 +29,6 @@ const Trade = () => {
   }));
 
   const [loading, setLoading] = useState(true);
-  const [bitcoinPrice, setBitcoinPrice] = useState(null);
-  const [swapAmount, setSwapAmount] = useState('');
-  const [swapCoin, setSwapCoin] = useState('ethereum');
-
-  useEffect(() => {
-    fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,cardano&vs_currencies=usd')
-      .then(response => response.json())
-      .then(data => setBitcoinPrice(data.bitcoin.usd))
-      .catch(error => console.error('Error fetching Bitcoin price:', error));
-  }, []);
 
   const handleMouseMove = (event) => {
     const { clientX, clientY, innerWidth, innerHeight } = event;
@@ -56,35 +45,14 @@ const Trade = () => {
   }, []);
 
   useEffect(() => {
-    const fetchCryptoData = async () => {
-      try {
-        const response = await axios.get('https://api.coingecko.com/api/v3/coins/markets', {
-          params: {
-            vs_currency: 'usd',
-            order: 'market_cap_desc',
-            per_page: 10,
-            page: 1,
-            sparkline: false,
-          },
-        });
-        setCryptoData(response.data);
-        setLastUpdated(new Date().toLocaleTimeString());
-      } catch (error) {
-        console.error('Error fetching crypto data:', error);
-      }
-    };
-
     const showLoaderForMinTime = async () => {
       const start = Date.now();
-      await fetchCryptoData();
       const timeElapsed = Date.now() - start;
       const remainingTime = Math.max(4000 - timeElapsed, 0);
       setTimeout(() => setLoading(false), remainingTime);
     };
 
     showLoaderForMinTime();
-    const intervalId = setInterval(fetchCryptoData, 60000);
-    return () => clearInterval(intervalId);
   }, []);
 
   return (
@@ -111,12 +79,6 @@ const Trade = () => {
             <Link className="learn-button" to={'/blog'}>
               <b>Learn How to Swap</b>
             </Link>
-
-            {loading && (
-              <div className="loader">
-                <div></div> {/* Loader content */}
-              </div>
-            )}
 
             <div className="canvas-container">
               <Canvas
