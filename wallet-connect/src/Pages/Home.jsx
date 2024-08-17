@@ -5,8 +5,6 @@ import './Home.css'; // Assuming the CSS file is in the same directory
 import Hometruck from '../models/Hometruck';
 import Dragon from '../models/Dragon'; // Import the Dragon model
 import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
-import Main from '../models/main';
-
 
 const Home = () => {
   return (
@@ -24,45 +22,7 @@ const Home = () => {
           <p><span className='earn'>Earn,</span> <span className='trade'>Trade,</span> <span className='swap'>Swap</span> and <span className='buy'>Buy</span> <span className='all'>all-in-one</span></p>
           
         </div>
-        <Canvas shadows camera={{ position: [0, 0, 10] }}>
-          <ambientLight intensity={0.5} />
-          <directionalLight 
-            position={[5, 10, 5]} 
-            intensity={5} 
-      
-            shadow-mapSize-width={1024} 
-            shadow-mapSize-height={1024} 
-            shadow-camera-near={0.5} 
-            shadow-camera-far={50} 
-            shadow-camera-left={-10} 
-            shadow-camera-right={10} 
-            shadow-camera-top={10} 
-            shadow-camera-bottom={-10} 
-          />
-          <pointLight position={[0, 10, 10]} intensity={1} />
-          <pointLight position={[0, -10, -10]} intensity={0.5} />
-          <Suspense fallback={null}>
-            <Main 
-              position={[5, -4, 0]} 
-              rotation={[0.1, 1, 0]} 
-              scale={[0.4,0.4,0.4]} 
-              castShadow 
-              receiveShadow
-              animation={animations[0]} // Default animation
-              hoverAnimation={animations[1]} // Animation on hover
-              
-            />
-           
-            <mesh 
-              position={[0, -3, 0]} 
-              rotation={[-Math.PI / 2, 0, 0]} 
-              receiveShadow
-            >
-              <planeGeometry args={[50, 50]} />
-              <shadowMaterial opacity={0.5} />
-            </mesh>
-          </Suspense>
-        </Canvas>
+        <div className='model'>Model</div>
       </div>
 
       <div className="ecosystem-section">
@@ -102,36 +62,36 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="table-container">
-        {/* Separate Canvas for the Dragon */}
-        <div className="dragon-canvas-container">
-          <Canvas shadows>
-            <ambientLight intensity={1} />
-            <directionalLight
-              position={[5, 10, 5]}
-              intensity={1.5}
-              castShadow
-              shadow-mapSize-width={1024}
-              shadow-mapSize-height={1024}
-              shadow-camera-far={50}
-              shadow-camera-left={-10}
-              shadow-camera-right={10}
-              shadow-camera-top={10}
-              shadow-camera-bottom={-10}
-            />
+      {/* <div className="table-container">
+              
+               <div className="dragon-canvas-container">
+               <Canvas shadows>
+      <ambientLight intensity={1} />
+      <directionalLight
+        position={[5, 10, 5]}
+        intensity={1.5}
+        castShadow
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+        shadow-camera-far={50}
+        shadow-camera-left={-10}
+        shadow-camera-right={10}
+        shadow-camera-top={10}
+        shadow-camera-bottom={-10}
+      />
 
-            {/* Positioning the Dragon model above the monitor */}
-            <Dragon
-              scale={[4, 4, 4]}
-              position={[0, -4, 0]}
-              rotation={[0, 0, 0]}
-              castShadow
-              receiveShadow
-            />
+    
+      <Dragon 
+        scale={[4, 4, 4]} 
+        position={[0, -4, 0]} 
+        rotation={[0, 0, 0]} 
+        castShadow 
+        receiveShadow
+      />
 
-            <OrbitControls enableZoom={false} />
-          </Canvas>
-        </div>
+      <OrbitControls enableZoom={false} />
+    </Canvas>
+            </div>
         <div className="model-monitor-wrapper">
           <div className="monitor-wrapper">
             
@@ -176,22 +136,17 @@ const Home = () => {
                 <shadowMaterial transparent opacity={0.5} />
               </mesh>
 
-              {/* Adding the 3D model with proper scaling and positioning */}
-              <Hometruck
-                scale={[0.0115, 0.0115, 0.0115]}
-                position={[0, 0, 0]}
-                rotation={[0.2, 4.1, 0]}
-                castShadow
-              />
+              
+              <Hometruck scale={[0.0115, 0.0115, 0.0115]} position={[0, 0, 0]} rotation={[0.2, 4.1, 0]} castShadow />
 
+              
               <OrbitControls enableZoom={false} />
             </Canvas>
             
      
           </div>
         </div>
-      </div>
-
+      </div> */}
       <div className="join-page">
         <h1>JOIN EVERYONE'S <span className="favourite">FAVOURITE</span> NOW!</h1>
         <p>Experience the power of community ownership, global governance, and explore infinite use cases within the PancakeSwap ecosystem</p>
