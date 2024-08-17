@@ -28,7 +28,8 @@ body.dark-mode {
     top: 2%;
     left: 2%;
     right: 2%;
-    z-index: 1000; /* Ensure it stays on top of other elements */
+    z-index: 1000; 
+    background-color: rgba(219, 197, 92, 0.685);/* Ensure it stays on top of other elements */
 }
 
 .navbar.home{
@@ -36,11 +37,11 @@ body.dark-mode {
 }
 
 .navbar.buy{
-    background-color: #91dae4a7;
+    background-color: #6897efac;
 }
 
 .narbar.trade{
-    background-color: rgb(141, 101, 83);
+    background-color: rgba(219, 197, 92, 0.685);
 }
 
 .navbar.blog{
@@ -78,7 +79,7 @@ body.dark-mode .logo {
 .navLinks {
     position:relative;
     display: flex;
-    gap: 2rem;
+    gap: 4vw;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -90,10 +91,11 @@ body.dark-mode .logo {
     text-decoration: none;
     font-size: 18px;
     align-items: center;
-    gap: 1vw; 
+    gap:  1vw; 
     position: relative;
     color: transparent; /* Hide the original text */
     animation: showText 0s steps(1) 2s forwards;
+    right:16%;
 }
 
 body.dark-mode .navLinks a::after {
@@ -379,7 +381,7 @@ body.dark-mode .navbar {
 
 @media (max-width:1450px){
     .navLinks {
-      left:10%;
+      left:8%;
     }
 
   
@@ -387,14 +389,14 @@ body.dark-mode .navbar {
 
 @media (max-width:1270px){
     .navLinks {
-      left:6%;
+      left:7%;
     }
 
   
 }  
 @media (max-width:1140px){
     .navLinks {
-      left:3%;
+      left:6%;
     }
 
   
@@ -402,7 +404,7 @@ body.dark-mode .navbar {
 
 @media (max-width:1080px){
     .navLinks {
-      left:-9.5%;
+      left:5%;
     }
 
   

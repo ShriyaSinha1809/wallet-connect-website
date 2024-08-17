@@ -8,6 +8,7 @@ import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
 import Bitcoin from '../models/Bitcoin.jsx';
 import  { Suspense, useState } from 'react';
 import Main from '../models/main.jsx';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Home = () => {
 
@@ -84,29 +85,35 @@ const Home = () => {
               <img src="public/swap.png" alt="Swap Feature" />
             </div>
             <div className="f1info">
-              <h3>SWAP</h3>
+              <Link to="/trade"><h3>SWAP</h3>
               <p>Trade crypto instantly across multiple chains.</p>
+              </Link>
+              
             </div>
           </div>
 
           <div className="feature1">
             <div className="f2info">
-              <h3>LIQUIDITY</h3>
-              <p>Fund liquidity pools, earn trading fees.</p>
+              <Link to="/buy">
+              <h3>BUY CRYPTO</h3>
+              <p>Buy crypto with your choice of</p>
+              <p>currency and payment method.</p>
+              </Link>
             </div>
-            <div className="f2img">
-              <img src="src/assets/469ed5b7bf5bcf6026940aafdc2818d8.png" alt="Liquidity Feature" />
+            <div className="f3img">
+            <img src="src/assets/88804f9baa8b6045b92f13c4d85ed3ce.png" alt="Buy Crypto Feature" />
             </div>
           </div>
 
           <div className="feature1">
-            <div className="f3img">
-              <img src="src/assets/88804f9baa8b6045b92f13c4d85ed3ce.png" alt="Buy Crypto Feature" />
+            <div className="f2img">
+            <img src="src/assets/469ed5b7bf5bcf6026940aafdc2818d8.png" alt="Liquidity Feature" />
             </div>
             <div className="f3info">
-              <h3>BUY CRYPTO</h3>
-              <p>Buy crypto with your choice of</p>
-              <p>currency and payment method.</p>
+              <Link to="/blog">
+              <h3>BLOG</h3>
+              <p>Your quick guide to clearing basic doubts and staying informed.</p>
+              </Link>
             </div>
           </div>
 
@@ -114,7 +121,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="table-container">
+      {/* <div className="table-container">
 
         <div className="dragon-canvas-container">
           <Canvas shadows>
@@ -193,8 +200,8 @@ const Home = () => {
               <OrbitControls enableZoom={false} />
             </Canvas>
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
 
       <div className="join-page">
         <h1>JOIN EVERYONE'S <span className="favourite">FAVOURITE</span> NOW!</h1>

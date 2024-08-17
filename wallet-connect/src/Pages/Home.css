@@ -161,6 +161,8 @@ body {
 }
 
 .feature1 {
+  position: relative;
+  text-decoration: none;
   display: flex;
   justify-content: space-between;
   margin: 9vh 10vw 0 10vw;
@@ -169,8 +171,36 @@ body {
   animation-range:entry 0 cover 50%;
 }
 
+.feature1 a{
+  text-decoration: none;
+  color:black;
+}
+
+
+.feature1 a {
+  display: block; /* Make the link block level to include the padding */
+  color: #333; /* Default text color */
+  text-decoration: none; /* Remove default underline */
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
+
+.feature1 a:hover {
+  color: rgb(66, 129, 254); /* Text color changes to blue */
+  transform: scale(1.1); /* Slightly increase size */
+}
+
+/* Optional: Add a transition effect to the text color and scaling */
+.feature1 a h3, 
+.feature1 a p {
+  margin: 0;
+  padding: 0;
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+
 .feature1 img {
-  width: 8vw;
+  width: 50vw;
   height: auto;
   margin-bottom: 1rem;
   animation: slide ease-in-out forwards;
@@ -191,6 +221,12 @@ body {
   animation: slide ease-in-out forwards;
   animation-timeline: view();
   animation-range:entry 0 cover 50%;
+}
+.f3img{
+  margin-top:-5vw;
+}
+.f2img{
+  margin-top: -11vw;
 }
 
 .join-page {
@@ -308,14 +344,6 @@ body {
   animation: move 20s infinite linear;
   color: #EBB55F;
 }
-.feature1 .f1img, .feature1 .f2img, .feature1 .f3img {
-  flex: 1; /* Adjust the size of the image container */
-}
-
-.feature1 .f1info, .feature1 .f2info, .feature1 .f3info {
-  flex: 2; /* Adjust the size of the text container */
-}
-
 
 @keyframes move {
   from {
@@ -557,10 +585,14 @@ body {
     order: 2; /* Ensure the text comes after the image for the second feature */
   }
   .f2img img {
-    margin-top:5vw;
+    margin-top:0;
     margin-right:0;
     width: 14vw; 
     height: auto;
+  }
+  .f3info{
+    position: relative;
+    top:18vh;
   }
   .feature1 p {
     font-size: 1rem;
@@ -575,17 +607,19 @@ body {
   }
 
 
-.f1img img,
-.f3img img {
-  width: 33vw; 
-  height: auto;
-}
-
-.f2img img {
-
-  width: 23vw; 
-  height: auto;
-}
+  .f2img img {
+    margin-top:-5vw;
+    margin-right:0;
+    width: 14vw; 
+    height: auto;
+  }
+  .f3info{
+    position: relative;
+    top:17vh;
+  }
+  .feature1 p {
+    font-size: 1rem;
+  }
 
 .ecosystem-section h3 {
   font-size: 6vw;

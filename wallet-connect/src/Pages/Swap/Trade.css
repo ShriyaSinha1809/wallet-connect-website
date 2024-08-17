@@ -505,8 +505,6 @@ h2, p {
 }
 
 
-
-
 .learn-button:hover{
   transform: scale(1);
   background: linear-gradient(135deg, rgb(179, 123, 72), rgb(233, 211, 123));

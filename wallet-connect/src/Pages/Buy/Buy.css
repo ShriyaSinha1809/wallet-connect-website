@@ -341,14 +341,12 @@ label {
 /* Container styling */
 .buyContainer,.coin-details {
   z-index: 10;
-
   width: 50%;
   height: 70%;
   padding: 20px;
   background-color: rgb(39,42,42);
   border-radius: 8px;
   color: #fff;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -628,6 +626,7 @@ label {
   box-sizing: border-box; /* Ensure padding and border are included */
   margin-top: -10rem;
   overflow: hidden;
+  
 }
 
 .buyContainer {
