@@ -308,6 +308,14 @@ body {
   animation: move 20s infinite linear;
   color: #EBB55F;
 }
+.feature1 .f1img, .feature1 .f2img, .feature1 .f3img {
+  flex: 1; /* Adjust the size of the image container */
+}
+
+.feature1 .f1info, .feature1 .f2info, .feature1 .f3info {
+  flex: 2; /* Adjust the size of the text container */
+}
+
 
 @keyframes move {
   from {
@@ -531,17 +539,33 @@ body {
     font-size: 11vw;
   }
 
-  .news p{
-    font-size: 1rem;
-    left:0;
+  .join-page p{
+    margin:20px;
   }
 
   .feature1{
-    display: block;
+    flex-direction: column;
   }
   .join-page h1{
     font-size: 3rem;
   }
+  .feature1 .f2img {
+    order: 1; /* Ensure the image comes before the text for the second feature */
+  }
+
+  .feature1 .f2info {
+    order: 2; /* Ensure the text comes after the image for the second feature */
+  }
+  .f2img img {
+    margin-top:5vw;
+    margin-right:0;
+    width: 14vw; 
+    height: auto;
+  }
+  .feature1 p {
+    font-size: 1rem;
+  }
+  
 }
 
 

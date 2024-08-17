@@ -86,7 +86,7 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
-    console.log("toggled")
+    console.log("toggled");
   };
 
   const toggleDarkMode = () => {
