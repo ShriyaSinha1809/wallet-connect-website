@@ -6,8 +6,8 @@ import Hometruck from '../models/Hometruck';
 import Dragon from '../models/Dragon'; // Import the Dragon model
 import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
 import Bitcoin from '../models/Bitcoin.jsx';
-import Main from '../models/main.jsx';
 import  { Suspense, useState } from 'react';
+import Main from '../models/main.jsx';
 
 const Home = () => {
 
@@ -34,8 +34,8 @@ const Home = () => {
           <p><span className='earn'>Earn,</span> <span className='trade'>Trade,</span> <span className='swap'>Swap</span> and <span className='buy'>Buy</span> <span className='all'>all-in-one</span></p>
           
         </div>
-        <Canvas className='model' shadows camera={{ position: [0, 0, 10] }}>
-          <ambientLight intensity={0.5} />
+        <div className='model'><Canvas  shadows camera={{ position: [0, 0, 10] }}>
+          <ambientLight intensity={0.4} />
           <directionalLight 
             position={[5, 10, 5]} 
             intensity={5} 
@@ -72,7 +72,7 @@ const Home = () => {
               <shadowMaterial opacity={0.5} />
             </mesh>
           </Suspense>
-        </Canvas>
+        </Canvas></div>
       </div>
 
       <div className="ecosystem-section">
@@ -115,7 +115,7 @@ const Home = () => {
       </div>
 
       <div className="table-container">
-        {/* Separate Canvas for the Dragon */}
+
         <div className="dragon-canvas-container">
           <Canvas shadows>
             <ambientLight intensity={1} />
@@ -132,7 +132,7 @@ const Home = () => {
               shadow-camera-bottom={-10}
             />
 
-            {/* Positioning the Dragon model above the monitor */}
+           
             <Dragon
               scale={[4, 4, 4]}
               position={[0, -4, 0]}
@@ -182,7 +182,7 @@ const Home = () => {
                 <shadowMaterial transparent opacity={0.5} />
               </mesh>
 
-              {/* Adding the 3D model with proper scaling and positioning */}
+             
               <Hometruck
                 scale={[0.0115, 0.0115, 0.0115]}
                 position={[0, 0, 0]}
