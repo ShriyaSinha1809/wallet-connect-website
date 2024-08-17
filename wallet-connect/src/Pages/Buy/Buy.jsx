@@ -143,21 +143,17 @@ const Buy = () => {
       ) : (
         <>
           <div className="canvasContainer">
-            <div className="buyContainer">
-              <h2>Buy Crypto</h2>
-              <form>
-                <div className="form-group">
-                  <input type="number" id="spend" name="spend" placeholder="Amount in USD" />
-                  <label htmlFor="spend">Spend ($):</label>
-                </div>
-                <div className="form-group">
-                  <input type="number" id="receive" name="receive" placeholder="Amount in Crypto" readOnly />
-                  <label htmlFor="receive">Receive (Crypto):</label>
-                </div>
-                <ConnectButton />
-                <button type="submit">Exchange</button>
-              </form>
-            </div>
+          <div className="buyContainer">
+  <h2>Buy Crypto</h2>
+  <form>
+    
+    <div className="tooltip-container">
+      <ConnectButton />
+      <span className="tooltip-text">Click to buy crypto</span>
+    </div>
+  </form>
+</div>
+
             <div className="model-container">
               <Canvas shadows>
                 <ambientLight intensity={2} />

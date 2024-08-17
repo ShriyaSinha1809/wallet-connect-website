@@ -11,7 +11,7 @@ body, html {
   height: 100%;
   overflow-x: hidden; /* Prevent horizontal scrolling */
   scroll-behavior: smooth; /* Smooth scrolling between sections */
-    overflow: hidden; /* Prevent both vertical and horizontal scrolling */
+  overflow: hidden; /* Prevent both vertical and horizontal scrolling */
   scroll-behavior: smooth; /* Smooth scrolling between sections */
 }
 
@@ -47,7 +47,6 @@ section {
   height: 100px; /* Adjust height as needed */
   background-color: white;
   z-index: 1;
-
 }
 
 .canvas-container {
@@ -98,12 +97,9 @@ section {
 
 .bitcoin-swap-section {
   width: 100%;
-  max-width: 6000px;
+  max-width: 100%;
   padding: 2rem;
   background: #e9bc7e;  /* fallback for old browsers */
-  /* background: -webkit-linear-gradient(to right, #e4e4d9, #215f00);  Chrome 10-25, Safari 5.1-6
-  background: linear-gradient(to right, #e4e4d9, #215f00); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
   
   text-align: center;
   position: relative;
@@ -114,70 +110,8 @@ section {
   height: 100%;
 }
 
-.swap-container {
-  position: relative;
-  display: inline-block;
-  margin-top: 20px; /* Adjust this as needed */
-}
-
-.tooltip-text {
-  visibility: hidden;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px;
-  position: absolute;
-  z-index: 10;
-  bottom: 100%; /* Position above the button */
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.swap-container:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
-}
-
-.tooltip-text::after {
-  content: '';
-  position: absolute;
-  top: 100%; /* Point arrow down */
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-
-.bitcoin-swap-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.bitcoin-swap-section p {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.bitcoin-swap-section button {
-  padding: 0.5rem 1rem;
-  font-size: 1.25rem;
-  background-color: #f0ad4e;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.bitcoin-swap-section button:hover {
-  background-color: #ec971f;
-}
-.swap-container {
+.swap-container,
+.wallet-dashboard {
   display: flex;
   flex-direction: column;
   align-items: bottom;
@@ -185,20 +119,19 @@ section {
   padding: 1.5rem;
   margin-left: 2rem;
   background: linear-gradient(135deg, rgb(43, 102, 105), rgb(128, 176, 86), rgb(51, 113, 117));
-
   border: 4px solid #333;
   border-radius: 8px;
   box-shadow: 10px 10px 0px #555, 20px 20px 0px #777, 30px 30px 0px #999;
   transform: translateY(-20px);
   transition: all 0.2s ease;
   position: relative;
-  width: 60em; /* Adjust the width as needed */
+  width: 50em; /* Adjust the width as needed */
   height: 40em; /* Adjust the height as needed */
   justify-content: bottom;
-  
 }
 
-.swap-container:hover {
+.swap-container:hover,
+.wallet-dashboard:hover {
   transform: translateY(-30px);
   box-shadow: 5px 5px 0px #555, 10px 10px 0px #777, 15px 15px 0px #999;
 }
@@ -278,69 +211,22 @@ h2, p {
   }
 }
 
-
-:root {
-  --color-primary: #f6aca2;
-  --color-secondary: #f49b90;
-  --color-tertiary: #f28b7d;
-  --color-quaternary: #f07a6a;
-  --color-quinary: #ee6352;
-}
-
-
-
-.gif-container {
-  display: flex;
-  justify-content: flex-end; /* Align GIF to the right */
-  align-items: center;
-  margin-bottom: 2rem; /* Space between GIF and the heading */
-  padding-right: 2rem; /* Add padding to move the GIF away from the edge */
-  margin-left: 110em; /* Adjust to position the GIF horizontally */
-}
-
-.pixel-gif {
-  width: 900px;
-  height: 300px; /* Set the height equal to the height of one frame */
-  background-image: url('src/assets/pixil-frame-0.png'); /* The sprite sheet */
-  background-repeat: no-repeat;
-  animation: play-gif 5s steps(10) forwards; /* 'steps(10)' corresponds to the number of frames, play once */
-  background-size: cover; /* Ensure the background covers the entire area */
-}
-
-@keyframes play-gif {
-  from {
-      background-position: 0 0;
-  }
-  to {
-      background-position: -9000px 0; /* (frame width * number of frames) */
-  }
-}
-
 .flex-column-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  position: relative; /* To allow for absolute positioning of child elements */
-  margin-top: 2rem; /* Adjust as needed */
+  gap: 20px;
 }
 
-.model-container {
-  width: 100%;
-  height: 4000px;
-  max-width: 8000px;
-  position: absolute; /* Position the model container absolutely */
-bottom:-20px;
-  z-index: 2; /* Ensure the model is on top */
-  pointer-events: none; /* Allows interaction with elements below */
+.pixelated-3d {
+  border: 4px solid #333;
+  box-shadow: 8px 8px 0px #000, 8px 8px 0px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(145deg, #3a3a3a, #4e4e4e);
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  padding: 15px;
 }
-
-
-
-.trade-page {
-  position: relative;
-}
-
 
 /* Custom styles for the Wallet Connect button */
 .swap-container .w3m-button {
@@ -357,7 +243,7 @@ bottom:-20px;
   background-color: #45a049; /* Darken the background color on hover */
 }
 
-.trade-container {
+.trade-page {
   position: relative;
 }
 
@@ -387,4 +273,128 @@ bottom:-20px;
   font-size: 2rem;
 }
 
+/* Tooltip styling specifically for the swap-container */
+.swap-container .tooltip-text {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 10;
+  bottom: 103%; /* Position above the button */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
 
+.swap-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.swap-container .tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%; /* Point arrow down */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.wallet-dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute space between items */
+  align-items: center; /* Center items horizontally */
+  padding: 20px;
+  background-color: #2d2d2d;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 10px 10px 0px #000, 10px 10px 0px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(145deg, #3a3a3a, #4e4e4e);
+  font-family: 'Press Start 2P', cursive;
+  width: 100%;
+  max-width: 50rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.wallet-dashboard h3 {
+  margin-bottom: 20px; /* Adjust margin for better spacing */
+  font-size: 1.5rem;
+  text-align: center;
+  text-shadow: 4px 4px 0px #555;
+  align-self: flex-start; /* Align the heading to the top */
+}
+
+.wallet-dashboard p {
+  margin-bottom: 15px; /* Increased margin for better spacing */
+  font-size: 1rem;
+  word-wrap: break-word; /* Ensure long addresses break to fit the container */
+  background: linear-gradient(145deg, #4e4e4e, #3a3a3a);
+  padding: 10px 15px; /* Adjusted padding for better visual spacing */
+  border-radius: 4px;
+  box-shadow: 6px 6px 0px #555;
+  width: 100%; /* Ensure the paragraph takes full width */
+  text-align: center; /* Center the text */
+}
+
+.wallet-dashboard button {
+  padding: 10px 20px; /* Adjusted padding for better fit */
+  font-size: 1rem;
+  background-color: #f0ad4e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%; /* Make the button take full width */
+  text-align: center;
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+  box-shadow: 6px 6px 0px #777;
+  align-self: flex-end; /* Align the button to the bottom */
+}
+
+.wallet-dashboard button:hover {
+  background-color: #ec971f;
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px #555;
+}
+
+.wallet-dashboard .tooltip-text {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 10;
+  bottom: 120%; /* Adjust position of tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.wallet-dashboard:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.wallet-dashboard .tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%; /* Point arrow down */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}

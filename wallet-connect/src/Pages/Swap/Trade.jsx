@@ -6,12 +6,12 @@ import Lamp from '../../models/Lamp';
 import Truck from '../../models/Truck';
 import { OrbitControls, Plane } from '@react-three/drei';
 import { useSpring, animated } from '@react-spring/web';
-import GifImage from '../../../public/pixil-gif-drawing (7).gif'; // Update this path
 import Barrier from '../../models/barrier';
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { ConnectButton } from '../../config/Web3ModalProvider'; // Import the ConnectButton
+import { ConnectButton } from '../../config/Web3ModalProvider';
 import Submarine from '../../models/submarine';
+import WalletDashboard from './WalletDashboard'; // Import the WalletDashboard component
 
 const Background = () => {
     return (
@@ -27,13 +27,12 @@ const Trade = () => {
         config: { mass: 1, tension: 170, friction: 26 }
     }));
 
-    const [loading, setLoading] = useState(true); // Loader state
+    const [loading, setLoading] = useState(true);
     const [bitcoinPrice, setBitcoinPrice] = useState(null);
     const [swapAmount, setSwapAmount] = useState('');
-    const [swapCoin, setSwapCoin] = useState('ethereum'); // Default swap option
+    const [swapCoin, setSwapCoin] = useState('ethereum');
 
     useEffect(() => {
-        // Fetch Bitcoin price from CoinGecko API
         fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,cardano&vs_currencies=usd')
             .then(response => response.json())
             .then(data => setBitcoinPrice(data.bitcoin.usd))
@@ -70,8 +69,8 @@ const Trade = () => {
                         camera={{ position: [0, 5, 10], fov: 45 }}
                         className="canvas-element"
                         onCreated={({ gl }) => {
-                            setLoading(false); // Hide loader when Canvas is created
-                            gl.setSize(window.innerWidth, window.innerHeight); // Resize canvas
+                            setLoading(false);
+                            gl.setSize(window.innerWidth, window.innerHeight);
                         }}
                     >
                         <ambientLight intensity={1} />
@@ -120,6 +119,10 @@ const Trade = () => {
 
             <section className="bitcoin-swap-section">
                 <div className="flex-column-container">
+                <div className="wallet-dashboard-container">
+                    
+                        <WalletDashboard /> {/* Place the WalletDashboard component here */}
+                    </div>
                     <div className="swap-container pixelated-3d">
                         <div className="tooltip-text">Click For Swapping!</div>
                         <ConnectButton />
@@ -128,8 +131,8 @@ const Trade = () => {
                             camera={{ position: [0, 5, 10], fov: 45 }}
                             className="canvas-element"
                             onCreated={({ gl }) => {
-                                setLoading(false); // Hide loader when Canvas is created
-                                gl.setSize(window.innerWidth, window.innerHeight); // Resize canvas
+                                setLoading(false);
+                                gl.setSize(window.innerWidth, window.innerHeight);
                             }}
                         >
                             <ambientLight intensity={1} />
@@ -166,11 +169,11 @@ const Trade = () => {
                                 castShadow
                             />
                             <group position={[0, -0.5, 0]}>
-                                <Submarine position={[-3.8, 2, 0]} rotation={[-0.15, 3, 0]} scale={[0.6,0.9,0.6]} />
+                                <Submarine position={[-3.5, 2, 0]} rotation={[-0.15, 3, 0]} scale={[0.6,0.9,0.6]} />
                             </group>
                         </Canvas>
                     </div>
-                </div>
+               </div>
             </section>
         </div>
     );

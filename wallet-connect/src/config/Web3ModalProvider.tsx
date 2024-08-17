@@ -1,46 +1,74 @@
-import React from 'react';
-import { createWeb3Modal } from '@web3modal/wagmi/react';
-import { defaultWagmiConfig } from '@web3modal/wagmi/react/config';
-import { WagmiProvider } from 'wagmi';
-import { arbitrum, mainnet } from 'wagmi/chains';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import './wallet.css';  // Apply global CSS styles
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createWeb3Modal } from "@web3modal/wagmi/react";
 
-// Setup queryClient for React Query
+import { http, createConfig, WagmiProvider } from "wagmi";
+import { mainnet, arbitrum } from "viem/chains";
+import { walletConnect, coinbaseWallet, injected } from "wagmi/connectors";
+import type { CreateConnectorFn } from '@wagmi/core';
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { authConnector } from "@web3modal/wagmi"; // Please note this import will still cause an error if `authConnector` is not available
+
+
+
+// 0. Setup queryClient
 const queryClient = new QueryClient();
 
-// Get projectId from WalletConnect Cloud (https://cloud.walletconnect.com)
-const projectId = '9c702d939dc8dcc1aa1c78f525f113d6'; // Replace with your actual project ID
+// 1. Get projectId at https://cloud.walletconnect.com
+const projectId = "9c702d939dc8dcc1aa1c78f525f113d6";
+if (!projectId) throw new Error("Project ID is undefined");
 
-// Metadata for Web3Modal
+// 2. Create wagmiConfig
 const metadata = {
-  name: 'AppKit Example',
-  description: 'AppKit Example Application',
-  url: 'https://your-app-url.com', // Replace with your app's URL
-  icons: ['https://your-app-url.com/path-to-your-icon.png'], // Replace with your app's icon URL
+  name: "Web3Modal",
+  description: "Web3Modal Example",
+  url: "https://web3modal.com",
+  icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
 
-// Supported chains
-const chains = [mainnet, arbitrum];
+// Define chains
+const chains = [mainnet, arbitrum] as const;
 
-// Create Wagmi configuration
-const config = defaultWagmiConfig({
-  chains,
-  projectId,
-  metadata,
+// Create the connectors
+const connectors: CreateConnectorFn[] = [];
+connectors.push(walletConnect({ projectId, metadata, showQrModal: false }));
+connectors.push(injected({ shimDisconnect: true }));
+connectors.push(coinbaseWallet({
+  appName: metadata.name,
+  appLogoUrl: metadata.icons[0],
+}));
+
+connectors.push(authConnector({
+  options: { projectId },
+  socials: ['google', 'x', 'github', 'discord', 'apple'],
+  showWallets: true,
+  email: true,
+  walletFeatures: false,
+}));
+
+const wagmiConfig = createConfig({
+  chains, // Use the defined chains here
+  transports: {
+    [mainnet.id]: http(),
+    [arbitrum.id]: http(),
+  },
+  connectors: connectors,
 });
 
-// Create Web3Modal
-const web3Modal = createWeb3Modal({
-  wagmiConfig: config,
-  projectId,
-  enableAnalytics: true, // Optional - enable analytics if you want
-});
+// 3. Create modal
+createWeb3Modal({ 
+  themeVariables: {
+    '--w3m-color-mix': '#00BB7F',
+    '--w3m-color-mix-strength': 40
+  },
+  
+  wagmiConfig, projectId });
 
 // AppKitProvider component
 export function AppKitProvider({ children }) {
   return (
-    <WagmiProvider config={config}>
+    <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
         {children}
       </QueryClientProvider>
