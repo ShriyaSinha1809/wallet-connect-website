@@ -190,9 +190,8 @@
   border-top-right-radius: 10px;
 }
 
-.righttext{
-  top:20px;
-}
+
+
 
 .leftside{
   border-bottom-left-radius: 20px;
@@ -213,6 +212,7 @@
   background-color: #0056b3;
 }
 .howtolink{
+  translate: 0 100%;
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
@@ -220,5 +220,9 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-decoration: none;
 }
 
+.righttext{
+  translate: 0 100%;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './WalletConnectModal.module.css';
-import {ConnectButton} from '../../config/Web3ModalProvider'
+import { ConnectButton } from '../../config/Web3ModalProvider';
 
 const WalletConnectModal = ({ isOpen, onClose }) => {
     useEffect(() => {
@@ -25,6 +26,12 @@ const WalletConnectModal = ({ isOpen, onClose }) => {
         console.log('Wallet logo clicked!');
     };
 
+    // Handle ConnectButton click
+    const handleConnectClick = () => {
+        console.log('Connect button clicked!');
+        onClose(); // Close the modal
+    };
+
     return (
         <div
             id="modalBackground"
@@ -37,45 +44,47 @@ const WalletConnectModal = ({ isOpen, onClose }) => {
                         <button className={styles.logoButton1} onClick={handleLogoClick}>
                             <img src="/MetaMask_Fox.svg" alt="Meta Mask Logo" className={styles.logo} />
                             <div className={styles.connectButtonWrapper}>
-                        <ConnectButton /> {/* Add the WalletConnect button here */}
-                    </div>
+                                {/* Add the WalletConnect button here */}
+                            </div>
                         </button>
                         <button className={styles.logoButton} onClick={handleLogoClick}>
                             <img src="/wallet-logo.svg" alt="Wallet Connect Logo" className={styles.logo} />
-                              <div className={styles.connectButtonWrapper}>
-                        <ConnectButton /> {/* Add the WalletConnect button here */}
-                    </div>
+                            <div className={styles.connectButtonWrapper}>
+                                {/* Add the WalletConnect button here */}
+                            </div>
                         </button>
                         <button className={styles.logoButton2} onClick={handleLogoClick}>
                             <img src="/bnb-bnb-logo.svg" alt="Binance Logo" className={styles.logo} />
                             <div className={styles.connectButtonWrapper}>
-                        <ConnectButton /> {/* Add the WalletConnect button here */}
-                    </div>
+                                {/* Add the WalletConnect button here */}
+                            </div>
                         </button>
                         <button className={styles.logoButton3} onClick={handleLogoClick}>
                             <img src="/coinbase-wallet-logo.svg" alt="Coinbase Logo" className={styles.logo} />
                             <div className={styles.connectButtonWrapper}>
-                        <ConnectButton /> {/* Add the WalletConnect button here */}
-                    </div>
+                                {/* Add the WalletConnect button here */}
+                            </div>
                         </button>
                         <button className={styles.logoButton4} onClick={handleLogoClick}>
                             <img src="/trust-wallet-logo.svg" alt="Trust Wallet Logo" className={styles.logo} />
                             <div className={styles.connectButtonWrapper}>
-                        <ConnectButton /> {/* Add the WalletConnect button here */}
-                    </div>
+                                {/* Add the WalletConnect button here */}
+                            </div>
                         </button>
                         <button className={styles.logoButton5} onClick={handleLogoClick}>
                             <img src="/okx.svg" alt="OKX Logo" className={styles.logo} />
                             <div className={styles.connectButtonWrapper}>
-                        <ConnectButton /> {/* Add the WalletConnect button here */}
-                    </div>
+                                {/* Add the WalletConnect button here */}
+                            </div>
                         </button>
                     </div>
                     <div className={styles.rightside}>
+                        <div onClick={handleConnectClick}>
+                            <ConnectButton />
+                        </div>
                         <h3 className={styles.righttext}>Haven’t got a wallet yet?</h3>
-                        <button className={styles.howtolink}>Learn How to Connect</button>
+                        <Link to="/blog" className={styles.howtolink}>Learn How to Connect</Link>
                     </div>
-                  
                     <button className={styles.closeButton} onClick={onClose}>×</button>
                 </div>
             </div>
