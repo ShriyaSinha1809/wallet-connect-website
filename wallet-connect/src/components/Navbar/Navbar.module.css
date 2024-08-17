@@ -428,7 +428,7 @@ body.dark-mode .navbar {
 
  @media (max-width: 830px) {
     .navLinks {
-        backdrop-filter: blur(1px);
+        backdrop-filter: blur(4px);
         display: none;
         flex-direction: column;
         width: 100%;
@@ -437,20 +437,23 @@ body.dark-mode .navbar {
         background-color: #9f93d5e4;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         z-index: 2;
+        justify-content: center;
         align-items: center;
         height: 40vh;
-        top: 10vh; 
+        top: 15vh; 
         border-radius: 10px;
         
     }
 
     .navLinks.showMenu {
+        backdrop-filter: blur(4px);
         display: flex;
         justify-content: center;
         align-items: center; 
         animation-name: Entry;
         animation-duration: 0.3s;
         animation-timing-function: ease-in-out;
+        
     } 
 
     @keyframes Entry {
@@ -468,13 +471,16 @@ body.dark-mode .navbar {
         display: block;
         justify-content: center;
         align-items: center;
-        height:20px
+        height:20px;
+        z-index: 4;
     }
 
     .navLinks a {
         padding: 10px 20px;
         color: black; 
         justify-content: center;
+        width:80%;
+        left:0
     }
 
     .connectWallet {
