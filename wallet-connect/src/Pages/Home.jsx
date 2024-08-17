@@ -133,8 +133,8 @@ const Home = () => {
             </div>
             <div className="f3info">
               <Link to="/blog">
-              <h3>LIQUIDITY</h3>
-              <p>Fund liquidity pools, earn trading fees.</p>
+              <h3>BLOG</h3>
+              <p>Your quick guide to clearing basic doubts and staying informed.</p>
               </Link>
             </div>
           </div>
@@ -222,8 +222,8 @@ const Home = () => {
               <OrbitControls enableZoom={false} />
             </Canvas>
           </div>
-        </div>
-      </div> */}
+        </div> */}
+      {/* </div> */}
 
       <div className={`join-page ${darkMode ? 'dark-mode' : ''}`}>
         <h1>JOIN EVERYONE'S <span className="favourite">FAVOURITE</span> NOW!</h1>

@@ -164,13 +164,11 @@ body {
   position: relative;
   text-decoration: none;
   display: flex;
-  justify-content:center;
+  justify-content: space-between;
+  margin: 9vh 10vw 0 10vw;
   animation: slide ease-in-out forwards;
   animation-timeline: view();
   animation-range:entry 0 cover 50%;
-  color: #000;
-  margin-top:8vh;
-  margin-bottom: 8vh;
 }
 
 .feature1 a{
@@ -223,6 +221,12 @@ body {
   animation: slide ease-in-out forwards;
   animation-timeline: view();
   animation-range:entry 0 cover 50%;
+}
+.f3img{
+  margin-top:-5vw;
+}
+.f2img{
+  margin-top: -11vw;
 }
 
 .join-page {
@@ -342,14 +346,6 @@ body {
   animation: move 20s infinite linear;
   color: #EBB55F;
 }
-.feature1 .f1img, .feature1 .f2img, .feature1 .f3img {
-  flex: 1; /* Adjust the size of the image container */
-}
-
-.feature1 .f1info, .feature1 .f2info, .feature1 .f3info {
-  flex: 2; /* Adjust the size of the text container */
-}
-
 
 @keyframes move {
   from {
@@ -591,10 +587,14 @@ body {
     order: 2; /* Ensure the text comes after the image for the second feature */
   }
   .f2img img {
-    margin-top:5vw;
+    margin-top:0;
     margin-right:0;
     width: 14vw; 
     height: auto;
+  }
+  .f3info{
+    position: relative;
+    top:18vh;
   }
   .feature1 p {
     font-size: 1rem;
@@ -609,17 +609,19 @@ body {
   }
 
 
-.f1img img,
-.f3img img {
-  width: 33vw; 
-  height: auto;
-}
-
-.f2img img {
-
-  width: 23vw; 
-  height: auto;
-}
+  .f2img img {
+    margin-top:-5vw;
+    margin-right:0;
+    width: 14vw; 
+    height: auto;
+  }
+  .f3info{
+    position: relative;
+    top:17vh;
+  }
+  .feature1 p {
+    font-size: 1rem;
+  }
 
 .ecosystem-section h3 {
   font-size: 6vw;
