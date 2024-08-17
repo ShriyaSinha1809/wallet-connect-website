@@ -233,8 +233,7 @@ body.dark-mode .navLinks a::after {
     }
 }
 
-<<<<<<< Updated upstream
-/* New CSS for toggle Button */
+
 
 .toggleButton {
     position: relative;
@@ -288,8 +287,7 @@ body.dark-mode .toggleButton.active::before {
 }
 
 /* New CSS for Enhanced Scribble Eyes */
-=======
->>>>>>> Stashed changes
+
 
 .eyesContainer {
     position: absolute;
