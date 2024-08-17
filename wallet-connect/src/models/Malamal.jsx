@@ -4,7 +4,7 @@ import { MeshStandardMaterial } from 'three';
 
 const Malamal = (props) => {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF('src/models/bitcoin_factory.glb');
+  const { nodes, materials, animations } = useGLTF('/bitcoin_factory.glb');
   const { actions } = useAnimations(animations, group);
 
   // Custom material for subtle shine
