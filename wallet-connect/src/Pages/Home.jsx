@@ -33,7 +33,45 @@ const Home = () => {
           <p><span className='earn'>Earn,</span> <span className='trade'>Trade,</span> <span className='swap'>Swap</span> and <span className='buy'>Buy</span> <span className='all'>all-in-one</span></p>
           
         </div>
-        <div className='model'>Model</div>
+        {/* <div className='model'><Canvas className='model' shadows camera={{ position: [0, 0, 10] }}>
+          <ambientLight intensity={0.5} />
+          <directionalLight 
+            position={[5, 10, 5]} 
+            intensity={5} 
+      
+            shadow-mapSize-width={1024} 
+            shadow-mapSize-height={1024} 
+            shadow-camera-near={0.5} 
+            shadow-camera-far={50} 
+            shadow-camera-left={-10} 
+            shadow-camera-right={10} 
+            shadow-camera-top={10} 
+            shadow-camera-bottom={-10} 
+          />
+          <pointLight position={[0, 10, 10]} intensity={1} />
+          <pointLight position={[0, -10, -10]} intensity={0.5} />
+          <Suspense fallback={null}>
+            <Main 
+              position={[5, -4, 0]} 
+              rotation={[0.1, 1, 0]} 
+              scale={[0.4,0.4,0.4]} 
+              castShadow 
+              receiveShadow
+              animation={animations[0]} // Default animation
+              hoverAnimation={animations[1]} // Animation on hover
+              
+            />
+           
+            <mesh 
+              position={[0, -3, 0]} 
+              rotation={[-Math.PI / 2, 0, 0]} 
+              receiveShadow
+            >
+              <planeGeometry args={[50, 50]} />
+              <shadowMaterial opacity={0.5} />
+            </mesh>
+          </Suspense>
+        </Canvas></div> */}
       </div>
 
       <div className="ecosystem-section">
