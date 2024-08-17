@@ -21,16 +21,18 @@ const Home = () => {
   ]; 
   return (
     <>
+      
       <Navbar />
-
       <div className="hero-section">
+      
         <div className="news">
           <h1>
             World’s Most
             <br />
             <span className="trusted">TRUSTED</span> DEX
           </h1>
-          <p>Earn, Trade, Swap and Buy all-in-one</p>
+          <p><span className='earn'>Earn,</span> <span className='trade'>Trade,</span> <span className='swap'>Swap</span> and <span className='buy'>Buy</span> <span className='all'>all-in-one</span></p>
+          
         </div>
         <Canvas shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
@@ -145,7 +147,7 @@ const Home = () => {
         <div className="model-monitor-wrapper">
           <div className="monitor-wrapper">
             <div className="monitor">
-              <p>🪙 🟡 Crypto trading: where strategy meets the thrill of the digital frontier! 🪙 🟡</p>
+              <p>🪙🟡Crypto trading, where strategy meets the thrill of the digital frontier!🪙🟡</p>
             </div>
           </div>
           <div className="hometruck-canvas-container">
@@ -174,7 +176,7 @@ const Home = () => {
                 shadow-mapSize-height={1024}
               />
 
-              {/* Plane to catch shadows */}
+            
               <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
                 <planeGeometry args={[10, 10]} />
                 <shadowMaterial transparent opacity={0.5} />

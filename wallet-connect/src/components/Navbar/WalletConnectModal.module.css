@@ -42,8 +42,8 @@
 
 .closeButton {
   position: absolute;
-  top: 10px; /* Adjusted to move the button closer to the top */
-  right: 10px; /* Adjusted to move the button closer to the right */
+  top: 0px; /* Adjusted to move the button closer to the top */
+  right: 0px; /* Adjusted to move the button closer to the right */
   width: 30px; /* Increased size for better visibility */
   height: 30px; /* Increased size for better visibility */
   background: none;
@@ -51,8 +51,8 @@
   font-size: 20px;
   cursor: pointer;
   color: black;
-  border: 2px solid rgb(226, 99, 60);
-  background-color: #eff5a0;
+  border: 2px solid rgb(0, 0, 0);
+  background-color: #f1d06b;
   border-radius: 5px;
   display: flex;
   align-items: center;
