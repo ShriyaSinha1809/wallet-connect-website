@@ -104,7 +104,7 @@ const Home = () => {
         <div className="features">
           <div className="feature1">
             <div className="f1img">
-              <img src="public/swap.png" alt="Swap Feature" />
+              <img src="/swap.png" alt="Swap Feature" />
             </div>
             <div className="f1info">
               <Link to="/trade"><h3>SWAP</h3>
@@ -123,13 +123,13 @@ const Home = () => {
               </Link>
             </div>
             <div className="f3img">
-            <img src="src/assets/88804f9baa8b6045b92f13c4d85ed3ce.png" alt="Buy Crypto Feature" />
+            <img src="/buy.png" alt="Buy Crypto Feature" />
             </div>
           </div>
 
           <div className="feature1">
             <div className="f2img">
-            <img src="src/assets/469ed5b7bf5bcf6026940aafdc2818d8.png" alt="Liquidity Feature" />
+            <img src="/blog.png" alt="Liquidity Feature" />
             </div>
             <div className="f3info">
               <Link to="/blog">
