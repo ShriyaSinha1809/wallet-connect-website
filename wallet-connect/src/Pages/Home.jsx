@@ -34,7 +34,7 @@ const Home = () => {
           <p><span className='earn'>Earn,</span> <span className='trade'>Trade,</span> <span className='swap'>Swap</span> and <span className='buy'>Buy</span> <span className='all'>all-in-one</span></p>
           
         </div>
-        <Canvas shadows camera={{ position: [0, 0, 10] }}>
+        <Canvas className='model' shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 
             position={[5, 10, 5]} 
