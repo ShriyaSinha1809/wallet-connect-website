@@ -114,8 +114,8 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="table-container">
-        {/* Separate Canvas for the Dragon */}
+      {/* <div className="table-container">
+
         <div className="dragon-canvas-container">
           <Canvas shadows>
             <ambientLight intensity={1} />
@@ -132,7 +132,7 @@ const Home = () => {
               shadow-camera-bottom={-10}
             />
 
-            {/* Positioning the Dragon model above the monitor */}
+           
             <Dragon
               scale={[4, 4, 4]}
               position={[0, -4, 0]}
@@ -182,7 +182,7 @@ const Home = () => {
                 <shadowMaterial transparent opacity={0.5} />
               </mesh>
 
-              {/* Adding the 3D model with proper scaling and positioning */}
+             
               <Hometruck
                 scale={[0.0115, 0.0115, 0.0115]}
                 position={[0, 0, 0]}
@@ -194,7 +194,7 @@ const Home = () => {
             </Canvas>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="join-page">
         <h1>JOIN EVERYONE'S <span className="favourite">FAVOURITE</span> NOW!</h1>
