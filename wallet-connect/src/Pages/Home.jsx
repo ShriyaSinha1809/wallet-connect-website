@@ -4,12 +4,9 @@ import Navbar from '../components/Navbar/Navbar';
 import './Home.css'; // Assuming the CSS file is in the same directory
 import Hometruck from '../models/Hometruck';
 import Dragon from '../models/Dragon'; // Import the Dragon model
-
 import { Link } from 'react-router-dom'; // Import Link component
-
 import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
 import Bitcoin from '../models/Bitcoin.jsx';
-import  { Suspense, useState } from 'react';
 import Main from '../models/main.jsx';
 
 const Home = () => {
