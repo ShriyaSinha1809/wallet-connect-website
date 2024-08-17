@@ -341,7 +341,7 @@ label {
 /* Container styling */
 .buyContainer,.coin-details {
   z-index: 10;
-  transition: all 0.3s ease;
+
   width: 50%;
   height: 70%;
   padding: 20px;
@@ -677,7 +677,7 @@ label {
   .cryptoContainer {
     width: 90%;
     left: 50%;
-    transform: translateX(-50%);
+   
   }
 
 
@@ -862,4 +862,9 @@ label {
   border-width: 5px;
   border-style: solid;
   border-color: #555 transparent transparent transparent;
+}
+
+.tree-container{
+  height: 91%;
+  margin-bottom: 4px;
 }
