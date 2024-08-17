@@ -7,6 +7,7 @@ import Dragon from '../models/Dragon'; // Import the Dragon model
 import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
 import Bitcoin from '../models/Bitcoin.jsx';
 import  { Suspense, useState } from 'react';
+import Main from '../models/main.jsx';
 
 const Home = () => {
 
@@ -33,8 +34,8 @@ const Home = () => {
           <p><span className='earn'>Earn,</span> <span className='trade'>Trade,</span> <span className='swap'>Swap</span> and <span className='buy'>Buy</span> <span className='all'>all-in-one</span></p>
           
         </div>
-        {/* <div className='model'><Canvas className='model' shadows camera={{ position: [0, 0, 10] }}>
-          <ambientLight intensity={0.5} />
+        <div className='model'><Canvas  shadows camera={{ position: [0, 0, 10] }}>
+          <ambientLight intensity={0.4} />
           <directionalLight 
             position={[5, 10, 5]} 
             intensity={5} 
@@ -71,7 +72,7 @@ const Home = () => {
               <shadowMaterial opacity={0.5} />
             </mesh>
           </Suspense>
-        </Canvas></div> */}
+        </Canvas></div>
       </div>
 
       <div className="ecosystem-section">
