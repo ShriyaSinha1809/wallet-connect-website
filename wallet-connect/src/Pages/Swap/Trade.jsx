@@ -13,6 +13,13 @@ import { Canvas } from '@react-three/fiber';
 import { ConnectButton } from '../../config/Web3ModalProvider'; 
 import Submarine from '../../models/submarine';
 import ArrowImage from '../../../public/next.png'; // Import the arrow image
+import Barrier from '../../models/barrier';
+import { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { ConnectButton } from '../../config/Web3ModalProvider';
+import Submarine from '../../models/submarine';
+import WalletDashboard from './WalletDashboard'; // Import the WalletDashboard component
+
 
 const Background = () => {
     return (
@@ -32,6 +39,10 @@ const Trade = () => {
     const [bitcoinPrice, setBitcoinPrice] = useState(null);
     const [swapAmount, setSwapAmount] = useState('');
     const [swapCoin, setSwapCoin] = useState('ethereum'); 
+    const [loading, setLoading] = useState(true);
+    const [bitcoinPrice, setBitcoinPrice] = useState(null);
+    const [swapAmount, setSwapAmount] = useState('');
+    const [swapCoin, setSwapCoin] = useState('ethereum');
 
     useEffect(() => {
         fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,cardano&vs_currencies=usd')
@@ -55,13 +66,15 @@ const Trade = () => {
         <div className="trade-page">
             <Navbar />
             <section className="trade-container" onMouseMove={handleMouseMove}>
-                <div className="news">
+                <div className="text">
                     <h1>
-                        World’s Most
-                        <br />
-                        <span className="trusted">TRUSTED</span> DEX
+                    Seamless <span className="swap">SWAP</span> 
                     </h1>
-                    <p>Earn, Trade, Swap and Buy all-in-one</p>
+                    <br></br>
+                    <h1>
+                    Efortless <span className="swap">TRADE</span> 
+                    </h1>
+                    <p>Hassle-Free!</p>
                 </div>
                 {loading && (
                     <div className="loader">
@@ -134,6 +147,10 @@ const Trade = () => {
 
             <section className="bitcoin-swap-section">
                 <div className="flex-column-container">
+                <div className="wallet-dashboard-container">
+                    
+                        <WalletDashboard /> {/* Place the WalletDashboard component here */}
+                    </div>
                     <div className="swap-container pixelated-3d">
                         <div className="tooltip-text">Click For Swapping!</div>
                         <ConnectButton />
@@ -144,6 +161,7 @@ const Trade = () => {
                             onCreated={({ gl }) => {
                                 setLoading(false); 
                                 gl.setSize(window.innerWidth, window.innerHeight); 
+
                             }}
                         >
                             <ambientLight intensity={1} />
@@ -180,11 +198,11 @@ const Trade = () => {
                                 castShadow
                             />
                             <group position={[0, -0.5, 0]}>
-                                <Submarine position={[-3.8, 2, 0]} rotation={[-0.15, 3, 0]} scale={[0.6,0.9,0.6]} />
+                                <Submarine position={[-3.5, 2, 0]} rotation={[-0.15, 3, 0]} scale={[0.6,0.9,0.6]} />
                             </group>
                         </Canvas>
                     </div>
-                </div>
+               </div>
             </section>
         </div>
     );

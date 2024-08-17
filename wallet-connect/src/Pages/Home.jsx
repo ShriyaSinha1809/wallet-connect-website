@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'; // Import useEffect
+import React, { useEffect, useState, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import Navbar from '../components/Navbar/Navbar';
 import './Home.css'; // Assuming the CSS file is in the same directory
 import Hometruck from '../models/Hometruck';
 import Dragon from '../models/Dragon'; // Import the Dragon model
-import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
+import { OrbitControls } from '@react-three/drei';
+import Main from '../models/main.jsx';
 import { Link } from 'react-router-dom'; // Import Link component
 
 const Home = () => {
@@ -14,6 +15,13 @@ const Home = () => {
       document.body.classList.remove('home-page-body');
     };
   }, []);
+
+  const [animationIndex, setAnimationIndex] = useState(0);
+
+  const animations = [
+    "Hey!",
+    "pose",
+  ];
 
   return (
     <>
@@ -25,8 +33,44 @@ const Home = () => {
             <br />
             <span className="trusted">TRUSTED</span> DEX
           </h1>
-          <p>Earn, Trade, Swap and Buy all-in-one</p>
+          <p><span className='earn'>Earn,</span> <span className='trade'>Trade,</span> <span className='swap'>Swap</span> and <span className='buy'>Buy</span> <span className='all'>all-in-one</span></p>
         </div>
+        <Canvas className='model' shadows camera={{ position: [0, 0, 10] }}>
+          <ambientLight intensity={0.5} />
+          <directionalLight
+            position={[5, 10, 5]}
+            intensity={5}
+            shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024}
+            shadow-camera-near={0.5}
+            shadow-camera-far={50}
+            shadow-camera-left={-10}
+            shadow-camera-right={10}
+            shadow-camera-top={10}
+            shadow-camera-bottom={-10}
+          />
+          <pointLight position={[0, 10, 10]} intensity={1} />
+          <pointLight position={[0, -10, -10]} intensity={0.5} />
+          <Suspense fallback={null}>
+            <Main
+              position={[5, -4, 0]}
+              rotation={[0.1, 1, 0]}
+              scale={[0.4, 0.4, 0.4]}
+              castShadow
+              receiveShadow
+              animation={animations[0]} // Default animation
+              hoverAnimation={animations[1]} // Animation on hover
+            />
+            <mesh
+              position={[0, -3, 0]}
+              rotation={[-Math.PI / 2, 0, 0]}
+              receiveShadow
+            >
+              <planeGeometry args={[50, 50]} />
+              <shadowMaterial opacity={0.5} />
+            </mesh>
+          </Suspense>
+        </Canvas>
       </div>
 
       <div className="ecosystem-section">
@@ -102,7 +146,7 @@ const Home = () => {
         <div className="model-monitor-wrapper">
           <div className="monitor-wrapper">
             <div className="monitor">
-              <p>🪙 🟡 Crypto trading: where strategy meets the thrill of the digital frontier! 🪙 🟡</p>
+              <p>🪙🟡Crypto trading, where strategy meets the thrill of the digital frontier!🪙🟡</p>
             </div>
           </div>
           <div className="hometruck-canvas-container">

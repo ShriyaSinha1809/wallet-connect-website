@@ -23,6 +23,7 @@ import {
   Legend,
   RadialLinearScale,
 } from 'chart.js';
+import Tree from '../../models/Tree';
 
 ChartJS.register(
   CategoryScale,
@@ -143,21 +144,26 @@ const Buy = () => {
       ) : (
         <>
           <div className="canvasContainer">
-            <div className="buyContainer">
-              <h2>Buy Crypto</h2>
-              <form>
-                <div className="form-group">
-                  <input type="number" id="spend" name="spend" placeholder="Amount in USD" />
-                  <label htmlFor="spend">Spend ($):</label>
-                </div>
-                <div className="form-group">
-                  <input type="number" id="receive" name="receive" placeholder="Amount in Crypto" readOnly />
-                  <label htmlFor="receive">Receive (Crypto):</label>
-                </div>
-                <ConnectButton />
-                <button type="submit">Exchange</button>
-              </form>
-            </div>
+          <div className="buyContainer">
+  <h2>Buy Crypto</h2>
+  <form>
+    <div className='tree-container'>
+  <Canvas shadows>
+                <ambientLight intensity={2} />
+                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
+                <pointLight position={[-10, -10, -10]} />
+                <Suspense fallback={null}>
+                  <Tree position={[0,-0.2, 0]} rotation={[0.1, -1.3, 0]} scale={[0.7,0.4,0.5]} castShadow receiveShadow />
+                </Suspense>
+              </Canvas>
+              </div>
+    <div className="tooltip-container">
+      <ConnectButton />
+      <span className="tooltip-text">Click to buy crypto</span>
+    </div>
+  </form>
+</div>
+
             <div className="model-container">
               <Canvas shadows>
                 <ambientLight intensity={2} />

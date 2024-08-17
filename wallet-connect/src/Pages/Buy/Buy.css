@@ -1,6 +1,3 @@
-body {
-  /* background-image: linear-gradient(#0C052B , #3C2696); */
-}
 
 .canvasContainer {
   margin-top: 0;
@@ -30,17 +27,6 @@ body {
 
 
 /* Additional styles to ensure full background coverage */
-
-.buyContainer{
-  width: 50%;
-  height: 70%;
-  padding: 20px;
-  background-color: #000;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(255,255,255,0.1);
-  color: #fff;
-  margin: 50px;
-}
 
 /* Styling for top-left content over the gradient background */
 .content {
@@ -355,14 +341,14 @@ label {
 /* Container styling */
 .buyContainer,.coin-details {
   z-index: 10;
-  transition: all 0.3s ease;
+
   width: 50%;
   height: 70%;
   padding: 20px;
   background-color: rgb(145, 156, 156);
   border-radius: 8px;
   color: #fff;
-  margin: 50px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -564,14 +550,16 @@ label {
   display: none; /* Chrome, Safari, and Opera */
 }
 
-@media screen and (max-height: 648px ) {
-  .buyContainer{
-    height: 50% ;
-    width:300%;
-    left:10%;
-    translate:-20%;
+@media screen and (max-width: 768px) {
+  .buyContainer {
+    height: 80%; /* Increase height on smaller screens */
+    width: 90%; /* Take up 90% of the screen width on mobile */
+    max-width: 500px; /* Limit max width */
+    margin-bottom: 20px; /* Add space between the containers */
+    box-sizing: border-box; /* Include padding/border in element's width/height */
   }
 }
+
 
 
 .model-container{
@@ -638,14 +626,7 @@ label {
   margin-top: 5px;
   color: #ddd;
 }
-.buyContainer{
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
-  height: 50%;
-  padding: 20px;
-  border-radius: 8px;
-}
+
 /* Ensure parent container allows resizing */
 .canvasContainer {
   display: flex;
@@ -658,10 +639,11 @@ label {
 .buyContainer{
   flex: 0 1 30%; /* Ensure each takes up 45% of the space */
   max-width: 600px; /* Optional: set a max width */
-  height: 50%; /* Full height, but can be adjusted */
+  height: 70%; /* Full height, but can be adjusted */
   padding: 20px;
   border-radius: 8px;
   box-sizing: border-box; /* Ensure padding and border are included */
+  margin-top: -10rem;
 }
 
 .buyContainer {
@@ -678,22 +660,24 @@ label {
     margin: 0 auto; /* Center the parent container */
   }
 
-  .buyContainer{
-    translate: 0% 20%;
-    width: 90%; /* Take up 90% of the screen width on mobile */
-    max-width: 500px; /* Limit max width to 500px */
-    margin-bottom: 20px; /* Add space between the containers */
-    box-sizing: border-box; /* Include padding/border in element's width/height */
+    .buyContainer {
+      height: 80%; /* Increase height on smaller screens */
+      width: 90%; /* Take up 90% of the screen width on mobile */
+      max-width: 500px; /* Limit max width */
+      margin-bottom: 20px; /* Add space between the containers */
+      box-sizing: border-box; /* Include padding/border in element's width/height */
+    }
   }
+  
 
-}
+
 /* Specific styling for Buy and Sell containers */
 /* General Responsive Adjustments */
 @media screen and (max-width: 1024px) {
   .cryptoContainer {
     width: 90%;
     left: 50%;
-    transform: translateX(-50%);
+   
   }
 
 
@@ -765,4 +749,122 @@ label {
     width: 100%;
     padding: 5px;
   }
+}
+
+.model-container {
+  flex: 0 1 65%; /* Increase the width of the model container */
+  max-width: 800px; /* Set a max width if necessary */
+  height: 80vh; /* Adjust height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: -5%; /* Move the model closer to the buy container */
+ 
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  margin-left: 10%;
+}
+
+
+.canvasContainer {
+  display: flex;
+  justify-content: space-around; /* Spread the model and buy container */
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1024px) {
+  .model-container {
+    flex: 0 1 60%; /* Adjust width for smaller screens */
+    left: 0%; /* Center the model */
+    margin-right: 5%; /* Reduce space between model and buy container */
+  }
+
+  .buyContainer {
+    flex: 0 1 35%; /* Adjust width for smaller screens */
+    translate: 0% 20%;
+  }
+
+  .canvasContainer {
+    flex-direction: row;
+    justify-content: space-between; /* Adjust alignment */
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .canvasContainer {
+    flex-direction: column; /* Stack the containers vertically on small screens */
+    align-items: center;
+    padding: 10px;
+  }
+
+  .model-container,
+  .buyContainer {
+    width: 90%; /* Take up 90% of the width on smaller screens */
+    max-width: 500px; /* Limit max width */
+    margin-bottom: 20px; /* Add spacing between stacked containers */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .canvasContainer {
+    padding: 5px;
+  }
+
+  .model-container,
+  .buyContainer {
+    width: 100%; /* Full width on very small screens */
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 200px; /* Adjust width as needed */
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position the tooltip above the button */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 20px; /* Adjust font size as needed */
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%; /* Arrow pointing down */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tree-container{
+  height: 91%;
+  margin-bottom: 4px;
 }

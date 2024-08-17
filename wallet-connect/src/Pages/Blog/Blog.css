@@ -285,7 +285,3 @@
 .Buy::-webkit-scrollbar,.scrollable-container::-webkit-scrollbar,.Tradeinfo::-webkit-scrollbar {
   display: none; /* Chrome, Safari, and Opera */
 }
-
-body{
-  background-image: linear-gradient(rgba(95, 35, 192, 1) , rgba(163, 123, 228, 1)  , rgba(181, 108, 199, 1) , rgba(244, 174, 134, 1)  ,rgba(253, 143, 42, 1) ,rgba(249, 77, 53, 1) );
-}
