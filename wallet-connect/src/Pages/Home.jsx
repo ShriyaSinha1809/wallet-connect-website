@@ -1,10 +1,12 @@
-import React from 'react';
+import React,{Suspense} from 'react';
 import { Canvas } from '@react-three/fiber';
 import Navbar from '../components/Navbar/Navbar';
 import './Home.css'; // Assuming the CSS file is in the same directory
 import Hometruck from '../models/Hometruck';
 import Dragon from '../models/Dragon'; // Import the Dragon model
 import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
+import Main from '../models/main';
+
 
 const Home = () => {
   return (
