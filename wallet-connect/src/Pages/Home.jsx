@@ -10,9 +10,9 @@ const Home = () => {
   return (
     <>
       
-
-      <div className="hero-section">
       <Navbar />
+      <div className="hero-section">
+      
         <div className="news">
           <h1>
             World’s Most

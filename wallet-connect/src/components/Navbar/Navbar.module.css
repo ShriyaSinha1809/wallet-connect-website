@@ -51,7 +51,6 @@ body.dark-mode .navbar {
     font-size: 34px;
     font-weight: bold;
     color: #000;
-    margin-right: auto;
     display: flex;
 }
 
@@ -75,12 +74,11 @@ body.dark-mode .logo {
 .navLinks {
     position:relative;
     display: flex;
-    gap: 40px;
+    gap: 2rem;
     justify-content: center;
     align-items: center;
     width: 100%;
-    left:80px;
-    right:80px;
+    left:15%;
 }
 
 .navLinks a {
@@ -88,7 +86,7 @@ body.dark-mode .logo {
     text-decoration: none;
     font-size: 18px;
     align-items: center;
-    gap: 8px; 
+    gap: 1vw; 
     position: relative;
     color: transparent; /* Hide the original text */
     animation: showText 0s steps(1) 2s forwards;
@@ -172,79 +170,7 @@ body.dark-mode .navLinks a::after {
     color: black; /* Set color of the menu icon to black */
 }
 
-@media (max-width: 650px) {
-    .navLinks {
-        backdrop-filter: blur(1px);
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        left: 0;
-        background-color: #9f93d5e4;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        z-index: 2;
-        align-items: center;
-        height: 40vh;
-        top: 10vh; 
-        border-radius: 10px;
-        
-    }
 
-    .navLinks.showMenu {
-        display: flex;
-        justify-content: center;
-        align-items: center; 
-        animation-name: Entry;
-        animation-duration: 0.3s;
-        animation-timing-function: ease-in-out;
-    } 
-
-    @keyframes Entry {
-        0% {
-            opacity: 0;
-            transform: translateY(-50%);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .menuIcon {
-        display: block;
-        justify-content: center;
-    }
-
-    .navLinks a {
-        padding: 10px 20px;
-        color: black; /* Color for the links in the menu */
-        justify-content: center;
-    }
-
-    .connectWallet {
-        width: 50vw;
-        padding: 10px 20px;
-        border-bottom: none;
-        text-align: center; /* Center text */
-    }
-
-    .navLinks a::after, .navLinks.noTyping a::after {
-        border: none;
-    }
-
-    .noTyping a {
-        animation: none;
-        color: black; /* Ensure the text is visible */
-    }
-
-    .noTyping a::after {
-        content: none;
-    }
-
-    .navLinks a {
-        cursor: default; /* Hide cursor */
-    }
-}
 
 
 .eyesContainer {
@@ -445,4 +371,125 @@ body.dark-mode .navbar {
   body.dark-mode .pupil {
     background: repeating-linear-gradient(45deg, #fff, #fff 5px, #ddd 5px, #ddd 10px);
   }
+
+
+@media (max-width:1450px){
+    .navLinks {
+      left:10%;
+    }
+
   
+}  
+
+@media (max-width:1270px){
+    .navLinks {
+      left:6%;
+    }
+
+  
+}  
+@media (max-width:1140px){
+    .navLinks {
+      left:3%;
+    }
+
+  
+} 
+
+@media (max-width:1080px){
+    .navLinks {
+      left:-9.5%;
+    }
+
+  
+} 
+
+
+ @media (max-width: 830px) {
+    .navLinks {
+        backdrop-filter: blur(1px);
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        background-color: #9f93d5e4;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        align-items: center;
+        height: 40vh;
+        top: 10vh; 
+        border-radius: 10px;
+        
+    }
+
+    .navLinks.showMenu {
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        animation-name: Entry;
+        animation-duration: 0.3s;
+        animation-timing-function: ease-in-out;
+    } 
+
+    @keyframes Entry {
+        0% {
+            opacity: 0;
+            transform: translateY(-50%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .menuIcon {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        height:20px
+    }
+
+    .navLinks a {
+        padding: 10px 20px;
+        color: black; 
+        justify-content: center;
+    }
+
+    .connectWallet {
+        width: 50vw;
+        padding: 10px 20px;
+        border-bottom: none;
+        text-align: center; 
+    }
+
+    .navLinks a::after, .navLinks.noTyping a::after {
+        border: none;
+    }
+
+    .noTyping a {
+        animation: none;
+        color: black; 
+    }
+
+    .noTyping a::after {
+        content: none;
+    }
+
+    .navLinks a {
+        cursor: default; 
+    }
+
+    .eye{
+        display: none;
+    }
+    .toggleButton{
+        right:90%;
+    }
+}
+
+@media (max-width:375px){
+    .toggleButton{
+        right:50%;
+    }
+}
