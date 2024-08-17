@@ -812,7 +812,9 @@ label {
 .chartDropdown:active {
   background-color: #555;
 }
-
+.scrollable-container h3{
+  font-size: 1.4vw;
+}
 .chart-text{
   color: #000;
   font-size: 16px;

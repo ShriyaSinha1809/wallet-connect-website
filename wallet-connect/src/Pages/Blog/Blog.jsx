@@ -100,6 +100,7 @@ const Blog = () => {
             </mesh>
           </Suspense>
         </Canvas>
+        <div className='steps'>
         <div 
           className="left-text-1 writing-effect" 
           onMouseEnter={() => handleMouseEnter(0)}
@@ -132,6 +133,7 @@ const Blog = () => {
         >
           {texts[3].text}
         </div>
+        </div>
       </div>
 
       <div className="blog-container" id="viewport-2">
@@ -140,7 +142,7 @@ const Blog = () => {
           How to Connect Wallet?
         </div>
         {connectContent}  {/* Render the imported content here */}
-        <Canvas shadows camera={{ position: [0, 0, 10] }}>
+        <Canvas className='model1' shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 
             position={[5, 10, 5]} 
@@ -184,7 +186,7 @@ const Blog = () => {
           Swap
         </div>
         {Tradeinfo}
-        <Canvas shadows camera={{ position: [0, 0, 10] }}>
+        <Canvas className='model2' shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 
             position={[5, 10, 5]} 
@@ -228,7 +230,7 @@ const Blog = () => {
           Buy Crypto
         </div>
         {Buy}
-        <Canvas shadows camera={{ position: [0, 0, 10] }}>
+        <Canvas  className='model3' shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 
             position={[5, 10, 5]} 
