@@ -322,7 +322,7 @@ label {
   font-family: 'Press Start 2P', cursive;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1500px) {
   .canvasContainer {
     flex-direction: column;
   }
@@ -425,23 +425,6 @@ label {
   background: pink;
 }
 
-@media screen and (max-width: 1024px) {
-  .cryptoContainer {
-    width: 90%;
-    left:50%;
-    translate:-50%;
-  }
-
-
-  .topBar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .topBar img, .topBar button {
-    margin: 5px 0;
-  }
-}
 
 @media screen and (max-width: 619px){
   .cryptoContainer{
@@ -465,7 +448,7 @@ label {
 }
 
 /* Mobile Styles */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1500px) {
   .canvasContainer {
     padding: 10px;
   }
@@ -550,7 +533,7 @@ label {
   display: none; /* Chrome, Safari, and Opera */
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1500px) {
   .buyContainer {
     height: 80%; /* Increase height on smaller screens */
     width: 90%; /* Take up 90% of the screen width on mobile */
@@ -652,7 +635,7 @@ label {
   background-color: #1a8cff;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1500px) {
   .canvasContainer {
     display: flex;
     flex-direction: column; /* Stack containers vertically */
@@ -673,41 +656,9 @@ label {
 
 
 /* Specific styling for Buy and Sell containers */
-/* General Responsive Adjustments */
-@media screen and (max-width: 1024px) {
-  .cryptoContainer {
-    width: 90%;
-    left: 50%;
-   
-  }
-
-
-
-  .detailsContainer, .chartsContainer {
-    width: 100%;
-    margin: 10px 0;
-    padding: 15px;
-  }
-
-  .detailsContainer {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .coin-details {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  .cryptoContainer {
-    width: 100%;
-    padding: 15px;
-    margin: 15px 0;
-  }
-}
 
 /* Further adjustments for smaller screens (e.g., tablets, large phones) */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1500px) {
   .cryptoContainer {
     width: 100%;
     padding: 10px;
@@ -779,26 +730,8 @@ label {
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 1024px) {
-  .model-container {
-    flex: 0 1 60%; /* Adjust width for smaller screens */
-    left: 0%; /* Center the model */
-    margin-right: 5%; /* Reduce space between model and buy container */
-  }
 
-  .buyContainer {
-    flex: 0 1 35%; /* Adjust width for smaller screens */
-    translate: 0% 20%;
-  }
-
-  .canvasContainer {
-    flex-direction: row;
-    justify-content: space-between; /* Adjust alignment */
-    padding: 20px;
-  }
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1500px) {
   .canvasContainer {
     flex-direction: column; /* Stack the containers vertically on small screens */
     align-items: center;
@@ -912,14 +845,36 @@ label {
   font-size: 16px;
 }
 
-@media screen and (max-width: 768px) {
-  .tree-container {
-    height: 50%; /* Adjust height for smaller screens */
-  }
-}
 
 @media screen and (max-width: 480px) {
   .tree-container {
-    height: 40%; /* Adjust height for very small screens */
+    height: 82%; /* Adjust height for very small screens */
+  }
+  .buyContainer{
+    translate: 0 150%;
   }
 }
+
+@media screen and (max-width: 1200px){
+  .tree-container{
+    position: relative;
+    height: 79%;
+  }
+  .buyContainer{
+    height: 45%;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .tree-container {
+    height: 80%; /* Adjust height for very small screens */
+  }
+  .buyContainer{
+    translate: 0 170%;
+  }
+}
+.buyContainer{
+  height: 60%;
+}
+
+
