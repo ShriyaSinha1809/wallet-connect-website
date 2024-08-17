@@ -5,20 +5,8 @@ import './Home.css'; // Assuming the CSS file is in the same directory
 import Hometruck from '../models/Hometruck';
 import Dragon from '../models/Dragon'; // Import the Dragon model
 import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
-import Bitcoin from '../models/Bitcoin.jsx';
-import Main from '../models/main.jsx';
-import  { Suspense, useState } from 'react';
 
 const Home = () => {
-
-  const [animationIndex, setAnimationIndex] = useState(0);
-
-  const animations = [
-   "Hey!",
-    "pose", 
-     
-    
-  ]; 
   return (
     <>
       
@@ -95,13 +83,13 @@ const Home = () => {
               <p>Fund liquidity pools, earn trading fees.</p>
             </div>
             <div className="f2img">
-              <img src="src/assets/469ed5b7bf5bcf6026940aafdc2818d8.png" alt="Liquidity Feature" />
+              <img src="src/assets/469ed5b7bf5bcf6026940aafdc2818d8.png" alt="Swap Feature" />
             </div>
           </div>
 
           <div className="feature1">
             <div className="f3img">
-              <img src="src/assets/88804f9baa8b6045b92f13c4d85ed3ce.png" alt="Buy Crypto Feature" />
+              <img src="src/assets/88804f9baa8b6045b92f13c4d85ed3ce.png" alt="Swap Feature" />
             </div>
             <div className="f3info">
               <h3>BUY CRYPTO</h3>
@@ -109,8 +97,6 @@ const Home = () => {
               <p>currency and payment method.</p>
             </div>
           </div>
-
-       
         </div>
       </div>
 
@@ -146,13 +132,18 @@ const Home = () => {
         </div>
         <div className="model-monitor-wrapper">
           <div className="monitor-wrapper">
+            
+            
             <div className="monitor">
               <p>🪙🟡Crypto trading, where strategy meets the thrill of the digital frontier!🪙🟡</p>
             </div>
           </div>
           <div className="hometruck-canvas-container">
             <Canvas shadows>
+             
               <ambientLight intensity={1} />
+
+          
               <directionalLight
                 position={[10, 10, 5]}
                 intensity={1.5}
@@ -166,6 +157,7 @@ const Home = () => {
                 shadow-camera-bottom={-10}
               />
 
+        
               <spotLight
                 position={[15, 20, 10]}
                 angle={0.3}
@@ -192,6 +184,8 @@ const Home = () => {
 
               <OrbitControls enableZoom={false} />
             </Canvas>
+            
+     
           </div>
         </div>
       </div>

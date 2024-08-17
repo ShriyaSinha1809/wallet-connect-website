@@ -1,15 +1,15 @@
-import React, { useEffect, useState, Suspense } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import axios from 'axios';
 import ComputerModel from '../../models/Computer';
 import Earth from '../../models/Earth';
 import Ethereum from '../../models/Ethereum';
-import Bitcoin from '../../models/Bitcoin';
+import Bitcoin from '../../models/Bitcoin'; // Ensure this import path is correct
 import Navbar from '../../components/Navbar/Navbar';
 import Loader from '../../components/Loader/Loader';
 import './Buy.css';
 import { Line, Bar, Pie, Radar } from 'react-chartjs-2';
-import { ConnectButton } from '../../config/Web3ModalProvider';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -23,6 +23,7 @@ import {
   Legend,
   RadialLinearScale,
 } from 'chart.js';
+
 
 ChartJS.register(
   CategoryScale,
@@ -46,13 +47,6 @@ const Buy = () => {
   const [selectedChart, setSelectedChart] = useState('line');
 
   useEffect(() => {
-    document.body.classList.add('buy-page-body');
-    return () => {
-      document.body.classList.remove('buy-page-body');
-    };
-  }, []);
-
-  useEffect(() => {
     const fetchCryptoData = async () => {
       try {
         const response = await axios.get('https://api.coingecko.com/api/v3/coins/markets', {
@@ -74,6 +68,7 @@ const Buy = () => {
     };
 
     fetchCryptoData();
+
     const intervalId = setInterval(fetchCryptoData, 60000);
     return () => clearInterval(intervalId);
   }, []);
@@ -135,8 +130,12 @@ const Buy = () => {
     setSelectedCrypto(coin);
   };
 
+  
+  
+  
   return (
     <>
+       
       <Navbar />
       {loading ? (
         <Loader />
@@ -154,25 +153,36 @@ const Buy = () => {
                   <input type="number" id="receive" name="receive" placeholder="Amount in Crypto" readOnly />
                   <label htmlFor="receive">Receive (Crypto):</label>
                 </div>
-                <ConnectButton />
                 <button type="submit">Exchange</button>
               </form>
             </div>
-            <div className="model-container">
-              <Canvas shadows>
-                <ambientLight intensity={2} />
-                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
-                <pointLight position={[-10, -10, -10]} />
-                <Suspense fallback={null}>
-                  <ComputerModel position={[-0.2, -1.3, 0]} rotation={[0.2, -0.7, 0]} scale={[1.5, 1.5, 1.5]} castShadow receiveShadow />
-                </Suspense>
-              </Canvas>
+            <Canvas shadows>
+              <ambientLight intensity={2} />
+              <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
+              <pointLight position={[-10, -10, -10]} />
+              <Suspense fallback={null}>
+                <ComputerModel position={[-0.2, -1.3, 0]} rotation={[0.2, -0.7, 0]} scale={[1.5, 1.5, 1.5]} castShadow receiveShadow />
+              </Suspense>
+            </Canvas>
+            <div className="sellContainer">
+              <h2>Sell Crypto</h2>
+              <form>
+                <div className="form-group">
+                  <input type="number" id="sellCrypto" name="sellCrypto" placeholder="Amount in Crypto" />
+                  <label htmlFor="sellCrypto">Sell (Crypto):</label>
+                </div>
+                <div className="form-group">
+                  <input type="number" id="receiveUSD" name="receiveUSD" placeholder="Amount in USD" readOnly />
+                  <label htmlFor="receiveUSD">Receive ($):</label>
+                </div>
+                <button type="submit">Exchange</button>
+              </form>
             </div>
           </div>
-          <div className="canvasContainerdown">
+          <div className="canvasContainer">
             <div className="cryptoContainer">
               <h2>Crypto Market Info {lastUpdated && `(Updated: ${lastUpdated})`}</h2>
-              <ul className="listname">
+              <ul>
                 {cryptoData.map((coin) => (
                   <li key={coin.id} className="coin-item" onClick={() => handleCryptoClick(coin)}>
                     <span className="coin-arrow">&#9654;</span>
@@ -194,25 +204,26 @@ const Buy = () => {
             <div className="detailsContainer" id="detailsContainer">
               <div className="coin-details">
                 {selectedCrypto.id === 'ethereum' && (
-                  <div className="coin-model">
+                  <div className="model-container">
                     <Canvas shadows>
                       <ambientLight intensity={6} />
                       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
                       <pointLight position={[-10, -10, -10]} />
                       <Suspense fallback={null}>
-                        <Ethereum position={[0, 0, 0]} rotation={[0, 0, 0]} scale={[2, 2, 2]} castShadow receiveShadow />
+                        <Ethereum position={[0, -1, 0]} rotation={[0, 0, 0]} scale={[2, 2, 2]} castShadow receiveShadow />
                       </Suspense>
                     </Canvas>
                   </div>
                 )}
                 {selectedCrypto.id === 'bitcoin' && (
-                  <div className="coin-model">
+                  <div className="model-container">
                     <Canvas shadows>
                       <ambientLight intensity={6} />
                       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
                       <pointLight position={[-10, -10, -10]} />
                       <Suspense fallback={null}>
-                        <Bitcoin position={[0, 0, 0]} rotation={[0, 0, 0]} scale={[1, 1, 1]} castShadow receiveShadow />
+                      {console.log('Rendering Bitcoin model')}
+                        <Bitcoin position={[-5, 0, 0]} rotation={[0, 0, 0]} scale={[1,1,1]} castShadow receiveShadow />
                       </Suspense>
                     </Canvas>
                   </div>
@@ -223,23 +234,91 @@ const Buy = () => {
                 <p>24h Change: {selectedCrypto.price_change_percentage_24h}%</p>
               </div>
               <div className="chartsContainer">
-                <div className="chart-controls">
-                  <button onClick={() => setSelectedChart('line')} className={selectedChart === 'line' ? 'active' : ''}>Line Chart</button>
-                  <button onClick={() => setSelectedChart('bar')} className={selectedChart === 'bar' ? 'active' : ''}>Bar Chart</button>
-                  <button onClick={() => setSelectedChart('pie')} className={selectedChart === 'pie' ? 'active' : ''}>Pie Chart</button>
-                  <button onClick={() => setSelectedChart('radar')} className={selectedChart === 'radar' ? 'active' : ''}>Radar Chart</button>
+                <div className="chartSelector">
+                  <label htmlFor="chartSelect">Choose a chart:</label>
+                  <select
+                    id="chartSelect"
+                    value={selectedChart}
+                    onChange={(e) => setSelectedChart(e.target.value)}
+                  >
+                    <option value="line">Line Chart</option>
+                    <option value="bar">Bar Chart</option>
+                    <option value="pie">Pie Chart</option>
+                    <option value="radar">Radar Chart</option>
+                  </select>
                 </div>
                 {priceHistory && selectedChart === 'line' && (
-                  <Line data={priceHistory} />
+                  <>
+                    <h3>Price History (Last 7 Days)</h3>
+                    <Line data={priceHistory} />
+                  </>
                 )}
                 {priceHistory && selectedChart === 'bar' && (
-                  <Bar data={priceHistory} />
+                  <>
+                    <h3>Market Cap and Volume</h3>
+                    <Bar
+                      data={{
+                        labels: ['Market Cap', '24h Volume'],
+                        datasets: [
+                          {
+                            label: 'Value',
+                            data: [selectedCrypto.market_cap, selectedCrypto.total_volume],
+                            backgroundColor: ['rgba(75,192,192,0.2)', 'rgba(153,102,255,0.2)'],
+                            borderColor: ['rgba(75,192,192,1)', 'rgba(153,102,255,1)'],
+                            borderWidth: 1,
+                          },
+                        ],
+                      }}
+                      options={{
+                        scales: {
+                          y: {
+                            beginAtZero: true,
+                          },
+                        },
+                      }}
+                    />
+                  </>
                 )}
                 {priceHistory && selectedChart === 'pie' && (
-                  <Pie data={priceHistory} />
+                  <>
+                    <h3>Market Share (Pie)</h3>
+                    <Pie
+                      data={{
+                        labels: ['Market Cap', 'Volume'],
+                        datasets: [
+                          {
+                            data: [selectedCrypto.market_cap, selectedCrypto.total_volume],
+                            backgroundColor: ['rgba(75,192,192,0.2)', 'rgba(153,102,255,0.2)'],
+                            borderColor: ['rgba(75,192,192,1)', 'rgba(153,102,255,1)'],
+                            borderWidth: 1,
+                          },
+                        ],
+                      }}
+                    />
+                  </>
                 )}
                 {priceHistory && selectedChart === 'radar' && (
-                  <Radar data={priceHistory} />
+                  <>
+                    <h3>Performance Metrics (Radar)</h3>
+                    <Radar
+                      data={{
+                        labels: ['Price Change (24h)', 'Market Cap', 'Total Volume'],
+                        datasets: [
+                          {
+                            label: 'Metrics',
+                            data: [
+                              selectedCrypto.price_change_percentage_24h,
+                              selectedCrypto.market_cap,
+                              selectedCrypto.total_volume,
+                            ],
+                            backgroundColor: 'rgba(75,192,192,0.2)',
+                            borderColor: 'rgba(75,192,192,1)',
+                            borderWidth: 1,
+                          },
+                        ],
+                      }}
+                    />
+                  </>
                 )}
               </div>
             </div>
