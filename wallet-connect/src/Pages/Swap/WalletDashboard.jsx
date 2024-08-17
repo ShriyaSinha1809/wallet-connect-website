@@ -84,7 +84,7 @@ const WalletDashboard = () => {
       {balanceError && <p style={{ color: 'red' }}>Error fetching balance. Please try again.</p>}
       {txCountError && <p style={{ color: 'red' }}>Error fetching transaction count. Please try again.</p>}
 
-      <button className="a-button" onClick={() => disconnect()}>Disconnect</button>
+      
     </div>
   );
 };
