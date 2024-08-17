@@ -32,10 +32,10 @@ const Blog = () => {
   ]; // Replace with your animation names
 
   const texts = [
-    { text: "How to Connect Wallet?", animation: 1 },
-    { text: "Swap", animation: 2 },
-    { text: "Buy Crypto", animation: 3 },
-    { text: "Experience 3D", animation: 4 }
+    { text: "Connect Wallet?", animation: 1 },
+    { text: "Swap?", animation: 2 },
+    { text: "Buy Crypto?", animation: 3 },
+    { text: "Experience 3D...", animation: 4 }
   ];
 
   const handleMouseEnter = (index) => {
