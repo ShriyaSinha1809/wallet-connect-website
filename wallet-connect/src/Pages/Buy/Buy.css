@@ -1,16 +1,31 @@
-/* Ensures the container stretches fully and has a nice gradient background */
-.canvasContainer {
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(to right, #432371, #2a1a47); /* Dark violet to deeper violet gradient */
+body {
+  /* background-image: linear-gradient(#0C052B , #3C2696); */
 }
 
-body {
-    cursor: none;
+.canvasContainer {
+  margin-top: 0;
+  position: relative;
+  border-radius: 0 0 40% 40%; /* Circular effect at the bottom */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #0C052B ;
+  padding:60px; /* Dark violet to deeper violet gradient */
+  /* Shifts the circular curve down */
+  box-sizing: border-box; /* Include padding in height */
+  overflow: hidden; /* Ensure content doesn't spill outside the curved bottom */
+}
+
+/* Buy.css */
+.buy-page-body {
+  /* background: -webkit-linear-gradient(#2a1a47);  Chrome 10-25, Safari 5.1-6
+  background: linear-gradient( #2a1a47); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+Example style */
+  background-color: #3C2696;
+  color: #333; /* Example style */
+  font-family: 'GomePixel', sans-serif;/* Example style */
+  /* Add more styles as needed */
 }
 
 
