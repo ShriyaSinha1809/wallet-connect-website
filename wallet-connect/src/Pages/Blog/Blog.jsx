@@ -9,6 +9,7 @@ import './Blog.css';
 import connectContent from './howto.jsx';
 import Tradeinfo from './trade-info.jsx'; 
 import Buy from './buy.jsx'; // Make sure this path is correct
+import Lelia from '../../models/Lelia.jsx';
 
 const Blog = () => {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -34,7 +35,7 @@ const Blog = () => {
     { text: "How to Connect Wallet?", animation: 1 },
     { text: "Swap", animation: 2 },
     { text: "Buy Crypto", animation: 3 },
-    { text: "Lesssgoooo", animation: 4 }
+    { text: "Experience 3D", animation: 4 }
   ];
 
   const handleMouseEnter = (index) => {
@@ -100,6 +101,7 @@ const Blog = () => {
             </mesh>
           </Suspense>
         </Canvas>
+        <div className='steps'>
         <div 
           className="left-text-1 writing-effect" 
           onMouseEnter={() => handleMouseEnter(0)}
@@ -132,6 +134,7 @@ const Blog = () => {
         >
           {texts[3].text}
         </div>
+        </div>
       </div>
 
       <div className="blog-container" id="viewport-2">
@@ -140,7 +143,7 @@ const Blog = () => {
           How to Connect Wallet?
         </div>
         {connectContent}  {/* Render the imported content here */}
-        <Canvas shadows camera={{ position: [0, 0, 10] }}>
+        <Canvas className='model1' shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 
             position={[5, 10, 5]} 
@@ -184,7 +187,7 @@ const Blog = () => {
           Swap
         </div>
         {Tradeinfo}
-        <Canvas shadows camera={{ position: [0, 0, 10] }}>
+        <Canvas className='model2' shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 
             position={[5, 10, 5]} 
@@ -228,7 +231,7 @@ const Blog = () => {
           Buy Crypto
         </div>
         {Buy}
-        <Canvas shadows camera={{ position: [0, 0, 10] }}>
+        <Canvas className='model1' shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 
             position={[5, 10, 5]} 
@@ -246,13 +249,13 @@ const Blog = () => {
           <pointLight position={[0, 10, 10]} intensity={1} />
           <pointLight position={[0, -10, -10]} intensity={0.5} />
           <Suspense fallback={null}>
-            <Milo 
-              position={[-8, -5, 1]} 
-              rotation={[0, 0.8, 0]} 
+            <Lelia 
+              position={[9, -5, 1]} 
+              rotation={[0, -0.8, 0]} 
               scale={[5, 5, 5]} 
               castShadow 
               receiveShadow
-              animation={animations[6]} 
+              animation={animations[4]} 
             />
             <mesh 
               position={[0, -3.5, 0]} 

@@ -42,7 +42,7 @@ input[type="number"], button {
   color: #eee;
   font-size: 16px;
   outline: none;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
@@ -292,7 +292,12 @@ label {
   margin: 20px 0;
 }
 
-@media screen and (max-width: 1500px) {
+.loader {
+  font-size: 18px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+@media screen and (max-width: 1200px) {
   .canvasContainer {
     flex-direction: column;
   }
@@ -323,10 +328,10 @@ label {
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 
-    0 0 0 2px black, 
-    -4px 4px 0 0 black, 
-    -8px 8px 0 0 black, 
-    -12px 12px 0 0 black;
+    0 0 0 4px rgb(43, 77, 87), 
+    -8px 8px 0 0 rgb(48, 64, 76), 
+    -10px 10px 0 0 rgb(31, 52, 87), 
+    -14px 14px 0 0 rgb(10, 13, 47);
 }
 
 .cryptoContainer {
@@ -346,10 +351,10 @@ label {
   font-size: 16px;
   line-height: 1.5;
   box-shadow: 
-    0 0 0 2px black, 
-    -4px 4px 0 0 black, 
-    -8px 8px 0 0 black, 
-    -12px 12px 0 0 black;
+    0 0 0 4px rgb(81, 67, 125), 
+    -6px 6px 0 0 rgb(56, 47, 71), 
+    -12px 12px 0 0 rgb(55, 31, 76), 
+    -15px 15px 0 0 rgb(57, 23, 90);
 }
 
 .detailsContainer {
@@ -416,7 +421,8 @@ label {
   }
 }
 
-@media screen and (max-width: 1500px) {
+/* Mobile Styles */
+@media screen and (max-width: 1200px) {
   .canvasContainer {
     padding: 10px;
   }
@@ -496,7 +502,7 @@ label {
   display: none;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1200px) {
   .buyContainer {
     height: 80%;
     width: 90%;
@@ -588,9 +594,105 @@ label {
   background-color: #1a8cff;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1200px) {
   .canvasContainer {
-    flex-direction: column;
+    display: flex;
+    flex-direction: column; /* Stack containers vertically */
+    align-items: center; /* Center the containers horizontally */
+    width: 100%; /* Full width for parent container */
+    margin: 0 auto; /* Center the parent container */
+  }
+
+    .buyContainer {
+      height: 80%; /* Increase height on smaller screens */
+      width: 90%; /* Take up 90% of the screen width on mobile */
+      max-width: 500px; /* Limit max width */
+      margin-bottom: 20px; /* Add space between the containers */
+      box-sizing: border-box; /* Include padding/border in element's width/height */
+    }
+  }
+  
+
+
+/* Specific styling for Buy and Sell containers */
+
+/* Further adjustments for smaller screens (e.g., tablets, large phones) */
+@media screen and (max-width: 1200px) {
+  .cryptoContainer {
+    width: 100%;
+    padding: 10px;
+  }
+
+
+  .detailsContainer {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .chartsContainer {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .coin-details {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+/* Mobile Screens */
+@media screen and (max-width: 480px) {
+  .cryptoContainer {
+    padding: 10px;
+    width: 100%;
+  }
+
+
+  .detailsContainer, .chartsContainer {
+    padding: 10px;
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .coin-details {
+    width: 100%;
+    padding: 5px;
+  }
+}
+
+.model-container {
+  flex: 0 1 65%; /* Increase the width of the model container */
+  max-width: 800px; /* Set a max width if necessary */
+  height: 80vh; /* Adjust height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: -5%; /* Move the model closer to the buy container */
+ 
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  margin-left: 10%;
+}
+
+
+.canvasContainer {
+  display: flex;
+  justify-content: space-around; /* Spread the model and buy container */
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .canvasContainer {
+    flex-direction: column; /* Stack the containers vertically on small screens */
     align-items: center;
     width: 100%;
     margin: 0 auto;
@@ -617,10 +719,22 @@ label {
   }
 }
 
+@media(max-width:1380px){
 .tooltip-container {
-  position: relative;
+  position: absolute;
   display: inline-block;
+  left:0;
+  bottom:3%;
+  transform: scaleX(0.9);
 }
+}
+
+@media(max-width:1330px){
+  .tooltip-container {
+    transform: scaleX(0.7);
+  
+  }
+  }
 
 .tooltip-text {
   visibility: hidden;
@@ -657,7 +771,11 @@ label {
 }
 
 .tree-container{
-  height: 91%;
+  height: 80%;
+  translate: 40%;
+  position: absolute;
+  top:25%;
+  height: 50%;
   margin-bottom: 4px;
 }
 
@@ -696,7 +814,9 @@ label {
 .chartDropdown:active {
   background-color: #555;
 }
-
+.scrollable-container h3{
+  font-size: 1.4vw;
+}
 .chart-text{
   color: #000;
   font-size: 16px;
@@ -704,7 +824,11 @@ label {
 
 @media screen and (max-width: 480px) {
   .tree-container {
-    height: 82%;
+    translate: 0;
+    position: absolute;
+  top:25%;
+  height: 50%;
+  margin-bottom: 4px; /* Adjust height for very small screens */
   }
   .buyContainer{
     translate: 0 150%;
@@ -712,24 +836,24 @@ label {
 }
 
 @media screen and (max-width: 1200px){
-  .tree-container{
-    position: relative;
-    height: 79%;
+  .tree-container {
+    position: absolute;
+  top:25%;
+  height: 50%;
+  margin-bottom: 4px; /* Adjust height for very small screens */
   }
   .buyContainer{
     height: 80%;
   }
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1200px) {
   .tree-container {
     height: 80%;
   }
   .buyContainer{
     translate: 0 170%;
+    flex-basis: 100%;
   }
 }
 
-.buyContainer{
-  height: 60%;
-}
