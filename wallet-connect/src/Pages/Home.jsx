@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Suspense} from 'react';
 import { Canvas } from '@react-three/fiber';
 import Navbar from '../components/Navbar/Navbar';
 import './Home.css'; // Assuming the CSS file is in the same directory
