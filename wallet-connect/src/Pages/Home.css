@@ -6,6 +6,8 @@ html, body {
 
 body {
   background: #ffffff;
+  
+
 }
 
 .hero-section {
@@ -309,6 +311,9 @@ body {
   color: #EBB55F;
 }
 
+
+
+
 @keyframes move {
   from {
     transform: translateX(100%);
@@ -431,6 +436,16 @@ body {
 }
 
 
+.f1img img,
+.f3img img {
+  width: 20vw; /* Increased size for f1img and f3img */
+  height: auto;
+}
+
+.f2img img {
+  width: 14vw; /* Keeping the size of f2img the same or as desired */
+  height: auto;
+}
 
 
 @media (max-width:1218px){
