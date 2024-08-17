@@ -481,3 +481,43 @@ h2, p {
   border-style: solid;
   border-color: #555 transparent transparent transparent;
 }
+
+.learn-button {
+  background: linear-gradient(135deg, rgb(224, 161, 102), rgb(233, 211, 123));
+  text-decoration: none;
+  font-size: 3vw; /* Size adjusted to ensure it's consistent */
+  align-items: center;
+  position: absolute; /* Use absolute to control positioning more precisely */
+  top: 70vh;
+  left:6vw;
+  z-index: 4;
+  padding: 20px;
+  color: #5d4b21;
+  border: 2px solid #f2ddae;
+  border-radius: 25px;
+  font-weight: 200;
+  text-shadow:
+    0.2px 0.5px 0 #eec745,  
+    -0.2px -0.2px 0 #39045a,  
+    0.5px -0.2px 0 #5d0d0d,  
+    -0.2px 0.5px 0 #ffffff;
+  animation: float 2s infinite ease-in-out;
+}
+
+
+
+
+.learn-button:hover{
+  transform: scale(1);
+  background: linear-gradient(135deg, rgb(179, 123, 72), rgb(233, 211, 123));
+  animation: big 1s ease-in-out,float 2s infinite ease-in-out;
+}
+
+@keyframes big{
+  0%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1.1);
+  }
+}

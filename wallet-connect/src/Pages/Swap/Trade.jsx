@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Trade.css';
 import Malamal from '../../models/Malamal'; 
 import Lamp from '../../models/Lamp';
@@ -60,6 +61,9 @@ const Trade = () => {
                     </h1>
                     <p>Hassle-Free!</p>
                 </div>
+
+                <Link className="learn-button" to={'/blog'}><b>Learn How to Swap</b></Link>
+
                 {loading && (
                     <div className="loader">
                         <div></div> {/* Loader content */}
@@ -177,6 +181,7 @@ const Trade = () => {
                     </div>
                </div>
             </section>
+            
         </div>
     );
 };
