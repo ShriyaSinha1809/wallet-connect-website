@@ -10,7 +10,7 @@ The team members had to put in a lot of efforts to make the website resposive. T
 Vite+React, WalletConnect, Figma, Blender
 ## Links
 [GitHub repository](https://github.com/ShriyaSinha1809/wallet-connect-website/tree/main).
-[Website](https://wallet-connect-website-b8pq.vercel.app/).
+[Website](https://wallet-connect-website-six.vercel.app/)
 
 ## Cover Image
 ![Cover Image](ss2.png)
