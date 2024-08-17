@@ -1,58 +1,49 @@
-import React from 'react';
+
+
+
 import { createWeb3Modal } from '@web3modal/wagmi/react';
 import { defaultWagmiConfig } from '@web3modal/wagmi/react/config';
 import { WagmiProvider } from 'wagmi';
 import { arbitrum, mainnet } from 'wagmi/chains';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import './wallet.css';  // Apply global CSS styles
 
-// Setup queryClient for React Query
+// 0. Setup queryClient
 const queryClient = new QueryClient();
 
-// Get projectId from WalletConnect Cloud (https://cloud.walletconnect.com)
-const projectId = '9c702d939dc8dcc1aa1c78f525f113d6'; // Replace with your actual project ID
+// 1. Get projectId from https://cloud.walletconnect.com
+const projectId = '9c702d939dc8dcc1aa1c78f525f113d6';
 
-// Metadata for Web3Modal
+// 2. Create wagmiConfig
 const metadata = {
-  name: 'AppKit Example',
-  description: 'AppKit Example Application',
-  url: 'https://your-app-url.com', // Replace with your app's URL
-  icons: ['https://your-app-url.com/path-to-your-icon.png'], // Replace with your app's icon URL
+  name: 'AppKit',
+  description: 'AppKit Example',
+  url: 'https://web3modal.com', // origin must match your domain & subdomain
+  icons: ['https://avatars.githubusercontent.com/u/37784886']
 };
 
-// Supported chains
-const chains = [mainnet, arbitrum];
-
-// Create Wagmi configuration
+const chains = [mainnet, arbitrum] as const;
 const config = defaultWagmiConfig({
   chains,
   projectId,
   metadata,
 });
 
-// Create Web3Modal
-const web3Modal = createWeb3Modal({
+// 3. Create modal
+createWeb3Modal({
+  metadata,
   wagmiConfig: config,
   projectId,
-  enableAnalytics: true, // Optional - enable analytics if you want
+  enableAnalytics: true // Optional - defaults to your Cloud configuration
 });
 
-// AppKitProvider component
 export function AppKitProvider({ children }) {
   return (
     <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        {children}
-      </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </WagmiProvider>
   );
 }
 
-// ConnectButton component
 export function ConnectButton() {
-  return (
-    <w3m-button>
-      <span>Connect Wallet</span>
-    </w3m-button>
-  );
+  return <w3m-button />;
 }
