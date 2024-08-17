@@ -6,6 +6,9 @@ import Milo from '../../models/Milo';
 import { Canvas } from '@react-three/fiber';
 import { MeshStandardMaterial } from 'three';
 import './Blog.css';
+import connectContent from './howto.jsx';
+import Tradeinfo from './trade-info.jsx'; 
+import Swap from './swap.jsx'// Make sure this path is correct
 
 const Blog = () => {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -129,6 +132,7 @@ const Blog = () => {
         <div className="pixelated-title">
           How to Connect Wallet?
         </div>
+        {connectContent}  {/* Render the imported content here */}
         <Canvas shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 
@@ -170,8 +174,9 @@ const Blog = () => {
       <div className="blog-container" id="viewport-3">
         <Navbar />
         <div className="pixelated-title">
-          Meet our robots:
+          Swap
         </div>
+        {Tradeinfo}
         <Canvas shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 
@@ -209,6 +214,50 @@ const Blog = () => {
           </Suspense>
         </Canvas>
       </div>
+      <div className="blog-container" id="viewport-4">
+        <Navbar />
+        <div className="pixelated-title">
+          Trade
+        </div>
+        {Swap}
+        <Canvas shadows camera={{ position: [0, 0, 10] }}>
+          <ambientLight intensity={0.5} />
+          <directionalLight 
+            position={[5, 10, 5]} 
+            intensity={5} 
+            castShadow 
+            shadow-mapSize-width={1024} 
+            shadow-mapSize-height={1024} 
+            shadow-camera-near={0.5} 
+            shadow-camera-far={50} 
+            shadow-camera-left={-10} 
+            shadow-camera-right={10} 
+            shadow-camera-top={10} 
+            shadow-camera-bottom={-10} 
+          />
+          <pointLight position={[0, 10, 10]} intensity={1} />
+          <pointLight position={[0, -10, -10]} intensity={0.5} />
+          <Suspense fallback={null}>
+            <Milo 
+              position={[-8, -5, 1]} 
+              rotation={[0, 0.8, 0]} 
+              scale={[5, 5, 5]} 
+              castShadow 
+              receiveShadow
+              animation={animations[6]} 
+            />
+            <mesh 
+              position={[0, -3.5, 0]} 
+              rotation={[-Math.PI / 2, 0, 0]} 
+              receiveShadow
+            >
+              <planeGeometry args={[50, 50]} />
+              <shadowMaterial opacity={0.5} />
+            </mesh>
+          </Suspense>
+        </Canvas>
+      </div>
+      
     </>
   );
 };
