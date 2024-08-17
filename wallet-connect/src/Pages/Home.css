@@ -19,11 +19,11 @@ body {
 .model{
   display:flex;
   position: relative;
-  top:20vh;
-  left:18vw;
-  background-color: rgba(255, 255, 255, 0.397);
-  width:25%;
-  height:25vw;
+  top:18vh;
+  left:14vw;
+
+  width:30%;
+  height:35vw;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
@@ -263,6 +263,7 @@ body {
   font-size: x-large;
   border-radius: 20px;
   animation: pulse 2s ease-out infinite forwards;
+  font-family: 'GomePixel', sans-serif;
 }
 
 @keyframes pulse{
@@ -300,9 +301,11 @@ body {
 
   position: relative;
 }
+
 .monitor-wrapper {
   background: #050321;
-  width: 900px;
+  width: 100%;
+  max-width: 50%;
   height: 130px;
   box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.30);
   margin-top: 10rem;
@@ -313,13 +316,12 @@ body {
 }
 
 .dragon-canvas-container {
-  width: 300px;
-  height: 300px;
-  position: relative; /* This keeps the dragon positioned based on its closest positioned ancestor */
-  margin-bottom: -10rem;
-  left: 10%; /* Center the dragon horizontally with respect to the monitor-wrapper */
-  transform: translateX(-50%); /* Corrects for the natural offset when using left: 50% */
-  z-index: 4; /* Ensures the dragon appears above the monitor */
+  width: 50%; /* Take half the width on larger screens */
+  height: auto;
+  min-width: 300px; /* Ensure a minimum width */
+  flex: 1 1 45%; /* Flex properties to allow resizing */
+  margin-bottom: 1rem;
+  z-index: 4;
 }
 
 
@@ -503,7 +505,7 @@ body {
   position: relative;
   top:20vh;
   left:15vw;
-  background-color: rgba(255, 255, 255, 0.397);
+  
   width:20rem;
   height:20rem;
   justify-content: center;
@@ -518,7 +520,7 @@ body {
   position: relative;
   top:20vh;
   left:15vw;
-  background-color: rgba(255, 255, 255, 0.397);
+
   width:20rem;
   height:20rem;
   justify-content: center;
@@ -670,4 +672,115 @@ body {
   }
 }
 
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
 
+
+
+.ecosystem-section.dark-mode {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+
+
+.trade-button.dark-mode {
+  background-color: #333333;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.trade-button.dark-mode:hover {
+  background-color: #555555;
+  color: #ffffff;
+}
+
+.monitor-wrapper.dark-mode {
+  background-color: #222222;
+  color: #ffffff;
+}
+
+.monitor.dark-mode p {
+  color: #ffffff;
+}
+
+.model-monitor-wrapper.dark-mode {
+  background-color: #222222;
+  color: #ffffff;
+}
+
+/* Add more dark-mode specific styles as needed */
+
+/* Example: Hero Section */
+
+
+/* Example: Ecosystem Section */
+.ecosystem-section.dark-mode {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.table-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+/* Continue adding other elements that need to change in dark mode */
+@media (max-width: 1950px) {
+  .table-container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .dragon-canvas-container,
+  .model-monitor-wrapper {
+    width: 100%; /* Take full width when in column layout */
+  }
+
+  .hometruck-canvas-container,
+  .monitor-wrapper {
+    width: 100%; /* Ensure full width */
+  }
+}
+
+@media (max-width: 1024px) {
+  .dragon-canvas-container,
+  .model-monitor-wrapper {
+    width: 100%; /* Take full width */
+  }
+
+  .hometruck-canvas-container,
+  .monitor-wrapper {
+    width: 100%; /* Ensure full width */
+  }
+}
+
+@media (max-width: 768px) {
+  .dragon-canvas-container,
+  .model-monitor-wrapper {
+    min-width: 100%; /* Ensure full width */
+  }
+
+  .hometruck-canvas-container,
+  .monitor-wrapper {
+    min-width: 100%; /* Ensure full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .dragon-canvas-container,
+  .model-monitor-wrapper {
+    width: 100%; /* Adjust for smaller screens */
+  }
+
+  .monitor-wrapper,
+  .hometruck-canvas-container {
+    width: 100%; /* Ensure full width */
+  }
+}

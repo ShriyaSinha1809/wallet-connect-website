@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Canvas } from '@react-three/fiber';
 import Navbar from '../components/Navbar/Navbar';
 import './Home.css'; // Assuming the CSS file is in the same directory
@@ -12,6 +12,29 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Home = () => {
 
+  const [darkMode, setDarkMode] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate hook
+
+
+
+  useEffect(() => {
+    const handleDarkModeToggle = () => {
+      setDarkMode(document.body.classList.contains('dark-mode'));
+    };
+
+    // Add an event listener to detect changes in the dark mode state
+    window.addEventListener('dark-mode-toggle', handleDarkModeToggle);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener('dark-mode-toggle', handleDarkModeToggle);
+    };
+  }, []);
+
+  const handleTradeNowClick = () => {
+    navigate('/buy');
+  };
+
   const [animationIndex, setAnimationIndex] = useState(0);
 
   const animations = [
@@ -24,7 +47,7 @@ const Home = () => {
     <>
       
       <Navbar />
-      <div className="hero-section">
+      <div className={`hero-section ${darkMode ? 'dark-mode' : ''}`}>
       
         <div className="news">
           <h1>
@@ -54,9 +77,9 @@ const Home = () => {
           <pointLight position={[0, -10, -10]} intensity={0.5} />
           <Suspense fallback={null}>
             <Main 
-              position={[5, -4, 0]} 
-              rotation={[0.1, 1, 0]} 
-              scale={[0.4,0.4,0.4]} 
+              position={[-1, -4.5, 0]} 
+              rotation={[0.2, 1.5, 0]} 
+              scale={[0.5,0.5,0.5]} 
               castShadow 
               receiveShadow
               animation={animations[0]} // Default animation
@@ -75,8 +98,7 @@ const Home = () => {
           </Suspense>
         </Canvas></div>
       </div>
-
-      <div className="ecosystem-section">
+      <div className={`ecosystem-section ${darkMode ? 'dark-mode' : ''}`}>
         <h2>DISCOVER OUR ECOSYSTEM</h2>
 
         <div className="features">
@@ -121,7 +143,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="table-container">
+      {/* <div className="table-container">
 
         <div className="dragon-canvas-container">
           <Canvas shadows>
@@ -201,12 +223,14 @@ const Home = () => {
             </Canvas>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="join-page">
+      <div className={`join-page ${darkMode ? 'dark-mode' : ''}`}>
         <h1>JOIN EVERYONE'S <span className="favourite">FAVOURITE</span> NOW!</h1>
-        <p>Experience the power of community ownership, global governance, and explore infinite use cases within the PancakeSwap ecosystem</p>
-        <button className="trade-button"><h2>TRADE NOW</h2></button>
+        <p>Experience the power of community ownership, global governance, and explore infinite use cases within the COINX ecosystem</p>
+        <button className="trade-button" onClick={handleTradeNowClick}>
+          <h2>TRADE NOW</h2>
+        </button>
       </div>
     </>
   );
