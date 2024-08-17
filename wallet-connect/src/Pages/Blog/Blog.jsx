@@ -1,23 +1,17 @@
-import React, { Suspense, useState, useEffect } from 'react';
+import React, { Suspense, useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Robot from '../../models/Robot';
 import Rhea from '../../models/Rhea';
 import Milo from '../../models/Milo';
 import { Canvas } from '@react-three/fiber';
+import { MeshStandardMaterial } from 'three';
 import './Blog.css';
 import connectContent from './howto.jsx';
 import Tradeinfo from './trade-info.jsx'; 
-import Buy from './buy.jsx';
+import Swap from './swap.jsx'// Make sure this path is correct
 
 const Blog = () => {
   const [animationIndex, setAnimationIndex] = useState(0);
-
-  useEffect(() => {
-    document.body.classList.add('blog-body');
-    return () => {
-      document.body.classList.remove('blog-body');
-    };
-  }, []);
 
   const animations = [
     "Idle Animation", 
@@ -27,13 +21,13 @@ const Blog = () => {
     "animation.lael.idlemain",
     "animation.lael.idle",
     "animation.lael.idle_jump_main"
-  ];
+  ]; // Replace with your animation names
 
   const texts = [
     { text: "How to Connect Wallet?", animation: 1 },
-    { text: "Swap", animation: 2 },
-    { text: "Buy Crypto", animation: 3 },
-    { text: "Lesssgoooo", animation: 4 }
+    { text: "Explore the", animation: 2 },
+    { text: "Meet our robots:", animation: 3 },
+    { text: "Enjoy the 3D", animation: 4 }
   ];
 
   const handleMouseEnter = (index) => {
@@ -41,7 +35,7 @@ const Blog = () => {
   };
 
   const handleMouseLeave = () => {
-    setAnimationIndex(0);
+    setAnimationIndex(0); // Default animation index
   };
 
   const handleClick = (index) => {
@@ -138,7 +132,7 @@ const Blog = () => {
         <div className="pixelated-title">
           How to Connect Wallet?
         </div>
-        {connectContent}
+        {connectContent}  {/* Render the imported content here */}
         <Canvas shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 
@@ -220,13 +214,12 @@ const Blog = () => {
           </Suspense>
         </Canvas>
       </div>
-
       <div className="blog-container" id="viewport-4">
         <Navbar />
         <div className="pixelated-title">
-          Buy Crypto
+          Trade
         </div>
-        {Buy}
+        {Swap}
         <Canvas shadows camera={{ position: [0, 0, 10] }}>
           <ambientLight intensity={0.5} />
           <directionalLight 

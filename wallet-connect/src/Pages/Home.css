@@ -9,7 +9,7 @@ body {
 }
 
 .hero-section {
-  background:linear-gradient(#160B40,#39248F);
+  background-image: linear-gradient(#331f80, #100732);
   height: 100vh;
   display: flex;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
@@ -131,7 +131,7 @@ body {
 }
 
 .ecosystem-section {
-  background-color: white;
+  background-color: #fff;
   padding: 4rem 2rem;
   text-align: center;
   color: rgb(0, 0, 0);
@@ -586,22 +586,56 @@ body {
   width: 23vw; 
   height: auto;
 }
-}
-.customlink {
-  transition: all 0.5s ease;
-  color: #3498db; /* Change the color to your desired value */
-  text-decoration: none; /* Remove the underline */
-  font-weight: bold; /* Optional: Make the text bold */
+
+.ecosystem-section h3 {
+  font-size: 6vw;
 }
 
-.customlink:hover {
-  font-size: larger;
-  color: #2980b9; /* Change the color on hover *//* Add an underline on hover */
+
 }
 
-.home-page-body {  /* Chrome 10-25, Safari 5.1-6 */
-  background: white; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *//* Example style */ /* Example style */
-  font-family: 'GomePixel', sans-serif;/* Example style */
-  /* Add more styles as needed */
+
+@media (max-width:430px) {
+  .hero-section {
+    clip-path: polygon(0 0, 100% 0, 100% 83%, 0% 100%);
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  .news {
+    text-align: center;
+  }
+
+  .news h1 {
+    font-size: 12vw;
+  }
+
+  .news h1 .trusted {
+    font-size: 14vw;
+  }
+
+  .news p {
+    font-size: 4vw;
+  }
+  .model{
+    left:25%;
+    width:50%;
+    height:50vw;
+  }
+  .join-page h1{
+    font-size: 2rem;
+  }
+  .trade-button{
+    width: 40%;
+    padding: 0;
+  }
+  .join-page h2{
+    font-size: 1rem;
+  }
+  .ecosystem-section h2 {
+    font-size: 8vw;
+  }
 }
+
 
