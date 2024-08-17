@@ -16,7 +16,8 @@
 
 /* Buy.css */
 .buy-page-body {
-  background-color: rgb(83, 255, 83); /* Example style */
+  background: -webkit-linear-gradient(to left, #e4e4d9, #215f00);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #e4e4d9, #40aa07); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *//* Example style */
   color: #333; /* Example style */
   font-family: 'GomePixel', sans-serif;/* Example style */
   /* Add more styles as needed */
@@ -25,7 +26,7 @@
 
 /* Additional styles to ensure full background coverage */
 
-.buyContainer, .sellContainer {
+.buyContainer{
   width: 50%;
   height: 70%;
   padding: 20px;
@@ -272,10 +273,7 @@ label {
 .model-container{
   height: 80vh;
 }
-
 /* Pixelated styles */
-
-
 .cryptoContainer ul {
   list-style: none;
   padding: 0;
@@ -350,7 +348,7 @@ label {
 }
 
 /* Container styling */
-.buyContainer, .sellContainer,.coin-details {
+.buyContainer,.coin-details {
   z-index: 10;
   transition: all 0.3s ease;
   width: 50%;
@@ -370,13 +368,6 @@ label {
     -12px 12px 0 0 black;
 }
 
-.sellContainer{
-  box-shadow: 
-  0 0 0 2px black, 
-  4px 4px 0 0 black, 
-  8px 8px 0 0 black, 
-  12px 12px 0 0 black;
-}
 /* Styling for the cryptoContainer */
 .cryptoContainer {
   transition: all 0.3s ease;
@@ -436,7 +427,7 @@ label {
     -12px 12px 0 0 black;
 }
 
-.coin-details:hover,.buyContainer:hover,.cryptoContainer:hover,.sellContainer:hover,.detailsContainer:hover,.chartsContainer:hover {
+.coin-details:hover,.buyContainer:hover,.cryptoContainer:hover,.detailsContainer:hover,.chartsContainer:hover {
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 .line{
@@ -569,22 +560,26 @@ label {
 }
 
 @media screen and (max-height: 648px ) {
-  .buyContainer,.sellContainer{
+  .buyContainer{
     height: 50% ;
     width:300%;
     left:10%;
     translate:-20%;
   }
-  .sellContainer{
-    right: 20%;
-    translate:20%
-  }
 }
 
 
 .model-container{
-  left:0px;
+  left:15%;
+  top: 5%;
+}
+
+.coin-model{
+  left:10px;
   top: 80px;
+}
+.coin-model{
+  height:50vh;
 }
 
 /* Buy container specific styles */
@@ -593,10 +588,6 @@ label {
 }
 
 /* Sell container specific styles */
-.sellContainer {
-  background-color: #ff4d4d; /* Bright red for sell section */
-}
-
 /* Button styling */
 button {
   padding: 10px;
@@ -612,19 +603,12 @@ button {
   color: white;
 }
 
-.sellContainer button {
-  background-color: #ff6666; /* Lighter red for Sell */
-  color: white;
-}
 
 /* Button hover effects */
 .buyContainer button:hover {
   background-color: #17a2b8; /* Slightly darker cyan */
 }
 
-.sellContainer button:hover {
-  background-color: #e63946; /* Slightly darker red */
-}
 
 /* Form group styling */
 .form-group {
@@ -649,7 +633,7 @@ label {
   margin-top: 5px;
   color: #ddd;
 }
-.buyContainer, .sellContainer {
+.buyContainer{
   display: flex;
   justify-content: space-between;
   width: 50%;
@@ -666,8 +650,7 @@ label {
   margin: 0 auto; /* Center the parent container */
 }
 
-.buyContainer, .sellContainer {
-  translate: 0 50%;
+.buyContainer{
   flex: 0 1 30%; /* Ensure each takes up 45% of the space */
   max-width: 600px; /* Optional: set a max width */
   height: 50%; /* Full height, but can be adjusted */
@@ -677,14 +660,10 @@ label {
 }
 
 .buyContainer {
-  translate: -10% 20%;
+  translate: 50% 20%;
   background-color: #1a8cff;
 }
 
-.sellContainer {
-  translate: 10% 20%;
-  background-color: #ff4d4d;
-}
 @media screen and (max-width: 768px) {
   .canvasContainer {
     display: flex;
@@ -694,7 +673,7 @@ label {
     margin: 0 auto; /* Center the parent container */
   }
 
-  .buyContainer, .sellContainer {
+  .buyContainer{
     translate: 0% 20%;
     width: 90%; /* Take up 90% of the screen width on mobile */
     max-width: 500px; /* Limit max width to 500px */
@@ -702,19 +681,6 @@ label {
     box-sizing: border-box; /* Include padding/border in element's width/height */
   }
 
-  .sellContainer {
-
-    translate: 0% -50%;
-    margin-top: 0px; /* Additional margin to space from the top */
-  }
-}
-
-@media screen and (max-height: 844px) {
-  .sellContainer {
-
-    translate: 0% -35%;
-    margin-top: 0px; /* Additional margin to space from the top */
-  }
 }
 /* Specific styling for Buy and Sell containers */
 /* General Responsive Adjustments */

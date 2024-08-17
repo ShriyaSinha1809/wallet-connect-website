@@ -31,16 +31,10 @@ const config = defaultWagmiConfig({
 });
 
 // Create Web3Modal
-createWeb3Modal({
-  metadata,
+const web3Modal = createWeb3Modal({
   wagmiConfig: config,
   projectId,
-<<<<<<< Updated upstream
   enableAnalytics: true, // Optional - enable analytics if you want
-=======
-  enableAnalytics: true // Optional - defaults to your Cloud configuration
-  
->>>>>>> Stashed changes
 });
 
 // AppKitProvider component
@@ -54,6 +48,11 @@ export function AppKitProvider({ children }) {
   );
 }
 
+// ConnectButton component
 export function ConnectButton() {
-  return <w3m-button><span>Connect Wallet</span></w3m-button>;
+  return (
+    <w3m-button>
+      <span>Connect Wallet</span>
+    </w3m-button>
+  );
 }

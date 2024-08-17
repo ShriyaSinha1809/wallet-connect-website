@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { Suspense } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import axios from 'axios';
 import ComputerModel from '../../models/Computer';
@@ -10,6 +9,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Loader from '../../components/Loader/Loader';
 import './Buy.css';
 import { Line, Bar, Pie, Radar } from 'react-chartjs-2';
+import { ConnectButton } from '../../config/Web3ModalProvider';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -47,7 +47,6 @@ const Buy = () => {
 
   useEffect(() => {
     document.body.classList.add('buy-page-body');
-
     return () => {
       document.body.classList.remove('buy-page-body');
     };
@@ -75,7 +74,6 @@ const Buy = () => {
     };
 
     fetchCryptoData();
-
     const intervalId = setInterval(fetchCryptoData, 60000);
     return () => clearInterval(intervalId);
   }, []);
@@ -145,7 +143,6 @@ const Buy = () => {
       ) : (
         <>
           <div className="canvasContainer">
-
             <div className="buyContainer">
               <h2>Buy Crypto</h2>
               <form>
@@ -157,6 +154,7 @@ const Buy = () => {
                   <input type="number" id="receive" name="receive" placeholder="Amount in Crypto" readOnly />
                   <label htmlFor="receive">Receive (Crypto):</label>
                 </div>
+                <ConnectButton />
                 <button type="submit">Exchange</button>
               </form>
             </div>
@@ -170,26 +168,11 @@ const Buy = () => {
                 </Suspense>
               </Canvas>
             </div>
-
-            <div className="sellContainer">
-              <h2>Sell Crypto</h2>
-              <form>
-                <div className="form-group">
-                  <input type="number" id="sellCrypto" name="sellCrypto" placeholder="Amount in Crypto" />
-                  <label htmlFor="sellCrypto">Sell (Crypto):</label>
-                </div>
-                <div className="form-group">
-                  <input type="number" id="receiveUSD" name="receiveUSD" placeholder="Amount in USD" readOnly />
-                  <label htmlFor="receiveUSD">Receive ($):</label>
-                </div>
-                <button type="submit">Exchange</button>
-              </form>
-            </div>
           </div>
           <div className="canvasContainerdown">
             <div className="cryptoContainer">
               <h2>Crypto Market Info {lastUpdated && `(Updated: ${lastUpdated})`}</h2>
-              <ul className='listname'>
+              <ul className="listname">
                 {cryptoData.map((coin) => (
                   <li key={coin.id} className="coin-item" onClick={() => handleCryptoClick(coin)}>
                     <span className="coin-arrow">&#9654;</span>
@@ -211,25 +194,25 @@ const Buy = () => {
             <div className="detailsContainer" id="detailsContainer">
               <div className="coin-details">
                 {selectedCrypto.id === 'ethereum' && (
-                  <div className="model-container">
+                  <div className="coin-model">
                     <Canvas shadows>
                       <ambientLight intensity={6} />
                       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
                       <pointLight position={[-10, -10, -10]} />
                       <Suspense fallback={null}>
-                        <Ethereum position={[0, -1, 0]} rotation={[0, 0, 0]} scale={[2, 2, 2]} castShadow receiveShadow />
+                        <Ethereum position={[0, 0, 0]} rotation={[0, 0, 0]} scale={[2, 2, 2]} castShadow receiveShadow />
                       </Suspense>
                     </Canvas>
                   </div>
                 )}
                 {selectedCrypto.id === 'bitcoin' && (
-                  <div className="model-container">
+                  <div className="coin-model">
                     <Canvas shadows>
                       <ambientLight intensity={6} />
                       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
                       <pointLight position={[-10, -10, -10]} />
                       <Suspense fallback={null}>
-                        <Bitcoin position={[-5, 0, 0]} rotation={[0, 0, 0]} scale={[1,1,1]} castShadow receiveShadow />
+                        <Bitcoin position={[0, 0, 0]} rotation={[0, 0, 0]} scale={[1, 1, 1]} castShadow receiveShadow />
                       </Suspense>
                     </Canvas>
                   </div>
