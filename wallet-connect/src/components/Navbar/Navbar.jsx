@@ -152,7 +152,6 @@ const Navbar = () => {
         <div className={`${styles.navLinks} ${isMenuOpen ? styles.showMenu : ''} ${isMenuOpen ? styles.noTyping : ''}`}>
           <Link to="/trade"><FaExchangeAlt /> Swap</Link>
           <Link to="/buy"><FaShoppingCart /> Buy</Link>
-          <Link to="#"><FaMoneyBillWave /> Earn</Link>
           <Link to="#" className={styles.connectWallet} onClick={handleOpenModal}>
             <FaWallet /> Connect Wallet
           </Link>
