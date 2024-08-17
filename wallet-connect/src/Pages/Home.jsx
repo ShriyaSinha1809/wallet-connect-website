@@ -6,7 +6,6 @@ import Hometruck from '../models/Hometruck';
 import Dragon from '../models/Dragon'; // Import the Dragon model
 import { OrbitControls } from '@react-three/drei'; // Import OrbitControls
 import Bitcoin from '../models/Bitcoin.jsx';
-import Main from '../models/main.jsx';
 import  { Suspense, useState } from 'react';
 
 const Home = () => {
