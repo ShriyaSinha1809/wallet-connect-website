@@ -1,4 +1,3 @@
-
 .canvasContainer {
   margin-top: 0;
   position: relative;
@@ -10,25 +9,17 @@
   height: 100vh;
   background-color: #0C052B ;
   padding:60px; /* Dark violet to deeper violet gradient */
-  /* Shifts the circular curve down */
   box-sizing: border-box; /* Include padding in height */
   overflow: hidden; /* Ensure content doesn't spill outside the curved bottom */
 }
 
 /* Buy.css */
 .buy-page-body {
-  /* background: -webkit-linear-gradient(#2a1a47);  Chrome 10-25, Safari 5.1-6
-  background: linear-gradient( #2a1a47); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+Example style */
   background-color: #3C2696;
-  color: #333; /* Example style */
-  font-family: 'GomePixel', sans-serif;/* Example style */
-  /* Add more styles as needed */
+  color: #333;
+  font-family: 'GomePixel', sans-serif;
 }
 
-
-/* Additional styles to ensure full background coverage */
-
-/* Styling for top-left content over the gradient background */
 .content {
   position: absolute;
   top: 20px;
@@ -37,7 +28,6 @@
   color: #fff;
 }
 
-/* Form group styling for better layout */
 .form-group {
   margin-bottom: 10px;
 }
@@ -65,8 +55,6 @@ button {
 button:hover {
   background-color: #17a2b8;
 }
-
-
 
 button {
   margin-top: auto;
@@ -102,7 +90,6 @@ label {
   image-rendering: pixelated;
   font-size: 16px;
   line-height: 1.5;
-
 }
 
 .cryptoContainer h1, 
@@ -152,13 +139,6 @@ label {
   border: 2px solid #fff;
 }
 
-.loader {
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  margin: 20px 0;
-}
-
 /* Buy.css */
 
 /* Container for the list of coins */
@@ -191,7 +171,6 @@ label {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Styling for the selected crypto details container */
 .detailsContainer {
   padding: 20px;
   margin: 20px;
@@ -199,11 +178,8 @@ label {
   border-radius: 8px;
   color: #fff;
   backdrop-filter: blur(1px);
-  
-  
- 
- display: flex;
- width: 97%;
+  display: flex;
+  width: 97%;
   font-family: 'Press Start 2P', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -237,7 +213,6 @@ label {
 
 /* Buy.css */
 
-
 .coin-details {
   flex: 1;
   margin-right: 20px;
@@ -245,7 +220,6 @@ label {
   background-color: #9279b7;
   box-shadow: rgba(50, 50, 93, 0.651) 0px 13px 27px -5px, rgba(0, 0, 0, 0.599) 0px 8px 16px -8px;
 }
-
 
 .chartsContainer {
   flex: 2;
@@ -264,6 +238,7 @@ label {
 .model-container{
   height: 80vh;
 }
+
 /* Pixelated styles */
 .cryptoContainer ul {
   list-style: none;
@@ -297,7 +272,7 @@ label {
   color: #fff;
   border: 1px solid #ccc;
   padding: 5px;
-  font-family: 'Press Start 2P', cursive; /* Pixel font */
+  font-family: 'Press Start 2P', cursive;
   font-size: 14px;
   outline: none;
   cursor: pointer;
@@ -317,16 +292,12 @@ label {
   margin: 20px 0;
 }
 
-.loader {
-  font-size: 18px;
-  font-family: 'Press Start 2P', cursive;
-}
-
 @media screen and (max-width: 1500px) {
   .canvasContainer {
     flex-direction: column;
   }
 }
+
 .canvasContainerdown {
   background-color: transparent;
   position: relative;
@@ -335,7 +306,7 @@ label {
   align-items: center;
   width: 100%;
   height: 100vh;
-  overflow: hidden; /* Ensure overflow is hidden */
+  overflow: hidden;
 }
 
 /* Container styling */
@@ -357,7 +328,6 @@ label {
     -12px 12px 0 0 black;
 }
 
-/* Styling for the cryptoContainer */
 .cryptoContainer {
   transition: all 0.3s ease;
   position: relative;
@@ -381,7 +351,6 @@ label {
     -12px 12px 0 0 black;
 }
 
-/* Container for coin details */
 .detailsContainer {
   transition: all 0.3s ease;
   padding: 20px;
@@ -400,7 +369,6 @@ label {
     -12px 12px 0 0 black;
 }
 
-/* Charts container styling */
 .chartsContainer {
   transition: all 0.3s ease;
   margin: 20px;
@@ -419,25 +387,26 @@ label {
 .coin-details:hover,.buyContainer:hover,.cryptoContainer:hover,.detailsContainer:hover,.chartsContainer:hover {
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
+
 .line{
   background: pink;
 }
-
 
 @media screen and (max-width: 619px){
   .cryptoContainer{
     height:60%;
   }
-  .coin-item { /* Stacks items vertically if needed */
-    padding: 1px; /* Reduces padding */
-    font-size: 10px; /* Optional: reduce font size */
+
+  .coin-item {
+    padding: 1px;
+    font-size: 10px;
     width: 100%;
-    height:50% ; /* Make the container full width */
+    height:50%;
   }
   
   .coin-item span {
     margin-top:-6%;
-    margin-bottom: -3%; /* Adds spacing between stacked items */
+    margin-bottom: -3%;
   }
 
   .listname{
@@ -445,7 +414,6 @@ label {
   }
 }
 
-/* Mobile Styles */
 @media screen and (max-width: 1500px) {
   .canvasContainer {
     padding: 10px;
@@ -485,15 +453,11 @@ label {
   h2 {
     font-size: 14px;
   }
-  
 }
 
 @media screen and (max-width: 418px) {
-
-  
 }
 
-/* General styles for the coin-item */
 .coin-item {
   padding: 10px;
   background-color: #444;
@@ -503,45 +467,42 @@ label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%; /* Ensure full width within the parent container */
+  width: 100%;
 }
 
-/* Media query for screens smaller than 619px */
 @media screen and (max-width: 619px) {
   .coin-item {
     flex-direction: row;
     padding: 5px;
-    font-size: 12px; /* Slightly reduce font size */
-    width: 100%; /* Ensure it fits within the parent container */
+    font-size: 12px;
+    width: 100%;
     box-sizing: border-box;
   }
   
-  /* If the container needs to be scrollable */
   .cryptoContainer{
     overflow-y: auto;
-    max-height: 90vh; /* Adjust height to make the container scrollable if needed */
+    max-height: 90vh;
   }
 }
+
 .cryptoContainer {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer and Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .cryptoContainer::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, and Opera */
+  display: none;
 }
 
 @media screen and (max-width: 1500px) {
   .buyContainer {
-    height: 80%; /* Increase height on smaller screens */
-    width: 90%; /* Take up 90% of the screen width on mobile */
-    max-width: 500px; /* Limit max width */
-    margin-bottom: 20px; /* Add space between the containers */
-    box-sizing: border-box; /* Include padding/border in element's width/height */
+    height: 80%;
+    width: 90%;
+    max-width: 500px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
   }
 }
-
-
 
 .model-container{
   left:15%;
@@ -552,17 +513,15 @@ label {
   left:10px;
   top: 80px;
 }
+
 .coin-model{
   height:50vh;
 }
 
-/* Buy container specific styles */
 .buyContainer {
-  background-color: #1a8cff; /* Bright blue for buy section */
+  background-color: #1a8cff;
 }
 
-/* Sell container specific styles */
-/* Button styling */
 button {
   padding: 10px;
   border-radius: 5px;
@@ -573,18 +532,14 @@ button {
 }
 
 .buyContainer button {
-  background-color: #1fc7d4; /* Lighter cyan for Buy */
+  background-color: #1fc7d4;
   color: white;
 }
 
-
-/* Button hover effects */
 .buyContainer button:hover {
-  background-color: #17a2b8; /* Slightly darker cyan */
+  background-color: #17a2b8;
 }
 
-
-/* Form group styling */
 .form-group {
   margin-bottom: 10px;
 }
@@ -602,31 +557,28 @@ input[type="number"] {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* Label styling */
 label {
   margin-top: 5px;
   color: #ddd;
 }
 
-/* Ensure parent container allows resizing */
 .canvasContainer {
   display: flex;
-  justify-content: space-between; /* Spread them across */
-  align-items: stretch; /* Align them to fill the same height */
-  width: 100%; /* Ensure the parent container takes up full width *//* Optional: Limit max width if you prefer */
-  margin: 0 auto; /* Center the parent container */
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .buyContainer{
-  flex: 0 1 30%; /* Ensure each takes up 45% of the space */
-  max-width: 600px; /* Optional: set a max width */
-  height: 70%; /* Full height, but can be adjusted */
+  flex: 0 1 30%;
+  max-width: 600px;
+  height: 70%;
   padding: 20px;
   border-radius: 8px;
-  box-sizing: border-box; /* Ensure padding and border are included */
+  box-sizing: border-box;
   margin-top: -10rem;
   overflow: hidden;
-  
 }
 
 .buyContainer {
@@ -636,112 +588,18 @@ label {
 
 @media screen and (max-width: 1500px) {
   .canvasContainer {
-    display: flex;
-    flex-direction: column; /* Stack containers vertically */
-    align-items: center; /* Center the containers horizontally */
-    width: 100%; /* Full width for parent container */
-    margin: 0 auto; /* Center the parent container */
-  }
-
-    .buyContainer {
-      height: 80%; /* Increase height on smaller screens */
-      width: 90%; /* Take up 90% of the screen width on mobile */
-      max-width: 500px; /* Limit max width */
-      margin-bottom: 20px; /* Add space between the containers */
-      box-sizing: border-box; /* Include padding/border in element's width/height */
-    }
-  }
-  
-
-
-/* Specific styling for Buy and Sell containers */
-
-/* Further adjustments for smaller screens (e.g., tablets, large phones) */
-@media screen and (max-width: 1500px) {
-  .cryptoContainer {
-    width: 100%;
-    padding: 10px;
-  }
-
-
-  .detailsContainer {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-  }
-
-  .chartsContainer {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-  }
-
-  .coin-details {
-    width: 100%;
-    margin: 5px 0;
-  }
-}
-
-/* Mobile Screens */
-@media screen and (max-width: 480px) {
-  .cryptoContainer {
-    padding: 10px;
-    width: 100%;
-  }
-
-
-  .detailsContainer, .chartsContainer {
-    padding: 10px;
-    width: 100%;
-    margin: 5px 0;
-  }
-
-  .coin-details {
-    width: 100%;
-    padding: 5px;
-  }
-}
-
-.model-container {
-  flex: 0 1 65%; /* Increase the width of the model container */
-  max-width: 800px; /* Set a max width if necessary */
-  height: 80vh; /* Adjust height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  left: -5%; /* Move the model closer to the buy container */
- 
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-  margin-left: 10%;
-}
-
-
-.canvasContainer {
-  display: flex;
-  justify-content: space-around; /* Spread the model and buy container */
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-
-@media screen and (max-width: 1500px) {
-  .canvasContainer {
-    flex-direction: column; /* Stack the containers vertically on small screens */
+    flex-direction: column;
     align-items: center;
-    padding: 10px;
+    width: 100%;
+    margin: 0 auto;
   }
 
-  .model-container,
   .buyContainer {
-    width: 90%; /* Take up 90% of the width on smaller screens */
-    max-width: 500px; /* Limit max width */
-    margin-bottom: 20px; /* Add spacing between stacked containers */
+    height: 80%;
+    width: 90%;
+    max-width: 500px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
   }
 }
 
@@ -750,10 +608,9 @@ label {
     padding: 5px;
   }
 
-  .model-container,
   .buyContainer {
-    width: 100%; /* Full width on very small screens */
     padding: 10px;
+    width: 100%;
     margin-bottom: 10px;
   }
 }
@@ -765,7 +622,7 @@ label {
 
 .tooltip-text {
   visibility: hidden;
-  width: 200px; /* Adjust width as needed */
+  width: 200px;
   background-color: #555;
   color: #fff;
   text-align: center;
@@ -773,12 +630,12 @@ label {
   padding: 8px;
   position: absolute;
   z-index: 1;
-  bottom: 125%; /* Position the tooltip above the button */
+  bottom: 125%;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.3s;
-  font-size: 20px; /* Adjust font size as needed */
+  font-size: 20px;
 }
 
 .tooltip-container:hover .tooltip-text {
@@ -789,7 +646,7 @@ label {
 .tooltip-text::after {
   content: '';
   position: absolute;
-  top: 100%; /* Arrow pointing down */
+  top: 100%;
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
@@ -816,7 +673,7 @@ label {
   color: #fff;
 
   padding: 10px;
-  font-family: 'Press Start 2P', cursive; /* Pixel font */
+  font-family: 'Press Start 2P', cursive;
   font-size: 14px;
   outline: none;
   cursor: pointer;
@@ -834,7 +691,6 @@ label {
   color: #fff;
 }
 
-
 .chartDropdown:active {
   background-color: #555;
 }
@@ -844,10 +700,9 @@ label {
   font-size: 16px;
 }
 
-
 @media screen and (max-width: 480px) {
   .tree-container {
-    height: 82%; /* Adjust height for very small screens */
+    height: 82%;
   }
   .buyContainer{
     translate: 0 150%;
@@ -866,14 +721,13 @@ label {
 
 @media screen and (max-width: 1500px) {
   .tree-container {
-    height: 80%; /* Adjust height for very small screens */
+    height: 80%;
   }
   .buyContainer{
     translate: 0 170%;
   }
 }
+
 .buyContainer{
   height: 60%;
 }
-
-

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Suspense } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import axios from 'axios';
 import ComputerModel from '../../models/Computer';
@@ -6,7 +6,7 @@ import Earth from '../../models/Earth';
 import Ethereum from '../../models/Ethereum';
 import Bitcoin from '../../models/Bitcoin';
 import Navbar from '../../components/Navbar/Navbar';
-import Loader from '../../components/Loader/Loader';
+import BikeLoader from '../../components/Loader/BikeLoader';
 import './Buy.css';
 import { Line, Bar, Pie, Radar } from 'react-chartjs-2';
 import { ConnectButton } from '../../config/Web3ModalProvider';
@@ -69,12 +69,18 @@ const Buy = () => {
         setLastUpdated(new Date().toLocaleTimeString());
       } catch (error) {
         console.error('Error fetching crypto data:', error);
-      } finally {
-        setLoading(false);
       }
     };
 
-    fetchCryptoData();
+    const showLoaderForMinTime = async () => {
+      const start = Date.now();
+      await fetchCryptoData();
+      const timeElapsed = Date.now() - start;
+      const remainingTime = Math.max(4000 - timeElapsed, 0);
+      setTimeout(() => setLoading(false), remainingTime);
+    };
+
+    showLoaderForMinTime();
     const intervalId = setInterval(fetchCryptoData, 60000);
     return () => clearInterval(intervalId);
   }, []);
@@ -138,32 +144,37 @@ const Buy = () => {
 
   return (
     <>
-      <Navbar />
+      
       {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <div className="canvasContainer">
-          <div className="buyContainer">
-  <h2>Buy Crypto</h2>
-  <form>
-    <div className='tree-container'>
-  <Canvas shadows>
-                <ambientLight intensity={2} />
-                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
-                <pointLight position={[-10, -10, -10]} />
-                <Suspense fallback={null}>
-                  <Tree position={[0,-0.2, 0]} rotation={[0.1, -1.3, 0]} scale={[0.7,0.4,0.5]} castShadow receiveShadow />
-                </Suspense>
-              </Canvas>
-              </div>
-    <div className="tooltip-container">
-      <ConnectButton />
-      <span className="tooltip-text">Click to buy crypto</span>
-    </div>
-  </form>
-</div>
+      
+        <div className="loading-container">
+          <BikeLoader />
+        </div>
 
+      ) : (
+        
+        <>
+        <Navbar />
+          <div className="canvasContainer">
+            <div className="buyContainer">
+              <h2>Buy Crypto</h2>
+              <form>
+                <div className='tree-container'>
+                  <Canvas shadows>
+                    <ambientLight intensity={2} />
+                    <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} castShadow />
+                    <pointLight position={[-10, -10, -10]} />
+                    <Suspense fallback={null}>
+                      <Tree position={[0, -0.2, 0]} rotation={[0.1, -1.3, 0]} scale={[0.7, 0.4, 0.5]} castShadow receiveShadow />
+                    </Suspense>
+                  </Canvas>
+                </div>
+                <div className="tooltip-container">
+                  <ConnectButton />
+                  <span className="tooltip-text">Click to buy crypto</span>
+                </div>
+              </form>
+            </div>
             <div className="model-container">
               <Canvas shadows>
                 <ambientLight intensity={2} />
@@ -229,33 +240,32 @@ const Buy = () => {
                 <p>24h Change: {selectedCrypto.price_change_percentage_24h}%</p>
               </div>
               <div className="chartsContainer">
-              <div className="chartSelector">
-                <label htmlFor="chartSelect" className='chart-text'>Choose a chart:</label>
-                <select
-                  id="chartSelect"
-                  value={selectedChart}
-                  onChange={(e) => setSelectedChart(e.target.value)}
-                  className="chartDropdown"
-                >
-                  <option value="line">Line Chart</option>
-                  <option value="bar">Bar Chart</option>
-                  <option value="pie">Pie Chart</option>
-                  <option value="radar">Radar Chart</option>
-                </select>
-                
-                {priceHistory && selectedChart === 'line' && (
-                  <Line data={priceHistory} />
-                )}
-                {priceHistory && selectedChart === 'bar' && (
-                  <Bar data={priceHistory} />
-                )}
-                {priceHistory && selectedChart === 'pie' && (
-                  <Pie data={priceHistory} />
-                )}
-                {priceHistory && selectedChart === 'radar' && (
-                  <Radar data={priceHistory} />
-                )}
-              </div>
+                <div className="chartSelector">
+                  <label htmlFor="chartSelect" className='chart-text'>Choose a chart:</label>
+                  <select
+                    id="chartSelect"
+                    value={selectedChart}
+                    onChange={(e) => setSelectedChart(e.target.value)}
+                    className="chartDropdown"
+                  >
+                    <option value="line">Line Chart</option>
+                    <option value="bar">Bar Chart</option>
+                    <option value="pie">Pie Chart</option>
+                    <option value="radar">Radar Chart</option>
+                  </select>
+                  {priceHistory && selectedChart === 'line' && (
+                    <Line data={priceHistory} />
+                  )}
+                  {priceHistory && selectedChart === 'bar' && (
+                    <Bar data={priceHistory} />
+                  )}
+                  {priceHistory && selectedChart === 'pie' && (
+                    <Pie data={priceHistory} />
+                  )}
+                  {priceHistory && selectedChart === 'radar' && (
+                    <Radar data={priceHistory} />
+                  )}
+                </div>
               </div>
             </div>
           )}
