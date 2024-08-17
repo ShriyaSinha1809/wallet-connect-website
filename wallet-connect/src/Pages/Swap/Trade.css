@@ -14,7 +14,16 @@ body, html {
   overflow: hidden; /* Prevent both vertical and horizontal scrolling */
   scroll-behavior: smooth; /* Smooth scrolling between sections */
 }
-
+.a-button{
+  position:absolute;
+  top:89%;
+  left: 2%;
+  height:2px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
 /* General Section Styling */
 section {
   width: 100vw;
@@ -126,8 +135,8 @@ section {
   display: flex;
   flex-direction: column;
   align-items: bottom;
-  margin-top: 5rem;
   padding: 1.5rem;
+  padding-bottom: 0;
   margin-left: 2rem;
   background: linear-gradient(135deg, rgb(43, 102, 105), rgb(128, 176, 86), rgb(51, 113, 117));
   border: 4px solid #333;
@@ -379,12 +388,13 @@ h2, p {
 .swap-container:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
+  top:-12vh;
+  height:7vh;
 }
 
 .swap-container .tooltip-text::after {
   content: '';
-  position: absolute;
-  top: 100%; /* Point arrow down */
+  position: absolute; /* Point arrow down */
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
@@ -417,7 +427,7 @@ h2, p {
 }
 
 .wallet-dashboard p {
-  margin-bottom: 15px; /* Increased margin for better spacing */
+  margin-bottom: 20px; /* Increased margin for better spacing */
   font-size: 1rem;
   word-wrap: break-word; /* Ensure long addresses break to fit the container */
   background: linear-gradient(145deg, #4e4e4e, #3a3a3a);
