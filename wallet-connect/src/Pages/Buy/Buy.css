@@ -19,8 +19,7 @@
 .buy-page-body {
   /* background: -webkit-linear-gradient(#2a1a47);  Chrome 10-25, Safari 5.1-6
   background: linear-gradient( #2a1a47); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+Example style */
-  background-color: #3C2696;
-  color: #333; /* Example style */
+  background-image: linear-gradient(#160B40,#39248F);
   font-family: 'GomePixel', sans-serif;/* Example style */
   /* Add more styles as needed */
 }
