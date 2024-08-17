@@ -53,11 +53,11 @@ const Trade = () => {
             <section className="trade-container" onMouseMove={handleMouseMove}>
                 <div className="news">
                     <h1>
-                        World’s Most
+                    Trade Your
                         <br />
-                        <span className="trusted">TRUSTED</span> DEX
+                        <span className="trusted">Coins</span> 
                     </h1>
-                    <p>Earn, Trade, Swap and Buy all-in-one</p>
+                    <p>Hassle-Free!</p>
                 </div>
                 {loading && (
                     <div className="loader">

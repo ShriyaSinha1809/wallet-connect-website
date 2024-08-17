@@ -11,6 +11,8 @@ body, html {
   height: 100%;
   overflow-x: hidden; /* Prevent horizontal scrolling */
   scroll-behavior: smooth; /* Smooth scrolling between sections */
+    overflow: hidden; /* Prevent both vertical and horizontal scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling between sections */
 }
 
 /* General Section Styling */
@@ -364,13 +366,14 @@ bottom:-20px;
   left: 25%;
   transform: translateX(-50%);
   z-index: 10; /* Ensure it is in front of the model */
-  color: white;
+  color: rgb(216, 92, 92);
   text-align: center;
 }
 
 .news h1 {
   font-size: 6rem; /* Adjust as needed */
   margin: 0;
+  color: rgb(26, 17, 17);
 }
 
 .news p {
@@ -380,6 +383,7 @@ bottom:-20px;
 
 .trusted {
   color: #ffcc00; /* Highlighted color */
+  font-size: 2rem;
 }
 
 
