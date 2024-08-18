@@ -1,4 +1,8 @@
-import React, { useState, useEffect } from 'react';
+
+
+
+
+import React, { useState, useEffect, Suspense } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FaExchangeAlt, FaShoppingCart, FaMoneyBillWave, FaWallet, FaBars, FaMoon, FaSun } from 'react-icons/fa';
 import styled, { keyframes } from 'styled-components';
@@ -67,7 +71,7 @@ const Navbar = () => {
     const currentClass = Object.keys(pageClasses).find(route => path.includes(route));
     setNavbarClass(currentClass ? pageClasses[currentClass] : '');
   }, [location.pathname]);
-
+  
   useEffect(() => {
     if (!isMenuOpen) {
       const links = document.querySelectorAll(`.${styles.navLinks} a`);
@@ -87,19 +91,16 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
-    console.log("toggled");
   };
 
- // Add this to handle dark mode toggle
-const toggleDarkMode = () => {
-  const isDarkMode = !darkMode;
-  setDarkMode(isDarkMode);
-  document.body.classList.toggle('dark-mode', isDarkMode);
-  window.dispatchEvent(new Event('dark-mode-toggle')); // Notify other components
-};
-
-  
-
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    if (!darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  };
 
   useEffect(() => {
     const eyes = document.querySelectorAll(`.${styles.eye}`);
@@ -128,6 +129,7 @@ const toggleDarkMode = () => {
   };
 
   const handleLogoClick = (e) => {
+    // Check if the current path is not the home path
     if (location.pathname !== '/home') {
       const { left, top, width, height } = e.target.getBoundingClientRect();
       const x = left + width / 2;
@@ -145,6 +147,7 @@ const toggleDarkMode = () => {
     }
   };
 
+  
   return (
     <>
       {isClicked && <ColorOverlay fade={fadeOut} />}
