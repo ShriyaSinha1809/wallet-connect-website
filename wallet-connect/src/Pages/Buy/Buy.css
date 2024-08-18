@@ -725,13 +725,13 @@ label {
   display: inline-block;
   left:0;
   bottom:3%;
-  transform: scaleX(0.8);
+  transform: scaleX(0.9);
 }
 }
 
 @media(max-width:1330px){
   .tooltip-container {
-    transform: scaleX(0.5);
+    transform: scaleX(0.7);
   
   }
   }
@@ -771,7 +771,7 @@ label {
 }
 
 .tree-container{
-  height: 90%;
+  height: 80%;
   translate: 40%;
   position: absolute;
   top:25%;
