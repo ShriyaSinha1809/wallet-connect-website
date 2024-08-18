@@ -57,7 +57,7 @@ const Trade = () => {
                     </h1>
                     <br></br>
                     <h1>
-                    Efortless <span className="swap">TRADE</span> 
+                    Effortless <span className="swap">TRADE</span> 
                     </h1>
                     <p>Hassle-Free!</p>
                 </div>
