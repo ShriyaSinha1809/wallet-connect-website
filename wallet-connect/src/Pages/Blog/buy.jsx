@@ -4,7 +4,7 @@ import './Blog.css'
 
 const Buy = (
   <div className="Buy">
-         <h1>How to Buy Crypto with WalletConnect</h1>
+         <h2>How to Buy Crypto with WalletConnect</h2>
         <p>Buying cryptocurrency with WalletConnect is a streamlined process that enhances your security and ease of use. Follow these steps to complete your purchase:</p>
         
         <h2>1. Connect Your Wallet</h2>
