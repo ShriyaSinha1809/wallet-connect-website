@@ -90,10 +90,16 @@ const Navbar = () => {
     console.log("toggled");
   };
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle('dark-mode', !darkMode);
-  };
+ // Add this to handle dark mode toggle
+const toggleDarkMode = () => {
+  const isDarkMode = !darkMode;
+  setDarkMode(isDarkMode);
+  document.body.classList.toggle('dark-mode', isDarkMode);
+  window.dispatchEvent(new Event('dark-mode-toggle')); // Notify other components
+};
+
+  
+
 
   useEffect(() => {
     const eyes = document.querySelectorAll(`.${styles.eye}`);
@@ -142,9 +148,9 @@ const Navbar = () => {
   return (
     <>
       {isClicked && <ColorOverlay fade={fadeOut} />}
-      <div className={`${styles.navbar} ${navbarClass}`}>
+      <div className={`${styles.navbar} ${navbarClass} ${darkMode ? styles.darkMode : ''}`}>
         <div className={styles.logoLink} onClick={handleLogoClick}>
-          <div className={styles.logo}>{renderLogo('LOREM')}</div>
+          <div className={styles.logo}>{renderLogo('COINX')}</div>
         </div>
 
         <div className={styles.menuIcon} onClick={toggleMenu} aria-label="Toggle menu">
