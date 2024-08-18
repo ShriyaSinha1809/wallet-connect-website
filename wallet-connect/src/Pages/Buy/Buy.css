@@ -771,6 +771,8 @@ label {
 }
 
 .tree-container{
+  height: 90%;
+  translate: 40%;
   position: absolute;
   top:25%;
   height: 50%;
@@ -820,6 +822,7 @@ label {
 
 @media screen and (max-width: 480px) {
   .tree-container {
+    translate: 0;
     position: absolute;
   top:25%;
   height: 50%;
