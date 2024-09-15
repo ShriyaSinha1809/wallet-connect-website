@@ -7,12 +7,31 @@ import Lamp from '../../models/Lamp';
 import Truck from '../../models/Truck';
 import { Plane } from '@react-three/drei';
 import { useSpring } from '@react-spring/web';
-import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { ConnectButton } from '../../config/Web3ModalProvider';
 import Submarine from '../../models/submarine';
 import WalletDashboard from './WalletDashboard';
 import BikeLoader from '../../components/Loader/BikeLoader';
+import { TezosToolkit } from '@taquito/taquito';
+import { BeaconWallet } from '@taquito/beacon-wallet';
+
+// Token list
+const tokenList = [
+  { name: 'Tezos (XTZ)', address: null },
+  { name: 'tzBTC', address: 'KT1PWx2mnDueood7fEmfbBDKx1D9BAnnXitn' },
+  { name: 'wXTZ', address: 'KT1VYsVfmobT7rsMVivvZ4J8i3bPiqz12NaH' },
+  { name: 'USDtz', address: 'KT1AEfeckNbdEYwaMKkytBwPJPycz7jdSGea' },
+  // Add more tokens as needed
+];
+
+// DEX contract mapping
+const dexContracts = {
+  'XTZ-tzBTC': 'KT1XVy2fiVVu8jz7ojA4jhxVtMqGX6e6VLzV',
+  'tzBTC-XTZ': 'KT1XVy2fiVVu8jz7ojA4jhxVtMqGX6e6VLzV',
+  'XTZ-USDtz': 'KT1Q8LdP5sZ9xS2hkHjGJMmKxjeF5gTdQ5uT', // Update with correct address
+  'USDtz-XTZ': 'KT1Q8LdP5sZ9xS2hkHjGJMmKxjeF5gTdQ5uT', // Update with correct address
+  // Add more mappings as needed
+};
 
 const Background = () => {
   return (
@@ -23,18 +42,27 @@ const Background = () => {
 };
 
 const Trade = () => {
-  const [props, set] = useSpring(() => ({
+  const [props, api] = useSpring(() => ({
     transform: 'translate3d(0px, 0px, 0px)',
     config: { mass: 1, tension: 170, friction: 26 },
   }));
 
   const [loading, setLoading] = useState(true);
+  const [tezos, setTezos] = useState(null);
+  const [wallet, setWallet] = useState(null);
+  const [userAddress, setUserAddress] = useState(null);
+
+  const [amount, setAmount] = useState('');
+
+  const [fromToken, setFromToken] = useState(tokenList[0]);
+  const [toToken, setToToken] = useState(tokenList[1]);
+  const [dexContractAddress, setDexContractAddress] = useState('');
 
   const handleMouseMove = (event) => {
-    const { clientX, clientY, innerWidth, innerHeight } = event;
-    const x = (clientX / innerWidth - 0.5) * 30;
-    const y = (clientY / innerHeight - 0.5) * 30;
-    set({ transform: `translate3d(${x}px, ${y}px, 0px)` });
+    const { clientX, clientY } = event;
+    const x = (clientX / window.innerWidth - 0.5) * 30;
+    const y = (clientY / window.innerHeight - 0.5) * 30;
+    api.start({ transform: `translate3d(${x}px, ${y}px, 0px)` });
   };
 
   useEffect(() => {
@@ -54,6 +82,126 @@ const Trade = () => {
 
     showLoaderForMinTime();
   }, []);
+
+  // Initialize Tezos Toolkit and Wallet
+  useEffect(() => {
+    const setupTezos = async () => {
+      const tezosTK = new TezosToolkit('https://mainnet.api.tez.ie');
+      const beaconWallet = new BeaconWallet({ name: 'My Tezos DApp' });
+      tezosTK.setWalletProvider(beaconWallet);
+      setTezos(tezosTK);
+      setWallet(beaconWallet);
+    };
+
+    setupTezos();
+  }, []);
+
+  // Update DEX contract address when tokens change
+  useEffect(() => {
+    const fromTokenName = fromToken.name === 'Tezos (XTZ)' ? 'XTZ' : fromToken.name;
+    const toTokenName = toToken.name === 'Tezos (XTZ)' ? 'XTZ' : toToken.name;
+    const dexKey = `${fromTokenName}-${toTokenName}`;
+
+    const address = dexContracts[dexKey];
+
+    if (address) {
+      setDexContractAddress(address);
+    } else {
+      setDexContractAddress('');
+      console.warn(`No DEX contract found for ${dexKey}`);
+    }
+  }, [fromToken, toToken]);
+
+  const connectWallet = async () => {
+    if (wallet) {
+      try {
+        await wallet.requestPermissions({ network: { type: 'mainnet' } });
+        const address = await wallet.getPKH();
+        setUserAddress(address);
+      } catch (error) {
+        console.error('Wallet connection failed:', error);
+        alert('Failed to connect wallet.');
+      }
+    }
+  };
+
+  const swapTokens = async () => {
+    if (tezos && wallet && userAddress) {
+      try {
+        if (!dexContractAddress) {
+          alert('No DEX contract available for the selected token pair.');
+          return;
+        }
+
+        const amountToSwap = parseFloat(amount);
+        if (isNaN(amountToSwap) || amountToSwap <= 0) {
+          alert('Please enter a valid amount.');
+          return;
+        }
+
+        const contract = await tezos.wallet.at(dexContractAddress);
+
+        if (fromToken.name === 'Tezos (XTZ)') {
+          // Swapping XTZ to Token
+          const operation = await contract.methods
+            .tezToTokenPayment(
+              userAddress, // Recipient
+              0            // Minimum tokens to receive
+            )
+            .send({ amount: amountToSwap });
+
+          await operation.confirmation();
+          alert('Swap completed successfully!');
+        } else if (toToken.name === 'Tezos (XTZ)') {
+          // Swapping Token to XTZ
+          // Approve the DEX contract to spend tokens
+          const tokenContract = await tezos.wallet.at(fromToken.address);
+          const approvalOp = await tokenContract.methods
+            .approve(dexContractAddress, amountToSwap)
+            .send();
+
+          await approvalOp.confirmation();
+
+          const operation = await contract.methods
+            .tokenToTezPayment(
+              amountToSwap, // Amount of tokens to swap
+              0,            // Minimum amount of XTZ to receive
+              userAddress   // Recipient
+            )
+            .send();
+
+          await operation.confirmation();
+          alert('Swap completed successfully!');
+        } else {
+          // Swapping Token to Token
+          // Approve the DEX contract to spend tokens
+          const tokenContract = await tezos.wallet.at(fromToken.address);
+          const approvalOp = await tokenContract.methods
+            .approve(dexContractAddress, amountToSwap)
+            .send();
+
+          await approvalOp.confirmation();
+
+          const operation = await contract.methods
+            .tokenToTokenPayment(
+              amountToSwap,      // Amount of tokens to swap
+              0,                 // Minimum amount of tokens to receive
+              userAddress,       // Recipient
+              toToken.address    // To token DEX contract address
+            )
+            .send();
+
+          await operation.confirmation();
+          alert('Swap completed successfully!');
+        }
+      } catch (error) {
+        console.error('Swap failed:', error);
+        alert(`Swap failed: ${error.message}`);
+      }
+    } else {
+      alert('Please connect your wallet first.');
+    }
+  };
 
   return (
     <>
@@ -126,10 +274,66 @@ const Trade = () => {
           <section className="bitcoin-swap-section">
             <div className="flex-column-container">
               <div className="wallet-dashboard-container">
-                <WalletDashboard /> {/* Place the WalletDashboard component here */}
+                <WalletDashboard />
               </div>
               <div className="swap-container pixelated-3d">
-                <div className="tooltip-text">Click For Swapping!</div>
+                <div className="tooltip-text">Select Tokens and Swap!</div>
+
+                {/* Connect Wallet Button */}
+                {!userAddress ? (
+                  <button className="connect-wallet-button" onClick={connectWallet}>
+                    Connect Wallet
+                  </button>
+                ) : (
+                  <p>Connected as: {userAddress}</p>
+                )}
+
+                {/* Token Selection */}
+                <div className="token-selection">
+                  <label>From Token:</label>
+                  <select
+                    value={fromToken.name}
+                    onChange={(e) => {
+                      const selectedToken = tokenList.find((token) => token.name === e.target.value);
+                      setFromToken(selectedToken);
+                    }}
+                  >
+                    {tokenList.map((token) => (
+                      <option key={token.name} value={token.name}>
+                        {token.name}
+                      </option>
+                    ))}
+                  </select>
+
+                  <label>To Token:</label>
+                  <select
+                    value={toToken.name}
+                    onChange={(e) => {
+                      const selectedToken = tokenList.find((token) => token.name === e.target.value);
+                      setToToken(selectedToken);
+                    }}
+                  >
+                    {tokenList.map((token) => (
+                      <option key={token.name} value={token.name}>
+                        {token.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Amount Input */}
+                <input
+                  type="number"
+                  placeholder="Amount to Swap"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                />
+
+                {/* Swap Button */}
+                <button className="swap-button" onClick={swapTokens}>
+                  Swap Tokens
+                </button>
+
                 <ConnectButton />
                 <Canvas
                   shadows
